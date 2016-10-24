@@ -4,7 +4,6 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	
 	public LoupFemelle(double poids, double taille, int age, Enclos enclosResidence){
 		super(poids, taille, age, enclosResidence);
-		//code enclos residence
 	}//LoupFemelle()
 
 	public void mettreBas(String espece, Enclos enclosMere) {

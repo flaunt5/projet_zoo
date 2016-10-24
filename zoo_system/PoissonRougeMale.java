@@ -4,7 +4,6 @@ public class PoissonRougeMale extends PoissonRouge implements Male{
 	
 	public PoissonRougeMale(double poids, double taille, int age, Enclos enclosResidence){
 		super(poids, taille, age, enclosResidence);
-		//code enclos residence
 	}//PoissonRougeMale()
 
 	public void sacoupler(Femelle femelle) {

@@ -4,7 +4,6 @@ public class PinguoinFemelle extends Pinguoin implements AutreFemelle{
 	
 	public PinguoinFemelle(double poids, double taille, int age, Enclos enclosResidence){
 		super(poids, taille, age, enclosResidence);
-		//code enclos residence
 	}//PinguoinFemelle()
 
 	public void pondre(String espece, Enclos enclosMere) {

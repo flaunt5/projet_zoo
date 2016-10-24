@@ -4,7 +4,6 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	
 	public OursFemelle(double poids, double taille, int age, Enclos enclosResidence){
 		super(poids, taille, age, enclosResidence);
-		//code enclos residence
 	}//OursFemelle()
 
 	public void mettreBas(String espece, Enclos enclosMere) {

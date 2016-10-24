@@ -4,7 +4,6 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	
 	public TigreFemelle(double poids, double taille, int age, Enclos enclosResidence){
 		super(poids, taille, age, enclosResidence);
-		//code enclos residence
 	}//TigreFemelle()
 
 	public void mettreBas(String espece, Enclos enclosMere) {
