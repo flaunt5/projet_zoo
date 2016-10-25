@@ -11,7 +11,7 @@ public abstract class Animal extends Model{
 	protected Enclos enclosResidence;
 	protected boolean endormi;
 	
-	public Animal(double poids, double taille, int age, Enclos enclosResidence){
+	public Animal(double poids, double taille, int age){
 		this.poids = poids;
 		this.taille = taille;
 		this.indicFaim = "rassasier";
@@ -19,7 +19,6 @@ public abstract class Animal extends Model{
 		this.indicSommeil = "dynamique";
 		this.age = age;
 		this.endormi = false;
-		this.enclosResidence = enclosResidence;
 	}
 	
 	public void manger(){
@@ -45,7 +44,7 @@ public abstract class Animal extends Model{
 	public String toString() {
 		return "nom : " + nom + ", poids : " + poids + ", taille : " + taille + ", indicFaim : " + indicFaim
 				+ ", indicSante : " + indicSante + ", indicSommeil : " + indicSommeil + ", age : " + age + ", endormi : "
-				+ endormi;
+				+ endormi + ", enclos residence : " + enclosResidence.getNom();
 	}//toString()
 	
 	public String getNom() {

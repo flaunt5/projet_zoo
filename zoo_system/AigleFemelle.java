@@ -2,8 +2,8 @@ package zoo_system;
 
 public class AigleFemelle extends Aigle implements AutreFemelle{
 	
-	public AigleFemelle(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public AigleFemelle(double poids, double taille, int age){
+		super(poids, taille, age);
 	}//AigleFemelle()
 
 	public void pondre(String espece, Enclos enclosMere) {

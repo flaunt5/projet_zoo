@@ -2,8 +2,8 @@ package zoo_system;
 
 public class PinguoinFemelle extends Pinguoin implements AutreFemelle{
 	
-	public PinguoinFemelle(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public PinguoinFemelle(double poids, double taille, int age){
+		super(poids, taille, age);
 	}//PinguoinFemelle()
 
 	public void pondre(String espece, Enclos enclosMere) {

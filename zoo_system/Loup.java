@@ -2,8 +2,8 @@ package zoo_system;
 
 public abstract class Loup extends Terrestre implements PredateurAction{
 	
-	public Loup(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public Loup(double poids, double taille, int age){
+		super(poids, taille, age);
 		this.nom = "loup";
 	}//Loup()
 	

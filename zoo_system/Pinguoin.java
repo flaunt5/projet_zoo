@@ -2,8 +2,8 @@ package zoo_system;
 
 public abstract class Pinguoin extends Aquatique implements MarinAction, VolantAction{
 	
-	public Pinguoin(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public Pinguoin(double poids, double taille, int age){
+		super(poids, taille, age);
 		this.nom = "pinguoin";
 	}//Pinguoin()
 	

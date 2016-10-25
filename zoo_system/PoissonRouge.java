@@ -2,8 +2,8 @@ package zoo_system;
 
 public abstract class PoissonRouge extends Aquatique implements MarinAction{
 	
-	public PoissonRouge(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public PoissonRouge(double poids, double taille, int age){
+		super(poids, taille, age);
 		this.nom = "poisson rouge";
 	}//PoissonRouge()
 	

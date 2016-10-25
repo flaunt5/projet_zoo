@@ -2,8 +2,8 @@ package zoo_system;
 
 public abstract class Aigle extends Aerien implements VolantAction{
 
-	public Aigle(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public Aigle(double poids, double taille, int age){
+		super(poids, taille, age);
 		this.nom = "aigle";
 	}
 	

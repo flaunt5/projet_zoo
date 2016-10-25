@@ -14,20 +14,23 @@ public class Enclos extends Model{
 		Enclos en = new Enclos("enclosLoup", 3, 2);
 		Enclos enL2 = new Enclos("enclosLoup", 3, 2);
 		Enclos en2 = new Enclos("enclosTigre", 3, 2);
-		Animal loup1 = new LoupMale(30.0, 1.3, 15, null);
-		Animal loup2 = new LoupMale(35.0, 1.9, 55, null);
-		Animal loup3 = new LoupMale(70.0, 1.0, 2, null);
-		Animal tigre = new TigreMale(85.0, 2.0, 100, null);
-		Animal tigre2 = new TigreMale(85.0, 2.0, 150, null);
-		System.out.println(en.ajouterAnimal(loup1));
+		Animal loup1 = new LoupMale(30.0, 1.3, 15);
+		Animal loup2 = new LoupMale(35.0, 1.9, 55);
+		Animal loup3 = new LoupMale(70.0, 1.0, 2);
+		Animal tigre = new TigreMale(85.0, 2.0, 100);
+		Animal tigre2 = new TigreMale(85.0, 2.0, 150);
+		en.ajouterAnimal(loup1);
 		System.out.println(en.toString());
-		System.out.println(en2.ajouterAnimal(tigre));
+		en2.ajouterAnimal(tigre);
 		System.out.println(en.toString());
-		System.out.println(en.ajouterAnimal(loup2));
+		en.ajouterAnimal(loup2);
 		System.out.println(en.toString());
-		System.out.println(en.ajouterAnimal(loup3));
+		en.ajouterAnimal(loup3);
 		System.out.println(en.toString());
-		System.out.println(en2.ajouterAnimal(tigre));
+		en2.ajouterAnimal(tigre2);
+		System.out.println(en.toString());
+		System.out.println(en2.toString());
+		en.enleverAnimal(loup1);
 		System.out.println(en.toString());
 	}//main pour test
 	
@@ -36,36 +39,46 @@ public class Enclos extends Model{
 		this.superficie = superficie;
 		this.nbAnimaux = 0;
 		this.nbAnimauxMax = nbAnimauxMax;
-		this.degreProprete = "propre";
+		this.degreProprete = "bon";
 		this.listAnimaux = new ArrayList<Animal>();
 	}//Enclos()
 	
-	public String ajouterAnimal(Animal animal){
-		//verifie si enclos plein
+	public void ajouterAnimal(Animal animal){
+		if(verifPourAjout(animal)){
+			this.getListAnimaux().add(animal);
+            this.setNbAnimaux(this.getNbAnimaux() + 1);
+            animal.setEnclosResidence(this); 
+		}
+	}//ajouterAnimal()
+	
+	public void enleverAnimal(Animal animal){
+		if(verifPourEnlever(animal)){
+			this.getListAnimaux().remove(animal);
+		}
+	}//enleverAnimal()
+	
+	public boolean verifPourAjout(Animal animal){
 		if(!(this.isFull())){
 			//si l'enclos est vide on peut mettre l'animal car l'enclos n'a pas de type d'animal prédéfinit
 			//sinon on verifie l'espece du premiere animal, si elle est la memme que celui de "animal" on ajoute
             if(this.getListAnimaux().isEmpty() || this.getListAnimaux().get(0).getNom().equals(animal.getNom())){
-            	this.getListAnimaux().add(animal);
-                this.setNbAnimaux(this.getNbAnimaux() + 1);
-                return animal.getNom() + "  a etait ajouté à l'enclos " + this.getNom();    
+                return true;
             }else{
-                return "vous ne pouvez pas mettre un(e) " + animal.getNom() + " dans un enclos contenant des " 
-                        + this.getListAnimaux().get(0).getNom();
+            	return false;
             }
 		}else{
-			return "l'enclos " + this.getNom() + " est plein, vous ne pouvez pas rajouter plus d'animaux";
-		}		
-	}//ajouterAnimal()
+			return false;
+		}	
+	}//verifPourAjout()
 	
-	public String enleverAnimal(Animal animal){
+	public boolean verifPourEnlever(Animal animal){
+		//si l'animal est dans l'enclo on peut l'en retirer
 		if(this.getListAnimaux().contains(animal)){
-			this.getListAnimaux().remove(animal);	
-			return "ce(tte) "+  animal.getNom() + " a ete retire de l'enclos " + this.getNom();		
+			return true;
 		}else{
-			return "ce(tte) "+  animal.getNom() + " n'existe pas";
+			return false;
 		}
-	}//enleverAnimal()
+	}//verifPourEnlever()
 	
 	public boolean isFull(){
 		if(this.getListAnimaux().size() == this.getNbAnimauxMax()){
@@ -75,13 +88,8 @@ public class Enclos extends Model{
 		}		
 	}//isFull()
 	
-	public String entretenir(){
-		if(!(this.getListAnimaux().isEmpty())){
-			return "Vous devez vider l'enclos pour pouvoir le nettoyer";
-		}else{
-			this.setDegreProprete("propre");
-			return "Enclos " +  this.getNom() + " a ete nettoyer"; 
-		}		
+	public void entretenir(){
+		this.setDegreProprete("bon");		
 	}//entretenir()
 	
 	public String nourir(){

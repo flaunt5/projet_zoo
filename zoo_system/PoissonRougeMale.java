@@ -2,8 +2,8 @@ package zoo_system;
 
 public class PoissonRougeMale extends PoissonRouge implements Male{
 	
-	public PoissonRougeMale(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public PoissonRougeMale(double poids, double taille, int age){
+		super(poids, taille, age);
 	}//PoissonRougeMale()
 
 	public void sacoupler(Femelle femelle) {

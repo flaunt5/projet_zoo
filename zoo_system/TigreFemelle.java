@@ -2,8 +2,8 @@ package zoo_system;
 
 public class TigreFemelle extends Tigre implements MammifereFemelle{
 	
-	public TigreFemelle(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public TigreFemelle(double poids, double taille, int age){
+		super(poids, taille, age);
 	}//TigreFemelle()
 
 	public void mettreBas(String espece, Enclos enclosMere) {

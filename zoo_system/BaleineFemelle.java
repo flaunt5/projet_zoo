@@ -2,8 +2,8 @@ package zoo_system;
 
 public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	
-	public BaleineFemelle(double poids, double taille, int age, Enclos enclosResidence){
-		super(poids, taille, age, enclosResidence);
+	public BaleineFemelle(double poids, double taille, int age){
+		super(poids, taille, age);
 	}//BaleineFemelle()
 
 	public void mettreBas(String espece, Enclos enclosMere) {
