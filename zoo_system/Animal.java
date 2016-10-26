@@ -42,10 +42,18 @@ public abstract class Animal extends Model{
 	
 	@Override
 	public String toString() {
-		return "nom : " + nom + ", poids : " + poids + ", taille : " + taille + ", indicFaim : " + indicFaim
-				+ ", indicSante : " + indicSante + ", indicSommeil : " + indicSommeil + ", age : " + age + ", endormi : "
-				+ endormi + ", enclos residence : " + enclosResidence.getNom();
+		return "\t" + "Espece : " + nom + "\n" + 
+				"\t" + "Age : " + age + " ans ; Taille : " + taille + "M ; Poids : " + poids + "Kg\n" +
+				"\t" + "Appetit : " + indicFaim + " ; Sante : " + indicSante + " ; Sommeil : " + indicSommeil + " ; Endormi : " + convertBolleanToString(endormi) + "\n";
 	}//toString()
+	
+	public String convertBolleanToString(boolean bool){
+		if(bool){
+			return "Oui";
+		}else{
+			return "Non";
+		}
+	}//convertBolleanToString()
 	
 	public String getNom() {
 		return nom;

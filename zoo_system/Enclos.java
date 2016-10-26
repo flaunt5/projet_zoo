@@ -1,14 +1,17 @@
 package zoo_system;
 
 import java.util.ArrayList;
-
+/*
+ * LES CLASSES ENCLOS AQUARIUM VOLIERE ET EMPLOYE SONT MAL CODE (redefinition partout + cast), 
+ * J'AI FAIT UN TRUC DEGUEUX MAIS QUI MARCHE. FAUDRA CHARCHER UNE SOLUTION PLUS PROPRE CAR LA...
+ */
 public class Enclos extends Model{
 	protected String nom;
 	protected int superficie; 
 	protected int nbAnimaux;
 	protected int nbAnimauxMax;
 	protected String degreProprete;
-	private ArrayList<Animal> listAnimaux;
+	protected ArrayList<Animal> listAnimaux;
 
 	public static void main(String args[]){
 		Enclos en = new Enclos("enclosLoup", 3, 2);
@@ -54,6 +57,7 @@ public class Enclos extends Model{
 	public void enleverAnimal(Animal animal){
 		if(verifPourEnlever(animal)){
 			this.getListAnimaux().remove(animal);
+			this.setNbAnimaux(this.getNbAnimaux() - 1);
 		}
 	}//enleverAnimal()
 	
@@ -99,15 +103,30 @@ public class Enclos extends Model{
 		return "Les animaux de l'enclos " + this.getNom() + "ont etes nourri";
 	}//nourir()
 	
-	public String toString() {
-		return "Enclos [nom=" + nom + ", superficie=" + superficie + ", nbAnimaux=" + nbAnimaux + ", nbAnimauxMax="
-				+ nbAnimauxMax + ", degreProprete=" + degreProprete + ", listAnimaux=" + listAnimaux + "]";
+	private String recupToStringDesAnimaux(){
+		String retour = "\n";
+		for(Animal animal : this.getListAnimaux()){
+			retour += animal.toString() + "\n\n";
+		}
+		return retour;
+	}//recupToStringDesAnimaux()
+	
+	public String toString() {//methode classique retournant les detail de l'objet
+		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + "m² ; DegreProprete : " + degreProprete + "\n" +
+				"Nombre d'animaux dans l'enclos : " + nbAnimaux + "; Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n" +
+				"Animaux dans l'enclos : " + this.recupToStringDesAnimaux();
 	}//toString()
 	
-	public String toString2() {
-		return "Enclos [nom=" + nom + ", superficie=" + superficie + ", nbAnimaux=" + nbAnimaux + ", nbAnimauxMax="
-				+ nbAnimauxMax + ", degreProprete=" + degreProprete + "]  Animaux : ";
+	public String toString2() {//methode retournant les detail de l'objet sans les detail des animaux qu'il contient
+		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; DegreProprete : " + degreProprete + "\n" +
+				"Nombre d'animaux dans l'enclos : " + nbAnimaux + "; Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n" +
+				"Animaux dans l'enclos : ";
 	}//toString2()
+	
+	protected String toString3() {//methode destiner aux classes filles comme base de leur methode toString()
+		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; DegreProprete : " + degreProprete + "\n" +
+				"Nombre d'animaux dans l'enclos : " + nbAnimaux + "; Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n";
+	}//toString3()
 
 	public String getNom() {
 		return nom;

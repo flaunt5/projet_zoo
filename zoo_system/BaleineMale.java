@@ -11,7 +11,7 @@ public class BaleineMale extends Baleine implements Male{
 	}//sacoupler()
 	
 	public String toString(){
-		return super.toString() + ", sexe : " + Male.sexe;
+		return super.toString() + "\t" + "Sexe : " + Male.sexe + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 
 }//BaleineMale

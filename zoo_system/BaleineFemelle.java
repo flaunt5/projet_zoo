@@ -11,7 +11,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	}//mettreBas()
 	
 	public String toString(){
-		return super.toString() + ", sexe : " + Femelle.sexe;
+		return super.toString() + "\t" + "Sexe : " + Femelle.sexe + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 
 }//BaleineFemelle
