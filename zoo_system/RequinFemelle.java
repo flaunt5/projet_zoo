@@ -6,12 +6,12 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		super(poids, taille, age);
 	}//RequinFemelle()
 
-	public void pondre(String espece, Enclos enclosMere) {
-		//code		
+	public void pondre() {
+		//code	
 	}//pondre()
 	
 	public String toString(){
-		return super.toString() + "\t" + "Sexe : " + Femelle.sexe + " ; Enclos residence : " + enclosResidence.getNom();
+		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 
 }//RequinFemelle

@@ -7,28 +7,28 @@ public class Zoo {
 	private String nom;
 	private int nbEnclos;
 	private static Zoo instance = null;
-	private ArrayList<Enclos> listEnclos;
+	private ArrayList<Enclos<?>> listEnclos;
 	
 	public static void main(String args[]){
 		Zoo fistiLand = Zoo.getInstance("FistiLand", 0, "mauricette", 99, 'F');
-		Enclos en1 = new Enclos("enclos loup", 2, 4);
-		Enclos en2 = new Enclos("enclos tigre", 5, 4);
-		Enclos en3 = new Enclos("enclos ours", 6, 4);
+		Cage en1 = new Cage("enclos loup", 2, 4);
+		Cage en2 = new Cage("enclos tigre", 5, 4);
+		Cage en3 = new Cage("enclos ours", 6, 4);
 		fistiLand.ajouterEnclos(en1);
 		fistiLand.ajouterEnclos(en2);
 		fistiLand.ajouterEnclos(en3);
-		Animal loup1 = new LoupMale(30.0, 1.3, 15);
-		Animal loup2 = new LoupMale(35.0, 1.9, 55);
-		Animal loup3 = new LoupMale(35.0, 1.9, 55);
-		Animal loup4 = new LoupMale(35.0, 1.9, 55);
-		Animal tigre1 = new TigreMale(85.0, 2.0, 100);
-		Animal tigre2 = new TigreMale(100.0, 2.0, 150);
-		Animal tigre3 = new TigreMale(100.0, 2.0, 150);
-		Animal tigre4 = new TigreMale(100.0, 2.0, 150);
-		Animal ours1 = new OursMale(85.0, 2.0, 100);
-		Animal ours2 = new OursMale(100.0, 2.0, 150);
-		Animal ours3 = new OursMale(100.0, 2.0, 150);
-		Animal ours4 = new OursMale(100.0, 2.0, 150);
+		LoupMale loup1 = new LoupMale(30.0, 1.3, 15);
+		LoupMale loup2 = new LoupMale(35.0, 1.9, 50);
+		LoupMale loup3 = new LoupMale(35.0, 1.9, 45);
+		LoupMale loup4 = new LoupMale(35.0, 1.9, 35);
+		TigreMale tigre1 = new TigreMale(85.0, 2.0, 110);
+		TigreMale tigre2 = new TigreMale(100.0, 2.0, 120);
+		TigreMale tigre3 = new TigreMale(100.0, 2.0, 130);
+		TigreMale tigre4 = new TigreMale(100.0, 2.0, 150);
+		OursMale ours1 = new OursMale(85.0, 2.0, 110);
+		OursMale ours2 = new OursMale(100.0, 2.0, 120);
+		OursMale ours3 = new OursMale(100.0, 2.0, 130);
+		OursMale ours4 = new OursMale(100.0, 2.0, 150);
 		en1.ajouterAnimal(loup1);
 		en1.ajouterAnimal(loup2);
 		en1.ajouterAnimal(loup3);
@@ -55,17 +55,17 @@ public class Zoo {
 	private Zoo (String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
 		this.nom = nomZoo;
 		this.nbEnclos = nbEnclos;
-		this.listEnclos = new ArrayList<Enclos>();
+		this.listEnclos = new ArrayList<Enclos<?>>();
 		this.employe = Employe.getInstance(nomEmploye, ageEmploye, sexeEmploye);
 	}//Zoo()
 	
-	public void ajouterEnclos(Enclos enclos){
+	public void ajouterEnclos(Enclos<?> enclos){
 		this.getListEnclos().add(enclos);
 	}
 	
 	public String afficheNbAnimaux(){
 		int compteurAnimaux = 0;
-		for(Enclos enclos : this.getListEnclos()){
+		for(Enclos<?> enclos : this.getListEnclos()){
 			//pour chaque enclos on recupere la taille de sa liste d'animaux
 			compteurAnimaux += enclos.getListAnimaux().size();
 		}
@@ -76,7 +76,7 @@ public class Zoo {
 		String listAnimaux = "";
 		int count = 1;
 		//pour chaque enclos on commence par recuperer le nom de ces derniers
-		for(Enclos enclos : this.getListEnclos()){
+		for(Enclos<?> enclos : this.getListEnclos()){
 			listAnimaux += enclos.getNom()+ " : ";
 			//puis pour chaque animal dans l'enclos on recupere le nom de ces derniers
 			for(Animal animal : enclos.getListAnimaux()){
@@ -99,7 +99,7 @@ public class Zoo {
 		double randomEnclos;
 		
 		//chaque enclos à 50% de chance de voir son etat de propreter modifier		
-		for(Enclos enclos : this.getListEnclos()){
+		for(Enclos<?> enclos : this.getListEnclos()){
 			randomEnclos = Math.random();
 			
 			/*pour chaque enclos ayant eu le precedent test reussi, on generer un nombre aléatoire, 
@@ -115,7 +115,7 @@ public class Zoo {
 		String[] etatFutur = {"epuise", "malade", "affame"};
 		int randomEtat;
 		double randomAnimal;		
-		for(Enclos enclos : this.getListEnclos()){
+		for(Enclos<?> enclos : this.getListEnclos()){
 			for(Animal animal : enclos.getListAnimaux()){
 				//chaque animal à 50% de chance de voir l'un de ses etats etre modifier	
 				randomAnimal = Math.random();	
@@ -123,8 +123,8 @@ public class Zoo {
 				if(randomAnimal > 0.5){
 					/*pour chaque animal ayant eu le precedent test reussi, on generer un nombre aléatoire, 
 					 * qui va correspondre à un etat qui sera modifier*/
-					randomEtat = (int)Math.round(Math.random());
-					
+					randomEtat = (int)Math.round(Math.random()*(2-0));
+					System.out.println(randomEtat);
 					switch(randomEtat){
 						case 0:
 							animal.setIndicSommeil(etatFutur[randomEtat]);
@@ -173,12 +173,8 @@ public class Zoo {
 		this.nbEnclos = nbEnclos;
 	}//setNbEnclos()
 
-	public ArrayList<Enclos> getListEnclos() {
+	public ArrayList<Enclos<?>> getListEnclos() {
 		return listEnclos;
 	}//getListEnclos()
-
-	public void setListEnclos(ArrayList<Enclos> listEnclos) {
-		this.listEnclos = listEnclos;
-	}//setListEnclos()
 	
 }//Zoo

@@ -11,7 +11,7 @@ public class RequinMale extends Requin implements Male{
 	}//sacoupler
 	
 	public String toString(){
-		return super.toString() + "\t" + "Sexe : " + Male.sexe + " ; Enclos residence : " + enclosResidence.getNom();
+		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 
 }//RequinMale

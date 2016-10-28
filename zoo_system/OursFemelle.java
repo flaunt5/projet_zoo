@@ -6,11 +6,11 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 		super(poids, taille, age);
 	}//OursFemelle()
 
-	public void mettreBas(String espece, Enclos enclosMere) {
+	public void mettreBas() {
 		//code
 	}//mettreBas()
 	
 	public String toString(){
-		return super.toString() + "\t" + "Sexe : " + Femelle.sexe + " ; Enclos residence : " + enclosResidence.getNom();
+		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 }//OursFemelle

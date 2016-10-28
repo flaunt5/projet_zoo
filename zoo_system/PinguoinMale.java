@@ -7,10 +7,10 @@ public class PinguoinMale extends Pinguoin implements Male{
 	}//PinguoinMale()
 
 	public void sacoupler(Femelle femelle) {
-		//code		
+		//code	
 	}//sacoupler()
 
 	public String toString(){
-		return super.toString() + "\t" + "Sexe : " + Male.sexe + " ; Enclos residence : " + enclosResidence.getNom();
+		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 }//PinguoinMale
