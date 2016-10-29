@@ -1,13 +1,13 @@
 package zoo_system;
 
-public class TigreMale extends Tigre implements Male{
+public class TigreMale extends Tigre implements MammifereMale{
 	
 	public TigreMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//TigreMale()
 	
-	public void sacoupler(Animal femelle) {
-		//code
+	public void saccoupler(MammifereFemelle femelle) {
+		femelle.mettreBas();
 	}//sacoupler()
 	
 	public String toString(){

@@ -1,13 +1,13 @@
 package zoo_system;
 
-public class RequinMale extends Requin implements Male{
+public class RequinMale extends Requin implements MammifereMale{
 	
 	public RequinMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//RequinMale()
 
-	public void sacoupler(Animal femelle) {
-		//code		
+	public void saccoupler(MammifereFemelle femelle) {
+		femelle.mettreBas();		
 	}//sacoupler
 	
 	public String toString(){
