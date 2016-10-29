@@ -6,7 +6,7 @@ public class AigleMale extends Aigle implements Male{
 		super(poids, taille, age);
 	}//AigleMale()
 	
-	public void sacoupler(Femelle femelle) {
+	public void sacoupler(Animal femelle) {
 		//code		
 	}//sacoupler()
 	
@@ -14,4 +14,8 @@ public class AigleMale extends Aigle implements Male{
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 
+	public char getSexe(){
+		return AigleMale.SEXE;
+	}//getSexe()
+	
 }//AigleMale

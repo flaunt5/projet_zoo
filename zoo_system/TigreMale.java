@@ -6,11 +6,15 @@ public class TigreMale extends Tigre implements Male{
 		super(poids, taille, age);
 	}//TigreMale()
 	
-	public void sacoupler(Femelle femelle) {
+	public void sacoupler(Animal femelle) {
 		//code
 	}//sacoupler()
 	
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
+	
+	public char getSexe(){
+		return TigreMale.SEXE;
+	}//getSexe()
 }//TigreMale

@@ -1,5 +1,5 @@
 package zoo_system;
 
-public interface AutreFemelle {
+public interface AutreFemelle extends Femelle {
 	public void pondre();	
 }//AutreFemelle

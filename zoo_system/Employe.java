@@ -50,7 +50,7 @@ public class Employe {
 		this.sexe = sexe;
 	}//Employe()
 	
-	public String nettoyerEnclos(Enclos<?> enclos){//a evoluer pour le type aqua et voliere
+	public String nettoyerEnclos(Enclos<? extends Animal> enclos){//a evoluer pour le type aqua et voliere
 		if(!(enclos.getListAnimaux().isEmpty())){
 			return "Vous devez vider l'enclos pour pouvoir l'entretenir";
 		}else{
@@ -65,12 +65,11 @@ public class Employe {
 		}
 	}//nettoyerEnclos()
 	
-	public String nourirAnimaux(Enclos<?> enclos){
+	public String nourirAnimaux(Enclos<? extends Animal> enclos){
 		return enclos.nourir();
 	}//nourirAnimaux()
-
 	
-	public String examinerEnclos(Enclos<?> enclos){
+	public String examinerEnclos(Enclos<? extends Animal> enclos){
 		String donneesEnclos = "";
 		String listAnimaux = "";
 		int count = 1; //compteur pour savoir quand on sera au dernier element

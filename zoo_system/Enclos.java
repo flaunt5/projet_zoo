@@ -10,7 +10,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	protected String degreProprete;
 	protected ArrayList<T> listAnimaux;
 
-	public static void main(String args[]){
+	public static void main(String args[]){/*
 		Cage en = new Cage("enclosLoup", 3, 2);
 		Cage en2 = new Cage("enclosTigre", 3, 2);
 		LoupMale loup1 = new LoupMale(30.0, 1.3, 15);
@@ -30,7 +30,10 @@ public abstract class Enclos<T extends Animal> extends Model{
 		System.out.println(en.toString());
 		System.out.println(en2.toString());
 		en.enleverAnimal(loup1);
-		System.out.println(en.toString());
+		System.out.println(en.toString());*/
+		LoupMale loup1 = new LoupMale(30.0, 1.3, 15);
+		double nb = Math.random() * (0.5 - 0.3)+0.3;
+		System.out.println(loup1.arrondiDecimals(nb, 1)) ;
 	}//main pour test
 	
 	public Enclos(String nom, int superficie, int nbAnimauxMax){

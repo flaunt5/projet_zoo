@@ -55,6 +55,11 @@ public abstract class Animal extends Model{
 		}
 	}//convertBolleanToString()
 	
+	public double arrondiDecimals(double nombre ,int nbDecimal){
+		double coef = Math.pow(10.0, nbDecimal);
+		return Math.round(nombre * coef) /coef;
+	}//arrondi2Decimals()
+	
 	public String getNom() {
 		return nom;
 	}//getNom()
