@@ -1,13 +1,13 @@
 package zoo_system;
 
-public class LoupMale extends Loup implements MammifereMale{
+public class LoupMale extends Loup implements Male<LoupFemelle>{
 	
 	public LoupMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//LoupMale()
 
-	public void saccoupler(MammifereFemelle femelle) {
-		femelle.mettreBas();		
+	public void saccoupler(LoupFemelle femelle) {
+		femelle.mettreBas();
 	}//sacoupler()
 
 	public String toString(){
@@ -27,6 +27,7 @@ public class LoupMale extends Loup implements MammifereMale{
 		System.out.println(cageLoup.toString());
 		LM.saccoupler(LF);
 		System.out.println(cageLoup.toString());
+		System.out.println(LM.toString());
 	}
 	
 }//LoupMale

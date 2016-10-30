@@ -90,8 +90,10 @@ public abstract class Enclos<T extends Animal> extends Model{
 		}		
 	}//isFull()
 	
-	public void entretenir(){
-		this.setDegreProprete("bon");		
+	public String entretenir(){
+		this.setDegreProprete("bon");	
+
+		return this.getNom() +  " à était entretenu";
 	}//entretenir()
 	
 	public String nourir(){

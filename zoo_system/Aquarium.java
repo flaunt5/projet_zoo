@@ -14,7 +14,7 @@ public class Aquarium extends Enclos<Aquatique>{
 		this.listAnimaux = new ArrayList<Aquatique>();
 	}//Aquarium()
 	
-	public void entretenirBassin(){
+	public String entretenirBassin(){
 		if(!(this.getSalinite().equals("bon"))){
 			this.setSalinite("bon");			
 		}
@@ -25,6 +25,7 @@ public class Aquarium extends Enclos<Aquatique>{
 			 */
 			this.setProfondeur(this.getProfondeur() + (10.0 - this.getProfondeur()));
 		}
+		return this.getNom() +  " à était entretenu";
 	}//entretenirBassin()
 	
 	public String toString() {

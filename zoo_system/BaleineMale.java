@@ -1,12 +1,12 @@
 package zoo_system;
 
-public class BaleineMale extends Baleine implements MammifereMale{
+public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	
 	public BaleineMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//BaleineMale()
 
-	public void saccoupler(MammifereFemelle femelle) {
+	public void saccoupler(BaleineFemelle femelle) {
 		femelle.mettreBas();		
 	}//sacoupler()
 	

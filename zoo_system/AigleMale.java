@@ -1,12 +1,12 @@
 package zoo_system;
 
-public class AigleMale extends Aigle implements AutreMale{
+public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	
 	public AigleMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//AigleMale()
 	
-	public void saccoupler(AutreFemelle femelle) {
+	public void saccoupler(AigleFemelle femelle) {
 		femelle.pondre();		
 	}//sacoupler()
 	

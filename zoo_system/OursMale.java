@@ -1,12 +1,12 @@
 package zoo_system;
 
-public class OursMale extends Ours implements MammifereMale{
+public class OursMale extends Ours implements Male<OursFemelle>{
 	
 	public OursMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//OursMale()
 
-	public void saccoupler(MammifereFemelle femelle) {
+	public void saccoupler(OursFemelle femelle) {
 		femelle.mettreBas();		
 	}//sacoupler()
 	

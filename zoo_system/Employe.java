@@ -8,15 +8,21 @@ public class Employe {
 
 	public static void main(String args[]){
 		Cage en = new Cage("enclosLoup", 3, 3);
+		VueCage Vc1 = new VueCage(en);
 		Aquarium aq = new Aquarium("bassinRequin", 3, 2);
+		VueAquarium Va1 = new VueAquarium(aq);
 		Voliere vo = new Voliere("voliereAigle", 3, 2, 5.0);
+		VueVoliere Vvo1 = new VueVoliere(vo);
 		Voliere vo2 = new Voliere("voliereAigle2", 3, 1, 5.0);
+		VueVoliere Vvo2 = new VueVoliere(vo2);
+		
 		Loup loup1 = new LoupMale(30.0, 1.3, 15);
 		Loup loup2 = new LoupMale(50.0, 1.5, 15);
 		Aigle aigle1 = new AigleMale(30.0, 1.3, 15);
 		Aigle aigle2 = new AigleFemelle(40.0, 1.3, 18);
 		Requin requin1 = new RequinMale(30.0, 1.3, 15);
 		Requin requin2 = new RequinFemelle(90.0, 1.3, 25);
+		
 		en.ajouterAnimal(loup2);
 		en.ajouterAnimal(loup1);
 		aq.ajouterAnimal(requin1);
@@ -28,20 +34,26 @@ public class Employe {
 		aq.setProfondeur(2.0);
 		vo.setDegreProprete("mauvais");
 		vo.setEtatToit("mauvais");
-		System.out.println(en.toString());
-		System.out.println(aq.toString());
-		System.out.println(vo.toString());
-		Employe emp = Employe.getInstance("mauricette", 99, 'F');
-		System.out.println(emp.nettoyerEnclos(en));
-		System.out.println(emp.nettoyerEnclos(aq));
-		System.out.println(emp.nettoyerEnclos(vo));
-		System.out.println(emp.examinerEnclos(vo));
-		System.out.println(emp.examinerEnclos(en));
-		System.out.println(emp.examinerEnclos(aq));
-		System.out.println(emp.transfererAnimal(aigle1, vo2));
-		System.out.println(emp.transfererAnimal(aigle2, vo2));
-		System.out.println(emp.examinerEnclos(vo));
-		System.out.println(emp.examinerEnclos(vo2));
+		Vc1.details();
+		Va1.details();
+		Vvo1.details();
+		Vvo2.details();
+		Employe emp = Employe.getInstance("test", 21, 'M');
+		VueEmploye vemp = new VueEmploye(Employe.getInstance());
+		
+		vemp.nettoyerEnclos(en);
+		vemp.nettoyerEnclos(aq);
+		vemp.nettoyerEnclos(vo);
+		
+		vemp.examinerEnclos(vo);
+		vemp.examinerEnclos(en);
+		vemp.examinerEnclos(aq);
+		
+		vemp.transfererAnimal(aigle1, vo2);
+		vemp.transfererAnimal(aigle2, vo2);
+		
+		vemp.examinerEnclos(vo);
+		vemp.examinerEnclos(vo2);
 	}//main pour test
 	
 	private Employe(String nom, int age, char sexe){
@@ -54,14 +66,15 @@ public class Employe {
 		if(!(enclos.getListAnimaux().isEmpty())){
 			return "Vous devez vider l'enclos pour pouvoir l'entretenir";
 		}else{
+			String retour = "";
 			if(enclos.getClass().getSimpleName().equals("Voliere")){
-				((Voliere) enclos).entretenirVoliere();
+				retour = ((Voliere) enclos).entretenirVoliere();
 			}else if(enclos.getClass().getSimpleName().equals("Aquarium")){
-				((Aquarium) enclos).entretenirBassin();
+				retour = ((Aquarium) enclos).entretenirBassin();
 			}else{
-				enclos.entretenir();
+				retour = enclos.entretenir();
 			}
-			return enclos.getClass().getSimpleName() + " " + enclos.getNom() + " a ete entretenu"; 
+			return enclos.getClass().getSimpleName() + " " + retour; 
 		}
 	}//nettoyerEnclos()
 	
@@ -114,6 +127,10 @@ public class Employe {
 		}
 		return instance;
 	}//getInstance()
+	
+	public static Employe getInstance(){
+		return instance;
+	}
 
 	public String getNom() {
 		return nom;

@@ -14,11 +14,11 @@ public class Voliere extends Enclos<Aerien>{
 		this.listAnimaux = new ArrayList<Aerien>();
 	}//Voliere()
 	
-	public void entretenirVoliere(){
-		super.entretenir();
+	public String entretenirVoliere(){
 		if(!(this.getEtatToit().equals("bon"))){
 			this.setEtatToit("bon");
 		}
+		return super.entretenir();
 	}//entretenirVoliere()
 	
 	public String toString() {
