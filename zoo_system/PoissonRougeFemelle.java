@@ -6,17 +6,23 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 		super(poids, taille, age);
 	}//PoissonRougeFemelle()
 
-	public void pondre() {
+	public String pondre() {
+		String retour = "Le bébé est mort, il n'y avait pas assez de place dans l'enclos";
 		if(!(this.getEnclosResidence().isFull())){
 			double randomPoissonRouge = Math.random();
 			double randomPoids = this.arrondiDecimals(Math.random() * (0.005 - 0.001), 3);
 			double randomTaille = this.arrondiDecimals(Math.random() * (0.05 - 0.02), 2);
 			if(randomPoissonRouge <= 0.5){
-				this.getEnclosResidence().ajouterAnimal(AnimalFactory.getPoissonRougeMale(randomPoids, randomTaille));
+				PoissonRougeMale poisson = AnimalFactory.getPoissonRougeMale(randomPoids, randomTaille);
+				this.getEnclosResidence().ajouterAnimal(poisson);
+				retour = poisson.getNom() + "(M) est né dans l'aquarium : " + this.getEnclosResidence().getNom() +"\n";
 			}else{
-				this.getEnclosResidence().ajouterAnimal(AnimalFactory.getPoissonRougeFemelle(randomPoids, randomTaille));
+				PoissonRougeFemelle poisson = AnimalFactory.getPoissonRougeFemelle(randomPoids, randomTaille);
+				this.getEnclosResidence().ajouterAnimal(poisson);
+				retour = poisson.getNom() + "(M) est né dans l'aquarium : " + this.getEnclosResidence().getNom() +"\n";
 			}
 		}	
+		return retour;
 	}//pondre()
 	
 	public String toString(){

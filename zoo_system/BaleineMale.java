@@ -6,8 +6,8 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 		super(poids, taille, age);
 	}//BaleineMale()
 
-	public void saccoupler(BaleineFemelle femelle) {
-		femelle.mettreBas();		
+	public String saccoupler(BaleineFemelle femelle) {
+		return femelle.mettreBas();		
 	}//sacoupler()
 	
 	public String toString(){

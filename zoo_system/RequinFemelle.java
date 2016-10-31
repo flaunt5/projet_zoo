@@ -6,17 +6,23 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		super(poids, taille, age);
 	}//RequinFemelle()
 
-	public void pondre() {
+	public String pondre() {
+		String retour = "Le bébé est mort, il n'y avait pas assez de place dans l'enclos";
 		if(!(this.getEnclosResidence().isFull())){
 			double randomRequin = Math.random();
 			double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 			double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 			if(randomRequin <= 0.5){
-				this.getEnclosResidence().ajouterAnimal(AnimalFactory.getRequinMale(randomPoids, randomTaille));
+				RequinMale requin = AnimalFactory.getRequinMale(randomPoids, randomTaille);
+				this.getEnclosResidence().ajouterAnimal(requin);
+				retour = requin.getNom() + "(M) est né dans l'aquarium : " + this.getEnclosResidence().getNom() +"\n";
 			}else{
-				this.getEnclosResidence().ajouterAnimal(AnimalFactory.getRequinFemelle(randomPoids, randomTaille));
+				RequinFemelle requin = AnimalFactory.getRequinFemelle(randomPoids, randomTaille);
+				this.getEnclosResidence().ajouterAnimal(requin);
+				retour = requin.getNom() + "(M) est né dans l'aquarium : " + this.getEnclosResidence().getNom() +"\n";
 			}
 		}	
+		return retour;
 	}//pondre()
 	
 	public String toString(){

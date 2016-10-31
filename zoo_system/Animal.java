@@ -21,6 +21,8 @@ public abstract class Animal extends Model{
 		this.endormi = false;
 	}
 	
+	public abstract char getSexe();
+	
 	public void manger(){
 		this.setIndicFaim("rassasier");
 	}//manger()

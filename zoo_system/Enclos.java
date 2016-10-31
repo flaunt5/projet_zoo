@@ -90,6 +90,16 @@ public abstract class Enclos<T extends Animal> extends Model{
 		}		
 	}//isFull()
 	
+	public T getFemelle(){
+		T retour = null;
+		for(T animal : this.getListAnimaux()){
+			if(animal.getSexe() == 'F'){
+				retour = animal;
+			}
+		}
+		return retour;
+	}
+	
 	public String entretenir(){
 		this.setDegreProprete("bon");	
 
@@ -100,7 +110,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 		for(Animal animal : this.getListAnimaux()){
 			animal.manger();
 		}	
-		return "Les animaux de l'enclos " + this.getNom() + "ont etes nourri";
+		return "Les animaux de l'enclos " + this.getNom() + " ont etes nourri";
 	}//nourir()
 	
 	protected String recupToStringDesAnimaux(){

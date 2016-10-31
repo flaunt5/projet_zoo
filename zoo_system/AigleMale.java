@@ -6,8 +6,8 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 		super(poids, taille, age);
 	}//AigleMale()
 	
-	public void saccoupler(AigleFemelle femelle) {
-		femelle.pondre();		
+	public String saccoupler(AigleFemelle femelle) {
+		return femelle.pondre();		
 	}//sacoupler()
 	
 	public String toString(){

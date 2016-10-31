@@ -9,7 +9,7 @@ public class Zoo {
 	private static Zoo instance = null;
 	private ArrayList<Enclos<? extends Animal>> listEnclos;
 	
-	public static void main(String args[]){
+	public static void main(String args[]){/*
 		Zoo zoo = Zoo.getInstance("zoo", 0, "test", 21, 'M');
 		VueZoo Vz = new VueZoo(zoo);
 		VueEmploye vemp = new VueEmploye(zoo.getEmploye());
@@ -97,16 +97,26 @@ public class Zoo {
 		vo.ajouterAnimal(aig3);
 		vo.ajouterAnimal(aig4);
 		
-		Vz.afficheAnimaux();
+		Vz.afficheAnimaux(false);
 		Vz.afficheNbAnimaux();
 		Vz.modifierEtatAnimaux();
 		Vz.modifierEtatEnclos();
 		Vz.modifierEtatEnclos();
 		Vz.modifierEtatEnclos();
-		Vz.modifierEtatEnclos();/*
+		Vz.modifierEtatEnclos();
 		Vc1.details();
 		Vc2.details();
 		Vc3.details();		*/
+		Zoo zoo = Zoo.getInstance("zoo", 0, "test", 21, 'M');
+		Cage en1 = new Cage("enclos loup", 2, 4);
+		VueCage Vc1 = new VueCage(en1);
+		LoupMale loup1 = new LoupMale(30.0, 1.3, 15);
+		LoupFemelle loup2 = new LoupFemelle(35.0, 1.9, 50);
+		en1.ajouterAnimal(loup1);
+		en1.ajouterAnimal(loup2);
+		zoo.ajouterEnclos(en1);
+		//zoo.accouplement(loup1, loup2);
+		Vc1.details();
 	}//main pour test
 	
 	private Zoo (String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
@@ -118,6 +128,7 @@ public class Zoo {
 	
 	public String ajouterEnclos(Enclos<? extends Animal> enclos){
 		this.getListEnclos().add(enclos);
+		this.setNbEnclos(this.getNbEnclos() + 1);
 		return enclos.getClass().getSimpleName() + " " + enclos.getNom() + " à été ajouté.";
 	}
 	
@@ -127,26 +138,30 @@ public class Zoo {
 			//pour chaque enclos on recupere la taille de sa liste d'animaux
 			compteurAnimaux += enclos.getListAnimaux().size();
 		}
-		return String.valueOf(compteurAnimaux);
+		return "Il y a " + String.valueOf(compteurAnimaux) + " animaux dans le zoo";
 	}//afficheNbAnimaux()
 	
-	public String getAnimaux(){
+	public String getAnimaux(Boolean details){
 		String listAnimaux = "";
 		int count = 1;
 		//pour chaque enclos on commence par recuperer le nom de ces derniers
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
-			listAnimaux += enclos.getNom()+ " : ";
-			//puis pour chaque animal dans l'enclos on recupere le nom de ces derniers
-			for(Animal animal : enclos.getListAnimaux()){
-				if(count == enclos.getListAnimaux().size()){//si on est au denier element on ne rajoute pas de ","
-					listAnimaux += animal.getNom();
-				}else{
-					listAnimaux += animal.getNom() + ", ";				
+			if(details){
+				listAnimaux += enclos.toString();
+			}else{
+				listAnimaux += enclos.getNom()+ " : ";
+				//puis pour chaque animal dans l'enclos on recupere le nom de ces derniers
+				for(Animal animal : enclos.getListAnimaux()){
+					if(count == enclos.getListAnimaux().size()){//si on est au denier element on ne rajoute pas de ","
+						listAnimaux += animal.getNom() + "(" + animal.getSexe() + ")";
+					}else{
+						listAnimaux += animal.getNom() + "(" + animal.getSexe() + "), ";				
+					}
+					++count;
 				}
-				++count;
-			}
-			listAnimaux += "\n";
-			count = 1;
+				listAnimaux += "\n";
+				count = 1;
+			}			
 		}		
 		return listAnimaux;
 	}//afficheAnimaux()
@@ -169,29 +184,29 @@ public class Zoo {
 					//changement etat du toit
 					randomEtat = (int)Math.round(Math.random());
 					((Voliere)enclos).setEtatToit(etatFutur[randomEtat]);
-					retour += "La voliere " + enclos.getNom() + ", état du toit : " + etatFutur[randomEtat] + "\n";
+					retour += "La voliere \"" + enclos.getNom() + "\", état du toit : " + etatFutur[randomEtat] + "\n";
 					
 					//changement degré propreté
 					randomEtat = (int)Math.round(Math.random());
 					enclos.setDegreProprete(etatFutur[randomEtat]);
-					retour += "La voliere " + enclos.getNom() + ", degré propreté : " + etatFutur[randomEtat] + "\n";
+					retour += "La voliere \"" + enclos.getNom() + "\", degré propreté : " + etatFutur[randomEtat] + "\n";
 					
 				}else if(enclos.getClass().getSimpleName().equals("Aquarium")){
 					
 					//changement salinité
 					randomEtat = (int)Math.round(Math.random());
 					((Aquarium)enclos).setSalinite(etatFutur[randomEtat]);
-					retour += "L'Aquarium " + enclos.getNom() + ", salinité : " + etatFutur[randomEtat] + "\n";
+					retour += "L'Aquarium \"" + enclos.getNom() + "\", salinité : " + etatFutur[randomEtat] + "\n";
 					
 					//changement profondeur
 					ranndomProfondeur = Math.round(Math.random()* (((Aquarium) enclos).getProfondeur() - 0) * 10) /10;
 					((Aquarium) enclos).setProfondeur(ranndomProfondeur);
-					retour += "L'Aquarium " + enclos.getNom() + ", profondeur : " + ranndomProfondeur + "\n";
+					retour += "L'Aquarium \"" + enclos.getNom() + "\", profondeur : " + ranndomProfondeur + "\n";
 					
 				}else{
 					randomEtat = (int)Math.round(Math.random());
 					enclos.setDegreProprete(etatFutur[randomEtat]);
-					retour += "La Cage " + enclos.getNom() + ", degré propreté : " + etatFutur[randomEtat] + "\n";
+					retour += "La Cage \"" + enclos.getNom() + "\", degré propreté : " + etatFutur[randomEtat] + "\n";
 				}
 			}	
 		}	
@@ -241,6 +256,84 @@ public class Zoo {
 		}
 		return retour;
 	}//modifierEtatAnimaux()
+	
+	public String listerEnclos(Boolean pourTransfer){
+		String retour = "Choisissez un enclos ";
+		if(pourTransfer){
+			retour += "de destination pour l'animal";
+		}
+		retour += " :\n";
+		int count = 1;
+		for(Enclos enclos : this.getListEnclos()){
+			retour += count + " - " + enclos.getNom() + "\n";
+			++count;
+		}
+		return retour;
+	}//listerEnclos()
+	
+	public String listerAnimauxEnclos(Enclos<? extends Animal> enclos){
+		String retour = "Choisissez un animal :\n";
+		int count = 1;
+		for(Animal animaux : enclos.getListAnimaux()){
+			retour += count + " - " + animaux.getNom() + "(" + animaux.getSexe() + ")\n";
+			++count;
+		}
+		return retour;
+	}//listerAnimauxEnclos()
+	
+	public  String reproductionAnimal(){
+		String retour = "";
+		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
+			for(Animal animal : enclos.getListAnimaux()){
+				//si l'animal est un male
+				if(animal.getSexe() == 'M'){
+					Animal animalFemelle = enclos.getFemelle();
+					//si on a reussi a recuperer un femelle dans le même enclos
+					if(animalFemelle != null){
+						String classe = animal.getClass().getSimpleName();
+						double chanceAccouplement = Math.random();
+						// 1 chance sur  2 d'effectuer l'action
+						if(chanceAccouplement > 0.5){
+							switch(classe){
+								case "LoupMale" : 
+									retour += ((LoupMale) animal).saccoupler((LoupFemelle) animalFemelle);
+									break;
+								case "TigreMale" : 
+									retour += ((TigreMale) animal).saccoupler((TigreFemelle) animalFemelle);
+									break;
+								case "OursMale" : 
+									retour += ((OursMale) animal).saccoupler((OursFemelle) animalFemelle);
+									break;
+								case "BaleineMale" : 
+									retour += ((BaleineMale) animal).saccoupler((BaleineFemelle) animalFemelle);
+									break;
+								case "PingouinMale" : 
+									retour += ((PingouinMale) animal).saccoupler((PingouinFemelle) animalFemelle);
+									break;
+								case "RequinMale" : 
+									retour += ((RequinMale) animal).saccoupler((RequinFemelle) animalFemelle);
+									break;
+								case "PoissonRougeMale" : 
+									retour += ((PoissonRougeMale) animal).saccoupler((PoissonRougeFemelle) animalFemelle);
+									break;
+								case "AigleMale" : 
+									retour += ((AigleMale) animal).saccoupler((AigleFemelle) animalFemelle);
+									break;
+							}//switch
+						}//if chanceAccouplement
+					}// if femelle != null
+				}// animal est un male
+			}//for animal
+		}//for enclos
+		return retour;
+	}//reproductionAnimal
+	/*
+	public <T extends Male<U>,U extends Animal> void accouplement (T animalMale, U animalFemelle){
+		double chanceAccouplement = Math.random();
+		if(chanceAccouplement > 0.5){
+			animalMale.saccoupler(animalFemelle);
+		}
+	}//accouplement()*/
 	
 	public static Zoo getInstance(String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
 		if(instance == null){

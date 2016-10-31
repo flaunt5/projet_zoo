@@ -6,8 +6,8 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 		super(poids, taille, age);
 	}//OursMale()
 
-	public void saccoupler(OursFemelle femelle) {
-		femelle.mettreBas();		
+	public String saccoupler(OursFemelle femelle) {
+		return femelle.mettreBas();		
 	}//sacoupler()
 	
 	public String toString(){

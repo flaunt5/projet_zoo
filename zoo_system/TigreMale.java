@@ -6,8 +6,8 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 		super(poids, taille, age);
 	}//TigreMale()
 	
-	public void saccoupler(TigreFemelle femelle) {
-		femelle.mettreBas();
+	public String saccoupler(TigreFemelle femelle) {
+		return femelle.mettreBas();
 	}//sacoupler()
 	
 	public String toString(){

@@ -22,4 +22,8 @@ public class VueEmploye extends Vue<Employe>{
 		System.out.println(this.getModel().nettoyerEnclos(enclos));
 	}//nettoyerEnclos()
 	
+	public void soignerAnimal(Animal animal){
+		System.out.println(this.getModel().soignerAnimal(animal));		
+	}
+	
 }//VueEmploye

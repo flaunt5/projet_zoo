@@ -1,13 +1,13 @@
 package zoo_system;
 
-public class PinguoinMale extends Pinguoin implements Male<PinguoinFemelle>{
+public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 	
-	public PinguoinMale(double poids, double taille, int age){
+	public PingouinMale(double poids, double taille, int age){
 		super(poids, taille, age);
 	}//PinguoinMale()
 
-	public void saccoupler(PinguoinFemelle femelle) {
-		femelle.pondre();
+	public String saccoupler(PingouinFemelle femelle) {
+		return femelle.pondre();
 	}//sacoupler()
 
 	public String toString(){
@@ -15,6 +15,6 @@ public class PinguoinMale extends Pinguoin implements Male<PinguoinFemelle>{
 	}//toString()
 	
 	public char getSexe(){
-		return PinguoinMale.SEXE;
+		return PingouinMale.SEXE;
 	}//getSexe()
 }//PinguoinMale

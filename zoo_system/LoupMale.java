@@ -6,8 +6,8 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 		super(poids, taille, age);
 	}//LoupMale()
 
-	public void saccoupler(LoupFemelle femelle) {
-		femelle.mettreBas();
+	public String saccoupler(LoupFemelle femelle) {
+		return femelle.mettreBas();
 	}//sacoupler()
 
 	public String toString(){

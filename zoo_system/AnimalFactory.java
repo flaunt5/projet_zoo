@@ -49,12 +49,12 @@ public class AnimalFactory {
 		return PoissonRougeFactory.creerPoissonRougeFemelle(poids, taille);	
 	}//getPoissonRougeFemelle()
 	
-	public static PinguoinMale getPinguoinMale(double poids, double taille){
-		return PinguoinFactory.creerPinguoinMale(poids, taille);	
+	public static PingouinMale getPingouinMale(double poids, double taille){
+		return PingouinFactory.creerPinguoinMale(poids, taille);	
 	}//getPinguoinMale()
 	
-	public static PinguoinFemelle getPinguoinFemelle(double poids, double taille){
-		return PinguoinFactory.creerPinguoinFemelle(poids, taille);	
+	public static PingouinFemelle getPingouinFemelle(double poids, double taille){
+		return PingouinFactory.creerPinguoinFemelle(poids, taille);	
 	}//getPinguoinFemelle()
 	
 	public static AigleMale getAigleMale(double poids, double taille){

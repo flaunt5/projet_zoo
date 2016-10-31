@@ -6,8 +6,8 @@ public class PoissonRougeMale extends PoissonRouge implements Male<PoissonRougeF
 		super(poids, taille, age);
 	}//PoissonRougeMale()
 
-	public void saccoupler(PoissonRougeFemelle femelle) {
-		femelle.pondre();	
+	public String saccoupler(PoissonRougeFemelle femelle) {
+		return femelle.pondre();	
 	}//sacoupler
 	
 	public String toString(){

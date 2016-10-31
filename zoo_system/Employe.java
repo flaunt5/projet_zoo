@@ -121,6 +121,11 @@ public class Employe {
 		}
 	}//transfererAnimal()
 	
+	public String soignerAnimal(Animal animal){
+		animal.etreSoigner();
+		return animal.getNom() + " à été soigné";
+	}
+	
 	public static Employe getInstance(String nom, int age, char sexe){
 		if(instance == null){
 			instance =  new Employe(nom, age, sexe);

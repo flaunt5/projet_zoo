@@ -6,17 +6,23 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 		super(poids, taille, age);
 	}//LoupFemelle()
 
-	public void mettreBas() {
+	public String mettreBas() {
+		String retour = "Le bébé est mort, il n'y avait pas assez de place dans l'enclos";
 		if(!(this.getEnclosResidence().isFull())){
 			double randomLoup = Math.random();
 			double randomPoids = this.arrondiDecimals(Math.random() * (0.5 - 0.3), 1);
 			double randomTaille = this.arrondiDecimals(Math.random() * (0.2 - 0.1), 1);
 			if(randomLoup <= 0.5){
-				this.getEnclosResidence().ajouterAnimal(AnimalFactory.getLoupMale(randomPoids, randomTaille));
+				LoupMale loup = AnimalFactory.getLoupMale(randomPoids, randomTaille);
+				this.getEnclosResidence().ajouterAnimal(loup);
+				retour = loup.getNom() + "(M) est né dans la cage : " + this.getEnclosResidence().getNom() +"\n";
 			}else{
-				this.getEnclosResidence().ajouterAnimal(AnimalFactory.getLoupFemelle(randomPoids, randomTaille));
+				LoupFemelle loup = AnimalFactory.getLoupFemelle(randomPoids, randomTaille);
+				this.getEnclosResidence().ajouterAnimal(loup);
+				retour = loup.getNom() + "(M) est né dans la cage : " + this.getEnclosResidence().getNom() +"\n";
 			}
 		}
+		return retour;
 	}//mettreBas()
 	
 	public String toString(){

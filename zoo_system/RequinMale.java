@@ -6,8 +6,8 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 		super(poids, taille, age);
 	}//RequinMale()
 
-	public void saccoupler(RequinFemelle femelle) {
-		femelle.pondre();		
+	public String saccoupler(RequinFemelle femelle) {
+		 return femelle.pondre();		
 	}//sacoupler
 	
 	public String toString(){
