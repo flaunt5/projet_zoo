@@ -7,7 +7,8 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 	}//LoupMale()
 
 	public String saccoupler(LoupFemelle femelle) {
-		return femelle.mettreBas();
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";
 	}//sacoupler()
 
 	public String toString(){
@@ -17,17 +18,4 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 	public char getSexe(){
 		return LoupMale.SEXE;
 	}//getSexe()
-	
-	public static void main(String args[]){
-		LoupMale LM= new LoupMale(10, 10, 10);
-		LoupFemelle LF = new LoupFemelle(10, 10, 10);
-		Cage cageLoup = new Cage("Cage à  loup", 10, 3);
-		cageLoup.ajouterAnimal(LM);
-		cageLoup.ajouterAnimal(LF);
-		System.out.println(cageLoup.toString());
-	//	LM.saccoupler(LF);
-		System.out.println(cageLoup.toString());
-		System.out.println(LM.toString());
-	}
-	
 }//LoupMale

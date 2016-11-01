@@ -291,14 +291,12 @@ public class Zoo {
 	}//listerAnimauxEnclos()
 	
 	public <T extends Male<U>,U extends Animal> String reproductionAnimal(){
-		String retour = "";
-		ArrayList<T> listAnimauxM = new ArrayList<T>();
-		ArrayList<U> listAnimauxF = new ArrayList<U>();
-		
+		String retour = "";		
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
 			for(Animal animal : enclos.getListAnimaux()){
+				
 				//si l'animal est un male
-				if(animal.getSexe() == 'M'){
+				if(verfierMale(animal)){
 					Animal animalFemelle = enclos.getFemelle();	
 					//si on a reussi a recuperer un femelle dans le même enclos
 					if(animalFemelle != null){
@@ -306,24 +304,63 @@ public class Zoo {
 						
 						//1 chance /2 d'ajouter les animaux à la liste de ceux qui vont se reproduire
 						if(chanceAccouplement > 0.5){
-							listAnimauxM.add((T) animal);
-							listAnimauxF.add((U) animalFemelle);							
-						}//if chanceAccouplement
-					}// if femelle != null
-				}// animal est un male
-			}//for animal
-		}//for enclos
-		/*
-		 * Pas d'accouplement directement dans la boucle car on ne peux pas ajouter 
-		 * de nouveaux elements dans la liste des animaux quand elle est en lecture
-		 */
-		int count = 0;
-		for(T animal : listAnimauxM){
-			retour += animal.saccoupler(listAnimauxF.get(count));
-			++count;
-		}		
+							retour += ((T) animal).saccoupler((U) animalFemelle);							
+						}
+					}
+				}
+			}
+		}
 		return retour;
 	}//reproductionAnimal
+	
+	public <T extends MammifereFemelle, U extends AutreFemelle> String verifierFemelleEnceinte(){
+		ArrayList<T> listMammifereFemelle = new ArrayList<T>();
+		ArrayList<U> listAutreFemelle = new ArrayList<U>();
+		String retour = "";
+		//recuperation des femelles pouvant accoucher/pondre
+		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
+			for(Animal animal : enclos.getListAnimaux()){
+				if(animal instanceof MammifereFemelle){
+					listMammifereFemelle.add((T) animal);
+				}else if(animal instanceof AutreFemelle){
+					listAutreFemelle.add((U) animal);
+				}
+			}
+		}		
+		/*
+		 * pour chaque femelle, si la periode de 
+		 * gestation/incubation est terminer, elle accouche/pond
+		 * Sinon on ajoute 1 à tempEnceinte
+		 */
+		for(MammifereFemelle animal : listMammifereFemelle){
+			if(animal.isEnceinte()){
+				if(animal.getTempEnceinte() == animal.getPeriodeEnfantement()){
+					retour += animal.mettreBas();
+				}else{
+					animal.setTempEnceinte(animal.getTempEnceinte() + 1);
+				}
+			}
+
+		}
+		for(AutreFemelle animal : listAutreFemelle){
+			if(animal.isEnceinte()){
+				if(animal.getTempEnceinte() == animal.getPeriodeEnfantement()){
+					retour += animal.pondre();
+				}else{
+					animal.setTempEnceinte(animal.getTempEnceinte() + 1);
+				}
+			}
+		}
+		return retour;		
+	}//verifierFemelleEnceinte()
+	
+	public boolean verfierMale(Animal animal){
+		if(animal.getSexe() == 'M' && animal.getAge() >= animal.getMaturiteSexuelle()){
+			return true;
+		}else{
+			return false;
+		}
+	}//verfierMale()
 	
 	public static Zoo getInstance(String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
 		if(instance == null){

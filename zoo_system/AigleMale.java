@@ -7,7 +7,8 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	}//AigleMale()
 	
 	public String saccoupler(AigleFemelle femelle) {
-		return femelle.pondre();		
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";	
 	}//sacoupler()
 	
 	public String toString(){

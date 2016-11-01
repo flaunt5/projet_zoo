@@ -7,7 +7,8 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	}//BaleineMale()
 
 	public String saccoupler(BaleineFemelle femelle) {
-		return femelle.mettreBas();		
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";
 	}//sacoupler()
 	
 	public String toString(){

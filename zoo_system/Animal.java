@@ -133,4 +133,6 @@ public abstract class Animal extends Model{
 	public void setEndormi(boolean endormi) {
 		this.endormi = endormi;
 	}//setEndormi()
+
+	public abstract int getMaturiteSexuelle();
 }//Animal

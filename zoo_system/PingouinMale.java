@@ -7,7 +7,8 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 	}//PinguoinMale()
 
 	public String saccoupler(PingouinFemelle femelle) {
-		return femelle.pondre();
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";
 	}//sacoupler()
 
 	public String toString(){

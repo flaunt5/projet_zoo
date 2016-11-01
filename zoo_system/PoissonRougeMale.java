@@ -7,7 +7,8 @@ public class PoissonRougeMale extends PoissonRouge implements Male<PoissonRougeF
 	}//PoissonRougeMale()
 
 	public String saccoupler(PoissonRougeFemelle femelle) {
-		return femelle.pondre();	
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";
 	}//sacoupler
 	
 	public String toString(){

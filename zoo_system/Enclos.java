@@ -9,32 +9,6 @@ public abstract class Enclos<T extends Animal> extends Model{
 	protected int nbAnimauxMax;
 	protected String degreProprete;
 	protected ArrayList<T> listAnimaux;
-
-	public static void main(String args[]){/*
-		Cage en = new Cage("enclosLoup", 3, 2);
-		Cage en2 = new Cage("enclosTigre", 3, 2);
-		LoupMale loup1 = new LoupMale(30.0, 1.3, 15);
-		LoupMale loup2 = new LoupMale(35.0, 1.9, 55);
-		LoupMale loup3 = new LoupMale(70.0, 1.0, 2);
-		TigreMale tigre = new TigreMale(85.0, 2.0, 100);
-		TigreMale tigre2 = new TigreMale(85.0, 2.0, 150);
-		en.ajouterAnimal(loup1);
-		System.out.println(en.toString());
-		en2.ajouterAnimal(tigre);
-		System.out.println(en.toString());
-		en.ajouterAnimal(loup2);
-		System.out.println(en.toString());
-		en.ajouterAnimal(loup3);
-		System.out.println(en.toString());
-		en2.ajouterAnimal(tigre2);
-		System.out.println(en.toString());
-		System.out.println(en2.toString());
-		en.enleverAnimal(loup1);
-		System.out.println(en.toString());*/
-		LoupMale loup1 = new LoupMale(30.0, 1.3, 15);
-		double nb = Math.random() * (0.5 - 0.3)+0.3;
-		System.out.println(loup1.arrondiDecimals(nb, 1)) ;
-	}//main pour test
 	
 	public Enclos(String nom, int superficie, int nbAnimauxMax){
 		this.nom = nom;
@@ -90,11 +64,13 @@ public abstract class Enclos<T extends Animal> extends Model{
 		}		
 	}//isFull()
 	
-	public T getFemelle(){
-		T retour = null;
-		for(T animal : this.getListAnimaux()){
-			if(animal.getSexe() == 'F'){
-				retour = animal;
+	public Animal getFemelle(){
+		Animal retour = null;
+		for(Animal animal : this.getListAnimaux()){
+			if(animal.getSexe() == 'F' && animal.getAge() >= animal.getMaturiteSexuelle()){
+				if(!(((Femelle) animal).isEnceinte())){
+					retour = animal;
+				}
 			}
 		}
 		return retour;

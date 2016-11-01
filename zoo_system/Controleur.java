@@ -109,7 +109,7 @@ public abstract class Controleur {
 		zoo.ajouterEnclos(cageLoup2);
 		LoupMale loupMale3 = new LoupMale(80, 83, 5);
 		cageLoup.ajouterAnimal(loupMale3);
-		
+
 		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp);		
 	}//zooNumero1()
 	
@@ -133,6 +133,7 @@ public abstract class Controleur {
 			if(ihm.getNumTour() % moduloPourReproduction == 0){
 				vueZoo.reproductionAnimal();
 			}
+			vueZoo.verifierFemelleEnceinte();
 			ihm.setNumTour(ihm.getNumTour() + 1);
 			ihm.setNbAction(nbActionParTour);
 		}

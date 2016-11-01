@@ -7,7 +7,8 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 	}//OursMale()
 
 	public String saccoupler(OursFemelle femelle) {
-		return femelle.mettreBas();		
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";
 	}//sacoupler()
 	
 	public String toString(){

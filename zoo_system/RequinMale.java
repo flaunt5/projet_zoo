@@ -7,7 +7,8 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 	}//RequinMale()
 
 	public String saccoupler(RequinFemelle femelle) {
-		 return femelle.pondre();		
+		femelle.setEnceinte(true);
+		return femelle.getNom() + "(" + femelle.getSexe() + ") à été fecondé par "  +	this.getNom() + "(" + this.getSexe() + ")\n";
 	}//sacoupler
 	
 	public String toString(){
