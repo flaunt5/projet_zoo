@@ -14,7 +14,7 @@ public class VueLoupMale extends VueAnimal<LoupMale>{
 		Cage cageLoup = new Cage("Cage à  loup", 10, 3);
 		cageLoup.ajouterAnimal(LM);
 		cageLoup.ajouterAnimal(LF);
-		LM.saccoupler(LF);
+		//LM.saccoupler(LF);
 		
 		VueLoupMale vlm2 = new VueLoupMale(LM);
 		vlm2.details();

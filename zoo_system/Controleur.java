@@ -1,8 +1,9 @@
 package zoo_system;
 
+
 public abstract class Controleur {
 
-	public static void zooNumero1(){
+	public static void zooNumero1() throws InterruptedException{
 		/*
 		 * Mise en place du zoo
 		 */
@@ -102,9 +103,19 @@ public abstract class Controleur {
 		VueAigleMale vueAigleMale1 = new VueAigleMale(aigleMale1);
 		VueAigleMale vueAigleMale2 = new VueAigleMale(aigleMale2);
 		VueAigleFemelle vueAigleFem = new VueAigleFemelle(aigleFem);
+
+		Cage cageLoup2 = new Cage("Cage des loups2", 35, 5);
+		VueCage vueCageLoups2 = new VueCage(cageLoup2);
+		zoo.ajouterEnclos(cageLoup2);
+		LoupMale loupMale3 = new LoupMale(80, 83, 5);
+		cageLoup.ajouterAnimal(loupMale3);
 		
-		int nbAction = 3;
-		IHM ihm = new IHM(nbAction);
+		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp);		
+	}//zooNumero1()
+	
+	public static void systemeZoo(int nbActionParTour, int moduloPourModifs, int moduloPourReproduction, 
+									VueZoo vueZoo, VueEmploye vueEmp) throws InterruptedException{
+		IHM ihm = new IHM(nbActionParTour);
 		VueIHM vueIHM = new VueIHM(ihm);
 		while(true){			
 			int saisie;
@@ -114,16 +125,16 @@ public abstract class Controleur {
 				ihm.executeChoix(saisie, vueZoo, vueEmp);
 				ihm.setNbAction(ihm.getNbAction() - 1);
 			}
-			if(ihm.getNumTour() % 2 == 0){
+			if(ihm.getNumTour() % moduloPourModifs == 0){
+				Thread.sleep(2000);
 				vueZoo.modifierEtatAnimaux();
 				vueZoo.modifierEtatEnclos();
-			}/*
-			if(ihm.getNumTour() % 3 == 0){
-				//vueZoo.
-			}*/
-			vueZoo.reproductionAnimal();
+			}
+			if(ihm.getNumTour() % moduloPourReproduction == 0){
+				vueZoo.reproductionAnimal();
+			}
 			ihm.setNumTour(ihm.getNumTour() + 1);
-			ihm.setNbAction(nbAction);
+			ihm.setNbAction(nbActionParTour);
 		}
-	}//zooNumero1()
+	}
 }//Controleur

@@ -118,11 +118,11 @@ public abstract class Animal extends Model{
 		this.age = age;
 	}//setAge()
 
-	public Enclos getEnclosResidence() {
+	public <T extends Animal> Enclos<T> getEnclosResidence() {
 		return enclosResidence;
 	}//getEnclosResidence()
 
-	public void setEnclosResidence(Enclos enclosResidence) {
+	public <T extends Animal> void setEnclosResidence(Enclos<T> enclosResidence) {
 		this.enclosResidence = enclosResidence;
 	}//setEnclosResidence()
 

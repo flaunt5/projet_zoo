@@ -1,6 +1,8 @@
 package zoo_system;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.Map;
 
 public class Zoo {
 	private Employe employe;
@@ -106,7 +108,7 @@ public class Zoo {
 		Vz.modifierEtatEnclos();
 		Vc1.details();
 		Vc2.details();
-		Vc3.details();		*/
+		Vc3.details();		
 		Zoo zoo = Zoo.getInstance("zoo", 0, "test", 21, 'M');
 		Cage en1 = new Cage("enclos loup", 2, 4);
 		VueCage Vc1 = new VueCage(en1);
@@ -116,17 +118,19 @@ public class Zoo {
 		en1.ajouterAnimal(loup2);
 		zoo.ajouterEnclos(en1);
 		//zoo.accouplement(loup1, loup2);
-		Vc1.details();
+		Vc1.details();*/
+		
+		
 	}//main pour test
 	
 	private Zoo (String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
 		this.nom = nomZoo;
 		this.nbEnclos = nbEnclos;
-		this.listEnclos = new ArrayList<Enclos<?>>();
+		this.listEnclos = new ArrayList<Enclos<? extends Animal>>();
 		this.employe = Employe.getInstance(nomEmploye, ageEmploye, sexeEmploye);
 	}//Zoo()
 	
-	public String ajouterEnclos(Enclos<? extends Animal> enclos){
+	public <T extends Animal> String ajouterEnclos(Enclos<T> enclos){
 		this.getListEnclos().add(enclos);
 		this.setNbEnclos(this.getNbEnclos() + 1);
 		return enclos.getClass().getSimpleName() + " " + enclos.getNom() + " à été ajouté.";
@@ -234,17 +238,17 @@ public class Zoo {
 						case 0:
 							animal.setIndicSommeil(etatFutur[randomEtat]);
 							animal.setEndormi(true);
-							retour += animal.getNom() + " de "+ enclos.getClass().getSimpleName() + " : " +
+							retour += animal.getNom() + "(" + animal.getSexe() + ") de "+ enclos.getClass().getSimpleName() + " : " +
 										enclos.getNom() + ", est épuisé il s'est endormi \n";
 							break;
 						case 1:
 							animal.setIndicSante(etatFutur[randomEtat]);
-							retour += animal.getNom()+ " de "+ enclos.getClass().getSimpleName() + " : " + 
+							retour += animal.getNom() + "(" + animal.getSexe() + ") de "+ enclos.getClass().getSimpleName() + " : " + 
 										enclos.getNom() + ", est tombé malade \n";
 							break;
 						case 2:
 							animal.setIndicFaim(etatFutur[randomEtat]);
-							retour += animal.getNom() + " de "+ enclos.getClass().getSimpleName() + " : " +
+							retour += animal.getNom() + "(" + animal.getSexe() + ") de "+ enclos.getClass().getSimpleName() + " : " +
 										enclos.getNom() + ", est affamé, il faut qu'il mange \n";
 							break;
 					}//switch
@@ -264,76 +268,62 @@ public class Zoo {
 		}
 		retour += " :\n";
 		int count = 1;
-		for(Enclos enclos : this.getListEnclos()){
+		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
 			retour += count + " - " + enclos.getNom() + "\n";
 			++count;
 		}
 		return retour;
 	}//listerEnclos()
 	
-	public String listerAnimauxEnclos(Enclos<? extends Animal> enclos){
+	public <T extends Animal> String listerAnimauxEnclos(Enclos<T> enclos, boolean pourSoin){
 		String retour = "Choisissez un animal :\n";
 		int count = 1;
-		for(Animal animaux : enclos.getListAnimaux()){
-			retour += count + " - " + animaux.getNom() + "(" + animaux.getSexe() + ")\n";
+		for(T animaux : enclos.getListAnimaux()){
+			retour += count + " - " + animaux.getNom() + "(" + animaux.getSexe() + ") ";
+			if(pourSoin){
+				retour += "Sante : " + animaux.getIndicSante() + "\n";
+			}else{
+				retour += "\n";
+			}
 			++count;
 		}
 		return retour;
 	}//listerAnimauxEnclos()
 	
-	public  String reproductionAnimal(){
+	public <T extends Male<U>,U extends Animal> String reproductionAnimal(){
 		String retour = "";
+		ArrayList<T> listAnimauxM = new ArrayList<T>();
+		ArrayList<U> listAnimauxF = new ArrayList<U>();
+		
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
 			for(Animal animal : enclos.getListAnimaux()){
 				//si l'animal est un male
 				if(animal.getSexe() == 'M'){
-					Animal animalFemelle = enclos.getFemelle();
+					Animal animalFemelle = enclos.getFemelle();	
 					//si on a reussi a recuperer un femelle dans le même enclos
 					if(animalFemelle != null){
-						String classe = animal.getClass().getSimpleName();
 						double chanceAccouplement = Math.random();
-						// 1 chance sur  2 d'effectuer l'action
+						
+						//1 chance /2 d'ajouter les animaux à la liste de ceux qui vont se reproduire
 						if(chanceAccouplement > 0.5){
-							switch(classe){
-								case "LoupMale" : 
-									retour += ((LoupMale) animal).saccoupler((LoupFemelle) animalFemelle);
-									break;
-								case "TigreMale" : 
-									retour += ((TigreMale) animal).saccoupler((TigreFemelle) animalFemelle);
-									break;
-								case "OursMale" : 
-									retour += ((OursMale) animal).saccoupler((OursFemelle) animalFemelle);
-									break;
-								case "BaleineMale" : 
-									retour += ((BaleineMale) animal).saccoupler((BaleineFemelle) animalFemelle);
-									break;
-								case "PingouinMale" : 
-									retour += ((PingouinMale) animal).saccoupler((PingouinFemelle) animalFemelle);
-									break;
-								case "RequinMale" : 
-									retour += ((RequinMale) animal).saccoupler((RequinFemelle) animalFemelle);
-									break;
-								case "PoissonRougeMale" : 
-									retour += ((PoissonRougeMale) animal).saccoupler((PoissonRougeFemelle) animalFemelle);
-									break;
-								case "AigleMale" : 
-									retour += ((AigleMale) animal).saccoupler((AigleFemelle) animalFemelle);
-									break;
-							}//switch
+							listAnimauxM.add((T) animal);
+							listAnimauxF.add((U) animalFemelle);							
 						}//if chanceAccouplement
 					}// if femelle != null
 				}// animal est un male
 			}//for animal
 		}//for enclos
+		/*
+		 * Pas d'accouplement directement dans la boucle car on ne peux pas ajouter 
+		 * de nouveaux elements dans la liste des animaux quand elle est en lecture
+		 */
+		int count = 0;
+		for(T animal : listAnimauxM){
+			retour += animal.saccoupler(listAnimauxF.get(count));
+			++count;
+		}		
 		return retour;
 	}//reproductionAnimal
-	/*
-	public <T extends Male<U>,U extends Animal> void accouplement (T animalMale, U animalFemelle){
-		double chanceAccouplement = Math.random();
-		if(chanceAccouplement > 0.5){
-			animalMale.saccoupler(animalFemelle);
-		}
-	}//accouplement()*/
 	
 	public static Zoo getInstance(String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
 		if(instance == null){

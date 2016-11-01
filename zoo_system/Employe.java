@@ -62,7 +62,7 @@ public class Employe {
 		this.sexe = sexe;
 	}//Employe()
 	
-	public String nettoyerEnclos(Enclos<? extends Animal> enclos){//a evoluer pour le type aqua et voliere
+	public <T extends Animal> String nettoyerEnclos(Enclos<T> enclos){//a evoluer pour le type aqua et voliere
 		if(!(enclos.getListAnimaux().isEmpty())){
 			return "Vous devez vider l'enclos pour pouvoir l'entretenir";
 		}else{
@@ -78,11 +78,11 @@ public class Employe {
 		}
 	}//nettoyerEnclos()
 	
-	public String nourirAnimaux(Enclos<? extends Animal> enclos){
+	public <T extends Animal> String nourirAnimaux(Enclos<T> enclos){
 		return enclos.nourir();
 	}//nourirAnimaux()
 	
-	public String examinerEnclos(Enclos<? extends Animal> enclos){
+	public <T extends Animal> String examinerEnclos(Enclos<T> enclos){
 		String donneesEnclos = "";
 		String listAnimaux = "";
 		int count = 1; //compteur pour savoir quand on sera au dernier element
@@ -99,7 +99,7 @@ public class Employe {
 		return donneesEnclos + listAnimaux + "\n";// retourne les infos de l'enclos + le nom des animaux qu'il possède
 	}//examinerEnclos()
 	
-	public String transfererAnimal(Animal animal, Enclos enclosDesti){
+	public <T extends Animal> String transfererAnimal(T animal, Enclos<T> enclosDesti){
 		String transferValid = "Le/la " + animal.getNom() + " a ete transferer dans l'enclos " + enclosDesti.getNom();
 		String trasnferNonValid = "transfer annuler : ";
 		//verifie qu'on ne transfer pas un animal dans son enclos de residence actuel

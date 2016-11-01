@@ -25,7 +25,7 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 		cageLoup.ajouterAnimal(LM);
 		cageLoup.ajouterAnimal(LF);
 		System.out.println(cageLoup.toString());
-		LM.saccoupler(LF);
+	//	LM.saccoupler(LF);
 		System.out.println(cageLoup.toString());
 		System.out.println(LM.toString());
 	}

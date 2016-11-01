@@ -30,8 +30,8 @@ public class VueZoo extends Vue<Zoo>{
 		System.out.println(this.getModel().listerEnclos(pourTransfer));
 	}//afficherListEnclos()
 	
-	public void afficherListAnimauxEnclos(Enclos<? extends Animal> enclos){
-		System.out.println(this.getModel().listerAnimauxEnclos(enclos));
+	public void afficherListAnimauxEnclos(Enclos<? extends Animal> enclos, boolean pourSoin){
+		System.out.println(this.getModel().listerAnimauxEnclos(enclos,pourSoin));
 	}//afficherListAnimauxEnclos()
 	
 	public void demandeDetail(){

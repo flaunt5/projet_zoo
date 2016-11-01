@@ -67,7 +67,7 @@ public class IHM extends Model{
 			case 2 : 
 				vueZoo.afficherListEnclos(false);
 				enclos = getEnclos(vueZoo.getModel());
-				vueZoo.afficherListAnimauxEnclos(enclos);
+				vueZoo.afficherListAnimauxEnclos(enclos, false);
 				animal = getAnimal(enclos);
 				vueZoo.afficherListEnclos(true);
 				enclos = getEnclos(vueZoo.getModel());
@@ -81,7 +81,7 @@ public class IHM extends Model{
 			case 4 : 
 				vueZoo.afficherListEnclos(false);
 				enclos = getEnclos(vueZoo.getModel());
-				vueZoo.afficherListAnimauxEnclos(enclos);
+				vueZoo.afficherListAnimauxEnclos(enclos, true);
 				animal = getAnimal(enclos);
 				vueEmp.soignerAnimal(animal);
 				break;
