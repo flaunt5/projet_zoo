@@ -1,13 +1,14 @@
 package zoo_system;
 
 public class LoupFemelle extends Loup implements MammifereFemelle{
-	
+
+	private static int numPseudo = 0;
 	private boolean enceinte;
 	private static final int periodeEnfantement = 3;
 	private int tempEnceinte;
 	
-	public LoupFemelle(double poids, double taille, int age){
-		super(poids, taille, age);
+	public LoupFemelle(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//LoupFemelle()
@@ -18,16 +19,17 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour =  this.getNom() + " de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
 				double randomRequin = Math.random();
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					LoupMale loup = AnimalFactory.getLoupMale(randomPoids, randomTaille);
+					LoupMale loup = AnimalFactory.getLoupMale(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(loup);
 				}else{
-					LoupFemelle loup = AnimalFactory.getLoupFemelle(randomPoids, randomTaille);
+					LoupFemelle loup = AnimalFactory.getLoupFemelle(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(loup);
 				}
 				++nbBebeNee;
@@ -45,6 +47,18 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 		}
 		return retour;
 	}//mettreBas()
+	
+	public static String getPseudoAnimal(){
+		String[] tabPseudo = {"Lady", "Nimeria", "Amaterasu", "Moro", "Yuma", "Azur", "Neige"};
+		int indice = LoupFemelle.getNumPseudo();
+		if(indice > (tabPseudo.length - 1)){
+			LoupFemelle.setNumPseudo(1);
+			indice = LoupFemelle.getNumPseudo();
+		}
+		String pseudo = tabPseudo[indice];
+		LoupFemelle.setNumPseudo(LoupFemelle.getNumPseudo() + 1);
+		return pseudo;
+	}//getPseudoAnimal()
 	
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -75,5 +89,12 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
+	public static int getNumPseudo() {
+		return numPseudo;
+	}//getNumPseudo()
+
+	public static void setNumPseudo(int numPseudo) {
+		LoupFemelle.numPseudo = numPseudo;
+	}//setNumPseudo()
 
 }//LoupFemelle

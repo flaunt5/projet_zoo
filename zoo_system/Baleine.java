@@ -4,8 +4,8 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	
 	protected static final int maturiteSexuelle = 5;
 	
-	public Baleine(double poids, double taille, int age){
-		super(poids, taille, age);
+	public Baleine(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.nom = "baleine";
 	}//Baleine()
 	

@@ -40,9 +40,13 @@ public class VueZoo extends Vue<Zoo>{
 	
 	public void reproductionAnimal(){
 		System.out.println(this.getModel().reproductionAnimal());
-	}
+	}//reproductionAnimal()
 	
 	public void verifierFemelleEnceinte(){
 		System.out.println(this.getModel().verifierFemelleEnceinte());		
-	}
+	}//verifierFemelleEnceinte()
+	
+	public void reveillerAnimaux(){
+		System.out.println(this.getModel().reveillerAnimaux());
+	}//reveillerAnimaux()
 }//VueZoo

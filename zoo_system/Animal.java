@@ -10,8 +10,9 @@ public abstract class Animal extends Model{
 	protected int age;
 	protected Enclos enclosResidence;
 	protected boolean endormi;
+	protected String pseudo;
 	
-	public Animal(double poids, double taille, int age){
+	public Animal(double poids, double taille, int age, String pseudo){
 		this.poids = poids;
 		this.taille = taille;
 		this.indicFaim = "rassasier";
@@ -19,8 +20,9 @@ public abstract class Animal extends Model{
 		this.indicSommeil = "dynamique";
 		this.age = age;
 		this.endormi = false;
-	}
-	
+		this.pseudo = pseudo;
+	}//Animal()
+
 	public abstract char getSexe();
 	
 	public void manger(){
@@ -44,7 +46,7 @@ public abstract class Animal extends Model{
 	
 	@Override
 	public String toString() {
-		return "\t" + "Espece : " + nom + "\n" + 
+		return "\t" + "Espece : " + nom + " ; Nom de l'animal : " + pseudo + "\n" + 
 				"\t" + "Age : " + age + " ans ; Taille : " + taille + "M ; Poids : " + poids + "Kg\n" +
 				"\t" + "Appetit : " + indicFaim + " ; Sante : " + indicSante + " ; Sommeil : " + indicSommeil + " ; Endormi : " + convertBolleanToString(endormi) + "\n";
 	}//toString()
@@ -134,5 +136,13 @@ public abstract class Animal extends Model{
 		this.endormi = endormi;
 	}//setEndormi()
 
+	public String getPseudo() {
+		return pseudo;
+	}//getPseudo()
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}//setPseudo()
+	
 	public abstract int getMaturiteSexuelle();
 }//Animal

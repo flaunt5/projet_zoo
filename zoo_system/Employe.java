@@ -16,12 +16,12 @@ public class Employe {
 		Voliere vo2 = new Voliere("voliereAigle2", 3, 1, 5.0);
 		VueVoliere Vvo2 = new VueVoliere(vo2);
 		
-		Loup loup1 = new LoupMale(30.0, 1.3, 15);
-		Loup loup2 = new LoupMale(50.0, 1.5, 15);
-		Aigle aigle1 = new AigleMale(30.0, 1.3, 15);
-		Aigle aigle2 = new AigleFemelle(40.0, 1.3, 18);
-		Requin requin1 = new RequinMale(30.0, 1.3, 15);
-		Requin requin2 = new RequinFemelle(90.0, 1.3, 25);
+		Loup loup1 = new LoupMale(30.0, 1.3, 15, "loup1");
+		Loup loup2 = new LoupMale(50.0, 1.5, 15, "loup2");
+		Aigle aigle1 = new AigleMale(30.0, 1.3, 15, "aigle2");
+		Aigle aigle2 = new AigleFemelle(40.0, 1.3, 18, "aigle2");
+		Requin requin1 = new RequinMale(30.0, 1.3, 15, "req1");
+		Requin requin2 = new RequinFemelle(90.0, 1.3, 25, "req2");
 		
 		en.ajouterAnimal(loup2);
 		en.ajouterAnimal(loup1);

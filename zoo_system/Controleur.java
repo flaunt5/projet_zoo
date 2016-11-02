@@ -3,12 +3,12 @@ package zoo_system;
 
 public abstract class Controleur {
 
-	public static void zooNumero1() throws InterruptedException{
+	public static void zooNumero1(){
 		/*
 		 * Mise en place du zoo
 		 */
 		//creaction du zoo et de l'employe
-		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'F');
+		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M');
 		//creaction des enclos
 		Cage cageLoup = new Cage("Cage des loups", 35, 5);
 		Cage cageOurs = new Cage("Cage des ours", 30, 5);
@@ -19,27 +19,27 @@ public abstract class Controleur {
 		Aquarium bassinPinguoin = new Aquarium("Bassin des pinguoin", 40, 4);
 		Voliere voliereAigle = new Voliere("Voliere des aigles", 60, 5, 15);
 		//creaction des animaux de base
-		LoupMale loupMale1 = new LoupMale(60, 83, 5);
-		LoupMale loupMale2 = new LoupMale(70, 85, 6);
-		LoupFemelle loupFem = new LoupFemelle(50, 80, 5);
-		OursFemelle oursfem = new OursFemelle(450, 110, 15);
-		OursMale oursMale = new OursMale(500, 140, 20);
-		TigreMale  tigreMale1 = new TigreMale(280, 110, 13);
-		TigreMale tigreMale2 = new TigreMale(200, 100, 12);
-		TigreFemelle tigreFem = new TigreFemelle(110, 80, 10);
-		BaleineMale baleineMale = new BaleineMale(140000, 35, 75);
-		BaleineFemelle baleineFem = new BaleineFemelle(135000, 32, 50);
-		PoissonRougeMale poissonRMale1 = new PoissonRougeMale(1.2, 39, 8);
-		PoissonRougeMale poissonRMale2 = new PoissonRougeMale(1, 40, 7);
-		PoissonRougeFemelle poissonRFem1 = new PoissonRougeFemelle(0.5, 32, 11);
-		PoissonRougeFemelle poissonRFem2 = new PoissonRougeFemelle(1.5, 30, 5);
-		RequinMale requinMale = new RequinMale(800, 7, 18);
-		RequinFemelle requinFem = new RequinFemelle(750, 6, 20);
-		PingouinMale pinguoinMale = new PingouinMale(0.6, 0.75, 10);
-		PingouinFemelle pinguoinFem = new PingouinFemelle(0.5, 0.7, 11);
-		AigleMale aigleMale1 = new AigleMale(5, 0.8, 18);
-		AigleMale aigleMale2 = new AigleMale(6.3, 0.75, 14);
-		AigleFemelle aigleFem = new AigleFemelle(4.8, 0.6, 10);
+		LoupMale loupMale1 = new LoupMale(60, 83, 5,LoupMale.getPseudoAnimal());
+		LoupMale loupMale2 = new LoupMale(70, 85, 6,LoupMale.getPseudoAnimal());
+		LoupFemelle loupFem = new LoupFemelle(50, 80, 5,LoupFemelle.getPseudoAnimal());
+		OursFemelle oursfem = new OursFemelle(450, 110, 15,OursFemelle.getPseudoAnimal());
+		OursMale oursMale = new OursMale(500, 140, 20,OursMale.getPseudoAnimal());
+		TigreMale  tigreMale1 = new TigreMale(280, 110, 13,TigreMale.getPseudoAnimal());
+		TigreMale tigreMale2 = new TigreMale(200, 100, 12,TigreMale.getPseudoAnimal());
+		TigreFemelle tigreFem = new TigreFemelle(110, 80, 10,TigreFemelle.getPseudoAnimal());
+		BaleineMale baleineMale = new BaleineMale(140000, 35, 75,BaleineMale.getPseudoAnimal());
+		BaleineFemelle baleineFem = new BaleineFemelle(135000, 32, 50,BaleineFemelle.getPseudoAnimal());
+		PoissonRougeMale poissonRMale1 = new PoissonRougeMale(1.2, 39, 8,PoissonRougeMale.getPseudoAnimal());
+		PoissonRougeMale poissonRMale2 = new PoissonRougeMale(1, 40, 7,PoissonRougeMale.getPseudoAnimal());
+		PoissonRougeFemelle poissonRFem1 = new PoissonRougeFemelle(0.5, 32, 11,PoissonRougeFemelle.getPseudoAnimal());
+		PoissonRougeFemelle poissonRFem2 = new PoissonRougeFemelle(1.5, 30, 5,PoissonRougeFemelle.getPseudoAnimal());
+		RequinMale requinMale = new RequinMale(800, 7, 18,RequinMale.getPseudoAnimal());
+		RequinFemelle requinFem = new RequinFemelle(750, 6, 20,RequinFemelle.getPseudoAnimal());
+		PingouinMale pinguoinMale = new PingouinMale(0.6, 0.75, 10,PingouinMale.getPseudoAnimal());
+		PingouinFemelle pinguoinFem = new PingouinFemelle(0.5, 0.7, 11,PingouinFemelle.getPseudoAnimal());
+		AigleMale aigleMale1 = new AigleMale(5, 0.8, 18,AigleMale.getPseudoAnimal());
+		AigleMale aigleMale2 = new AigleMale(6.3, 0.75, 14,AigleMale.getPseudoAnimal());
+		AigleFemelle aigleFem = new AigleFemelle(4.8, 0.6, 10,AigleFemelle.getPseudoAnimal());
 		//Ajout des enclos dans le zoo
 		zoo.ajouterEnclos(voliereAigle);
 		zoo.ajouterEnclos(bassinPinguoin);
@@ -73,7 +73,7 @@ public abstract class Controleur {
 		voliereAigle.ajouterAnimal(aigleFem);
 		//Mise en place des Vues
 		VueZoo vueZoo = new VueZoo(zoo);
-		VueEmploye vueEmp = new VueEmploye(zoo.getEmploye());
+		VueEmploye vueEmp = new VueEmploye(zoo.getEmploye());/*
 		VueCage vueCageLoups = new VueCage(cageLoup);
 		VueCage vueCageOurs = new VueCage(cageOurs);
 		VueCage vueCageTigres = new VueCage(cageTigre);
@@ -102,34 +102,49 @@ public abstract class Controleur {
 		VuePingouinFemelle vuePinguoinFem = new VuePingouinFemelle(pinguoinFem);
 		VueAigleMale vueAigleMale1 = new VueAigleMale(aigleMale1);
 		VueAigleMale vueAigleMale2 = new VueAigleMale(aigleMale2);
-		VueAigleFemelle vueAigleFem = new VueAigleFemelle(aigleFem);
+		VueAigleFemelle vueAigleFem = new VueAigleFemelle(aigleFem);*/
 
-		Cage cageLoup2 = new Cage("Cage des loups2", 35, 5);
-		VueCage vueCageLoups2 = new VueCage(cageLoup2);
-		zoo.ajouterEnclos(cageLoup2);
-		LoupMale loupMale3 = new LoupMale(80, 83, 5);
-		cageLoup.ajouterAnimal(loupMale3);
+		Cage cageSecours = new Cage("Cage de remplacement", 35, 5);
+		Aquarium bassinSecours = new Aquarium("Bassin de remplacement", 35, 5);
+		Voliere voliereSecours = new Voliere("Voliere de remplacement", 35, 5, 10);
+		VueCage vueCageSecours = new VueCage(cageSecours);
+		VueAquarium vueBassinSecours = new VueAquarium(bassinSecours);
+		VueVoliere vueVoliereSecours = new VueVoliere(voliereSecours);
+		zoo.ajouterEnclos(cageSecours);
+		zoo.ajouterEnclos(bassinSecours);
+		zoo.ajouterEnclos(voliereSecours);
 
 		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp);		
 	}//zooNumero1()
 	
 	public static void systemeZoo(int nbActionParTour, int moduloPourModifs, int moduloPourReproduction, 
-									VueZoo vueZoo, VueEmploye vueEmp) throws InterruptedException{
+									VueZoo vueZoo, VueEmploye vueEmp){
 		IHM ihm = new IHM(nbActionParTour);
-		VueIHM vueIHM = new VueIHM(ihm);
-		while(true){			
-			int saisie;
+		VueIHM vueIHM = new VueIHM(ihm);	
+		int saisie;
+		int numTourModif = 0;
+		boolean isModifier = false;
+		while(true){		
+			//actions de l'utilisateurs
 			while(ihm.getNbAction() != 0){
 				vueIHM.afficherMenuAction();
 				saisie = ihm.getSaisieUtilisateur(1, 7);
 				ihm.executeChoix(saisie, vueZoo, vueEmp);
 				ihm.setNbAction(ihm.getNbAction() - 1);
 			}
+			//si l'état des animaux on été modifier, 2 tour plus tard ils essayent de se reveillés
+			if(numTourModif + 2 == ihm.getNumTour() && isModifier){
+				vueZoo.reveillerAnimaux();
+				isModifier = false;
+			}
+			//tout les x tour modif etat enclos et animaux
 			if(ihm.getNumTour() % moduloPourModifs == 0){
-				Thread.sleep(2000);
 				vueZoo.modifierEtatAnimaux();
 				vueZoo.modifierEtatEnclos();
+				isModifier = true;
+				numTourModif = ihm.getNumTour();
 			}
+			//tout les x tour reproduction des animaux
 			if(ihm.getNumTour() % moduloPourReproduction == 0){
 				vueZoo.reproductionAnimal();
 			}

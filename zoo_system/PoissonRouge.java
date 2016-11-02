@@ -4,8 +4,8 @@ public abstract class PoissonRouge extends Aquatique implements MarinAction{
 	
 	protected static final int maturiteSexuelle = 2;
 	
-	public PoissonRouge(double poids, double taille, int age){
-		super(poids, taille, age);
+	public PoissonRouge(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.nom = "poisson rouge";
 	}//PoissonRouge()
 	

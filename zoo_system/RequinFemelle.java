@@ -5,9 +5,10 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	private boolean enceinte;
 	private static final int periodeEnfantement = 5;
 	private int tempEnceinte;
+	private static int numPseudo = 0;
 	
-	public RequinFemelle(double poids, double taille, int age){
-		super(poids, taille, age);
+	public RequinFemelle(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//RequinFemelle()
@@ -18,16 +19,17 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour = "Les oeufs de " + this.getNom() + " de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
+		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
 				double randomRequin = Math.random();
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					RequinMale requin = AnimalFactory.getRequinMale(randomPoids, randomTaille);
+					RequinMale requin = AnimalFactory.getRequinMale(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(requin);
 				}else{
-					RequinFemelle requin = AnimalFactory.getRequinFemelle(randomPoids, randomTaille);
+					RequinFemelle requin = AnimalFactory.getRequinFemelle(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(requin);
 				}
 				++nbBebeNee;
@@ -45,6 +47,18 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		}
 		return retour;
 	}//pondre()
+
+	public static String getPseudoAnimal(){
+		String[] tabPseudo = {"Anadrieniel", "Rykela", "Sairalinde", "Zindai", "Valja", "Dakali", "Dronel"};
+		int indice = RequinFemelle.getNumPseudo();
+		if(indice > (tabPseudo.length - 1)){
+			RequinFemelle.setNumPseudo(1);
+			indice = RequinFemelle.getNumPseudo();
+		}
+		String pseudo = tabPseudo[indice];
+		RequinFemelle.setNumPseudo(RequinFemelle.getNumPseudo() + 1);
+		return pseudo;
+	}//getPseudoAnimal()
 	
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -75,4 +89,12 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
+
+	public static int getNumPseudo() {
+		return numPseudo;
+	}//getNumPseudo()
+
+	public static void setNumPseudo(int numPseudo) {
+		RequinFemelle.numPseudo = numPseudo;
+	}//setNumPseudo()
 }//RequinFemelle

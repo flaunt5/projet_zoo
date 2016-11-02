@@ -5,9 +5,10 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	private boolean enceinte;
 	private static final int periodeEnfantement = 3;
 	private int tempEnceinte;
+	private static int numPseudo = 0;
 	
-	public TigreFemelle(double poids, double taille, int age){
-		super(poids, taille, age);
+	public TigreFemelle(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//TigreFemelle()
@@ -18,16 +19,17 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour = this.getNom() + " de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
 				double randomRequin = Math.random();
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					TigreMale tigre = AnimalFactory.getTigreMale(randomPoids, randomTaille);
+					TigreMale tigre = AnimalFactory.getTigreMale(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(tigre);
 				}else{
-					TigreFemelle tigre = AnimalFactory.getTigreFemelle(randomPoids, randomTaille);
+					TigreFemelle tigre = AnimalFactory.getTigreFemelle(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(tigre);
 				}
 				++nbBebeNee;
@@ -45,6 +47,18 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 		}
 		return retour;
 	}//mettreBas()
+	
+	public static String getPseudoAnimal(){
+		String[] tabPseudo = {"Tigresse", "Blanche", "Pandore", "Ruby", "Fedora", "Duchesse", "Grisemine"};
+		int indice = TigreFemelle.getNumPseudo();
+		if(indice > (tabPseudo.length - 1)){
+			TigreFemelle.setNumPseudo(1);
+			indice = TigreFemelle.getNumPseudo();
+		}
+		String pseudo = tabPseudo[indice];
+		TigreFemelle.setNumPseudo(TigreFemelle.getNumPseudo() + 1);
+		return pseudo;
+	}//getPseudoAnimal()
 	
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -75,4 +89,12 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
+
+	public static int getNumPseudo() {
+		return numPseudo;
+	}//getNumPseudo()
+
+	public static void setNumPseudo(int numPseudo) {
+		TigreFemelle.numPseudo = numPseudo;
+	}//setNumPseudo()
 }//TigreFemelle

@@ -5,9 +5,10 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	private boolean enceinte;
 	private static final int periodeEnfantement = 2;
 	private int tempEnceinte;
+	private static int numPseudo = 0;
 	
-	public AigleFemelle(double poids, double taille, int age){
-		super(poids, taille, age);
+	public AigleFemelle(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//AigleFemelle()
@@ -18,16 +19,17 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour =  "Les oeufs de " + this.getNom() + " de la volière : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
+		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
 				double randomRequin = Math.random();
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					AigleMale aigle = AnimalFactory.getAigleMale(randomPoids, randomTaille);
+					AigleMale aigle = AnimalFactory.getAigleMale(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(aigle);
 				}else{
-					AigleFemelle aigle = AnimalFactory.getAigleFemelle(randomPoids, randomTaille);
+					AigleFemelle aigle = AnimalFactory.getAigleFemelle(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(aigle);
 				}
 				++nbBebeNee;
@@ -46,6 +48,17 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 		return retour;
 	}//pondre()
 	
+	public static String getPseudoAnimal(){
+		String[] tabPseudo = {"Ayasha", "Chilali", "Etu", "Dyami", "Halona", "Istu", "Muraco"};
+		int indice = AigleFemelle.getNumPseudo();
+		if(indice > (tabPseudo.length - 1)){
+			AigleFemelle.setNumPseudo(1);
+			indice = AigleFemelle.getNumPseudo();
+		}
+		String pseudo = tabPseudo[indice];
+		AigleFemelle.setNumPseudo(AigleFemelle.getNumPseudo() + 1);
+		return pseudo;
+	}//getPseudoAnimal()
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
 				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Période d'incubation : " + periodeEnfantement
@@ -75,5 +88,13 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
+
+	public static int getNumPseudo() {
+		return numPseudo;
+	}//getNumPseudo()
+
+	public static void setNumPseudo(int numPseudo) {
+		AigleFemelle.numPseudo = numPseudo;
+	}//setNumPseudo()
 
 }//AigleFemelle

@@ -4,8 +4,8 @@ public abstract class Requin extends Aquatique implements MarinAction{
 	
 	protected static final int maturiteSexuelle = 4;
 	
-	public Requin(double poids, double taille, int age){
-		super(poids, taille, age);
+	public Requin(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.nom = "requin";
 	}//Requin()
 	

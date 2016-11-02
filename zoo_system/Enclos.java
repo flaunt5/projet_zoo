@@ -38,7 +38,15 @@ public abstract class Enclos<T extends Animal> extends Model{
 			//si l'enclos est vide on peut mettre l'animal car l'enclos n'a pas de type d'animal prédéfinit
 			//sinon on verifie l'espece du premiere animal, si elle est la memme que celui de "animal" on ajoute
             if(this.getListAnimaux().isEmpty() || this.getListAnimaux().get(0).getNom().equals(animal.getNom())){
-                return true;
+                if(this instanceof Cage && animal instanceof Terrestre){
+                	return true;
+                }else if(this instanceof Aquarium && animal instanceof Aquatique){
+                	return true;
+                }else if(this instanceof Voliere && animal instanceof Aerien){
+                	return true;
+                }else{
+                	return false;
+                }
             }else{
             	return false;
             }

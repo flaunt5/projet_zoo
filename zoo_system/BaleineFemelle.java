@@ -5,9 +5,10 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	private boolean enceinte;
 	private static final int periodeEnfantement = 4;
 	private int tempEnceinte;
+	private static int numPseudo = 0;
 	
-	public BaleineFemelle(double poids, double taille, int age){
-		super(poids, taille, age);
+	public BaleineFemelle(double poids, double taille, int age, String pseudo){
+		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//BaleineFemelle()
@@ -17,16 +18,17 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour =  this.getNom() + " de l'aquarium : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
 				double randomRequin = Math.random();
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					BaleineMale baleine = AnimalFactory.getBaleineMale(randomPoids, randomTaille);
+					BaleineMale baleine = AnimalFactory.getBaleineMale(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(baleine);
 				}else{
-					BaleineFemelle baleine = AnimalFactory.getBaleineFemelle(randomPoids, randomTaille);
+					BaleineFemelle baleine = AnimalFactory.getBaleineFemelle(randomPoids, randomTaille, pseudo);
 					this.getEnclosResidence().ajouterAnimal(baleine);
 				}
 				++nbBebeNee;
@@ -44,6 +46,18 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 		}
 		return retour;
 	}//mettreBas()
+	
+	public static String getPseudoAnimal(){
+		String[] tabPseudo = {"Monsto", "Aurore", "Coquillage", "Floride", "Précieux", "Robin", "Soushi"};
+		int indice = BaleineFemelle.getNumPseudo();
+		if(indice > (tabPseudo.length - 1)){
+			BaleineFemelle.setNumPseudo(1);
+			indice = BaleineFemelle.getNumPseudo();
+		}
+		String pseudo = tabPseudo[indice];
+		BaleineFemelle.setNumPseudo(BaleineFemelle.getNumPseudo() + 1);
+		return pseudo;
+	}//getPseudoAnimal()
 	
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -74,5 +88,13 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
+
+	public static int getNumPseudo() {
+		return numPseudo;
+	}//getNumPseudo()
+
+	public static void setNumPseudo(int numPseudo) {
+		BaleineFemelle.numPseudo = numPseudo;
+	}//setNumPseudo()
 
 }//BaleineFemelle
