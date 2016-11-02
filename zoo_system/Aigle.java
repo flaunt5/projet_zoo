@@ -1,12 +1,18 @@
 package zoo_system;
 
+import java.util.ArrayList;
+
 public abstract class Aigle extends Aerien implements VolantAction{
 	
 	protected static final int maturiteSexuelle = 4;
+	protected static final int esperanceVie = 25;
 
 	public Aigle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.nom = "aigle";
+		this.listNourritureAccepte = new ArrayList<String>();
+		this.listNourritureAccepte.add("Boeuf");
+		this.listNourritureAccepte.add("Poisson");
 	}//Aigle()
 	
 	public String emmetreSon() {
@@ -18,7 +24,11 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	}//voler()
 	
 	public int getMaturiteSexuelle(){
-		return maturiteSexuelle;
+		return Aigle.maturiteSexuelle;
+	}//getMaturiteSexuelle()
+	
+	public int getEsperanceVie(){
+		return Aigle.esperanceVie;
 	}//getMaturiteSexuelle()
 
 }//Aigle

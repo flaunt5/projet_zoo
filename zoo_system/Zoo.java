@@ -17,6 +17,7 @@ public class Zoo {
 		Aquarium bassinBaleine = new Aquarium("Bassin des baleines", 100, 3);
 		LoupMale loupMale1 = new LoupMale(60, 83, 5,LoupMale.getPseudoAnimal());
 		cageLoup.ajouterAnimal(loupMale1);
+		cageLoup.ajouterAnimal(loupMale1);
 		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M');
 		zoo.ajouterEnclos(bassinBaleine);
 		zoo.ajouterEnclos(cageLoup);
@@ -35,12 +36,18 @@ public class Zoo {
 		this.employe = Employe.getInstance(nomEmploye, ageEmploye, sexeEmploye);
 	}//Zoo()
 	
+	/*
+	 * Ajoute un enclos dans le zoo
+	 */
 	public <T extends Animal> String ajouterEnclos(Enclos<T> enclos){
 		this.getListEnclos().add(enclos);
 		this.setNbEnclos(this.getNbEnclos() + 1);
 		return enclos.getClass().getSimpleName() + " " + enclos.getNom() + " à été ajouté.";
 	}
 	
+	/*
+	 * Recupere la nombre d'animaux present dans le zoo
+	 */
 	public String getNbAnimaux(){
 		int compteurAnimaux = 0;
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
@@ -50,6 +57,9 @@ public class Zoo {
 		return "Il y a " + String.valueOf(compteurAnimaux) + " animaux dans le zoo";
 	}//afficheNbAnimaux()
 	
+	/*
+	 * Recupere les informations ou le pseudo,nom et sexe de tous les animaux du zoo
+	 */
 	public String getAnimaux(Boolean details){
 		String listAnimaux = "";
 		int count = 1;
@@ -75,6 +85,9 @@ public class Zoo {
 		return listAnimaux;
 	}//afficheAnimaux()
 
+	/*
+	 * Modifie aléatoirement les différents valeur des attribut des enclos
+	 */
 	public String modifierEtatEnclos(){
 		String[] etatFutur = {"correct", "mauvais"};
 		String retour = "";
@@ -127,6 +140,9 @@ public class Zoo {
 		return retour;
 	}//modifierEtatEnclos()
 	
+	/*
+	 * Modifie aléatoirement un des état(sommeil, faim, santé) des animaux du zoo
+	 */
 	public String modifierEtatAnimaux(){
 		String[] etatFutur = {"epuise", "malade", "affame"};
 		String retour = "";
@@ -168,6 +184,9 @@ public class Zoo {
 		return retour;
 	}//modifierEtatAnimaux()
 	
+	/*
+	 * Retourne la liste de enclos du zoo
+	 */
 	public String listerEnclos(Boolean pourTransfer){
 		String retour = "Choisissez un enclos ";
 		if(pourTransfer){
@@ -182,6 +201,9 @@ public class Zoo {
 		return retour;
 	}//listerEnclos()
 	
+	/*
+	 * Retourne la liste des animaux d'un enclos
+	 */
 	public <T extends Animal> String listerAnimauxEnclos(Enclos<T> enclos, boolean pourSoin){
 		String retour = "Choisissez un animal :\n";
 		int count = 1;
@@ -197,6 +219,9 @@ public class Zoo {
 		return retour;
 	}//listerAnimauxEnclos()
 	
+	/*
+	 * Accouple un animal mâle à un animal femelle de la même espece et du même enclos
+	 */
 	public <T extends Male<U>,U extends Animal> String reproductionAnimal(){
 		String retour = "";		
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
@@ -220,6 +245,9 @@ public class Zoo {
 		return retour;
 	}//reproductionAnimal
 	
+	/*
+	 * Faut accoucher les femelle pretent à le faire, sinon augmente la valeur des attribut lié à l'accouchement
+	 */
 	public <T extends MammifereFemelle, U extends AutreFemelle> String verifierFemelleEnceinte(){
 		ArrayList<T> listMammifereFemelle = new ArrayList<T>();
 		ArrayList<U> listAutreFemelle = new ArrayList<U>();
@@ -261,6 +289,9 @@ public class Zoo {
 		return retour;		
 	}//verifierFemelleEnceinte()
 	
+	/*
+	 * Vérifie si un animal mâle peut se reproduire
+	 */
 	public boolean verfierMale(Animal animal){
 		if(animal.getSexe() == 'M' && animal.getAge() >= animal.getMaturiteSexuelle()
 				&& !(animal.isEndormi())){
@@ -270,6 +301,9 @@ public class Zoo {
 		}
 	}//verfierMale()
 	
+	/*
+	 * Modifie aléatoirement l'état d'un animal endormie, afin qu'il se reveille
+	 */
 	public String reveillerAnimaux(){
 		String retour = "";
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
@@ -288,6 +322,42 @@ public class Zoo {
 		}
 		return retour;
 	}
+	
+	/*
+	 * Rajoute 1 ans à chaque animal
+	 */
+	public String faireGrandirAnimaux(){
+		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
+			for(Animal animal : enclos.getListAnimaux()){
+				animal.setAge(animal.getAge() + 1);
+			}
+		}
+		return "Les animaux ont grandi";
+	}//faireGrandirAnimaux()
+	
+	/*
+	 * Tue un animal en fonction de l'ecart q'il a avec son especerance de vie
+	 * Plus l'ecart est grand plus il aura de chance de mourir
+	 */
+	public String tuerAnimaux(){
+		String retour = "";
+		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
+			for(Animal animal : enclos.getListAnimaux()){
+				if(animal.getAge() >= animal.getEsperanceVie()){
+					//l'écart va representé le % de chance qu'il meurt, il est de base à 0.1
+					double chanceMort = ((animal.getAge() - animal.getEsperanceVie()) / 10) + 0.1;
+					double chanceSurvie = Math.random();
+					if(chanceMort > chanceSurvie){
+						retour += animal.mourir("De vieillesse");
+					}
+				}
+			}
+		}
+		if(retour.equals("")){
+			retour = "Les animaux se porte bien, aucuns morts à déplaurer";
+		}
+		return retour;
+	}//tuerAnimal()
 	
 	public static Zoo getInstance(String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye){
 		if(instance == null){

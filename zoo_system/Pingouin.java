@@ -1,12 +1,17 @@
 package zoo_system;
 
+import java.util.ArrayList;
+
 public abstract class Pingouin extends Aquatique implements MarinAction, VolantAction{
 	
 	protected static final int maturiteSexuelle = 4;
+	protected static final int esperanceVie = 20;
 	
 	public Pingouin(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.nom = "pingouin";
+		this.listNourritureAccepte = new ArrayList<String>();
+		this.listNourritureAccepte.add("Poisson");
 	}//Pinguoin()
 	
 	public String emmetreSon() {
@@ -22,6 +27,10 @@ public abstract class Pingouin extends Aquatique implements MarinAction, VolantA
 	}//nager()
 	
 	public int getMaturiteSexuelle(){
-		return maturiteSexuelle;
+		return Pingouin.maturiteSexuelle;
 	}//getMaturiteSexuelle()
-}//Pinguoin
+	
+	public int getEsperanceVie(){
+		return Pingouin.esperanceVie;
+	}//getMaturiteSexuelle()
+}//Pingouin

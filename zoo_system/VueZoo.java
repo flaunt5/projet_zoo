@@ -49,4 +49,12 @@ public class VueZoo extends Vue<Zoo>{
 	public void reveillerAnimaux(){
 		System.out.println(this.getModel().reveillerAnimaux());
 	}//reveillerAnimaux()
+	
+	public void faireGrandirAnimaux(){
+		System.out.println(this.getModel().faireGrandirAnimaux());
+	}//faireGrandirAnimaux()
+	
+	public void tuerAnimaux(){
+		System.out.println(this.getModel().tuerAnimaux());
+	}//tuerAnimaux()
 }//VueZoo
