@@ -18,7 +18,8 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour = "Les oeufs de " + this.getNom() + " de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
+		String retour = "Les oeufs de " + this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -26,10 +27,10 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					PoissonRougeMale poisson = AnimalFactory.getPoissonRougeMale(randomPoids, randomTaille, pseudo);
+					PoissonRougeMale poisson = AnimalFactory.getPoissonRougeMale(randomPoids, randomTaille, PoissonRougeMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(poisson);
 				}else{
-					PoissonRougeFemelle poisson = AnimalFactory.getPoissonRougeFemelle(randomPoids, randomTaille, pseudo);
+					PoissonRougeFemelle poisson = AnimalFactory.getPoissonRougeFemelle(randomPoids, randomTaille, PoissonRougeFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(poisson);
 				}
 				++nbBebeNee;
@@ -52,7 +53,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 		String[] tabPseudo = {"Dorry", "Corail", "Debbie", "Flo", "Astrid", "Perle", "Angie"};
 		int indice = PoissonRougeFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			PoissonRougeFemelle.setNumPseudo(1);
+			PoissonRougeFemelle.setNumPseudo(0);
 			indice = PoissonRougeFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

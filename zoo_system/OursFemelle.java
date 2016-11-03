@@ -18,7 +18,8 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour = this.getNom() + " de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+		String retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -26,10 +27,10 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					OursMale ours = AnimalFactory.getOursMale(randomPoids, randomTaille, pseudo);
+					OursMale ours = AnimalFactory.getOursMale(randomPoids, randomTaille, OursMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(ours);
 				}else{
-					OursFemelle ours = AnimalFactory.getOursFemelle(randomPoids, randomTaille, pseudo);
+					OursFemelle ours = AnimalFactory.getOursFemelle(randomPoids, randomTaille, OursFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(ours);
 				}
 				++nbBebeNee;
@@ -52,7 +53,7 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 		String[] tabPseudo = {"Chocolat", "Pyros", "Bambou", "Gaïa", "Bisounours", "Alyssa", "Angel"};
 		int indice = OursFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			OursFemelle.setNumPseudo(1);
+			OursFemelle.setNumPseudo(0);
 			indice = OursFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

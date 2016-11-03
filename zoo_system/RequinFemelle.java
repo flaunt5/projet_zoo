@@ -18,7 +18,8 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour = "Les oeufs de " + this.getNom() + " de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
+		String retour = "Les oeufs de " + this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -26,10 +27,10 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					RequinMale requin = AnimalFactory.getRequinMale(randomPoids, randomTaille, pseudo);
+					RequinMale requin = AnimalFactory.getRequinMale(randomPoids, randomTaille, RequinMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(requin);
 				}else{
-					RequinFemelle requin = AnimalFactory.getRequinFemelle(randomPoids, randomTaille, pseudo);
+					RequinFemelle requin = AnimalFactory.getRequinFemelle(randomPoids, randomTaille, RequinFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(requin);
 				}
 				++nbBebeNee;
@@ -52,7 +53,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		String[] tabPseudo = {"Anadrieniel", "Rykela", "Sairalinde", "Zindai", "Valja", "Dakali", "Dronel"};
 		int indice = RequinFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			RequinFemelle.setNumPseudo(1);
+			RequinFemelle.setNumPseudo(0);
 			indice = RequinFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

@@ -6,6 +6,7 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	
 	protected static final int maturiteSexuelle = 4;
 	protected static final int esperanceVie = 25;
+	
 
 	public Aigle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -13,6 +14,7 @@ public abstract class Aigle extends Aerien implements VolantAction{
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Boeuf");
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 3;
 	}//Aigle()
 	
 	public String emmetreSon() {
@@ -30,5 +32,9 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	public int getEsperanceVie(){
 		return Aigle.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 
 }//Aigle

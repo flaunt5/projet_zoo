@@ -17,7 +17,8 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 		double nbBebe = 1;
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour = "Les oeufs de " + this.getNom() + " de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
+		String retour = "Les oeufs de " + this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de l'aquarium : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -25,10 +26,10 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					PingouinMale pingouin = AnimalFactory.getPingouinMale(randomPoids, randomTaille, pseudo);
+					PingouinMale pingouin = AnimalFactory.getPingouinMale(randomPoids, randomTaille, PingouinMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(pingouin);
 				}else{
-					PingouinFemelle pingouin = AnimalFactory.getPingouinFemelle(randomPoids, randomTaille, pseudo);
+					PingouinFemelle pingouin = AnimalFactory.getPingouinFemelle(randomPoids, randomTaille, PingouinFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(pingouin);
 				}
 				++nbBebeNee;
@@ -51,7 +52,7 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 		String[] tabPseudo = {"Hatyna", "Baituna", "Sakai", "Oblisesk", "Tukki", "Jalen", "Blaryny"};
 		int indice = PingouinFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			PingouinFemelle.setNumPseudo(1);
+			PingouinFemelle.setNumPseudo(0);
 			indice = PingouinFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

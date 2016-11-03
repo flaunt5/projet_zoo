@@ -3,12 +3,16 @@ package zoo_system;
 
 public abstract class Controleur {
 
+	/**
+	 * Permet de commencer l'une des simulation de zoo
+	 */
 	public static void zooNumero1(){
 		/*
 		 * Mise en place du zoo
 		 */
 		//creaction du zoo et de l'employe
-		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M');
+		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 10, 9, 8);
+		
 		//creaction des enclos
 		Cage cageLoup = new Cage("Cage des loups", 35, 5);
 		Cage cageOurs = new Cage("Cage des ours", 30, 5);
@@ -113,10 +117,21 @@ public abstract class Controleur {
 		zoo.ajouterEnclos(cageSecours);
 		zoo.ajouterEnclos(bassinSecours);
 		zoo.ajouterEnclos(voliereSecours);
+		TigreMale  tigreMale = new TigreMale(280, 110, 19,TigreMale.getPseudoAnimal());
+		cageTigre.ajouterAnimal(tigreMale);
 
 		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp);		
 	}//zooNumero1()
 	
+	/**
+	 * Fonction principale, permettant de recuperer et executer les actions de l'utilisateur
+	 * ainsi que les action prévus par le programme
+	 * @param nbActionParTour
+	 * @param moduloPourModifs
+	 * @param moduloPourReproduction
+	 * @param vueZoo
+	 * @param vueEmp
+	 */
 	public static void systemeZoo(int nbActionParTour, int moduloPourModifs, int moduloPourReproduction, 
 									VueZoo vueZoo, VueEmploye vueEmp){
 		IHM ihm = new IHM(nbActionParTour);
@@ -127,6 +142,7 @@ public abstract class Controleur {
 		while(true){		
 			//actions de l'utilisateurs
 			while(ihm.getNbAction() != 0){
+				vueZoo.afficherContenuStock(false);
 				vueIHM.afficherMenuAction();
 				saisie = ihm.getSaisieUtilisateur(1, 7);
 				ihm.executeChoix(saisie, vueZoo, vueEmp);
@@ -148,6 +164,7 @@ public abstract class Controleur {
 			if(ihm.getNumTour() % moduloPourReproduction == 0){
 				vueZoo.reproductionAnimal();
 			}
+			vueZoo.tuerAnimaux();
 			vueZoo.faireGrandirAnimaux();
 			vueZoo.verifierFemelleEnceinte();
 			ihm.setNumTour(ihm.getNumTour() + 1);

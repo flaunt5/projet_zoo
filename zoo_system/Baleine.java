@@ -12,6 +12,7 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 		this.nom = "baleine";
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 10;
 	}//Baleine()
 	
 	public String emmetreSon() {
@@ -29,5 +30,9 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	public int getEsperanceVie(){
 		return Baleine.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 
 }//Baleine

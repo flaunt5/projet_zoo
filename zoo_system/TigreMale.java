@@ -20,7 +20,7 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 		String[] tabPseudo = {"Tigrou", "Shere Khan", "Rajah", "Oliver", "Garfield", "Tiger", "Simba"};
 		int indice = TigreMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			TigreMale.setNumPseudo(1);
+			TigreMale.setNumPseudo(0);
 			indice = TigreMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

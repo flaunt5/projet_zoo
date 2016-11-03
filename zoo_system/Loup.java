@@ -13,6 +13,7 @@ public abstract class Loup extends Terrestre implements PredateurAction{
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Boeuf");
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 3;
 	}//Loup()
 	
 	public String emmetreSon() {
@@ -30,5 +31,9 @@ public abstract class Loup extends Terrestre implements PredateurAction{
 	public int getEsperanceVie(){
 		return Loup.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 
 }//Loup

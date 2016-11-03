@@ -20,7 +20,7 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 		String[] tabPseudo = {"Bruce", "Enclume", "Chumi", "Thrambor", "Glunus", "Sharky", "Kremar"};
 		int indice = RequinMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			RequinMale.setNumPseudo(1);
+			RequinMale.setNumPseudo(0);
 			indice = RequinMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

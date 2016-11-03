@@ -20,7 +20,7 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 		String[] tabPseudo = {"Amadahy", "Anoki", "Kaepora", "Aranck", "Bidziil", "Chilam", "Noarfang"};
 		int indice = AigleMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			AigleMale.setNumPseudo(1);
+			AigleMale.setNumPseudo(0);
 			indice = AigleMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

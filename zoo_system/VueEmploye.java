@@ -14,8 +14,8 @@ public class VueEmploye extends Vue<Employe>{
 		System.out.println(this.getModel().examinerEnclos(enclos));
 	}//examinerEnclos()
 	
-	public void nourirAnimaux(Enclos<? extends Animal> enclos){
-		System.out.println(this.getModel().nourirAnimaux(enclos));
+	public <T extends Animal> void nourirAnimaux(Enclos enclos, Animal animal, Nourriture nourriture){
+		System.out.println(this.getModel().nourirAnimaux(enclos, animal, nourriture));
 	}//nourirAnimaux()
 	
 	public void nettoyerEnclos(Enclos<? extends Animal> enclos){

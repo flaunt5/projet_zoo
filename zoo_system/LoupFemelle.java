@@ -18,7 +18,8 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour =  this.getNom() + " de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+		String retour =  this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -26,10 +27,10 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					LoupMale loup = AnimalFactory.getLoupMale(randomPoids, randomTaille, pseudo);
+					LoupMale loup = AnimalFactory.getLoupMale(randomPoids, randomTaille, LoupMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(loup);
 				}else{
-					LoupFemelle loup = AnimalFactory.getLoupFemelle(randomPoids, randomTaille, pseudo);
+					LoupFemelle loup = AnimalFactory.getLoupFemelle(randomPoids, randomTaille, LoupFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(loup);
 				}
 				++nbBebeNee;
@@ -52,7 +53,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 		String[] tabPseudo = {"Lady", "Nimeria", "Amaterasu", "Moro", "Yuma", "Azur", "Neige"};
 		int indice = LoupFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			LoupFemelle.setNumPseudo(1);
+			LoupFemelle.setNumPseudo(0);
 			indice = LoupFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

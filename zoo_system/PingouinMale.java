@@ -20,7 +20,7 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 		String[] tabPseudo = {"Skipper", "Kowalski", "Soldat", "Rico", "Cobblepot", "Pingou", "Tiplouf"};
 		int indice = PingouinMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			PingouinMale.setNumPseudo(1);
+			PingouinMale.setNumPseudo(0);
 			indice = PingouinMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

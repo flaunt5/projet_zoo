@@ -12,6 +12,7 @@ public abstract class Pingouin extends Aquatique implements MarinAction, VolantA
 		this.nom = "pingouin";
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 2;
 	}//Pinguoin()
 	
 	public String emmetreSon() {
@@ -33,4 +34,8 @@ public abstract class Pingouin extends Aquatique implements MarinAction, VolantA
 	public int getEsperanceVie(){
 		return Pingouin.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 }//Pingouin

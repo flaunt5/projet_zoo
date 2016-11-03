@@ -14,6 +14,8 @@ public abstract class Animal extends Model{
 	protected boolean endormi;
 	protected String pseudo;
 	protected ArrayList<String> listNourritureAccepte;
+	protected int consoNourriture;
+	protected int niveauFaim;
 	
 	public Animal(double poids, double taille, int age, String pseudo){
 		this.poids = poids;
@@ -24,26 +26,33 @@ public abstract class Animal extends Model{
 		this.age = age;
 		this.endormi = false;
 		this.pseudo = pseudo;
+		this.niveauFaim = 100;
 	}//Animal()
 
+	public abstract String emmetreSon();
+	public abstract int getEsperanceVie();
+	public abstract char getSexe();
+	public abstract int getMaturiteSexuelle();
+	public abstract int getConsoNourriture();
+	
 	public String mourir(String cause){
 		this.getEnclosResidence().getListAnimaux().remove(this);
 		this.setEnclosResidence(null);
 		return this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") est mort... " + cause + "\n";
 	}//mourir()
 	
-	public abstract int getEsperanceVie();
-	public abstract char getSexe();
-	public abstract int getMaturiteSexuelle();
-	
-	public void manger(Nourriture nourriture){
-		if(this.getListNourritureAccepte().contains(nourriture.getClass().getSimpleName())){
-			System.out.println(this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") a manger" + nourriture.getClass().getSimpleName());
-			this.setIndicFaim("rassasier");
+	public String manger(Nourriture nourriture){
+		String retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") à vu la nourriture mais ne s'y intérésse pas";
+		if(this.getListNourritureAccepte().contains(nourriture.getClass().getSimpleName()) 
+				&& this.getNiveauFaim() != 100){
+			this.setNiveauFaim(this.getNiveauFaim() + nourriture.getGainNiveauFaim());
+			this.redefiniIndicFaim();
+			retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") à manger";
+			System.out.println(this.getNiveauFaim());
 		}
+		return retour;
 	}//manger()
-	
-	public abstract String emmetreSon();
+
 	
 	public void etreSoigner(){
 		this.setIndicSante("en forme");		
@@ -62,7 +71,8 @@ public abstract class Animal extends Model{
 	public String toString() {
 		return "\t" + "Espece : " + nom + " ; Nom de l'animal : " + pseudo + "\n" + 
 				"\t" + "Age : " + age + " ans ; Taille : " + taille + "M ; Poids : " + poids + "Kg\n" +
-				"\t" + "Appetit : " + indicFaim + " ; Sante : " + indicSante + " ; Sommeil : " + indicSommeil + " ; Endormi : " + convertBolleanToString(endormi) + "\n";
+				"\t" + "Appetit : " + indicFaim + " ; Niveau de faim : " + niveauFaim + "/100 ; Sante : " + indicSante + "\n" +
+				"\tSommeil : " + indicSommeil + " ; Endormi : " + convertBolleanToString(endormi) + "\n";
 	}//toString()
 	
 	public String convertBolleanToString(boolean bool){
@@ -106,8 +116,14 @@ public abstract class Animal extends Model{
 		return indicFaim;
 	}//getIndicFaim()
 
-	public void setIndicFaim(String indicFaim) {
-		this.indicFaim = indicFaim;
+	public void redefiniIndicFaim() {
+		if(this.getNiveauFaim() > 60){
+			this.indicFaim = "rassasié";
+		}else if(this.getNiveauFaim() < 60 && this.getNiveauFaim() > 30){
+			this.indicFaim = "à faim";
+		}else{
+			this.indicFaim = "affamé";			
+		}
 	}//setIndicFaim()
 
 	public String getIndicSante() {
@@ -160,7 +176,16 @@ public abstract class Animal extends Model{
 	
 	public ArrayList<String> getListNourritureAccepte() {
 		return listNourritureAccepte;
-	}//getListNourritureAccepte()
-
+	}//getListNourritureAccepte()	
 	
+	public int getNiveauFaim() {
+		return niveauFaim;
+	}//getNiveauFaim()
+
+	public void setNiveauFaim(int niveauFaim) {
+		this.niveauFaim = niveauFaim;
+		if(this.niveauFaim > 100){
+			this.niveauFaim = 100;			
+		}
+	}//setNiveauFaim()
 }//Animal

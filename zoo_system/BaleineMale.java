@@ -20,7 +20,7 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 		String[] tabPseudo = {"Barbe Blanche", "Moby Dick", "Atlas", "Fliper", "Willy", "César", "Wailord"};
 		int indice = BaleineMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			BaleineMale.setNumPseudo(1);
+			BaleineMale.setNumPseudo(0);
 			indice = BaleineMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

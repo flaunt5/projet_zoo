@@ -61,33 +61,34 @@ public class IHM extends Model{
 		switch(saisie){
 			case 1 :
 				vueZoo.afficherListEnclos(false);
-				enclos = getEnclos(vueZoo.getModel());
-				vueEmp.nourirAnimaux(enclos);
+				enclos = this.getEnclos(vueZoo.getModel());
+				//vueEmp.nourirAnimaux(enclos);
+				this.nourirPlusieurAnimaux(enclos, vueZoo, vueEmp);
 				break;
 			case 2 : 
 				vueZoo.afficherListEnclos(false);
-				enclos = getEnclos(vueZoo.getModel());
-				vueZoo.afficherListAnimauxEnclos(enclos, false);
+				enclos = this.getEnclos(vueZoo.getModel());
+				vueZoo.afficherListAnimauxEnclos(enclos, false, false);
 				animal = getAnimal(enclos);
 				vueZoo.afficherListEnclos(true);
-				enclos = getEnclos(vueZoo.getModel());
+				enclos = this.getEnclos(vueZoo.getModel());
 				vueEmp.transfererAnimal(animal, enclos);
 				break;
 			case 3 :
 				vueZoo.afficherListEnclos(false);
-				enclos = getEnclos(vueZoo.getModel());
+				enclos = this.getEnclos(vueZoo.getModel());
 				vueEmp.nettoyerEnclos(enclos);;
 				break;
 			case 4 : 
 				vueZoo.afficherListEnclos(false);
-				enclos = getEnclos(vueZoo.getModel());
-				vueZoo.afficherListAnimauxEnclos(enclos, true);
+				enclos = this.getEnclos(vueZoo.getModel());
+				vueZoo.afficherListAnimauxEnclos(enclos, true, false);
 				animal = getAnimal(enclos);
 				vueEmp.soignerAnimal(animal);
 				break;
 			case 5 :
 				vueZoo.afficherListEnclos(false);
-				enclos = getEnclos(vueZoo.getModel());
+				enclos = this.getEnclos(vueZoo.getModel());
 				vueEmp.examinerEnclos(enclos);
 				break;
 			case 6 :
@@ -103,6 +104,31 @@ public class IHM extends Model{
 		}
 	}//executeChoix()
 	
+	public void nourirPlusieurAnimaux(Enclos<? extends Animal> enclos, VueZoo vueZoo, VueEmploye vueEmp){
+		int saisie = 1000;
+		int saisieEquip;
+		Animal animal;
+		//tant que l'utilisateur ne selectionne pas l'action pour arreter de nourir
+		while(saisie != 0){
+			vueZoo.afficherListAnimauxEnclos(enclos, false, true);
+			saisie = getSaisieUtilisateur(0, enclos.getListAnimaux().size());
+			if(saisie != 0){
+				animal = (Animal) enclos.getListAnimaux().get(saisie - 1);
+				vueZoo.afficherContenuStock(true);
+				saisieEquip = getSaisieUtilisateur(0, vueZoo.getModel().getStockNourriture().size());
+				StockNourriture<? extends Nourriture> stockNourriture = vueZoo.getModel().getStockNourriture().get(saisieEquip);
+				int consonourriture = animal.getConsoNourriture();
+				//Boeuf nourriture = new Boeuf();
+				//vueEmp.nourirAnimaux(enclos, animal, nourriture);				
+			}
+		}
+	}//nourirPlusieurAnimaux()
+	
+	/**
+	 * Convertie un int en boolean 
+	 * @param futurBool
+	 * @return true ou false
+	 */
 	private Boolean convertIntEnBool(int futurBool){
 		if(futurBool % 2 == 0){
 			return false;
@@ -111,12 +137,22 @@ public class IHM extends Model{
 		}
 	}//convertIntEnBool
 	
+	/**
+	 * Recupere la saisie d'un utilisateur, et renvois l'enclos correspondant à cette saisie
+	 * @param zoo
+	 * @return enclos
+	 */
 	public Enclos<? extends Animal> getEnclos(Zoo zoo){
 		int numEnclos = getSaisieUtilisateur(0, zoo.getListEnclos().size()) - 1;
 		Enclos<? extends Animal> enclos = zoo.getListEnclos().get(numEnclos);
 		return enclos;
 	}
 	
+	/**
+	 * Recupere la saisie d'un utilisateur, et renvois l'animal correspondant à cette saisie
+	 * @param enclos
+	 * @return Animal
+	 */
 	public Animal getAnimal(Enclos<? extends Animal> enclos){
 		int numAnimal = getSaisieUtilisateur(0, enclos.getListAnimaux().size()) - 1;
 		Animal animal = (Animal) enclos.getListAnimaux().get(numAnimal);

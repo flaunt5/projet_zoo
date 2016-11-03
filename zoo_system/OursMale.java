@@ -20,7 +20,7 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 		String[] tabPseudo = {"Winnie", "Nounours", "Baloo", "Ted", "Petit Jean", "Kenaï", "Pedobear"};
 		int indice = OursMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			OursMale.setNumPseudo(1);
+			OursMale.setNumPseudo(0);
 			indice = OursMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

@@ -78,8 +78,8 @@ public class Employe {
 		}
 	}//nettoyerEnclos()
 	
-	public <T extends Animal> String nourirAnimaux(Enclos<T> enclos){
-		return enclos.nourir();
+	public <T extends Animal> String nourirAnimaux(Enclos<T> enclos, T animal, Nourriture nourriture){
+		return enclos.nourir(animal, nourriture);
 	}//nourirAnimaux()
 	
 	public <T extends Animal> String examinerEnclos(Enclos<T> enclos){

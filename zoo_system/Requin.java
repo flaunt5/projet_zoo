@@ -12,6 +12,7 @@ public abstract class Requin extends Aquatique implements MarinAction{
 		this.nom = "requin";
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 4;
 	}//Requin()
 	
 	public String emmetreSon() {
@@ -29,5 +30,9 @@ public abstract class Requin extends Aquatique implements MarinAction{
 	public int getEsperanceVie(){
 		return Requin.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 
 }//Requin

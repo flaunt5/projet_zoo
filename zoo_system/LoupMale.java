@@ -20,7 +20,7 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 		String[] tabPseudo = {"Vent Gris", "Wolf Link", "Eté", "Fantôme", "Broussaille", "Akela", "Wolf O'Donnell"};
 		int indice = LoupMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			LoupMale.setNumPseudo(1);
+			LoupMale.setNumPseudo(0);
 			indice = LoupMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

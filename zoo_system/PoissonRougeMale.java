@@ -20,7 +20,7 @@ public class PoissonRougeMale extends PoissonRouge implements Male<PoissonRougeF
 		String[] tabPseudo = {"Nemo", "Marin", "Bubbles", "Boule", "Gargouille", "Blenny", "Gill"};
 		int indice = PoissonRougeMale.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			PoissonRougeMale.setNumPseudo(1);
+			PoissonRougeMale.setNumPseudo(0);
 			indice = PoissonRougeMale.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

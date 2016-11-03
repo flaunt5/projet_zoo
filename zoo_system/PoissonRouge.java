@@ -12,6 +12,7 @@ public abstract class PoissonRouge extends Aquatique implements MarinAction{
 		this.nom = "poisson rouge";
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("NourriturePoisson");
+		this.consoNourriture = 2;
 	}//PoissonRouge()
 	
 	public String emmetreSon() {
@@ -29,4 +30,8 @@ public abstract class PoissonRouge extends Aquatique implements MarinAction{
 	public int getEsperanceVie(){
 		return Requin.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 }//PoissonRouge

@@ -13,6 +13,7 @@ public abstract class Ours extends Terrestre{
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Boeuf");
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 3;
 	}//Ours()
 	
 	public String emmetreSon() {
@@ -26,4 +27,8 @@ public abstract class Ours extends Terrestre{
 	public int getEsperanceVie(){
 		return Ours.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 }//Ours

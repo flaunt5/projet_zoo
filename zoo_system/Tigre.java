@@ -13,6 +13,7 @@ public abstract class Tigre extends Terrestre implements PredateurAction{
 		this.listNourritureAccepte = new ArrayList<String>();
 		this.listNourritureAccepte.add("Boeuf");
 		this.listNourritureAccepte.add("Poisson");
+		this.consoNourriture = 4;
 	}//Tigre()
 	
 	public String emmetreSon() {
@@ -30,5 +31,9 @@ public abstract class Tigre extends Terrestre implements PredateurAction{
 	public int getEsperanceVie(){
 		return Tigre.esperanceVie;
 	}//getMaturiteSexuelle()
+	
+	public int getConsoNourriture(){
+		return this.consoNourriture;
+	}//getConsoNourriture()
 
 }//Tigre

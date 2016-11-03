@@ -17,7 +17,8 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 		double nbBebe = 1;
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour =  this.getNom() + " de l'aquarium : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+		String retour =  this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de l'aquarium : " + this.getEnclosResidence().getNom() + " à accouché : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -25,10 +26,10 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					BaleineMale baleine = AnimalFactory.getBaleineMale(randomPoids, randomTaille, pseudo);
+					BaleineMale baleine = AnimalFactory.getBaleineMale(randomPoids, randomTaille, BaleineMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(baleine);
 				}else{
-					BaleineFemelle baleine = AnimalFactory.getBaleineFemelle(randomPoids, randomTaille, pseudo);
+					BaleineFemelle baleine = AnimalFactory.getBaleineFemelle(randomPoids, randomTaille, BaleineFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(baleine);
 				}
 				++nbBebeNee;
@@ -51,7 +52,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 		String[] tabPseudo = {"Monsto", "Aurore", "Coquillage", "Floride", "Précieux", "Robin", "Soushi"};
 		int indice = BaleineFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			BaleineFemelle.setNumPseudo(1);
+			BaleineFemelle.setNumPseudo(0);
 			indice = BaleineFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];

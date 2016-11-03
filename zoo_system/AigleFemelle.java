@@ -18,18 +18,18 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
-		String retour =  "Les oeufs de " + this.getNom() + " de la volière : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
-		String pseudo = "";
+		String retour =  "Les oeufs de " + this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
+							") de la volière : " + this.getEnclosResidence().getNom() + " ont éclos : \n";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
 				double randomRequin = Math.random();
 				double randomPoids = this.arrondiDecimals(Math.random() * (18 - 15), 1);
 				double randomTaille = this.arrondiDecimals(Math.random() * (1.5 - 1.3), 1);
 				if(randomRequin <= 0.5){
-					AigleMale aigle = AnimalFactory.getAigleMale(randomPoids, randomTaille, pseudo);
+					AigleMale aigle = AnimalFactory.getAigleMale(randomPoids, randomTaille, AigleMale.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(aigle);
 				}else{
-					AigleFemelle aigle = AnimalFactory.getAigleFemelle(randomPoids, randomTaille, pseudo);
+					AigleFemelle aigle = AnimalFactory.getAigleFemelle(randomPoids, randomTaille, AigleFemelle.getPseudoAnimal());
 					this.getEnclosResidence().ajouterAnimal(aigle);
 				}
 				++nbBebeNee;
@@ -52,7 +52,7 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 		String[] tabPseudo = {"Ayasha", "Chilali", "Etu", "Dyami", "Halona", "Istu", "Muraco"};
 		int indice = AigleFemelle.getNumPseudo();
 		if(indice > (tabPseudo.length - 1)){
-			AigleFemelle.setNumPseudo(1);
+			AigleFemelle.setNumPseudo(0);
 			indice = AigleFemelle.getNumPseudo();
 		}
 		String pseudo = tabPseudo[indice];
