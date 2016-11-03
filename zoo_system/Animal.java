@@ -13,7 +13,6 @@ public abstract class Animal extends Model{
 	protected Enclos enclosResidence;
 	protected boolean endormi;
 	protected String pseudo;
-	protected static ArrayList<String> listNourritureAccepte;
 	
 	public Animal(double poids, double taille, int age, String pseudo){
 		this.poids = poids;
