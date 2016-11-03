@@ -13,6 +13,7 @@ public abstract class Animal extends Model{
 	protected Enclos enclosResidence;
 	protected boolean endormi;
 	protected String pseudo;
+	protected ArrayList<String> listNourritureAccepte;
 	
 	public Animal(double poids, double taille, int age, String pseudo){
 		this.poids = poids;
@@ -25,10 +26,21 @@ public abstract class Animal extends Model{
 		this.pseudo = pseudo;
 	}//Animal()
 
-	public abstract char getSexe();
+	public String mourir(String cause){
+		this.getEnclosResidence().getListAnimaux().remove(this);
+		this.setEnclosResidence(null);
+		return this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") est mort... " + cause + "\n";
+	}//mourir()
 	
-	public void manger(){
-		this.setIndicFaim("rassasier");
+	public abstract int getEsperanceVie();
+	public abstract char getSexe();
+	public abstract int getMaturiteSexuelle();
+	
+	public void manger(Nourriture nourriture){
+		if(this.getListNourritureAccepte().contains(nourriture.getClass().getSimpleName())){
+			System.out.println(this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") a manger" + nourriture.getClass().getSimpleName());
+			this.setIndicFaim("rassasier");
+		}
 	}//manger()
 	
 	public abstract String emmetreSon();
@@ -146,5 +158,9 @@ public abstract class Animal extends Model{
 		this.pseudo = pseudo;
 	}//setPseudo()
 	
-	public abstract int getMaturiteSexuelle();
+	public ArrayList<String> getListNourritureAccepte() {
+		return listNourritureAccepte;
+	}//getListNourritureAccepte()
+
+	
 }//Animal

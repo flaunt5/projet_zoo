@@ -91,8 +91,9 @@ public abstract class Enclos<T extends Animal> extends Model{
 	}//entretenir()
 	
 	public String nourir(){
+		Boeuf v = new Boeuf();
 		for(Animal animal : this.getListAnimaux()){
-			animal.manger();
+			animal.manger(v);
 		}	
 		return "Les animaux de l'enclos " + this.getNom() + " ont etes nourri";
 	}//nourir()

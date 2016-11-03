@@ -148,6 +148,7 @@ public abstract class Controleur {
 			if(ihm.getNumTour() % moduloPourReproduction == 0){
 				vueZoo.reproductionAnimal();
 			}
+			vueZoo.faireGrandirAnimaux();
 			vueZoo.verifierFemelleEnceinte();
 			ihm.setNumTour(ihm.getNumTour() + 1);
 			ihm.setNbAction(nbActionParTour);
