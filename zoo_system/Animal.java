@@ -1,5 +1,7 @@
 package zoo_system;
 
+import java.util.ArrayList;
+
 public abstract class Animal extends Model{
 	protected String nom;
 	protected double poids;
@@ -11,6 +13,7 @@ public abstract class Animal extends Model{
 	protected Enclos enclosResidence;
 	protected boolean endormi;
 	protected String pseudo;
+	protected static ArrayList<String> listNourritureAccepte;
 	
 	public Animal(double poids, double taille, int age, String pseudo){
 		this.poids = poids;
