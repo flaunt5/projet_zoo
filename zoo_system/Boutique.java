@@ -1,14 +1,14 @@
 package zoo_system;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Boutique {
 	private static Boutique instance;
 	Map<String, Integer> stockAVendre;
 	
 	private Boutique(){
-		this.stockAVendre = new HashMap<String, Integer>();
+		this.stockAVendre = new TreeMap<String, Integer>();
 		this.stockAVendre.put("Viande de boeuf x1", 150);
 		this.stockAVendre.put("Viande de boeuf x10", 1000);
 		this.stockAVendre.put("Poisson x1", 100);
