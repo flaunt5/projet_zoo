@@ -8,5 +8,9 @@ public class VueIHM extends Vue<IHM>{
 	
 	public void afficherMenuAction(){
 		System.out.println(this.getModel().getMenuAction());
+	}//afficherMenuAction()
+	
+	public void afficherManuCourse(){
+		System.out.println(this.getModel().getMenuCourse());
 	}
 }//VueIHM

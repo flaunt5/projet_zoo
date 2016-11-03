@@ -24,6 +24,10 @@ public class IHM extends Model{
 				+ "6 - Afficher le nombre d'animaux dans le zoo\n7 - Afficher la liste des animaux du zoo\n";
 	}//getMenuAction()
 	
+	public String getMenuCourse(){
+		return "Voulez-vous allez au magasin achater du matériel ?\n \t1 - Oui\n \t2 - Non";
+	}//getMenuCourse()
+	
 	public int getSaisieUtilisateur(int min, int max){
 		int saisie = 0;
 		boolean valid = false;
@@ -46,6 +50,23 @@ public class IHM extends Model{
 			
 	}//getSaisieUtilisateur()
 	
+	public void allerFaireDesAchat(VueBoutique vueBout, VueEmploye vueEmp, Zoo zoo){
+		int saisie = getSaisieUtilisateur(1, 2);
+		if(saisie == 1){
+			/*
+			 * si l'utilisateur choisi 0 (quiter boutique) on arrete lks achats
+			 */
+			while(saisie != 0){
+				vueBout.afficherListArticles();
+				saisie = getSaisieUtilisateur(0, vueBout.getModel().getStockAVendre().size());
+				if(saisie != 0){
+					vueEmp.acheterArticle(vueBout.getModel(), zoo, saisie - 1);
+				}
+			}
+
+		}
+	}
+	
 	public boolean verifSaisie(int saisie, int min, int max){
 		if(saisie < min || saisie > max){
 			return false;
@@ -54,7 +75,7 @@ public class IHM extends Model{
 		}
 	}//verifSaisie()
 	
-	public void executeChoix(int saisie, VueZoo vueZoo, VueEmploye vueEmp){
+	public void executeChoixActionZoo(int saisie, VueZoo vueZoo, VueEmploye vueEmp){
 		Enclos<? extends Animal> enclos;
 		Animal animal;
 		//Affiche liste des enclos et recupere l'enclos selectionné
@@ -62,7 +83,6 @@ public class IHM extends Model{
 			case 1 :
 				vueZoo.afficherListEnclos(false);
 				enclos = this.getEnclos(vueZoo.getModel());
-				//vueEmp.nourirAnimaux(enclos);
 				this.nourirPlusieurAnimaux(enclos, vueZoo, vueEmp);
 				break;
 			case 2 : 
@@ -107,19 +127,43 @@ public class IHM extends Model{
 	public void nourirPlusieurAnimaux(Enclos<? extends Animal> enclos, VueZoo vueZoo, VueEmploye vueEmp){
 		int saisie = 1000;
 		int saisieEquip;
+		double ratio = 1.0;
 		Animal animal;
 		//tant que l'utilisateur ne selectionne pas l'action pour arreter de nourir
 		while(saisie != 0){
 			vueZoo.afficherListAnimauxEnclos(enclos, false, true);
 			saisie = getSaisieUtilisateur(0, enclos.getListAnimaux().size());
+			//si l'utilisateur veux donner à manger  à un animal
 			if(saisie != 0){
 				animal = (Animal) enclos.getListAnimaux().get(saisie - 1);
 				vueZoo.afficherContenuStock(true);
 				saisieEquip = getSaisieUtilisateur(0, vueZoo.getModel().getStockNourriture().size());
-				StockNourriture<? extends Nourriture> stockNourriture = vueZoo.getModel().getStockNourriture().get(saisieEquip);
-				int consonourriture = animal.getConsoNourriture();
-				//Boeuf nourriture = new Boeuf();
-				//vueEmp.nourirAnimaux(enclos, animal, nourriture);				
+				StockNourriture<? extends Nourriture> stockNourriture = vueZoo.getModel().getStockNourriture().get(saisieEquip - 1);
+				//si le stock selectionner n'est pas vide
+				if((!stockNourriture.getStock().isEmpty())){
+					int consoNourriture = animal.getConsoNourriture();
+					int nbNourritureStocker = stockNourriture.getNombreElementsDansStock();
+					//va permetre de savoir combien de nourriture on retire du stock
+					int nbIteration = consoNourriture;
+					/*
+					 * l'utilisateur n'a pas assez de nourriture, on va modifié 
+					 * le gain en niveau de faim en fonction de la quantité dont il dispose
+					 */
+					if(nbNourritureStocker < consoNourriture){
+						double dNbNourritureStocker = nbNourritureStocker;
+						double dConsoNourriture = consoNourriture;
+						ratio = dNbNourritureStocker / dConsoNourriture;
+						nbIteration = nbNourritureStocker;
+						
+					}
+					Nourriture nourriture = stockNourriture.getStock().get(0);
+					vueEmp.nourirAnimaux(enclos, animal, nourriture, ratio);
+					//suppression de la nourriture
+					for(int i = 0 ; i < nbIteration; ++i){
+						stockNourriture.getStock().remove(0);
+						System.out.println(stockNourriture.getStock().size());
+					}
+				}								
 			}
 		}
 	}//nourirPlusieurAnimaux()
@@ -143,7 +187,7 @@ public class IHM extends Model{
 	 * @return enclos
 	 */
 	public Enclos<? extends Animal> getEnclos(Zoo zoo){
-		int numEnclos = getSaisieUtilisateur(0, zoo.getListEnclos().size()) - 1;
+		int numEnclos = getSaisieUtilisateur(1, zoo.getListEnclos().size()) - 1;
 		Enclos<? extends Animal> enclos = zoo.getListEnclos().get(numEnclos);
 		return enclos;
 	}
@@ -154,7 +198,7 @@ public class IHM extends Model{
 	 * @return Animal
 	 */
 	public Animal getAnimal(Enclos<? extends Animal> enclos){
-		int numAnimal = getSaisieUtilisateur(0, enclos.getListAnimaux().size()) - 1;
+		int numAnimal = getSaisieUtilisateur(1, enclos.getListAnimaux().size()) - 1;
 		Animal animal = (Animal) enclos.getListAnimaux().get(numAnimal);
 		return animal;		
 	}

@@ -41,14 +41,20 @@ public abstract class Animal extends Model{
 		return this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") est mort... " + cause + "\n";
 	}//mourir()
 	
-	public String manger(Nourriture nourriture){
+	public String manger(Nourriture nourriture, double ratio){
 		String retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") à vu la nourriture mais ne s'y intérésse pas";
 		if(this.getListNourritureAccepte().contains(nourriture.getClass().getSimpleName()) 
 				&& this.getNiveauFaim() != 100){
-			this.setNiveauFaim(this.getNiveauFaim() + nourriture.getGainNiveauFaim());
+			//si le  ratio n'est pas à 1, on augmente d'un certain  % le niveau de faim
+			if(ratio != 1){
+				int futurNivFaim = (int) (this.getNiveauFaim() + (Math.round(nourriture.getGainNiveauFaim() * ratio)));
+				this.setNiveauFaim(futurNivFaim);
+				retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") à manger le peu que vous lui avez donner";
+			}else{
+				this.setNiveauFaim(this.getNiveauFaim() + nourriture.getGainNiveauFaim());	
+				retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") à manger";			
+			}
 			this.redefiniIndicFaim();
-			retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + ") à manger";
-			System.out.println(this.getNiveauFaim());
 		}
 		return retour;
 	}//manger()

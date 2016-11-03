@@ -90,8 +90,8 @@ public abstract class Enclos<T extends Animal> extends Model{
 		return this.getNom() +  " à était entretenu";
 	}//entretenir()
 	
-	public String nourir(T animal, Nourriture nourriture){	
-		return animal.manger(nourriture);
+	public String nourir(T animal, Nourriture nourriture, double ratio){	
+		return animal.manger(nourriture, ratio);
 	}//nourir()
 	
 	protected String recupToStringDesAnimaux(){

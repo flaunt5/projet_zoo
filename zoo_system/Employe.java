@@ -1,5 +1,9 @@
 package zoo_system;
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 public class Employe {
 	private  static Employe instance = null;
 	private String nom;
@@ -78,8 +82,8 @@ public class Employe {
 		}
 	}//nettoyerEnclos()
 	
-	public <T extends Animal> String nourirAnimaux(Enclos<T> enclos, T animal, Nourriture nourriture){
-		return enclos.nourir(animal, nourriture);
+	public <T extends Animal> String nourirAnimaux(Enclos<T> enclos, T animal, Nourriture nourriture, double ratio){
+		return enclos.nourir(animal, nourriture, ratio);
 	}//nourirAnimaux()
 	
 	public <T extends Animal> String examinerEnclos(Enclos<T> enclos){
@@ -124,6 +128,65 @@ public class Employe {
 	public String soignerAnimal(Animal animal){
 		animal.etreSoigner();
 		return animal.getNom() + " à été soigné";
+	}
+	
+	public String acheterArticle(Boutique boutique, Zoo zoo, int saisieUtilisateur){
+		String retour = "";
+		//recupere les clés de la Map
+		Set<Map.Entry<String, Integer>> set = boutique.getStockAVendre().entrySet();
+		//Pour parcourrir le Set qui contient les clés
+		String clesArticle = "";
+		String value;
+		int count = 0;
+		int prix = 0;
+		for(Map.Entry<String, Integer> article : set){
+			if(count == saisieUtilisateur){
+				clesArticle = article.getKey();
+				prix = article.getValue().intValue();
+			}
+			++count;
+		}
+		retour = this.ajouterArticleDansStock(boutique, zoo, clesArticle, prix);
+		return retour;
+	}
+	
+	public String ajouterArticleDansStock(Boutique boutique, Zoo zoo, String clesMap, int prix){
+		String retour = "Vous avez achetés ";
+		switch(clesMap){
+			case "Viande de boeuf x1" :
+				zoo.getStockNourriture().get(0).ajouterNourriture(new Boeuf());
+				retour += "1 viande de boeuf";
+				break;
+			case "Viande de boeuf x10" :
+				for(int i = 0; i < 10; ++i){
+					zoo.getStockNourriture().get(0).ajouterNourriture(new Boeuf());				
+				}
+				retour += "10 viandes de boeuf";	
+				break;
+			case "Poisson x1" :
+				zoo.getStockNourriture().get(1).ajouterNourriture(new Poisson());
+				retour += "1 poisson";
+				break;
+			case "Poisson x10" :
+				for(int i = 0; i < 10; ++i){
+					zoo.getStockNourriture().get(1).ajouterNourriture(new Poisson());		
+				}
+				retour += "10 poisson";			
+				break;
+			case "Nourriture pour poisson x1" :
+				zoo.getStockNourriture().get(2).ajouterNourriture(new NourriturePoisson());
+				retour += "1 nourriture pour poisson";		
+				break;
+			case "Nourriture pour poisson x10" :
+				for(int i = 0; i < 10; ++i){
+					zoo.getStockNourriture().get(2).ajouterNourriture(new NourriturePoisson());						
+				}
+				retour += "10 nourriture pour poisson";	
+				break;
+			default :
+				break;
+		}
+		return retour;
 	}
 	
 	public static Employe getInstance(String nom, int age, char sexe){

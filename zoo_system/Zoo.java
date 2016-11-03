@@ -36,7 +36,7 @@ public class Zoo {
 	}
 	
 	/**
-	 * Construit un bojet de type Zoo
+	 * Construit un objet de type Zoo
 	 * @param nomZoo
 	 * @param nbEnclos
 	 * @param nomEmploye
@@ -242,7 +242,8 @@ public class Zoo {
 	}//listerEnclos()
 	
 	/**
-	 * Retourne la liste des animaux d'un enclos, ainsi que les potentiel niveau de faim/santé
+	 * Retourne la liste des animaux d'un enclos, ainsi que les potentiel niveau de faim/santé, 
+	 * et sa consomation en nourriture
 	 */
 	public <T extends Animal> String listerAnimauxEnclos(Enclos<T> enclos, boolean pourSoin, boolean pourNourir){
 		String retour = "Choisissez un animal :\n";
@@ -255,7 +256,7 @@ public class Zoo {
 			if(pourSoin){
 				retour += "Sante : " + animal.getIndicSante() + "\n";
 			}else if(pourNourir){
-				retour += "Niveau de faim : " + animal.getNiveauFaim() + "/100\n";
+				retour += "Niveau de faim : " + animal.getNiveauFaim() + "/100 ; Consomme : " + animal.getConsoNourriture() + " unités\n";
 			}else{
 				retour += "\n";
 			}
@@ -360,7 +361,8 @@ public class Zoo {
 					if(randomReveil > 0.5){
 						animal.setEndormi(false);
 						animal.setIndicSommeil("");
-						retour += animal.emmetreSon() + "\n" + animal.getNom() + " s'est réveillé\n";						
+						retour += animal.emmetreSon() + "\n" + animal.getPseudo() + "(" + animal.getNom() + ", " + animal.getSexe() 
+											+ ") s'est réveillé\n";						
 					}
 				}
 			}

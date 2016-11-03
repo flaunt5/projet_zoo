@@ -11,8 +11,8 @@ public abstract class Controleur {
 		 * Mise en place du zoo
 		 */
 		//creaction du zoo et de l'employe
-		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 10, 9, 8);
-		
+		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 1, 1, 1);
+		Boutique boutique = Boutique.getInstance();
 		//creaction des enclos
 		Cage cageLoup = new Cage("Cage des loups", 35, 5);
 		Cage cageOurs = new Cage("Cage des ours", 30, 5);
@@ -22,6 +22,10 @@ public abstract class Controleur {
 		Aquarium bassinRequin = new Aquarium("Bassin des requins", 40, 5);
 		Aquarium bassinPinguoin = new Aquarium("Bassin des pinguoin", 40, 4);
 		Voliere voliereAigle = new Voliere("Voliere des aigles", 60, 5, 15);
+		Cage cageSecours = new Cage("Cage de remplacement", 35, 5);
+		Aquarium bassinSecours = new Aquarium("Bassin de remplacement", 35, 5);
+		Voliere voliereSecours = new Voliere("Voliere de remplacement", 35, 5, 10);
+		
 		//creaction des animaux de base
 		LoupMale loupMale1 = new LoupMale(60, 83, 5,LoupMale.getPseudoAnimal());
 		LoupMale loupMale2 = new LoupMale(70, 85, 6,LoupMale.getPseudoAnimal());
@@ -77,50 +81,13 @@ public abstract class Controleur {
 		voliereAigle.ajouterAnimal(aigleFem);
 		//Mise en place des Vues
 		VueZoo vueZoo = new VueZoo(zoo);
-		VueEmploye vueEmp = new VueEmploye(zoo.getEmploye());/*
-		VueCage vueCageLoups = new VueCage(cageLoup);
-		VueCage vueCageOurs = new VueCage(cageOurs);
-		VueCage vueCageTigres = new VueCage(cageTigre);
-		VueAquarium vueBassinBaleines = new VueAquarium(bassinBaleine);
-		VueAquarium vueBassinRequins = new VueAquarium(bassinRequin);
-		VueAquarium vueBassinPoissonR = new VueAquarium(bassinPoissonR);
-		VueAquarium vueBassinPingouins = new VueAquarium(bassinPinguoin);
-		VueVoliere vueVolierAigle = new VueVoliere(voliereAigle);
-		VueLoupMale vueLoupMale1 = new VueLoupMale(loupMale1);
-		VueLoupMale vueLoupMale2 = new VueLoupMale(loupMale2);
-		VueLoupFemelle vueLoupFem = new VueLoupFemelle(loupFem);
-		VueOursMale vueOursMale = new VueOursMale(oursMale);
-		VueOursFemelle vueOursFem = new VueOursFemelle(oursfem);
-		VueTigreMale vueTigreMale1 = new VueTigreMale(tigreMale1);
-		VueTigreMale vueTigreMale2 = new VueTigreMale(tigreMale2);
-		VueTigreFemelle vueTigreFem = new VueTigreFemelle(tigreFem);
-		VueBaleineMale vueBaleineMale = new VueBaleineMale(baleineMale);
-		VueBaleineFemelle vueBaleineFem = new VueBaleineFemelle(baleineFem);
-		VuePoissonRougeMale vuePoissonRMale1 = new VuePoissonRougeMale(poissonRMale1);
-		VuePoissonRougeMale vuePoissonRMale2 = new VuePoissonRougeMale(poissonRMale2);
-		VuePoissonRougeFemelle vuePoissonRFem1 = new VuePoissonRougeFemelle(poissonRFem1);
-		VuePoissonRougeFemelle vuePoissonRFem2 = new VuePoissonRougeFemelle(poissonRFem2);
-		VueRequinMale vueRequinMale = new VueRequinMale(requinMale);
-		VueRequinFemelle vueRequinFem = new VueRequinFemelle(requinFem);
-		VuePingouinMale vuePinguoinMale = new VuePingouinMale(pinguoinMale);
-		VuePingouinFemelle vuePinguoinFem = new VuePingouinFemelle(pinguoinFem);
-		VueAigleMale vueAigleMale1 = new VueAigleMale(aigleMale1);
-		VueAigleMale vueAigleMale2 = new VueAigleMale(aigleMale2);
-		VueAigleFemelle vueAigleFem = new VueAigleFemelle(aigleFem);*/
-
-		Cage cageSecours = new Cage("Cage de remplacement", 35, 5);
-		Aquarium bassinSecours = new Aquarium("Bassin de remplacement", 35, 5);
-		Voliere voliereSecours = new Voliere("Voliere de remplacement", 35, 5, 10);
-		VueCage vueCageSecours = new VueCage(cageSecours);
-		VueAquarium vueBassinSecours = new VueAquarium(bassinSecours);
-		VueVoliere vueVoliereSecours = new VueVoliere(voliereSecours);
+		VueEmploye vueEmp = new VueEmploye(zoo.getEmploye());
+		VueBoutique vueBout = new VueBoutique(boutique);
 		zoo.ajouterEnclos(cageSecours);
 		zoo.ajouterEnclos(bassinSecours);
 		zoo.ajouterEnclos(voliereSecours);
-		TigreMale  tigreMale = new TigreMale(280, 110, 19,TigreMale.getPseudoAnimal());
-		cageTigre.ajouterAnimal(tigreMale);
 
-		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp);		
+		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp, vueBout);		
 	}//zooNumero1()
 	
 	/**
@@ -133,9 +100,9 @@ public abstract class Controleur {
 	 * @param vueEmp
 	 */
 	public static void systemeZoo(int nbActionParTour, int moduloPourModifs, int moduloPourReproduction, 
-									VueZoo vueZoo, VueEmploye vueEmp){
+									VueZoo vueZoo, VueEmploye vueEmp, VueBoutique vueBout){
 		IHM ihm = new IHM(nbActionParTour);
-		VueIHM vueIHM = new VueIHM(ihm);	
+		VueIHM vueIhm = new VueIHM(ihm);	
 		int saisie;
 		int numTourModif = 0;
 		boolean isModifier = false;
@@ -143,9 +110,9 @@ public abstract class Controleur {
 			//actions de l'utilisateurs
 			while(ihm.getNbAction() != 0){
 				vueZoo.afficherContenuStock(false);
-				vueIHM.afficherMenuAction();
+				vueIhm.afficherMenuAction();
 				saisie = ihm.getSaisieUtilisateur(1, 7);
-				ihm.executeChoix(saisie, vueZoo, vueEmp);
+				ihm.executeChoixActionZoo(saisie, vueZoo, vueEmp);
 				ihm.setNbAction(ihm.getNbAction() - 1);
 			}
 			//si l'état des animaux on été modifier, 2 tour plus tard ils essayent de se reveillés
@@ -167,6 +134,8 @@ public abstract class Controleur {
 			vueZoo.tuerAnimaux();
 			vueZoo.faireGrandirAnimaux();
 			vueZoo.verifierFemelleEnceinte();
+			vueIhm.afficherManuCourse();
+			ihm.allerFaireDesAchat(vueBout, vueEmp, vueZoo.getModel());
 			ihm.setNumTour(ihm.getNumTour() + 1);
 			ihm.setNbAction(nbActionParTour);
 		}

@@ -14,8 +14,8 @@ public class VueEmploye extends Vue<Employe>{
 		System.out.println(this.getModel().examinerEnclos(enclos));
 	}//examinerEnclos()
 	
-	public <T extends Animal> void nourirAnimaux(Enclos enclos, Animal animal, Nourriture nourriture){
-		System.out.println(this.getModel().nourirAnimaux(enclos, animal, nourriture));
+	public <T extends Animal> void nourirAnimaux(Enclos enclos, Animal animal, Nourriture nourriture, double ratio){
+		System.out.println(this.getModel().nourirAnimaux(enclos, animal, nourriture, ratio));
 	}//nourirAnimaux()
 	
 	public void nettoyerEnclos(Enclos<? extends Animal> enclos){
@@ -24,6 +24,10 @@ public class VueEmploye extends Vue<Employe>{
 	
 	public void soignerAnimal(Animal animal){
 		System.out.println(this.getModel().soignerAnimal(animal));		
-	}
+	}//soignerAnimal()
+	
+	public void acheterArticle(Boutique boutique, Zoo zoo, int saisieUtilisateur){
+		System.out.println(this.getModel().acheterArticle(boutique, zoo, saisieUtilisateur));	
+	}//acheterArticle()
 	
 }//VueEmploye
