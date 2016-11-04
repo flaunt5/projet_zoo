@@ -3,7 +3,7 @@ package zoo_system;
 public class Boeuf extends Viande{
 
 	/**
-	 * Construit un bojet de type Boeuf
+	 * Construit un objet de type Boeuf
 	 */
 	public Boeuf(){
 		this.gainNiveauFaim = 30;

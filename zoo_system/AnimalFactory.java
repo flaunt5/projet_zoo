@@ -3,7 +3,7 @@ package zoo_system;
 public class AnimalFactory {
 	
 	/**
-	 * Creer un objet de type LoupMale
+	 * Retourne un objet de type LoupMale
 	 *
 	 * @param poids
 	 * 				Futur poids du loup
@@ -20,7 +20,7 @@ public class AnimalFactory {
 	}//getLoupMale()
 	
 	/**
-	 * Creer un objet de type LoupFemelle
+	 * Retourne un objet de type LoupFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids du loup
@@ -37,7 +37,7 @@ public class AnimalFactory {
 	}//getLoupFemelle()
 	
 	/**
-	 * Creer un objet de type OursMale
+	 * Retourne un objet de type OursMale
 	 *
 	 * @param poids
 	 * 				Futur poids de l'ours
@@ -54,7 +54,7 @@ public class AnimalFactory {
 	}//getOursMale()
 	
 	/**
-	 * Creer un objet de type OursFemelle
+	 * Retourne un objet de type OursFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids de l'ours
@@ -71,7 +71,7 @@ public class AnimalFactory {
 	}//getOursFemelle()
 	
 	/**
-	 * Creer un objet de type TigreMale
+	 * Retourne un objet de type TigreMale
 	 *
 	 * @param poids
 	 * 				Futur poids du tigre
@@ -88,7 +88,7 @@ public class AnimalFactory {
 	}//getTigreMale()
 	
 	/**
-	 * Creer un objet de type TigreFemelle
+	 * Retourne un objet de type TigreFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids du tigre
@@ -105,7 +105,7 @@ public class AnimalFactory {
 	}//getTigreFemelle()
 	
 	/**
-	 * Creer un objet de type BaleineMale
+	 * Retourne un objet de type BaleineMale
 	 *
 	 * @param poids
 	 * 				Futur poids de la baleine
@@ -122,7 +122,7 @@ public class AnimalFactory {
 	}//getBaleineMale()
 	
 	/**
-	 * Creer un objet de type BaleineFemelle
+	 * Retourne un objet de type BaleineFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids de la baleine
@@ -139,7 +139,7 @@ public class AnimalFactory {
 	}//getBaleineFemelle()
 	
 	/**
-	 * Creer un objet de type RequinMale
+	 * Retourne un objet de type RequinMale
 	 *
 	 * @param poids
 	 * 				Futur poids du requin
@@ -156,7 +156,7 @@ public class AnimalFactory {
 	}//getRequinMale()
 	
 	/**
-	 * Creer un objet de type RequinFemelle
+	 * Retourne un objet de type RequinFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids du requin
@@ -173,7 +173,7 @@ public class AnimalFactory {
 	}//getRequinFemelle()
 	
 	/**
-	 * Creer un objet de type PoissonRougeMale
+	 * Retourne un objet de type PoissonRougeMale
 	 *
 	 * @param poids
 	 * 				Futur poids du poisson
@@ -190,7 +190,7 @@ public class AnimalFactory {
 	}//getPoissonRougeMale()
 	
 	/**
-	 * Creer un objet de type PoissonRougeFemelle
+	 * Retourne un objet de type PoissonRougeFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids du poisson
@@ -207,7 +207,7 @@ public class AnimalFactory {
 	}//getPoissonRougeFemelle()
 	
 	/**
-	 * Creer un objet de type PinguoinMale
+	 * Retourne un objet de type PinguoinMale
 	 *
 	 * @param poids
 	 * 				Futur poids du pinguoin
@@ -224,7 +224,7 @@ public class AnimalFactory {
 	}//getPinguoinMale()
 	
 	/**
-	 * Creer un objet de type PinguoinFemelle
+	 * Retourne un objet de type PinguoinFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids du pinguoin
@@ -241,7 +241,7 @@ public class AnimalFactory {
 	}//getPinguoinFemelle()
 	
 	/**
-	 * Creer un objet de type AigleMale
+	 * Retourne un objet de type AigleMale
 	 *
 	 * @param poids
 	 * 				Futur poids de l'aigle
@@ -258,7 +258,7 @@ public class AnimalFactory {
 	}//getAigleMale()
 	
 	/**
-	 * Creer un objet de type AigleFemelle
+	 * Retourne un objet de type AigleFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids de l'aigle

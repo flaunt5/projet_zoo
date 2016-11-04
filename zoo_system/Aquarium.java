@@ -42,8 +42,8 @@ public class Aquarium extends Enclos<Aquatique>{
 	}//entretenirBassin()
 	
 	/**
-	 * Retourne les caractéristique de l'aquarium et de ses animaux
-	 * @return Caractéristique de l'aquarium et de ses animaux
+	 * Retourne les caractéristiques de l'aquarium et de ses animaux
+	 * @return Caractéristiques de l'aquarium et de ses animaux
 	 */
 	public String toString() {
 		return  super.toString3() + "Salinite : " + salinite + " ; Profondeur : " + profondeur + "\n" +
@@ -51,8 +51,8 @@ public class Aquarium extends Enclos<Aquatique>{
 	}//toString()
 	
 	/**
-	 * Retourne les caractéristique de l'aquarium seulement
-	 * @return Caractéristique de l'aquarium seulement
+	 * Retourne les caractéristiques de l'aquarium seulement
+	 * @return Caractéristiques de l'aquarium seulement
 	 */
 	public String toString2() {
 		return  super.toString3() + "Salinite : " + salinite + " ; Profondeur : " + profondeur + "\n" +
@@ -61,7 +61,7 @@ public class Aquarium extends Enclos<Aquatique>{
 
 	/**
 	 * Retourne la valeur de l'attribut salinite
-	 * @return valeur de l'attribut salinite
+	 * @return Valeur de l'attribut salinite
 	 */
 	public String getSalinite() {
 		return salinite;
@@ -77,7 +77,7 @@ public class Aquarium extends Enclos<Aquatique>{
 
 	/**
 	 * Retourne la valeur de l'attribut profondeur
-	 * @return valeur de l'attribut profondeur
+	 * @return Valeur de l'attribut profondeur
 	 */
 	public double getProfondeur() {
 		return profondeur;

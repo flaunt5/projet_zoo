@@ -47,26 +47,26 @@ public abstract class Animal extends Model{
 	public abstract String emmetreSon();
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut epseranceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut epseranceVie
 	 */
 	public abstract int getEsperanceVie();
 	
 	/**
-	 * retourne la valeur de l'attribut sexe
-	 * @return valeur de l'attribut sexe
+	 * Retourne la valeur de l'attribut sexe
+	 * @return Valeur de l'attribut sexe
 	 */
 	public abstract char getSexe();
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public abstract int getMaturiteSexuelle();
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public abstract int getConsoNourriture();
 	
@@ -83,7 +83,7 @@ public abstract class Animal extends Model{
 	}//mourir()
 	
 	/**
-	 * Nouri un anima avec la nourriture en paramètre
+	 * Nouri un animal avec la nourriture en paramètre
 	 * Le gain de "niveau de faim" va deprendre du ratio
 	 * @param nourriture
 	 * 					Nourriture qui va etre donner à l'animal
@@ -117,7 +117,7 @@ public abstract class Animal extends Model{
 	}//etreSoigner()
 
 	/**
-	 * Reveille unj animal et modifie son etat de fatigue
+	 * Reveille un animal et modifie son etat de fatigue
 	 */
 	public void seReveiller(){
 		this.setEndormi(false);
@@ -132,7 +132,7 @@ public abstract class Animal extends Model{
 	}//sendormir()
 	
 	/**
-	 * Recupere les caractéristique de l'animal
+	 * Recupere les caractéristiques de l'animal
 	 * @return Caracteristique de l'animal
 	 */
 	public String toString() {
@@ -171,7 +171,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut nom
-	 * @return nom
+	 * @return Valeur de l'attribut nom
 	 */
 	public String getNom() {
 		return nom;
@@ -188,7 +188,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut poids
-	 * @return poids
+	 * @return Valeur de l'attribut poids
 	 */
 	public double getPoids() {
 		return poids;
@@ -205,7 +205,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut taille
-	 * @return taille
+	 * @return Valeur de l'attribut taille
 	 */
 	public double getTaille() {
 		return taille;
@@ -222,7 +222,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut indicFaim
-	 * @return indicFaim
+	 * @return Valeur de l'attribut indicFaim
 	 */
 	public String getIndicFaim() {
 		return indicFaim;
@@ -245,7 +245,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut indicSante
-	 * @return indicSante
+	 * @return Valeur de l'attribut indicSante
 	 */
 	public String getIndicSante() {
 		return indicSante;
@@ -262,7 +262,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut indicSommeil
-	 * @return indicSommeil
+	 * @return Valeur de l'attribut indicSommeil
 	 */
 	public String getIndicSommeil() {
 		return indicSommeil;
@@ -279,7 +279,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut age
-	 * @return age
+	 * @return Valeur de l'attribut age
 	 */
 	public int getAge() {
 		return age;
@@ -296,7 +296,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut enclosResidence
-	 * @return enclosResidence
+	 * @return Valeur de l'attribut enclosResidence
 	 */
 	public <T extends Animal> Enclos<T> getEnclosResidence() {
 		return enclosResidence;
@@ -312,7 +312,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut endormi
-	 * @return endormi
+	 * @return Valeur de l'attribut endormi
 	 */
 	public boolean isEndormi() {
 		return endormi;
@@ -329,7 +329,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut pseudo
-	 * @return pseudo
+	 * @return Valeur de l'attribut pseudo
 	 */
 	public String getPseudo() {
 		return pseudo;
@@ -346,7 +346,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut listNourritureAccepte
-	 * @return listNourritureAccepte
+	 * @return Valeur de l'attribut listNourritureAccepte
 	 */
 	public ArrayList<String> getListNourritureAccepte() {
 		return listNourritureAccepte;
@@ -354,7 +354,7 @@ public abstract class Animal extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut niveauFaim
-	 * @return niveauFaim
+	 * @return Valeur de l'attribut niveauFaim
 	 */
 	public int getNiveauFaim() {
 		return niveauFaim;

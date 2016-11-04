@@ -10,13 +10,13 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	/**
 	 * Construit un objet de type Aigle
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de l'aigle
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de l'aigle
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de l'aigle
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de l'aigle
 	 */
 	public Aigle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -36,24 +36,24 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	}//emmetreSon()
 
 	/**
-	 * Retourne la maniere de voler de l'Aigle
-	 * @return maniere de voler de l'aigle
+	 * Retourne la maniere de voler de l'aigle
+	 * @return Maniere de voler de l'aigle
 	 */
 	public String voler() {
 		return "Vole comme un aigle";
 	}//voler()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Aigle.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Aigle.esperanceVie;
@@ -61,8 +61,8 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

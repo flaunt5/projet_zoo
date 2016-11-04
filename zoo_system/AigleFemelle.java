@@ -25,8 +25,8 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	}//AigleFemelle()
 
 	/**
-	 * Creer des bébé aigles
-	 * @return Liste des bébé aigle née et bébé aigle morts
+	 * Creer des bébés aigles
+	 * @return Liste des bébés aigles nées et bébés aigles morts
 	 */
 	public String pondre() {
 		double randomNbBebe = 1 + Math.random() * (2-1);
@@ -64,8 +64,8 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	}//pondre()
 	
 	/**
-	 * Genere un pseudo pour les aigles femelle
-	 * @return futur nom pour les aigles femelle
+	 * Genere un pseudo pour les aigles femelles
+	 * @return Futur nom pour les aigles femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Ayasha", "Chilali", "Etu", "Dyami", "Halona", "Istu", "Muraco"};
@@ -80,8 +80,8 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique de l'aigle femelle
-	 * @return Caracteristique de l'aigle femelle
+	 * Recupere les caracteristiques de l'aigle femelle
+	 * @return Caracteristiques de l'aigle femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -91,7 +91,7 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe AigleFemelle
-	 * @return sexe de l'aigle femelle
+	 * @return Sexe de l'aigle femelle
 	 */
 	public char getSexe(){
 		return AigleFemelle.SEXE;
@@ -99,7 +99,7 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si l'aigle femelle est enceinte ou pas
+	 * @return Booleen indicant si l'aigle femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -116,7 +116,7 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -124,7 +124,7 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -141,7 +141,7 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 
 	/**
 	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

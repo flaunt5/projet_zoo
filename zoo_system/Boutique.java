@@ -21,8 +21,8 @@ public class Boutique {
 	}//Boutique()
 	
 	/**
-	 * Retourne l'affichage de la liste des article en vente dans la boutique
-	 * @return Liste des article pour affichage
+	 * Retourne l'affichage de la liste des articles en ventes dans la boutique
+	 * @return Liste des articles pour affichage
 	 */
 	public String getListArticles(){
 		String retour = "Objets que vous pouvez acheter : \n \t0 - Quitter la boutique\n";
@@ -35,8 +35,8 @@ public class Boutique {
 	}//getListArticles()
 
 	/**
-	 * Creer un instance de Boutique si la varialbe instance est à null
-	 * sinon, retourne la valeur de l'attribut instance
+	 * Creer un instance de Boutique si la variable instance est à null
+	 * Sinon, retourne la valeur de l'attribut instance
 	 * @return instance unique de Boutique
 	 */
 	public static Boutique getInstance(){
@@ -47,8 +47,8 @@ public class Boutique {
 	}//getInstance()
 	
 	/**
-	 * retourne la valeur de l'attribut stockAVendre
-	 * @return liste des article en vente
+	 * Retourne la valeur de l'attribut stockAVendre
+	 * @return Liste des articles en vente
 	 */
 	public Map<String, Integer> getStockAVendre() {
 		return stockAVendre;

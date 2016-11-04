@@ -25,8 +25,8 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	}//BaleineFemelle()
 
 	/**
-	 * Creer des bébé baleine
-	 * @return Liste des bébés baleine née et bébés baleine morts
+	 * Creer des bébés baleines
+	 * @return Liste des bébés baleines nées et bébés baleines morts
 	 */
 	public String mettreBas() {
 		double nbBebe = 1;
@@ -64,8 +64,8 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	}//mettreBas()
 	
 	/**
-	 * Genere un pseudo pour les baleine femelle
-	 * @return futur nom pour baleine femelle
+	 * Genere un pseudo pour les baleines femelles
+	 * @return Futur nom pour les baleines femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Monsto", "Aurore", "Coquillage", "Floride", "Précieux", "Robin", "Soushi"};
@@ -91,7 +91,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe BaleineFemelle
-	 * @return sexe de la baleine femelle
+	 * @return Sexe de la baleine femelle
 	 */
 	public char getSexe(){
 		return BaleineFemelle.SEXE;
@@ -99,7 +99,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si la baleine femelle est enceinte ou pas
+	 * @return Booleen indicant si la baleine femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -116,7 +116,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -124,7 +124,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -141,7 +141,7 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 
 	/**
 	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

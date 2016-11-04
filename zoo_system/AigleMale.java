@@ -22,7 +22,7 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	/**
 	 * Accouple un aigle male et un aigle femelle
 	 * @param femelle
-	 * 				aigle femelle qui va se faire fecondé
+	 * 				aigle femelle qui va se faire feconder
 	 */
 	public String saccoupler(AigleFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -33,8 +33,8 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	}//sacoupler()
 	
 	/**
-	 * Genere un pseudo pour les aigle male
-	 * @return futur nom pour les aigle male
+	 * Genere un pseudo pour les aigles males
+	 * @return Futur nom pour les aigles males
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Amadahy", "Anoki", "Kaepora", "Aranck", "Bidziil", "Chilam", "Noarfang"};
@@ -49,8 +49,8 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique de l'aigle male
-	 * @return Caracteristique de l'aigle male
+	 * Recupere les caracteristiques de l'aigle male
+	 * @return Caracteristiques de l'aigle male
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
@@ -58,15 +58,15 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe AigleMale
-	 * @return sexe de l'aigle male
+	 * @return Sexe de l'aigle male
 	 */
 	public char getSexe(){
 		return AigleMale.SEXE;
 	}//getSexe()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

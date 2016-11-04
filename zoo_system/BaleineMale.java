@@ -24,7 +24,7 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	/**
 	 * Accouple une baleine male et une baleine femelle
 	 * @param femelle
-	 * 				baleine femelle qui va se faire fecondé
+	 * 				Baleine femelle qui va se faire fecondé
 	 */
 	public String saccoupler(BaleineFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -36,7 +36,7 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	
 	/**
 	 * Genere un pseudo pour les baleine male
-	 * @return futur nom pour baleine male
+	 * @return Futur nom pour baleine male
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Barbe Blanche", "Moby Dick", "Atlas", "Fliper", "Willy", "César", "Wailord"};
@@ -60,7 +60,7 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe BaleineMale
-	 * @return sexe de l'aigle male
+	 * @return Sexe de l'aigle male
 	 */
 	public char getSexe(){
 		return BaleineMale.SEXE;
@@ -68,7 +68,7 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 
 	/**
 	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

@@ -10,13 +10,13 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	/**
 	 * Construit un objet de type Baleine
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de la baleine
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de la baleine
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de la baleine
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de la baleine
 	 */
 	public Baleine(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -43,24 +43,24 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	}//nager()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut  maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut  maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Baleine.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut  esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut  esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Baleine.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut  consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut  consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;
