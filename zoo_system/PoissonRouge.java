@@ -36,31 +36,31 @@ public abstract class PoissonRouge extends Aquatique implements MarinAction{
 	
 	/**
 	 * Retourne la maniere de nager du poisson rouge
-	 * @return maniere de nager du poisson rouge
+	 * @return Maniere de nager du poisson rouge
 	 */
 	public String nager() {
 		return "Nage comme un poisson rouge";
 	}//nager()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Requin.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Requin.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

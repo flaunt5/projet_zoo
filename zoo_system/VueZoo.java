@@ -4,11 +4,11 @@ public class VueZoo extends Vue<Zoo>{
 
 	/**
 	 * Creer un objet de type VueZoo
-	 * @param object
+	 * @param objet
 	 * 				un objet de type Zoo
 	 */
-	public VueZoo(Zoo object){
-		this.model = object;
+	public VueZoo(Zoo objet){
+		this.model = objet;
 	}//VueZoo()
 	
 	/**
@@ -65,9 +65,9 @@ public class VueZoo extends Vue<Zoo>{
 	 * @param enclos
 	 * 				Enclos dont les enimaux vont etre lister
 	 * @param pourSoin
-	 * 				boolean pour savoir si cette methode est appelé pour soigner un animal
+	 * 				Boolean pour savoir si cette methode est appelé pour soigner un animal
 	 * @param pourNourir
-	 * 				boolean pour savoir si cette methode est appelé pour nourrir un animal
+	 * 				Boolean pour savoir si cette methode est appelé pour nourrir un animal
 	 */
 	public void afficherListAnimauxEnclos(Enclos<? extends Animal> enclos, boolean pourSoin, boolean pourNourir){
 		System.out.println(this.getModel().listerAnimauxEnclos(enclos,pourSoin, pourNourir));
@@ -116,7 +116,7 @@ public class VueZoo extends Vue<Zoo>{
 	}//tuerAnimaux()
 	
 	/**
-	 * affiche la liste des différent stock ainsi que son contenu
+	 * Affiche la liste des différent stock ainsi que son contenu
 	 * @param choix
 	 * 			Boolean qui va permettre de savoir si la fonction est appelé pour permettre à l'utilisateur de choisir
 	 * 			un equiepement, ou si la fonction est appelé pour afficher la liste des équipement

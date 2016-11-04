@@ -36,31 +36,31 @@ public abstract class Requin extends Aquatique implements MarinAction{
 
 	/**
 	 * Retourne la maniere de nager du requin
-	 * @return maniere de nager du requin
+	 * @return Maniere de nager du requin
 	 */
 	public String nager() {
 		return "Nage comme un requin";
 	}//nager()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Requin.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Requin.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

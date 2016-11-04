@@ -8,7 +8,7 @@ public abstract class Pingouin extends Aquatique implements MarinAction, VolantA
 	protected static final int esperanceVie = 20;
 	
 	/**
-	 * Construit un objet de type Aigle
+	 * Construit un objet de type Pingouin
 	 * @param poids
 	 * 				Futur poids de pinguoin
 	 * @param taille
@@ -37,7 +37,7 @@ public abstract class Pingouin extends Aquatique implements MarinAction, VolantA
 
 	/**
 	 * Retourne la maniere de voler du pingouin
-	 * @return maniere de voler du pingouin
+	 * @return Maniere de voler du pingouin
 	 */
 	public String voler() {
 		return "Vole comme un pinguoin";
@@ -45,32 +45,32 @@ public abstract class Pingouin extends Aquatique implements MarinAction, VolantA
 
 
 	/**
-	 * Retourne la maniere de voler du pingouin
-	 * @return maniere de voler du pingouin
+	 * Retourne la maniere de nager du pingouin
+	 * @return Maniere de nager du pingouin
 	 */
 	public String nager() {
 		return "Nage comme un pinguoin";
 	}//nager()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Pingouin.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Pingouin.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

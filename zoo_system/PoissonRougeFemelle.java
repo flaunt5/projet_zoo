@@ -8,7 +8,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	private static int numPseudo = 0;
 	
 	/**
-	 * Creer un objet de type PoissonRougeMale
+	 * Creer un objet de type PoissonRougeFemelle
 	 *
 	 * @param poids
 	 * 				Futur poids du poisson
@@ -18,7 +18,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	 * 				Futur age du poisson
 	 * @param pseudo
 	 * 				Futur pseudo du poisson
-	 * @return un objet de type PoissonRougeMale
+	 * @return un objet de type PoissonRougeFemelle
 	 */
 	public PoissonRougeFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -27,8 +27,8 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	}//PoissonRougeFemelle()
 
 	/**
-	 * Creer des bébés poisson rouge
-	 * @return Liste des bébé poisson rouge née et bébés poisson rouge morts
+	 * Creer des bébés poissons rouges
+	 * @return Liste des bébés poissons rouges nées et bébés poissons rouges morts
 	 */
 	public String pondre() {
 		double randomNbBebe = 4 + Math.random() * (10 - 5);
@@ -67,8 +67,8 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	}//pondre()
 	
 	/**
-	 * Genere un pseudo pour les poissons rouges femelle
-	 * @return futur nom pour les poissons rouges femelle
+	 * Genere un pseudo pour les poissons rouges femelles
+	 * @return Futur nom pour les poissons rouges femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Dorry", "Corail", "Debbie", "Flo", "Astrid", "Perle", "Angie"};
@@ -83,8 +83,8 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique du poisson rouge femelle
-	 * @return Caracteristique de du poisson rouge femelle
+	 * Recupere les caracteristiques du poisson rouge femelle
+	 * @return Caracteristiques de du poisson rouge femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -94,7 +94,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe PoissonRougeFemelle
-	 * @return sexe de poisson rouge femelle
+	 * @return Sexe de poisson rouge femelle
 	 */
 	public char getSexe(){
 		return PoissonRougeFemelle.SEXE;
@@ -102,7 +102,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si le poisson rouge femelle est enceinte ou pas
+	 * @return Booleen indicant si le poisson rouge femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -119,7 +119,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -127,7 +127,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -143,8 +143,8 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	}//setTempEnceinte()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

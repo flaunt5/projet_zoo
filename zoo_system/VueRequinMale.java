@@ -3,11 +3,11 @@ package zoo_system;
 public class VueRequinMale extends VueAnimal<RequinMale>{
 	/**
 	 * Creer un objet de type VueRequinMale
-	 * @param object 
+	 * @param objet 
 	 * 				un objet de type RequinMale
 	 */
-	public VueRequinMale(RequinMale object){
-		this.model = object;
+	public VueRequinMale(RequinMale objet){
+		this.model = objet;
 	}//VueRequinMale()
 	
 }//VueRequinMale

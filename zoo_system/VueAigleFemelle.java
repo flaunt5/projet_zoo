@@ -3,11 +3,11 @@ package zoo_system;
 public class VueAigleFemelle extends VueAnimal<AigleFemelle>{
 	/**
 	 * Creer un objet de type VueAigleFemelle
-	 * @param object 
+	 * @param objet 
 	 * 				un objet de type AigleFemelle
 	 */
-	public VueAigleFemelle(AigleFemelle object){
-		this.model = object;
+	public VueAigleFemelle(AigleFemelle objet){
+		this.model = objet;
 	}//VueAigleFemelle()
 	
 }//VueAigleFemelle

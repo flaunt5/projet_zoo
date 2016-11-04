@@ -22,7 +22,8 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	/**
 	 * Accouple un aigle male et un aigle femelle
 	 * @param femelle
-	 * 				aigle femelle qui va se faire feconder
+	 * 				Aigle femelle qui va se faire feconder
+	 * @return Pseudo, nom et sexe de l'aigle femelle fecondé
 	 */
 	public String saccoupler(AigleFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";

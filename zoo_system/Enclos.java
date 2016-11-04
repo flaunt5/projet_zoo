@@ -14,11 +14,11 @@ public abstract class Enclos<T extends Animal> extends Model{
 	/**
 	 * Construit un objet de type Enclo<T>
 	 * @param nom
-	 * 			Nom de l'aquarium
+	 * 			Nom de l'enclos
 	 * @param superficie
-	 * 			Superficie de l'aquarium
+	 * 			Superficie de l'enclos
 	 * @param nbAnimauxMax
-	 * 			Nombre maximum d'animux de l'aquarium
+	 * 			Nombre maximum d'animux de l'enclos
 	 */
 	public Enclos(String nom, int superficie, int nbAnimauxMax){
 		this.nom = nom;
@@ -30,7 +30,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	
 	/**
 	 * Effectue un tri sur la liste des animaux
-	 * @return Message de confirmation de l'action + caracteristiques de l'enclos trié
+	 * @return Message de confirmation de l'action et caracteristiques de l'enclos trié
 	 */
 	public String effectuerTri(){
 		this.getTri().trier(this.getListAnimaux());
@@ -83,7 +83,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * Verifie qu'un animal puisse etre ajoute dans l'enclos
 	 * @param animal
 	 * 				Animal qui va etre vérifier
-	 * @return booleen montrant la reussite ou l'echec du test
+	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean verifPourAjout(T animal){
 		if(!(this.isFull())){
@@ -110,7 +110,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	/**
 	 * Verifie qu'un animal peut etre retire de la liste des animaux de l'enclos
 	 * @param animal
-	 * @return true ou false
+	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean verifPourEnlever(T animal){
 		//si l'animal est dans l'enclo on peut l'en retirer
@@ -123,7 +123,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	
 	/**
 	 * Verifie si la liste des animaux de l'enclos est pleine
-	 * @return booleen montrant la reussite ou l'echec du test
+	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean isFull(){
 		if(this.getListAnimaux().size() == this.getNbAnimauxMax()){
@@ -135,7 +135,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	
 	/**
 	 * Recupere un femelle capable d'etre fécondé
-	 * @return l'animal femelle pouvant etre feconder
+	 * @return L'animal femelle pouvant etre fecondé
 	 */
 	public Animal getFemelle(){
 		Animal retour = null;
@@ -162,18 +162,19 @@ public abstract class Enclos<T extends Animal> extends Model{
 	/**
 	 * Nouri un animal avec un type de nourriture
 	 * @param animal
-	 * 				Animal à nourir
+	 * 			Animal à nourir
 	 * @param nourriture
-	 * 				Nourriture à donner à l'animal
+	 * 			Nourriture à donner à l'animal
 	 * @param ratio
-	 * @return
+	 * 			Nombre qui represente le % des gain en "niveau de faim" de l'animal quand il va manger
+	 * @return Retour de la fonction Animal.manger()
 	 */
 	public String nourir(T animal, Nourriture nourriture, double ratio){	
 		return animal.manger(nourriture, ratio);
 	}//nourir()
 	
 	/**
-	 * recupere les caracteristiques de tout les animaux de l'enclos
+	 * Recupere les caracteristiques de tout les animaux de l'enclos
 	 * @return Caracteristique des animaux
 	 */
 	protected String recupToStringDesAnimaux(){
@@ -185,8 +186,8 @@ public abstract class Enclos<T extends Animal> extends Model{
 	}//recupToStringDesAnimaux()
 	
 	/**
-	 * Retourne les caractéristique de l'enclos et des ses animaux
-	 * @return Caractéristique de l'enclos et des ses animaux
+	 * Retourne les caractéristiques de l'enclos et de ses animaux
+	 * @return Caractéristique de l'enclos et de ses animaux
 	 */
 	public String toString() {//methode classique retournant les detail de l'objet
 		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + "m² ; DegreProprete : " + degreProprete + "\n" +
@@ -195,7 +196,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	}//toString()
 	
 	/**
-	 * Retourne les caracteristique de l'enclos sans les caracteristique des animaux
+	 * Retourne les caracteristiques de l'enclos sans les caracteristique des animaux
 	 * @return Caractéristique de l'enclos
 	 */
 	public String toString2() {//methode retournant les detail de l'objet sans les detail des animaux qu'il contient
@@ -205,8 +206,8 @@ public abstract class Enclos<T extends Animal> extends Model{
 	}//toString2()
 	
 	/**
-	 * Retourne les details d'un enclos
-	 * @return Caractéristique de l'enclos
+	 * Retourne les caracteristiques d'un enclos
+	 * @return Caractéristiques de l'enclos
 	 */
 	protected String toString3() {//methode destiner aux classes filles comme base de leur methode toString()
 		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; DegreProprete : " + degreProprete + "\n" +
@@ -215,7 +216,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut nom
-	 * @return valeur de l'attribut nom
+	 * @return Valeur de l'attribut nom
 	 */
 	public String getNom() {
 		return nom;
@@ -232,7 +233,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 
 	/**
 	 * Retourne la valeur de l'attribut superficie
-	 * @return valeur de l'attribut superficie
+	 * @return Valeur de l'attribut superficie
 	 */
 	public int getSuperficie() {
 		return superficie;
@@ -248,8 +249,8 @@ public abstract class Enclos<T extends Animal> extends Model{
 	}//setSuperficie()
 
 	/**
-	 * Retourne la valeur de l'attribut v
-	 * @return valeur de l'attribut nbAnimaux
+	 * Retourne la valeur de l'attribut nbAnimaux
+	 * @return Valeur de l'attribut nbAnimaux
 	 */
 	public int getNbAnimaux() {
 		return nbAnimaux;
@@ -266,7 +267,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 
 	/**
 	 * Retourne la valeur de l'attribut nbAnimauxMax
-	 * @return valeur de l'attribut nbAnimauxMax
+	 * @return Valeur de l'attribut nbAnimauxMax
 	 */
 	public int getNbAnimauxMax() {
 		return nbAnimauxMax;
@@ -283,7 +284,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 
 	/**
 	 * Retourne la valeur de l'attribut degreProprete
-	 * @return valeur de l'attribut degreProprete
+	 * @return Valeur de l'attribut degreProprete
 	 */
 	public String getDegreProprete() {
 		return degreProprete;
@@ -300,7 +301,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 
 	/**
 	 * Retourne la valeur de l'attribut listAnimaux
-	 * @return valeur de l'attribut listAnimaux
+	 * @return Valeur de l'attribut listAnimaux
 	 */
 	public ArrayList<T> getListAnimaux() {
 		return listAnimaux;
@@ -317,7 +318,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	
 	/**
 	 * Retourne la valeur de l'attribut tri
-	 * @return valeur de l'attribut tri
+	 * @return Valeur de l'attribut tri
 	 */
 	public Tri<T> getTri(){
 		return this.tri;

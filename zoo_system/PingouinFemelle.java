@@ -18,7 +18,6 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	 * 				Futur age du pinguoin
 	 * @param pseudo
 	 * 				Futur pseudo du pinguoin
-	 * @return un objet de type PinguoinFemelle
 	 */
 	public PingouinFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -27,8 +26,8 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	}//PingouinFemelle()
 
 	/**
-	 * Creer des bébés pingouin
-	 * @return Liste des bébé pingouin née et bébés pingouin morts
+	 * Creer des bébés pingouins
+	 * @return Liste des bébés pingouins nées et bébés pingouin morts
 	 */
 	public String pondre() {
 		double nbBebe = 1;
@@ -66,8 +65,8 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	}//pondre()
 
 	/**
-	 * Genere un pseudo pour les pingouin femelle
-	 * @return futur nom pour les pingouin femelle
+	 * Genere un pseudo pour les pingouins femelles
+	 * @return Futur nom pour les pingouins femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Hatyna", "Baituna", "Sakai", "Oblisesk", "Tukki", "Jalen", "Blaryny"};
@@ -82,8 +81,8 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique du pingouin femelle
-	 * @return Caracteristique de du pingouin femelle
+	 * Recupere les caracteristiques du pingouin femelle
+	 * @return Caracteristiques du pingouin femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -93,7 +92,7 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe PingouinFemelle
-	 * @return sexe de loup femelle
+	 * @return sexe du pingouin
 	 */
 	public char getSexe(){
 		return PingouinFemelle.SEXE;
@@ -101,7 +100,7 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si le pingouin femelle est enceinte ou pas
+	 * @return Booleen indicant si le pingouin femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -118,7 +117,7 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -126,7 +125,7 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -142,8 +141,8 @@ public class PingouinFemelle extends Pingouin implements AutreFemelle{
 	}//setTempEnceinte()
 	
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

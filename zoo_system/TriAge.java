@@ -7,6 +7,7 @@ public class TriAge<T extends Animal> implements Tri<T>{
 	/**
 	 * Tri la liste des animaux en fonction de l'age des animaux
 	 * @param listAnimaux
+	 * 					Liste des animaux a trier
 	 */
 	public void trier(ArrayList<T> listAnimaux) {
 		boolean permutation = true;

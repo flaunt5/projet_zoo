@@ -4,15 +4,15 @@ public abstract class Vue<T> {
 	protected T model;
 	
 	/**
-	 * Afficher caracteristiques du modele
+	 * Afficher caracteristiques du model
 	 */
 	public void details(){
 		System.out.println(this.model.toString());
 	}//details()
 
 	/**
-	 * Recupere les attributs d'un modele
-	 * @return retourne les attributs du modele
+	 * Recupere la valeur de l'attributs model
+	 * @return Valeur de l'attributs model
 	 */
 	protected T getModel() {
 		return model;

@@ -5,7 +5,7 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 	private static int numPseudo = 0;
 	
 	/**
-	 * Construit un objet de type LoupMale
+	 * Construit un objet de type OursMale
 	 * @param poids
 	 * 				Futur poids de l'ours
 	 * @param taille
@@ -22,7 +22,8 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 	/**
 	 * Accouple un ours male et un ours femelle
 	 * @param femelle
-	 * 				ours femelle qui va se faire fecondé
+	 * 				Ours femelle qui va se faire fecondé
+	 * @return Pseudo, nom et sexe de l'ours femelle fecondé
 	 */
 	public String saccoupler(OursFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -33,8 +34,8 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 	}//sacoupler()
 	
 	/**
-	 * Genere un pseudo pour les ours male
-	 * @return futur nom pour les ours male
+	 * Genere un pseudo pour les ours males
+	 * @return Futur nom pour les ours males
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Winnie", "Nounours", "Baloo", "Ted", "Petit Jean", "Kenaï", "Pedobear"};
@@ -49,8 +50,8 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique de l'ours male
-	 * @return Caracteristique de l'ours male
+	 * Recupere les caracteristiques de l'ours male
+	 * @return Caracteristiques de l'ours male
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
@@ -58,15 +59,15 @@ public class OursMale extends Ours implements Male<OursFemelle>{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe OursMale
-	 * @return sexe de l'ours male
+	 * @return Sexe de l'ours male
 	 */
 	public char getSexe(){
 		return OursMale.SEXE;
 	}//getSexe()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

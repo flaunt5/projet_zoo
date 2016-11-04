@@ -9,10 +9,15 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	
 	/**
 	 * creer un nouvel objet de type TigreFemelle
+	 *
 	 * @param poids
+	 * 				Futur poids du pinguoin
 	 * @param taille
+	 * 				Futur taille du pinguoin
 	 * @param age
+	 * 				Futur age du pinguoin
 	 * @param pseudo
+	 * 				Futur pseudo du pinguoin
 	 */
 	public TigreFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -21,8 +26,8 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	}//TigreFemelle()
 	
 	/**
-	 * creer un nouveau tigre, vÃ©rifier si l'enclos n'est pas rempli, si non le rajouter, si oui le detruire
-	 * @return string content un message avec le nom de la tigresse ayant mis bas
+	 * Creer des bébés tigres
+	 * @return Liste des bébés tigres nées et bébés tigres morts
 	 */
 	public String mettreBas() {
 		double randomNbBebe = 2 + Math.random() * (5 - 2);
@@ -61,8 +66,8 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	}//mettreBas()
 	
 	/**
-	 * recuperer le nom de la tigresse
-	 * @return string contenant le nom de la tigresse
+	 * Genere un pseudo pour les tigres femelles
+	 * @return Futur nom pour les tigres femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Tigresse", "Blanche", "Pandore", "Ruby", "Fedora", "Duchesse", "Grisemine"};
@@ -77,8 +82,8 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Transforme les attributs de la tigresse en string
-	 * @return String contentant les dÃ©tails de la tigresse
+	 * Recupere les caracteristiques du tigre femelle
+	 * @return Caracteristiques du tigre femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -87,64 +92,67 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	}//toString()
 	
 	/**
-	 * Recuperer le sexe de la tigresse
-	 * @return attribut sexe de l'objet tigredfemelle
+	 * Recupere la valeur de l'attribut SEXE de la classe TigreFemelle
+	 * @return Sexe du tigre femelle
 	 */
 	public char getSexe(){
 		return TigreFemelle.SEXE;
 	}//getSexe()
 	
 	/**
-	 * verifier si la tigresse est enceinte
-	 * @return boolean qui retourne vrai si la tigresse est enceinte
+	 * Recupere la valeur de l'attribut enceinte
+	 * @return Booleen indicant si le tigre femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
 	}//isEnceinte()
 
 	/**
-	 * modifie l'etait de grossesse de la tigresse
+	 * Modifie la valeur de l'attribut enceinte
 	 * @param enceinte
+	 * 				Nouvelle etat de grossese
 	 */
 	public void setEnceinte(boolean enceinte) {
 		this.enceinte = enceinte;
 	}//setEnceinte()
 	
 	/**
-	 * recuperer la periode d'enfantement
-	 * @return int contenant la duree du periode
+	 * Retourne la valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
 	}//getPeriodegestatiction()
 
 	/**
-	 * verifier le temps de grossesse ecoulÃ©
-	 * @return int content le temps ecoulÃ©
+	 * Retourne la valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
 	}//getTempEnceinte()
 	
 	/**
-	 * Modifier le temps ecoulÃ© de grossesse
-	 * @param tempEnceinte
+	 * Modifie la valeur de l'attribut tempsEnceinte
+	 * @param tempsEnceinte
+	 * 					Nouveau temps enceinte
 	 */
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 
 	/**
-	 * recuperer le numero permettant d'attribuer un pseudo Ã  la tigresse
-	 * @return int le numÃ©ro
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 	
 	/**
-	 * modifier le numÃ©ro de pseudo
+	 * Modifie la valeur de l'attribut numPseudo
 	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
 	 */
 	public static void setNumPseudo(int numPseudo) {
 		TigreFemelle.numPseudo = numPseudo;

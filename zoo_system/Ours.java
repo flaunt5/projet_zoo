@@ -36,24 +36,24 @@ public abstract class Ours extends Terrestre{
 	}//emmetreSon()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Ours.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Ours.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Cage extends Enclos<Terrestre>{
 
 	/**
-	 * Construit un bojet de type Cage
+	 * Construit un objet de type Cage
 	 * @param nom
-	 * 			Nom de l'aquarium
+	 * 			Nom de la cage
 	 * @param superficie
-	 * 			Superficie de l'aquarium
+	 * 			Superficie de la cage
 	 * @param nbAnimauxMax
-	 * 			Nombre maximum d'animux de l'aquarium
+	 * 			Nombre maximum d'animux de la cage
 	 */
 	public Cage(String nom, int superficie, int nbAnimauxMax) {
 		super(nom, superficie, nbAnimauxMax);

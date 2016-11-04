@@ -26,7 +26,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 
 	/**
 	 * Creer des bébés loups
-	 * @return Liste des bébéd loupd née et bébés loup morts
+	 * @return Liste des bébés loups nées et bébés loups morts
 	 */
 	public String mettreBas() {
 		double randomNbBebe = 4 + Math.random() * (8-4);
@@ -65,8 +65,8 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	}//mettreBas()
 	
 	/**
-	 * Genere un pseudo pour les loup femelle
-	 * @return futur nom pour les loup femelle
+	 * Genere un pseudo pour les loups femelles
+	 * @return futur nom pour les loups femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Lady", "Nimeria", "Amaterasu", "Moro", "Yuma", "Azur", "Neige"};
@@ -81,8 +81,8 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique du loup femelle
-	 * @return Caracteristique de du loup femelle
+	 * Recupere les caracteristiques du loup femelle
+	 * @return Caracteristiques du loup femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -92,7 +92,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe LoupFemelle
-	 * @return sexe de loup femelle
+	 * @return Sexe de loup femelle
 	 */
 	public char getSexe(){
 		return LoupFemelle.SEXE;
@@ -100,7 +100,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si le loup femelle est enceinte ou pas
+	 * @return Booleen indicant si le loup femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -117,7 +117,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -125,7 +125,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -141,8 +141,8 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	}//setTempEnceinte()
 	
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

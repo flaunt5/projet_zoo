@@ -12,7 +12,7 @@ public class IHM extends Model{
 	private Scanner scanAction;
 	
 	/**
-	 * construct un objet IHM
+	 * Construit un objet IHM
 	 * @param nbAction
 	 */
 	public IHM(int nbAction){
@@ -36,7 +36,7 @@ public class IHM extends Model{
 	
 	/**
 	 * Retourne le menu de demande pour l'accés à la boutique
-	 * @return Menu pour l'accés boutique
+	 * @return Menu pour l'accés a la boutique
 	 */
 	public String getMenuCourse(){
 		return "Voulez-vous allez au magasin achater du matériel ?\n \t1 - Oui\n \t2 - Non";
@@ -44,13 +44,13 @@ public class IHM extends Model{
 	
 	
 	/**
-	 * Recupère et verifie un saisie utilisateur
+	 * Recupère et verifie une saisie utilisateur
 	 * Verification que le chiffre saisie est compris dans [main; max]
 	 * @param min
 	 * 			chiffre minimal autorisé à la saisie
 	 * @param max
 	 * 			chiffre maximal autorisé à la saisie
-	 * @return saisie
+	 * @return Saisie de l'utilisateur
 	 */
 	public int getSaisieUtilisateur(int min, int max){
 		int saisie = 0;
@@ -80,9 +80,9 @@ public class IHM extends Model{
 	 * @param vueBout
 	 * 				La vue de la boutique
 	 * @param vueEmp
-	 * 				la vue de l'employe
+	 * 				La vue de l'employe
 	 * @param zoo
-	 * 			La zoo de l'application
+	 * 			Le zoo de l'application
 	 */
 	public void allerFaireDesAchat(VueBoutique vueBout, VueEmploye vueEmp, VueZoo vueZoo){
 		int saisie = getSaisieUtilisateur(1, 2);
@@ -107,10 +107,10 @@ public class IHM extends Model{
 	 * @param saisie
 	 * 			Saisie réalisé par l'utilisateur
 	 * @param min
-	 * 			chiffre minimal autorisé à la saisie
+	 * 			Chiffre minimal autorisé à la saisie
 	 * @param max
-	 * 			chiffre maximal autorisé à la saisie
-	 * @return booleen montrant la reussite ou l'echec du test
+	 * 			Chiffre maximal autorisé à la saisie
+	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean verifSaisie(int saisie, int min, int max){
 		if(saisie < min || saisie > max){
@@ -241,9 +241,9 @@ public class IHM extends Model{
 		}
 	}//nourirPlusieurAnimaux()
 	/**
-	 * Recupere la vue de l'enclos assosié à parametre enclos
+	 * Recupere la vue de l'enclos assosié au parametre "enclos"
 	 * @param listVueEnclos
-	 * 			liste contenu toutes les vues de tout les enclos de l'application
+	 * 			Liste contenant toutes les vues de tout les enclos de l'application
 	 * @param enclos
 	 * 			Enclos lié à la vue rechercher
 	 * @return
@@ -259,12 +259,12 @@ public class IHM extends Model{
 	}//getVueEnclos()
 	
 	/**
-	 * Convertie un int en boolean 
+	 * Convertie un int en booleen 
 	 * @param futurBool
-	 * 				nombre qui va etre convertie en booleen
-	 * @return booleen resultant de la convertion
+	 * 				Nombre qui va etre convertie en booleen
+	 * @return Booleen resultant de la convertion
 	 */
-	private Boolean convertIntEnBool(int futurBool){
+	private boolean convertIntEnBool(int futurBool){
 		if(futurBool % 2 == 0){
 			return false;
 		}else{
@@ -275,8 +275,8 @@ public class IHM extends Model{
 	/**
 	 * Recupere la saisie d'un utilisateur, et renvois l'enclos correspondant à cette saisie
 	 * @param zoo
-	 * 			zoo de l'application
-	 * @return enclos que l'utilisateur a choisi
+	 * 			Zoo de l'application
+	 * @return Enclos que l'utilisateur a choisi
 	 */
 	public Enclos<? extends Animal> getEnclos(Zoo zoo){
 		int numEnclos = getSaisieUtilisateur(1, zoo.getListEnclos().size()) - 1;
@@ -288,7 +288,7 @@ public class IHM extends Model{
 	 * Recupere la saisie d'un utilisateur, et renvois l'animal correspondant à cette saisie
 	 * @param enclos
 	 * 			Enclos de lequel se trouve l'animal qu'on cherche
-	 * @return animal que l'utilisateur a choisi
+	 * @return Animal que l'utilisateur a choisi
 	 */
 	public Animal getAnimal(Enclos<? extends Animal> enclos){
 		int numAnimal = getSaisieUtilisateur(1, enclos.getListAnimaux().size()) - 1;
@@ -300,7 +300,7 @@ public class IHM extends Model{
 	 * Recupere le tri choisi par l'utilisateur
 	 * @param enclos
 	 * 			Enclos sur lequel le tri sera effectuer
-	 * @return tri choisi par l'utilisateur
+	 * @return Tri choisi par l'utilisateur
 	 */
 	public Tri<? extends Animal> getTri(Enclos<? extends Animal> enclos){
 		int numTri =  getSaisieUtilisateur(1, 2);
@@ -310,7 +310,7 @@ public class IHM extends Model{
 	
 	/**
 	 * Retourne le valeur de l'attribut numTour
-	 * @return valeur de l'attribut numTour
+	 * @return Valeur de l'attribut numTour
 	 */
 	public int getNumTour() {
 		return numTour;
@@ -327,7 +327,7 @@ public class IHM extends Model{
 
 	/**
 	 * Retourne le valeur de l'attribut nbAction
-	 * @return valeur de l'attribut nbAction
+	 * @return Valeur de l'attribut nbAction
 	 */
 	public int getNbAction() {
 		return nbAction;

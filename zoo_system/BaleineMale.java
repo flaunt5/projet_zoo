@@ -25,6 +25,7 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	 * Accouple une baleine male et une baleine femelle
 	 * @param femelle
 	 * 				Baleine femelle qui va se faire fecondé
+	 * @return Pseudo, nom et sexe de la baleine femelle fecondé
 	 */
 	public String saccoupler(BaleineFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";

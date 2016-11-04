@@ -24,7 +24,8 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 	/**
 	 * Accouple un requin  male et un requin femelle
 	 * @param femelle
-	 * 				requin femelle qui va se faire fecondé
+	 * 				Requin femelle qui va se faire fecondé
+	 * @return Pseudo, nom et sexe du requin femelle fecondé
 	 */
 	public String saccoupler(RequinFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -36,7 +37,7 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 	
 	/**
 	 * Genere un pseudo pour les requins males
-	 * @return futur nom pour les requins males
+	 * @return Futur nom pour les requins males
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Bruce", "Enclume", "Chumi", "Thrambor", "Glunus", "Sharky", "Kremar"};
@@ -52,7 +53,7 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe RequinMale
-	 * @return sexe de requin male
+	 * @return Sexe de requin male
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
@@ -60,15 +61,15 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe RequinMale
-	 * @return sexe de requin male
+	 * @return Sexe de requin male
 	 */
 	public char getSexe(){
 		return RequinMale.SEXE;
 	}//getSexe()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

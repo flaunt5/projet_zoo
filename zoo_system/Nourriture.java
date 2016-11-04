@@ -5,7 +5,7 @@ public abstract class Nourriture extends Model{
 
 	/**
 	 * Retourne la valeur de l'attribut gainNiveauFaim
-	 * @return valeur de l'attribut gainNiveauFaim
+	 * @return Valeur de l'attribut gainNiveauFaim
 	 */
 	public int getGainNiveauFaim() {
 		return this.gainNiveauFaim;

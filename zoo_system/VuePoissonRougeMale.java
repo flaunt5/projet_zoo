@@ -3,11 +3,11 @@ package zoo_system;
 public class VuePoissonRougeMale extends VueAnimal<PoissonRougeMale>{
 	/**
 	 * Creer un objet de type VuePoissonRougeMale
-	 * @param object 
+	 * @param objet 
 	 * 				un objet de type PoissonRougeMale
 	 */
-	public VuePoissonRougeMale(PoissonRougeMale object){
-		this.model = object;
+	public VuePoissonRougeMale(PoissonRougeMale objet){
+		this.model = objet;
 	}//VuePoissonRougeMale()
 	
 }//VuePoissonRougeMale

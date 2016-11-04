@@ -27,7 +27,7 @@ public class StockNourriture<T extends Nourriture> {
 	
 	/**
 	 * Retourne le nombre d'éléments présents dans le stock
-	 * @return nombre d'élément dans le stock
+	 * @return Nombre d'élément dans le stock
 	 */
 	public int getNombreElementsDansStock(){
 		int count = 0;
@@ -46,16 +46,16 @@ public class StockNourriture<T extends Nourriture> {
 	}//getNom()
 
 	/**
-	 * Modifi la valeur de l'attribut nom
-	 * @return valeur de l'attribut nom
+	 * Modifie la valeur de l'attribut nom
+	 * @return Valeur de l'attribut nom
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}//setNom()
 
 	/**
-	 * retourne la valeur de l'attribut stock
-	 * @return valeur de l'attribut stock
+	 * Retourne la valeur de l'attribut stock
+	 * @return Valeur de l'attribut stock
 	 */
 	public ArrayList<T> getStock() {
 		return stock;

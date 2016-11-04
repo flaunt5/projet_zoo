@@ -7,18 +7,23 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 	/**
 	 * Creer un objet de type TigreMale
 	 * @param poids
+	 * 				Futur poids du tigre
 	 * @param taille
+	 * 				Futur taille du tigre
 	 * @param age
+	 * 				Futur age du tigre
 	 * @param pseudo
+	 * 				Futur pseudo du tigre
 	 */
 	public TigreMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 	}//TigreMale()
 	
 	/**
-	 * Accoupler le tigre avec une tigresse
+	 * Accoupler le tigre male avec un tigre femelle
 	 * @param femelle
-	 * @return String content le nom du tigresse fecondé
+	 * 				Tigre femelle qui va se faire fecond�
+	 * @return Pseudo, nom et sexe du tigre femelle fecond�
 	 */
 	public String saccoupler(TigreFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -28,11 +33,11 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 		return 	retour;
 	}//sacoupler()
 	
-	/**
-	 * recupèrer le nom de l'animal
-	 * @return String le nom
-	 */
 
+	/**
+	 * Genere un pseudo pour les tigres males
+	 * @return Futur nom pour les tigres males
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Tigrou", "Shere Khan", "Rajah", "Oliver", "Garfield", "Tiger", "Simba"};
 		int indice = TigreMale.getNumPseudo();
@@ -46,32 +51,33 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 	}//getPseudoAnimal()
 	
 	/**
-	 * retoruner les details du tigre
-	 * @return string contenant les details
+	 * Recupere les caracteristiques du tigre male
+	 * @return Caracteristiques du tigre male
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 	
 	/**
-	 * retourner le sexe du tigre
-	 * @return attribut sexe du tigre
+	 * Recupere la valeur de l'attribut SEXE de la classe TigreMale
+	 * @return Sexe du tigre male
 	 */
 	public char getSexe(){
 		return TigreMale.SEXE;
 	}//getSexe()
 
 	/**
-	 * recuperer le numéro permettant de determiner le nom du tigre
-	 * @return retourne un int content le numero
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 	
 	/**
-	 * Modifier le numéro de pseudo
+	 * Modifie la valeur de l'attribut numPseudo
 	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
 	 */
 	public static void setNumPseudo(int numPseudo) {
 		TigreMale.numPseudo = numPseudo;

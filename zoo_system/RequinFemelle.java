@@ -68,7 +68,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 
 	/**
 	 * Genere un pseudo pour les requins femelle
-	 * @return futur nom pour les requins femelle
+	 * @return Futur nom pour les requins femelle
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Anadrieniel", "Rykela", "Sairalinde", "Zindai", "Valja", "Dakali", "Dronel"};
@@ -83,8 +83,8 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique du requin femelle
-	 * @return Caracteristique de du requin femelle
+	 * Recupere les caracteristiques du requin femelle
+	 * @return Caracteristiques de du requin femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -94,7 +94,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe RequinFemelle
-	 * @return sexe du requin femelle
+	 * @return Sexe du requin femelle
 	 */
 	public char getSexe(){
 		return RequinFemelle.SEXE;
@@ -102,7 +102,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si le requin femelle est enceinte ou pas
+	 * @return Booleen indicant si le requin femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -119,7 +119,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -127,7 +127,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -143,8 +143,8 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	}//setTempEnceinte()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

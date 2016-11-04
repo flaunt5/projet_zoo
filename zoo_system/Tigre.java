@@ -37,31 +37,31 @@ public abstract class Tigre extends Terrestre implements PredateurAction{
 
 	/**
 	 * Retourne la maniere de vagabonder du tigre
-	 * @return maniere de vagabonder du tigre
+	 * @return Maniere de vagabonder du tigre
 	 */
 	public String vagabonder() {
 		return "Vagabonde comme un tigre";
 	}//vagabonder()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Tigre.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Tigre.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

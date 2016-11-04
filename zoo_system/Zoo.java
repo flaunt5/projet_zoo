@@ -22,7 +22,7 @@ public class Zoo {
 	 * @param nomEmploye
 	 * 				Le nom de l'employe
 	 * @param ageEmploye
-	 * 				l'age de l'employe
+	 * 				L'age de l'employe
 	 * @param sexeEmploye
 	 * 				Le sexe de l'employe
 	 * @param qtBoeuf
@@ -63,7 +63,7 @@ public class Zoo {
 	/**
 	 * Ajoute un enclos dans le zoo
 	 * @param enclos
-	 * 				enclos qui va etre ajouter
+	 * 				Enclos qui va etre ajouter
 	 * @return  Message de confirmation d'ajout
 	 */
 	public <T extends Animal> String ajouterEnclos(Enclos<T> enclos){
@@ -246,9 +246,9 @@ public class Zoo {
 	 * @param enclos
 	 * 				Enclos dont les enimaux vont etre lister
 	 * @param pourSoin
-	 * 				boolean pour savoir si cette methode est appelé pour soigner un animal
+	 * 				Boolean pour savoir si cette methode est appelé pour soigner un animal
 	 * @param pourNourir
-	 * 				boolean pour savoir si cette methode est appelé pour nourrir un animal
+	 * 				Boolean pour savoir si cette methode est appelé pour nourrir un animal
 	 * @return Menu de selection des animaux
 	 */
 	public <T extends Animal> String listerAnimauxEnclos(Enclos<T> enclos, boolean pourSoin, boolean pourNourir){
@@ -300,7 +300,7 @@ public class Zoo {
 	
 	/**
 	 * Fait accoucher les femelle prètent à le faire, sinon augmente la valeur des attribut lié à l'accouchement
-	 * @return liste des femelle qui auront accouchés, ainsi que de leur bébés
+	 * @return Liste des femelle qui auront accouchés, ainsi que de leur bébés
 	 */
 	public <T extends MammifereFemelle, U extends AutreFemelle> String verifierFemelleEnceinte(){
 		ArrayList<T> listMammifereFemelle = new ArrayList<T>();
@@ -347,7 +347,7 @@ public class Zoo {
 	 * Vérifie si un animal mâle peut se reproduire
 	 * @param animal
 	 * 				Animal qu'on va vérifier
-	 * @return true ou false
+	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean verfierMale(Animal animal){
 		if(animal.getSexe() == 'M' && animal.getAge() >= animal.getMaturiteSexuelle()
@@ -456,7 +456,7 @@ public class Zoo {
 	
 	/**
 	 * Retourne l'affichage du budget du zoo
-	 * @return affichage du budget du zoo
+	 * @return Affichage du budget du zoo
 	 */
 	public String getBudgetDuZoo(){
 		return "Budget du zoo : " + this.getBudget() + " euros\n";
@@ -467,11 +467,11 @@ public class Zoo {
 	 * @param nomZoo 
 	 * 				Le nom du Zoo
 	 * @param nbEnclos
-	 * 				le nombre d'enclos
+	 * 				Le nombre d'enclos
 	 * @param nomEmploye
 	 * 				Le nom de l'employe
 	 * @param ageEmploye
-	 * 				l'age de l'employe
+	 * 				L'age de l'employe
 	 * @param sexeEmploye
 	 * 				Le sexe de l'employe
 	 * @param qtBoeuf
@@ -492,7 +492,7 @@ public class Zoo {
 
 	/**
 	 * Retourne la valeur de l'atrtribut employe
-	 * @return valeur de l'atrtribut employe
+	 * @return Valeur de l'atrtribut employe
 	 */
 	public Employe getEmploye() {
 		return employe;
@@ -509,7 +509,7 @@ public class Zoo {
 
 	/**
 	 * Retourne la valeur de l'atrtribut nom
-	 * @return valeur de l'atrtribut nom
+	 * @return Valeur de l'atrtribut nom
 	 */
 	public String getNom() {
 		return nom;
@@ -526,7 +526,7 @@ public class Zoo {
 
 	/**
 	 * Retourne la valeur de l'atrtribut nbEnclos
-	 * @return  valeur de l'atrtribut nbEnclos
+	 * @return  Valeur de l'atrtribut nbEnclos
 	 */
 	public int getNbEnclos() {
 		return nbEnclos;
@@ -543,7 +543,7 @@ public class Zoo {
 
 	/**
 	 * Retourne la valeur de l'atrtribut listEnclos
-	 * @return  valeur de l'atrtribut listEnclos
+	 * @return  Valeur de l'atrtribut listEnclos
 	 */
 	public ArrayList<Enclos<? extends Animal>> getListEnclos() {
 		return listEnclos;
@@ -551,7 +551,7 @@ public class Zoo {
 	
 	/**
 	 * Retourne la valeur de l'atrtribut stockNourriture
-	 * @return  valeur de l'atrtribut stockNourriture
+	 * @return  Valeur de l'atrtribut stockNourriture
 	 */
 	public ArrayList<StockNourriture<? extends Nourriture>> getStockNourriture() {
 		return stockNourriture;
@@ -559,7 +559,7 @@ public class Zoo {
 	
 	/**
 	 * Retourne la valeur de l'atrtribut budget
-	 * @return  valeur de l'atrtribut budget
+	 * @return  Valeur de l'atrtribut budget
 	 */
 	public int getBudget() {
 		return budget;

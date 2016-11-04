@@ -67,8 +67,8 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	}//mettreBas()
 	
 	/**
-	 * Genere un pseudo pour les ours femelle
-	 * @return futur nom pour les ours femelle
+	 * Genere un pseudo pour les ours femelles
+	 * @return Futur nom pour les ours femelles
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Chocolat", "Pyros", "Bambou", "Gaïa", "Bisounours", "Alyssa", "Angel"};
@@ -83,8 +83,8 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique de l'ours femelle
-	 * @return Caracteristique de l'ours femelle
+	 * Recupere les caracteristiques de l'ours femelle
+	 * @return Caracteristiques de l'ours femelle
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
@@ -94,7 +94,7 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe OursFemelle
-	 * @return sexe de l'ours femelle
+	 * @return Sexe de l'ours femelle
 	 */
 	public char getSexe(){
 		return OursFemelle.SEXE;
@@ -102,7 +102,7 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 
 	/**
 	 * Recupere la valeur de l'attribut enceinte
-	 * @return booleen indicant si l'ours femelle est enceinte ou pas
+	 * @return Booleen indicant si l'ours femelle est enceinte ou pas
 	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
@@ -120,7 +120,7 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	
 	/**
 	 * Retourne la valeur de l'attribut periodeEnfantement
-	 * @return valeur de l'attribut periodeEnfantement
+	 * @return Valeur de l'attribut periodeEnfantement
 	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
@@ -128,7 +128,7 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 
 	/**
 	 * Retourne la valeur de l'attribut tempEnceinte
-	 * @return valeur de l'attribut tempEnceinte
+	 * @return Valeur de l'attribut tempEnceinte
 	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
@@ -144,8 +144,8 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	}//setTempEnceinte()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

@@ -6,7 +6,7 @@ public interface Male<T extends Animal> {
 	/**
 	 * Accouple un  male et une  femelle
 	 * @param femelle
-	 * 				femelle qui va se faire fecondé
+	 * 				Femelle qui va se faire fecondé
 	 */
 	public String saccoupler(T femelle);
 }//Male

@@ -3,11 +3,11 @@ package zoo_system;
 public class VuePingouinFemelle extends VueAnimal<PingouinFemelle>{
 	/**
 	 * Creer un objet de type VuePingouinFemelle
-	 * @param object 
+	 * @param objet 
 	 * 				un objet de type PingouinFemelle
 	 */
-	public VuePingouinFemelle(PingouinFemelle object){
-		this.model = object;
+	public VuePingouinFemelle(PingouinFemelle objet){
+		this.model = objet;
 	}//VuePingouinFemelle()
 	
 }//VuePingouinFemelle

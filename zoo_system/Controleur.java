@@ -116,7 +116,7 @@ public abstract class Controleur {
 	}//zooNumero1()
 	
 	/**
-	 * Fonction principale, permettant de recuperer et executer les actions de l'utilisateur
+	 * Fonction principale, permettant de recuperer et executer les actions de l'utilisateur,
 	 * ainsi que les action prévus par le programme
 	 * @param nbActionParTour
 	 * 						Nombre d'action réalisable dans un tour

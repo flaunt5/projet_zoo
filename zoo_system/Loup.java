@@ -10,13 +10,13 @@ public abstract class Loup extends Terrestre implements PredateurAction{
 	/**
 	 * Construit un objet de type Loup
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids du loup
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille du loup
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age du loup
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo du loup
 	 */
 	public Loup(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -28,7 +28,7 @@ public abstract class Loup extends Terrestre implements PredateurAction{
 	}//Loup()
 	
 	/**
-	 * Permet à la baleine de pousser son cri
+	 * Permet au loup de pousser son cri
 	 * @return Son emit par le loup
 	 */
 	public String emmetreSon() {
@@ -37,31 +37,31 @@ public abstract class Loup extends Terrestre implements PredateurAction{
 
 	/**
 	 * Retourne la maniere de vagabonder du loup
-	 * @return maniere de vagabonder du loup
+	 * @return Maniere de vagabonder du loup
 	 */
 	public String vagabonder() {
 		return "Vagabonde comme un loup";
 	}//vagabonder()
 	
 	/**
-	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return valeur de l'attribut  maturiteSexuelle
+	 * Retourne la valeur de l'attribut maturiteSexuelle
+	 * @return Valeur de l'attribut  maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Loup.maturiteSexuelle;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut esperanceVie
-	 * @return valeur de l'attribut  esperanceVie
+	 * Retourne la valeur de l'attribut esperanceVie
+	 * @return Valeur de l'attribut  esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Loup.esperanceVie;
 	}//getMaturiteSexuelle()
 	
 	/**
-	 * retourne la valeur de l'attribut consoNourriture
-	 * @return valeur de l'attribut  consoNourriture
+	 * Retourne la valeur de l'attribut consoNourriture
+	 * @return Valeur de l'attribut  consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

@@ -22,7 +22,8 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 	/**
 	 * Accouple un loup male et un loup femelle
 	 * @param femelle
-	 * 				loup femelle qui va se faire fecondé
+	 * 				Loup femelle qui va se faire fecondé
+	 * @return Pseudo, nom et sexe du loup femelle fecondé
 	 */
 	public String saccoupler(LoupFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -33,8 +34,8 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 	}//sacoupler()
 
 	/**
-	 * Genere un pseudo pour les loup male
-	 * @return futur nom pour les loup male
+	 * Genere un pseudo pour les loups males
+	 * @return Futur nom pour les loups males
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Vent Gris", "Wolf Link", "Eté", "Fantôme", "Broussaille", "Akela", "Wolf O'Donnell"};
@@ -49,8 +50,8 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique du loup male
-	 * @return Caracteristique du loup male
+	 * Recupere les caracteristiques du loup male
+	 * @return Caracteristiques du loup male
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
@@ -58,15 +59,15 @@ public class LoupMale extends Loup implements Male<LoupFemelle>{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe LoupMale
-	 * @return sexe du loup male
+	 * @return Sexe du loup male
 	 */
 	public char getSexe(){
 		return LoupMale.SEXE;
 	}//getSexe()
 	
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;

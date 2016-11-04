@@ -64,10 +64,10 @@ public class Employe {
 	}//nourirAnimaux()
 	
 	/**
-	 * Recupere les donnees de l'enclos ainsi que le nom(espece) des animaux
+	 * Recupere les donnees de l'enclos ainsi que le pseudo,nom(espece)et sexe des animaux
 	 * @param enclos
 	 * 				Enclos qui va etre examiner
-	 * @return donnees de l'enclos + nom des animaux de l'enclos
+	 * @return Donnees de l'enclos et pseudo,nom et sexe des animaux de l'enclos
 	 */
 	public <T extends Animal> String examinerEnclos(Enclos<T> enclos){
 		String donneesEnclos = "";
@@ -89,7 +89,7 @@ public class Employe {
 	}//examinerEnclos()
 	
 	/**
-	 * Transfere un animale dans l'enclos de destination en paramï¿½tre
+	 * Transfere un animal dans un autre enclos
 	 * @param animal
 	 * 				Animal qui va etre transferer
 	 * @param enclosDesti
@@ -119,7 +119,7 @@ public class Employe {
 	}//transfererAnimal()
 	
 	/**
-	 * Soigne l'animal placer en paramï¿½tre
+	 * Soigne l'animal placer en parametre
 	 * @param animal
 	 * 				Animal qui va etre soigner
 	 * @return Message de confirmation de l'action
@@ -130,13 +130,13 @@ public class Employe {
 	}
 	
 	/**
-	 * Recupere la clï¿½s et le prix de l'article selectionner par l'utilisateur
+	 * Recupere la cles et le prix de l'article selectionner par l'utilisateur
 	 * @param boutique
 	 * 				Boutique où on va acheter les articles
 	 * @param zoo
 	 * 				Zoo sur lequel on va modifier les stock
 	 * @param saisieUtilisateur
-	 * 				saisie de l'utilisateur pour savoir quel article il achete
+	 * 				Saisie de l'utilisateur pour savoir quel article il achete
 	 * @return Message de confirmation de l'achat
 	 */
 	public String acheterArticle(Boutique boutique, Zoo zoo, int saisieUtilisateur){
@@ -160,7 +160,7 @@ public class Employe {
 	}
 	
 	/**
-	 * Retourne la liste des tri disponible
+	 * Retourne la liste des tri disponibles
 	 * @return Message contenant la liste des tri
 	 */
 	public String getListTri() {
@@ -253,12 +253,12 @@ public class Employe {
 	}
 	
 	/**
-	 * Verifie si le zoo ï¿½ le budget pour acheter un article d'un certain prix
+	 * Verifie si le zoo a le budget pour acheter un article d'un certain prix
 	 * @param zoo
 	 * 			Zoo de l'application
 	 * @param prix
-	 * 			prix de l'article à acheter
-	 * @return true ou false
+	 * 			Prix de l'article à acheter
+	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	private boolean verifBudget(Zoo zoo, int prix){
 		if(zoo.getBudget() >= prix){
@@ -269,15 +269,15 @@ public class Employe {
 	}//verifBudget()
 	
 	/**
-	 * Initialise l'objet instance s'il est null
-	 * Et retourne l'objet instance
+	 * Initialise l'attribut instance s'il est null
+	 * Et retourne l'attribut instance
 	 * @param nom
 	 * 			Nom de l'employe
 	 * @param age
 	 * 			Age de l'employe
 	 * @param sexe
 	 * 			Sexe de l'employe
-	 * @return instance unique de l'Employe
+	 * @return Instance unique de l'Employe
 	 */
 	public static Employe getInstance(String nom, int age, char sexe){
 		if(instance == null){
@@ -287,16 +287,16 @@ public class Employe {
 	}//getInstance()
 	
 	/**
-	 * Retourne la valeur de l'atrtribut instance, sans avoir ï¿½ mettre des paramï¿½tres
-	 * @return instance unique de l'Employe
+	 * Retourne la valeur de l'attribut instance, sans avoir a mettre des parametres
+	 * @return Instance unique de l'employe
 	 */
 	public static Employe getInstance(){
 		return instance;
 	}
 	
 	/**
-	 * Retourne la valeur de l'atrtribut nom
-	 * @return valeur de l'atrtribut nom
+	 * Retourne la valeur de l'attribut nom
+	 * @return Valeur de l'attribut nom
 	 */
 	public String getNom() {
 		return nom;
@@ -312,8 +312,8 @@ public class Employe {
 	}//setNom()
 
 	/**
-	 * Retourne la valeur de l'atrtribut sexe
-	 * @return valeur de l'atrtribut sexe
+	 * Retourne la valeur de l'attribut sexe
+	 * @return Valeur de l'attribut sexe
 	 */
 	public char getSexe() {
 		return sexe;
@@ -330,7 +330,7 @@ public class Employe {
 
 	/**
 	 * Retourne la valeur de l'atrtribut age
-	 * @return valeur de l'atrtribut age
+	 * @return Valeur de l'atrtribut age
 	 */
 	public int getAge() {
 		return age;

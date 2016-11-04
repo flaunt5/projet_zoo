@@ -24,7 +24,8 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 	/**
 	 * Accouple un pingouin male et un pingouin femelle
 	 * @param femelle
-	 * 				pingouin femelle qui va se faire fecondé
+	 * 				Pingouin femelle qui va se faire fecondé
+	 * @return Pseudo, nom et sexe du pingouin femelle fecondé
 	 */
 	public String saccoupler(PingouinFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
@@ -36,7 +37,7 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 
 	/**
 	 * Genere un pseudo pour les pingouins males
-	 * @return futur nom pour les pingouins males
+	 * @return Futur nom pour les pingouins males
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Skipper", "Kowalski", "Soldat", "Rico", "Cobblepot", "Pingou", "Tiplouf"};
@@ -51,8 +52,8 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 	}//getPseudoAnimal()
 	
 	/**
-	 * Recupere les caracteristique de pingouins male
-	 * @return Caracteristique de pingouins male
+	 * Recupere les caracteristiques de pingouins males
+	 * @return Caracteristiques de pingouins males
 	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
@@ -60,15 +61,15 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 	
 	/**
 	 * Recupere la valeur de l'attribut SEXE de la classe PingouinMale
-	 * @return sexe de pingouins male
+	 * @return Sexe de pingouins male
 	 */
 	public char getSexe(){
 		return PingouinMale.SEXE;
 	}//getSexe()
 
 	/**
-	 * retourne la valeur de l'attribut numPseudo
-	 * @return numero du pseudo
+	 * Retourne la valeur de l'attribut numPseudo
+	 * @return Numero du pseudo
 	 */
 	public static int getNumPseudo() {
 		return numPseudo;
