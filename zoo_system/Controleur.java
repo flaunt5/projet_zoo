@@ -1,5 +1,6 @@
 package zoo_system;
 
+import java.util.ArrayList;
 
 public abstract class Controleur {
 
@@ -83,24 +84,50 @@ public abstract class Controleur {
 		VueZoo vueZoo = new VueZoo(zoo);
 		VueEmploye vueEmp = new VueEmploye(zoo.getEmploye());
 		VueBoutique vueBout = new VueBoutique(boutique);
+		VueCage vueCageLoup = new VueCage(cageLoup);
+		VueCage vueCageTigre = new VueCage(cageTigre);
+		VueCage vueCageOurs = new VueCage(cageOurs);
+		VueCage vueCageSecours = new VueCage(cageSecours);
+		VueAquarium vueBassinBaleine = new VueAquarium(bassinBaleine);
+		VueAquarium vueBassinPoissonR = new VueAquarium(bassinPoissonR);
+		VueAquarium vueBassinPinguoin = new VueAquarium(bassinPinguoin);
+		VueAquarium vueBassinRequin = new VueAquarium(bassinRequin);
+		VueAquarium vueBassinSecours = new VueAquarium(bassinSecours);
+		VueVoliere vueVoliereAigle = new VueVoliere(voliereAigle);
+		VueVoliere vueVoliereSecours = new VueVoliere(voliereSecours);
+		ArrayList<VueEnclos> listVueEnclos = new ArrayList<VueEnclos>();
+		listVueEnclos.add(vueCageLoup);
+		listVueEnclos.add(vueCageTigre);
+		listVueEnclos.add(vueCageOurs);
+		listVueEnclos.add(vueCageSecours);
+		listVueEnclos.add(vueBassinBaleine);
+		listVueEnclos.add(vueBassinPoissonR);
+		listVueEnclos.add(vueBassinPinguoin);
+		listVueEnclos.add(vueBassinRequin);
+		listVueEnclos.add(vueBassinSecours);
+		listVueEnclos.add(vueVoliereAigle);
+		listVueEnclos.add(vueVoliereSecours);
+		
 		zoo.ajouterEnclos(cageSecours);
 		zoo.ajouterEnclos(bassinSecours);
 		zoo.ajouterEnclos(voliereSecours);
-
-		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp, vueBout);		
+		
+		Controleur.systemeZoo(3, 2, 3, vueZoo, vueEmp, vueBout, listVueEnclos);		
 	}//zooNumero1()
 	
 	/**
 	 * Fonction principale, permettant de recuperer et executer les actions de l'utilisateur
 	 * ainsi que les action prévus par le programme
 	 * @param nbActionParTour
+	 * 						Nombre d'action réalisable dans un tour
 	 * @param moduloPourModifs
+	 * 						Nombre de tour ou 
 	 * @param moduloPourReproduction
 	 * @param vueZoo
 	 * @param vueEmp
 	 */
 	public static void systemeZoo(int nbActionParTour, int moduloPourModifs, int moduloPourReproduction, 
-									VueZoo vueZoo, VueEmploye vueEmp, VueBoutique vueBout){
+									VueZoo vueZoo, VueEmploye vueEmp, VueBoutique vueBout, ArrayList<VueEnclos> listVueEnclos){
 		IHM ihm = new IHM(nbActionParTour);
 		VueIHM vueIhm = new VueIHM(ihm);	
 		int saisie;
@@ -109,10 +136,11 @@ public abstract class Controleur {
 		while(true){		
 			//actions de l'utilisateurs
 			while(ihm.getNbAction() != 0){
+				vueZoo.afficherBudgetDuZoo();
 				vueZoo.afficherContenuStock(false);
 				vueIhm.afficherMenuAction();
-				saisie = ihm.getSaisieUtilisateur(1, 7);
-				ihm.executeChoixActionZoo(saisie, vueZoo, vueEmp);
+				saisie = ihm.getSaisieUtilisateur(1, 8);
+				ihm.executeChoixActionZoo(saisie, vueZoo, vueEmp, listVueEnclos);
 				ihm.setNbAction(ihm.getNbAction() - 1);
 			}
 			//si l'état des animaux on été modifier, 2 tour plus tard ils essayent de se reveillés
@@ -135,7 +163,7 @@ public abstract class Controleur {
 			vueZoo.faireGrandirAnimaux();
 			vueZoo.verifierFemelleEnceinte();
 			vueIhm.afficherManuCourse();
-			ihm.allerFaireDesAchat(vueBout, vueEmp, vueZoo.getModel());
+			ihm.allerFaireDesAchat(vueBout, vueEmp, vueZoo);
 			ihm.setNumTour(ihm.getNumTour() + 1);
 			ihm.setNbAction(nbActionParTour);
 		}

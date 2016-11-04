@@ -1,5 +1,6 @@
 package zoo_system;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -10,24 +11,45 @@ public class IHM extends Model{
 	private int nbAction;
 	private Scanner scanAction;
 	
+	/**
+	 * construct un objet IHM
+	 * @param nbAction
+	 */
 	public IHM(int nbAction){
 		this.numTour = 1;
 		this.nbAction = nbAction;
 		this.scanAction = new Scanner(System.in);
 	}//IHM()
 
+	/**
+	 * Retourne le menu qui liste des actions réalisables par l'utilisateur
+	 * @return Menu d'action
+	 */
 	public String getMenuAction(){
 		return "Tour n°"+ numTour + "\n"
 				+ "Il vous reste " + nbAction + " action(s) sur ce tour\nQue voulez-vous faire(saisissez le numero de l'action) : \n"
 				+ "1 - Nourir les animaux d'un enclos\n2 - Transférer un animal vers un autre enclos\n"
 				+ "3 - Nettoyer un enclos\n4 - Soigner un animal\n5 - Afficher les caractériste d'un enclos\n"
-				+ "6 - Afficher le nombre d'animaux dans le zoo\n7 - Afficher la liste des animaux du zoo\n";
+				+ "6 - Afficher le nombre d'animaux dans le zoo\n7 - Afficher la liste des animaux du zoo\n"
+				+ "8 - Trier un enclos\n";
 	}//getMenuAction()
 	
+	/**
+	 * Retourne le menu de demande pour l'accés à la boutique
+	 * @return Menu pour l'accés boutique
+	 */
 	public String getMenuCourse(){
 		return "Voulez-vous allez au magasin achater du matériel ?\n \t1 - Oui\n \t2 - Non";
 	}//getMenuCourse()
 	
+	
+	/**
+	 * Recupère et verifie un saisie utilisateur
+	 * Verification que le chiffre saisie est compris dans [main; max]
+	 * @param min
+	 * @param max
+	 * @return saisie
+	 */
 	public int getSaisieUtilisateur(int min, int max){
 		int saisie = 0;
 		boolean valid = false;
@@ -50,23 +72,38 @@ public class IHM extends Model{
 			
 	}//getSaisieUtilisateur()
 	
-	public void allerFaireDesAchat(VueBoutique vueBout, VueEmploye vueEmp, Zoo zoo){
+	/**
+	 * Demande à l'utilisateur s'il veut acceder  à la boutique
+	 * si oui, affiche la liste des article et appel la fonction d'achat
+	 * @param vueBout
+	 * @param vueEmp
+	 * @param zoo
+	 */
+	public void allerFaireDesAchat(VueBoutique vueBout, VueEmploye vueEmp, VueZoo vueZoo){
 		int saisie = getSaisieUtilisateur(1, 2);
 		if(saisie == 1){
 			/*
 			 * si l'utilisateur choisi 0 (quiter boutique) on arrete lks achats
 			 */
 			while(saisie != 0){
+				vueZoo.afficherBudgetDuZoo();
 				vueBout.afficherListArticles();
 				saisie = getSaisieUtilisateur(0, vueBout.getModel().getStockAVendre().size());
 				if(saisie != 0){
-					vueEmp.acheterArticle(vueBout.getModel(), zoo, saisie - 1);
+					vueEmp.acheterArticle(vueBout.getModel(), vueZoo.getModel(), saisie - 1);
 				}
 			}
 
 		}
 	}
 	
+	/**
+	 * Verifie que le paramètre "saisie" soit compris entre min et max
+	 * @param saisie
+	 * @param min
+	 * @param max
+	 * @return true ou false
+	 */
 	public boolean verifSaisie(int saisie, int min, int max){
 		if(saisie < min || saisie > max){
 			return false;
@@ -75,7 +112,13 @@ public class IHM extends Model{
 		}
 	}//verifSaisie()
 	
-	public void executeChoixActionZoo(int saisie, VueZoo vueZoo, VueEmploye vueEmp){
+	/**
+	 * Execute l'action de l'utilisateur, en fonction de se qu'il aura choisi comme action
+	 * @param saisie
+	 * @param vueZoo
+	 * @param vueEmp
+	 */
+	public void executeChoixActionZoo(int saisie, VueZoo vueZoo, VueEmploye vueEmp, ArrayList<VueEnclos> listVueEnclos){
 		Enclos<? extends Animal> enclos;
 		Animal animal;
 		//Affiche liste des enclos et recupere l'enclos selectionné
@@ -119,11 +162,27 @@ public class IHM extends Model{
 				Boolean details = convertIntEnBool(getSaisieUtilisateur(1,2));
 				vueZoo.afficheAnimaux(details);
 				break;
+			case 8 :
+				vueZoo.afficherListEnclos(false);
+				enclos = this.getEnclos(vueZoo.getModel());
+				vueEmp.afficherListTri();
+				Tri tri = this.getTri(enclos);
+				enclos.setTri(tri);
+				VueEnclos vue = this.getVueEnclos(listVueEnclos, enclos);
+				vue.effectuerTri();
+				break;
 			default :
 				break;
 		}
 	}//executeChoix()
-	
+
+	/**
+	 * Nourri un animal avec l'equipement : nourriture ;
+	 * Permet de nourir autant d'animaux qu'on le souhaite, dans
+	 * @param enclos
+	 * @param vueZoo
+	 * @param vueEmp
+	 */
 	public void nourirPlusieurAnimaux(Enclos<? extends Animal> enclos, VueZoo vueZoo, VueEmploye vueEmp){
 		int saisie = 1000;
 		int saisieEquip;
@@ -168,6 +227,16 @@ public class IHM extends Model{
 		}
 	}//nourirPlusieurAnimaux()
 	
+	public VueEnclos getVueEnclos(ArrayList<VueEnclos> listVueEnclos, Enclos<? extends Animal> enclos){
+		VueEnclos vueRechercher = null;
+		for(VueEnclos vue : listVueEnclos){
+			if(vue.getModel().equals(enclos)){
+				vueRechercher = vue;
+			}
+		}
+		return vueRechercher;
+	}//getVueEnclos()
+	
 	/**
 	 * Convertie un int en boolean 
 	 * @param futurBool
@@ -195,7 +264,7 @@ public class IHM extends Model{
 	/**
 	 * Recupere la saisie d'un utilisateur, et renvois l'animal correspondant à cette saisie
 	 * @param enclos
-	 * @return Animal
+	 * @return animal
 	 */
 	public Animal getAnimal(Enclos<? extends Animal> enclos){
 		int numAnimal = getSaisieUtilisateur(1, enclos.getListAnimaux().size()) - 1;
@@ -203,18 +272,40 @@ public class IHM extends Model{
 		return animal;		
 	}
 	
+	public Tri<? extends Animal> getTri(Enclos<? extends Animal> enclos){
+		int numTri =  getSaisieUtilisateur(1, 2);
+		Tri<? extends Animal> tri = enclos.getTypeTri(numTri);
+		return tri;
+	}
+	
+	/**
+	 * Retourne le valeur de l'attribut numTour
+	 * @return numTour
+	 */
 	public int getNumTour() {
 		return numTour;
 	}//getNumTour()
 
+	/**
+	 * Modifit le valeur de l'attribut numTour
+	 * @param numTour
+	 */
 	public void setNumTour(int numTour) {
 		this.numTour = numTour;
 	}//setNumTour()
 
+	/**
+	 * Retourne le valeur de l'attribut nbAction
+	 * @return nbAction
+	 */
 	public int getNbAction() {
 		return nbAction;
 	}//getNbAction()
 
+	/**
+	 * Modifit le valeur de l'attribut nbAction
+	 * @param nbAction
+	 */
 	public void setNbAction(int nbAction) {
 		this.nbAction = nbAction;
 	}//setNbAction()

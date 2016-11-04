@@ -11,40 +11,26 @@ public class Zoo {
 	private static Zoo instance = null;
 	private ArrayList<Enclos<? extends Animal>> listEnclos;
 	private ArrayList<StockNourriture<? extends Nourriture>> stockNourriture;
-		
-	public static void main(String args[]){
-		Cage cageLoup = new Cage("Cage des loups", 35, 5);
-		Cage cageLoup2 = new Cage("Cage des loups2", 35, 5);
-		Aquarium bassinBaleine = new Aquarium("Bassin des baleines", 100, 3);
-		LoupMale loupMale1 = new LoupMale(60, 83, 5,LoupMale.getPseudoAnimal());
-		cageLoup.ajouterAnimal(loupMale1);
-		cageLoup.ajouterAnimal(loupMale1);
-		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 10, 10, 10);
-		zoo.ajouterEnclos(bassinBaleine);
-		zoo.ajouterEnclos(cageLoup);
-		zoo.ajouterEnclos(cageLoup2);
-		System.out.println(zoo.getEmploye().transfererAnimal((Animal)loupMale1, (Enclos)bassinBaleine));
-		System.out.println(zoo.getEmploye().transfererAnimal((Animal)loupMale1, (Enclos)cageLoup2));
-		System.out.println(cageLoup.toString());
-		System.out.println(cageLoup2.toString());
-		System.out.println(bassinBaleine.toString());
-		for(StockNourriture<? extends Nourriture> stock : zoo.getStockNourriture()){
-			for(Nourriture n : stock.getStock()){
-				System.out.println(n.getGainNiveauFaim());				
-			}
-		}
-	}
+	private int budget;
 	
 	/**
 	 * Construit un objet de type Zoo
-	 * @param nomZoo
+	 * @param nomZoo 
+	 * 				Le nom du Zoo
 	 * @param nbEnclos
+	 * 				le nombre d'enclos
 	 * @param nomEmploye
+	 * 				Le nom de l'employe
 	 * @param ageEmploye
+	 * 				l'age de l'employe
 	 * @param sexeEmploye
+	 * 				Le sexe de l'employe
 	 * @param qtBoeuf
+	 * 				La quantité de viande de boeuf present de base dans le stock
 	 * @param qtPoisson
+	 * 				La quantité de poisson present de base dans le stock
 	 * @param qtNourriturePoisson
+	 * 				La quantité de nourriture pour poisson present de base dans le stock
 	 */
 	private Zoo (String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye, 
 					int qtBoeuf, int qtPoisson, int qtNourriturePoisson){
@@ -53,6 +39,7 @@ public class Zoo {
 		this.nbEnclos = nbEnclos;
 		this.listEnclos = new ArrayList<Enclos<? extends Animal>>();
 		this.employe = Employe.getInstance(nomEmploye, ageEmploye, sexeEmploye);
+		this.setBudget(1000);
 		this.stockNourriture = new ArrayList<StockNourriture<? extends Nourriture>>();
 		this.stockNourriture.add(new StockBoeuf("stock viande de boeuf"));
 		this.stockNourriture.add(new StockPoisson("stock de poisson"));
@@ -75,6 +62,9 @@ public class Zoo {
 
 	/**
 	 * Ajoute un enclos dans le zoo
+	 * @param enclos
+	 * 				enclos qui va etre ajouter
+	 * @return  Message de confirmation d'ajout
 	 */
 	public <T extends Animal> String ajouterEnclos(Enclos<T> enclos){
 		this.getListEnclos().add(enclos);
@@ -84,6 +74,7 @@ public class Zoo {
 	
 	/**
 	 * Recupere la nombre d'animaux present dans le zoo
+	 * @return Retourne le nombre d'animaux
 	 */
 	public String getNbAnimaux(){
 		int compteurAnimaux = 0;
@@ -96,6 +87,9 @@ public class Zoo {
 	
 	/**
 	 * Recupere les informations ou le pseudo,nom et sexe de tous les animaux du zoo
+	 * @param details
+	 * 				Va permettre de savoir si on recupere tout les details des animaux ou seulement leurs pseudo, nom et sexe
+	 * @return  Liste des animaux
 	 */
 	public String getAnimaux(Boolean details){
 		String listAnimaux = "";
@@ -124,6 +118,7 @@ public class Zoo {
 
 	/**
 	 * Modifie aléatoirement les différents valeur des attribut des enclos
+	 * @return Liste des modifications sur les enclos
 	 */
 	public String modifierEtatEnclos(){
 		String[] etatFutur = {"correct", "mauvais"};
@@ -179,6 +174,7 @@ public class Zoo {
 	
 	/**
 	 * Modifie aléatoirement un des état(sommeil, faim, santé) des animaux du zoo
+	 * @return Liste des modifications  sur les animaux
 	 */
 	public String modifierEtatAnimaux(){
 		String[] etatFutur = {"epuise", "malade", "affame"};
@@ -226,6 +222,9 @@ public class Zoo {
 	
 	/**
 	 * Retourne la liste de enclos du zoo
+	 * @param pourTransfer
+	 * 					Va permetre de savoir si on rajoute une String dans la chaine qui va etre retourner par la fonction
+	 * @return Menu de selection des enclos
 	 */
 	public String listerEnclos(Boolean pourTransfer){
 		String retour = "Choisissez un enclos ";
@@ -244,6 +243,13 @@ public class Zoo {
 	/**
 	 * Retourne la liste des animaux d'un enclos, ainsi que les potentiel niveau de faim/santé, 
 	 * et sa consomation en nourriture
+	 * @param enclos
+	 * 				Enclos dont les enimaux vont etre lister
+	 * @param pourSoin
+	 * 				boolean pour savoir si cette methode est appelé pour soigner un animal
+	 * @param pourNourir
+	 * 				boolean pour savoir si cette methode est appelé pour nourrir un animal
+	 * @return Menu de selection des animaux
 	 */
 	public <T extends Animal> String listerAnimauxEnclos(Enclos<T> enclos, boolean pourSoin, boolean pourNourir){
 		String retour = "Choisissez un animal :\n";
@@ -267,6 +273,7 @@ public class Zoo {
 	
 	/**
 	 * Accouple un animal mâle à un animal femelle de la même espece et du même enclos
+	 * @return Liste des accouplement effectué
 	 */
 	public <T extends Male<U>,U extends Animal> String reproductionAnimal(){
 		String retour = "";		
@@ -292,7 +299,8 @@ public class Zoo {
 	}//reproductionAnimal
 	
 	/**
-	 * Faut accoucher les femelle pretent à le faire, sinon augmente la valeur des attribut lié à l'accouchement
+	 * Fait accoucher les femelle prètent à le faire, sinon augmente la valeur des attribut lié à l'accouchement
+	 * @return liste des femelle qui auront accouchés, ainsi que de leur bébés
 	 */
 	public <T extends MammifereFemelle, U extends AutreFemelle> String verifierFemelleEnceinte(){
 		ArrayList<T> listMammifereFemelle = new ArrayList<T>();
@@ -337,6 +345,9 @@ public class Zoo {
 	
 	/**
 	 * Vérifie si un animal mâle peut se reproduire
+	 * @param animal
+	 * 				Animal qu'on va vérifier
+	 * @return true ou false
 	 */
 	public boolean verfierMale(Animal animal){
 		if(animal.getSexe() == 'M' && animal.getAge() >= animal.getMaturiteSexuelle()
@@ -349,6 +360,7 @@ public class Zoo {
 	
 	/**
 	 * Modifie aléatoirement l'état d'un animal endormie, afin qu'il se reveille
+	 * @return Liste des animaux qui se seront reveillés
 	 */
 	public String reveillerAnimaux(){
 		String retour = "";
@@ -372,6 +384,7 @@ public class Zoo {
 	
 	/**
 	 * Rajoute 1 ans à chaque animal
+	 * @return Message de confirmation
 	 */
 	public String faireGrandirAnimaux(){
 		for(Enclos<? extends Animal> enclos : this.getListEnclos()){
@@ -385,6 +398,7 @@ public class Zoo {
 	/**
 	 * Tue un animal en fonction de l'ecart q'il a avec son especerance de vie
 	 * Plus l'ecart est grand plus il aura de chance de mourir
+	 * @return Liste des animaux mort, ou message comme quoi rien ne s'est passer
 	 */
 	public String tuerAnimaux(){
 		String retour = "";
@@ -417,7 +431,10 @@ public class Zoo {
 	
 	/**
 	 * Retourne l'affchage de la liste des différent stock ainsi que son contenu
-	 * @return
+	 * @param choix
+	 * 			Boolean qui va permettre de savoir si la fonction est appelé pour permettre à l'utilisateur de choisir
+	 * 			un equiepement, ou si la fonction est appelé pour afficher la liste des équipement
+	 * @return Liste du contenu du stock
 	 */
 	public String getContenuStock(boolean choix){
 		String retour = "";
@@ -438,16 +455,32 @@ public class Zoo {
 	}
 	
 	/**
+	 * Retourne l'affichage du budget du zoo
+	 * @return affichage du budget du zoo
+	 */
+	public String getBudgetDuZoo(){
+		return "Budget du zoo : " + this.getBudget() + " euros\n";
+	}
+	
+	/**
 	 * Creer un instance de Zoo si aucune autre n'existe, sinon retourne l'instance de Zoo
-	 * @param nomZoo
+	 * @param nomZoo 
+	 * 				Le nom du Zoo
 	 * @param nbEnclos
+	 * 				le nombre d'enclos
 	 * @param nomEmploye
+	 * 				Le nom de l'employe
 	 * @param ageEmploye
+	 * 				l'age de l'employe
 	 * @param sexeEmploye
+	 * 				Le sexe de l'employe
 	 * @param qtBoeuf
+	 * 				La quantité de viande de boeuf present de base dans le stock
 	 * @param qtPoisson
+	 * 				La quantité de poisson present de base dans le stock
 	 * @param qtNourriturePoisson
-	 * @return
+	 * 				La quantité de nourriture pour poisson present de base dans le stock
+	 * @return Instance de type Zoo qui sera le seul bojet du type Zoo de l'application
 	 */
 	public static Zoo getInstance(String nomZoo, int nbEnclos, String nomEmploye, int ageEmploye, char sexeEmploye,
 					int qtBoeuf, int qtPoisson, int qtNourriturePoisson){
@@ -457,36 +490,88 @@ public class Zoo {
 		return instance;
 	}//getInstance()
 
+	/**
+	 * Retourne la valeur de l'atrtribut employe
+	 * @return valeur de l'atrtribut employe
+	 */
 	public Employe getEmploye() {
 		return employe;
 	}//getEmploye()
 
+	/**
+	 * Modifie la valeur de l'attribut employe
+	 * @param employe
+	 * 				Nouvel employe
+	 */
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}//setEmploye()
 
+	/**
+	 * Retourne la valeur de l'atrtribut nom
+	 * @return valeur de l'atrtribut nom
+	 */
 	public String getNom() {
 		return nom;
 	}//getNom()
 
+	/**
+	 * Modifie la valeur de l'attribut nom
+	 * @param nom
+	 * 			Nouveau nom du zoo
+	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}//setNom()
 
+	/**
+	 * Retourne la valeur de l'atrtribut nbEnclos
+	 * @return  valeur de l'atrtribut nbEnclos
+	 */
 	public int getNbEnclos() {
 		return nbEnclos;
 	}//getNbEnclos()
 
+	/**
+	 * Modifie la valeur de l'attribut nbEnclos
+	 * @param nbEnclos
+	 * 				Nouveau nombre d'enclos
+	 */
 	public void setNbEnclos(int nbEnclos) {
 		this.nbEnclos = nbEnclos;
 	}//setNbEnclos()
 
+	/**
+	 * Retourne la valeur de l'atrtribut listEnclos
+	 * @return  valeur de l'atrtribut listEnclos
+	 */
 	public ArrayList<Enclos<? extends Animal>> getListEnclos() {
 		return listEnclos;
 	}//getListEnclos()	
 	
+	/**
+	 * Retourne la valeur de l'atrtribut stockNourriture
+	 * @return  valeur de l'atrtribut stockNourriture
+	 */
 	public ArrayList<StockNourriture<? extends Nourriture>> getStockNourriture() {
 		return stockNourriture;
 	}//getStockNourriture()
+	
+	/**
+	 * Retourne la valeur de l'atrtribut budget
+	 * @return  valeur de l'atrtribut budget
+	 */
+	public int getBudget() {
+		return budget;
+	}//getBudget()
+	
+	/**
+	 * Modifie la valeur de l'attribut budget
+	 * @param budget
+	 * 			Nouveau budget du parc
+	 */
+	public void setBudget(int budget) {
+		this.budget = budget;
+	}//setBudget()
 	
 }//Zoo

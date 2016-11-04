@@ -7,6 +7,9 @@ public class Boutique {
 	private static Boutique instance;
 	Map<String, Integer> stockAVendre;
 	
+	/**
+	 * Construit un objet de type boutique
+	 */
 	private Boutique(){
 		this.stockAVendre = new TreeMap<String, Integer>();
 		this.stockAVendre.put("Viande de boeuf x1", 150);
@@ -17,16 +20,25 @@ public class Boutique {
 		this.stockAVendre.put("Nourriture pour poisson x10", 500);
 	}//Boutique()
 	
+	/**
+	 * Retourne l'affichage de la liste des article en vente dans la boutique
+	 * @return Liste des article pour affichage
+	 */
 	public String getListArticles(){
 		String retour = "Objets que vous pouvez acheter : \n \t0 - Quitter la boutique\n";
 		int count = 1;
 		for(String key : this.getStockAVendre().keySet()){
-			retour += "\t" + count + " - " + key + " : " + this.getStockAVendre().get(key) + "\n";
+			retour += "\t" + count + " - " + key + " : " + this.getStockAVendre().get(key) + " euros\n";
 			++count;
 		}
 		return retour;
 	}//getListArticles()
 
+	/**
+	 * Creer un instance de Boutique si la varialbe instance est à null
+	 * sinon, retourne la valeur de l'attribut instance
+	 * @return instance
+	 */
 	public static Boutique getInstance(){
 		if(instance == null){
 			instance = new Boutique();
@@ -34,6 +46,10 @@ public class Boutique {
 		return instance;
 	}//getInstance()
 	
+	/**
+	 * retourne la valeur de l'attribut stockAVendre
+	 * @return stockAVendre
+	 */
 	public Map<String, Integer> getStockAVendre() {
 		return stockAVendre;
 	}//getStockAVendre()

@@ -29,5 +29,9 @@ public class VueEmploye extends Vue<Employe>{
 	public void acheterArticle(Boutique boutique, Zoo zoo, int saisieUtilisateur){
 		System.out.println(this.getModel().acheterArticle(boutique, zoo, saisieUtilisateur));	
 	}//acheterArticle()
+
+	public void afficherListTri() {
+		System.out.println(this.getModel().getListTri());		
+	}//afficherListTri()
 	
 }//VueEmploye
