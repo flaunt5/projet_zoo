@@ -97,7 +97,8 @@ public class Employe {
 	 * @return Message de confirmation ou d'annulation de l'action
 	 */
 	public <T extends Animal> String transfererAnimal(T animal, Enclos<T> enclosDesti){
-		String transferValid = "Le/la " + animal.getNom() + " a ete transferer dans l'enclos " + enclosDesti.getNom();
+		String transferValid = animal.getPseudo() + "(" + animal.getNom() + ", " + animal.getSexe() 
+		+ ") a ete transferer dans l'enclos " + enclosDesti.getNom();
 		String trasnferNonValid = "transfer annuler : ";
 		//verifie qu'on ne transfer pas un animal dans son enclos de residence actuel
 		if(!(animal.getEnclosResidence().equals(enclosDesti))){
@@ -126,7 +127,8 @@ public class Employe {
 	 */
 	public String soignerAnimal(Animal animal){
 		animal.etreSoigner();
-		return animal.getNom() + " ï¿½ ï¿½tï¿½ soignï¿½";
+		return animal.getPseudo() + "(" + animal.getNom() + ", " + animal.getSexe() 
+		+ ") a été soigné";
 	}
 	
 	/**
