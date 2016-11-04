@@ -108,26 +108,54 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 		return this.enceinte;
 	}//isEnceinte()
 
+
+	/**
+	 * Modifie la valeur de l'attribut enceinte
+	 * @param enceinte
+	 * 				Nouvelle etat de grossese
+	 */
 	public void setEnceinte(boolean enceinte) {
 		this.enceinte = enceinte;
 	}//setEnceinte()
 	
+	/**
+	 * Retourne la valeur de l'attribut periodeEnfantement
+	 * @return valeur de l'attribut periodeEnfantement
+	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
 	}//getPeriodegestatiction()
 
+	/**
+	 * Retourne la valeur de l'attribut tempEnceinte
+	 * @return valeur de l'attribut tempEnceinte
+	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
 	}//getTempEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut tempsEnceinte
+	 * @param tempsEnceinte
+	 * 					Nouveau temps enceinte
+	 */
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 
+	/**
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return numero du pseudo
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 
+	/**
+	 * Modifie la valeur de l'attribut numPseudo
+	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		OursFemelle.numPseudo = numPseudo;
 	}//setNumPseudo()

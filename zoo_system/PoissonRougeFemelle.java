@@ -7,12 +7,29 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	private int tempEnceinte;
 	private static int numPseudo = 0;
 	
+	/**
+	 * Creer un objet de type PoissonRougeMale
+	 *
+	 * @param poids
+	 * 				Futur poids du poisson
+	 * @param taille
+	 * 				Futur taille du poisson
+	 * @param age
+	 * 				Futur age du poisson
+	 * @param pseudo
+	 * 				Futur pseudo du poisson
+	 * @return un objet de type PoissonRougeMale
+	 */
 	public PoissonRougeFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//PoissonRougeFemelle()
 
+	/**
+	 * Creer des bébés poisson rouge
+	 * @return Liste des bébé poisson rouge née et bébés poisson rouge morts
+	 */
 	public String pondre() {
 		double randomNbBebe = 4 + Math.random() * (10 - 5);
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
@@ -49,6 +66,10 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 		return retour;
 	}//pondre()
 	
+	/**
+	 * Genere un pseudo pour les poissons rouges femelle
+	 * @return futur nom pour les poissons rouges femelle
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Dorry", "Corail", "Debbie", "Flo", "Astrid", "Perle", "Angie"};
 		int indice = PoissonRougeFemelle.getNumPseudo();
@@ -61,40 +82,79 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * Recupere les caracteristique du poisson rouge femelle
+	 * @return Caracteristique de du poisson rouge femelle
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
 				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Période d'incubation : " + periodeEnfantement
 				+ " Temps de accouplement : " + tempEnceinte + " ; Maturité sexuelle : " + maturiteSexuelle +"ans";
 	}//toString()
 
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe PoissonRougeFemelle
+	 * @return sexe de poisson rouge femelle
+	 */
 	public char getSexe(){
 		return PoissonRougeFemelle.SEXE;
 	}//getSexe()
 
+	/**
+	 * Recupere la valeur de l'attribut enceinte
+	 * @return booleen indicant si le poisson rouge femelle est enceinte ou pas
+	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
 	}//isEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut enceinte
+	 * @param enceinte
+	 * 				Nouvelle etat de grossese
+	 */
 	public void setEnceinte(boolean enceinte) {
 		this.enceinte = enceinte;
 	}//setEnceinte()
 	
+	/**
+	 * Retourne la valeur de l'attribut periodeEnfantement
+	 * @return valeur de l'attribut periodeEnfantement
+	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
 	}//getPeriodegestatiction()
 
+	/**
+	 * Retourne la valeur de l'attribut tempEnceinte
+	 * @return valeur de l'attribut tempEnceinte
+	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
 	}//getTempEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut tempsEnceinte
+	 * @param tempsEnceinte
+	 * 					Nouveau temps enceinte
+	 */
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 
+	/**
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return numero du pseudo
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 
+	/**
+	 * Modifie la valeur de l'attribut numPseudo
+	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		PoissonRougeFemelle.numPseudo = numPseudo;
 	}//setNumPseudo()

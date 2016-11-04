@@ -7,12 +7,29 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	private int tempEnceinte;
 	private static int numPseudo = 0;
 	
+	/**
+	 * Creer un objet de type RequinFemelle
+	 *
+	 * @param poids
+	 * 				Futur poids du requin
+	 * @param taille
+	 * 				Futur taille du requin
+	 * @param age
+	 * 				Futur age du requin
+	 * @param pseudo
+	 * 				Futur pseudo du requin
+	 * @return un objet de type RequinFemelle
+	 */
 	public RequinFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//RequinFemelle()
 
+	/**
+	 * Creer des bébés requin
+	 * @return Liste des bébé requin née et bébés requin morts
+	 */
 	public String pondre() {
 		double randomNbBebe = 4 + Math.random() * (8-4);
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
@@ -49,6 +66,10 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		return retour;
 	}//pondre()
 
+	/**
+	 * Genere un pseudo pour les requins femelle
+	 * @return futur nom pour les requins femelle
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Anadrieniel", "Rykela", "Sairalinde", "Zindai", "Valja", "Dakali", "Dronel"};
 		int indice = RequinFemelle.getNumPseudo();
@@ -61,40 +82,79 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * Recupere les caracteristique du requin femelle
+	 * @return Caracteristique de du requin femelle
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
 				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Période d'incubation : " + periodeEnfantement
 				+ " Temps de accouplement : " + tempEnceinte + " ; Maturité sexuelle : " + maturiteSexuelle +"ans";
 	}//toString()
 	
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe RequinFemelle
+	 * @return sexe du requin femelle
+	 */
 	public char getSexe(){
 		return RequinFemelle.SEXE;
 	}//getSexe()
 
+	/**
+	 * Recupere la valeur de l'attribut enceinte
+	 * @return booleen indicant si le requin femelle est enceinte ou pas
+	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
 	}//isEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut enceinte
+	 * @param enceinte
+	 * 				Nouvelle etat de grossese
+	 */
 	public void setEnceinte(boolean enceinte) {
 		this.enceinte = enceinte;
 	}//setEnceinte()
 	
+	/**
+	 * Retourne la valeur de l'attribut periodeEnfantement
+	 * @return valeur de l'attribut periodeEnfantement
+	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
 	}//getPeriodegestatiction()
 
+	/**
+	 * Retourne la valeur de l'attribut tempEnceinte
+	 * @return valeur de l'attribut tempEnceinte
+	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
 	}//getTempEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut tempsEnceinte
+	 * @param tempsEnceinte
+	 * 					Nouveau temps enceinte
+	 */
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 
+	/**
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return numero du pseudo
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 
+	/**
+	 * Modifie la valeur de l'attribut numPseudo
+	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		RequinFemelle.numPseudo = numPseudo;
 	}//setNumPseudo()

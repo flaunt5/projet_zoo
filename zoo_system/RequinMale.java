@@ -4,10 +4,28 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 
 	private static int numPseudo = 0;
 	
+	/**
+	 * Creer un objet de type RequinMale
+	 *
+	 * @param poids
+	 * 				Futur poids du requin
+	 * @param taille
+	 * 				Futur taille du requin
+	 * @param age
+	 * 				Futur age du requin
+	 * @param pseudo
+	 * 				Futur pseudo du requin
+	 * @return un objet de type RequinMale
+	 */
 	public RequinMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 	}//RequinMale()
 
+	/**
+	 * Accouple un requin  male et un requin femelle
+	 * @param femelle
+	 * 				requin femelle qui va se faire fecondé
+	 */
 	public String saccoupler(RequinFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
 		femelle.setEnceinte(true);
@@ -16,6 +34,10 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 		return 	retour;
 	}//sacoupler
 	
+	/**
+	 * Genere un pseudo pour les requins males
+	 * @return futur nom pour les requins males
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Bruce", "Enclume", "Chumi", "Thrambor", "Glunus", "Sharky", "Kremar"};
 		int indice = RequinMale.getNumPseudo();
@@ -28,18 +50,35 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe RequinMale
+	 * @return sexe de requin male
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 	
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe RequinMale
+	 * @return sexe de requin male
+	 */
 	public char getSexe(){
 		return RequinMale.SEXE;
 	}//getSexe()
 
+	/**
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return numero du pseudo
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 
+	/**
+	 * Modifie la valeur de l'attribut numPseudo
+	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		RequinMale.numPseudo = numPseudo;
 	}//setNumPseudo()
