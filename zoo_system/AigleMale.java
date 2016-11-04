@@ -7,13 +7,13 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	/**
 	 * Construit un objet de type AigleMale
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de l'aigle
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de l'aigle
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de l'aigle
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de l'aigle
 	 */
 	public AigleMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -34,7 +34,7 @@ public class AigleMale extends Aigle implements Male<AigleFemelle>{
 	
 	/**
 	 * Genere un pseudo pour les aigle male
-	 * @return futur nom pour l'aigle male
+	 * @return futur nom pour les aigle male
 	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Amadahy", "Anoki", "Kaepora", "Aranck", "Bidziil", "Chilam", "Noarfang"};

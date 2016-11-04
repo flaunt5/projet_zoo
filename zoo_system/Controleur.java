@@ -169,7 +169,7 @@ public abstract class Controleur {
 			vueZoo.tuerAnimaux();
 			vueZoo.faireGrandirAnimaux();
 			vueZoo.verifierFemelleEnceinte();
-			vueIhm.afficherManuCourse();
+			vueIhm.afficherMenuCourse();
 			ihm.allerFaireDesAchat(vueBout, vueEmp, vueZoo);
 			ihm.setNumTour(ihm.getNumTour() + 1);
 			ihm.setNbAction(nbActionParTour);

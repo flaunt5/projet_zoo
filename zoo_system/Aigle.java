@@ -29,7 +29,7 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	
 	/**
 	 * Permet à l'aigles de pousser son cri
-	 * @return Son emit par l'animal
+	 * @return Son emit par l'aigle
 	 */
 	public String emmetreSon() {
 		return "Aiiiiiiigle";
@@ -45,7 +45,7 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	
 	/**
 	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return maturiteSexuelle
+	 * @return valeur de l'attribut maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Aigle.maturiteSexuelle;
@@ -53,7 +53,7 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	
 	/**
 	 * retourne la valeur de l'attribut esperanceVie
-	 * @return esperanceVie
+	 * @return valeur de l'attribut esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Aigle.esperanceVie;
@@ -62,7 +62,7 @@ public abstract class Aigle extends Aerien implements VolantAction{
 	
 	/**
 	 * retourne la valeur de l'attribut consoNourriture
-	 * @return consoNourriture
+	 * @return valeur de l'attribut consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;

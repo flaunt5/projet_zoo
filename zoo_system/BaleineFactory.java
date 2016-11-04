@@ -6,13 +6,13 @@ public class BaleineFactory {
 	 * Creer un objet de type BaleineFemmelle
 	 *
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de la baleine
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de la baleine
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de la baleine
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de la baleine
 	 * @return un objet de type BaleineFemelle
 	 */
 	public static BaleineMale creerBaleineMale(double poids, double taille, String pseudo) {
@@ -23,13 +23,13 @@ public class BaleineFactory {
 	 * Creer un objet de type BaleineFemmelle
 	 *
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de la baleine
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de la baleine
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de la baleine
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de la baleine
 	 * @return un objet de type BaleineFemelle
 	 */
 	public static BaleineFemelle creerBaleineFemelle(double poids, double taille, String pseudo) {

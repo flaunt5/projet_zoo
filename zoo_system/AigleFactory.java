@@ -6,13 +6,13 @@ public class AigleFactory {
 	 * Creer un objet de type AigleFemmelle
 	 *
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de l'aigle
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de l'aigle
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de l'aigle
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de l'aigle
 	 * @return un objet de type AigleFemelle
 	 */
 	public static AigleFemelle creerAigleFemelle(double poids, double taille, String pseudo) {
@@ -23,13 +23,13 @@ public class AigleFactory {
 	 * Creer un objet de type AigleMale
 	 *
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de l'aigle
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de l'aigle
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de l'aigle
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de l'aigle
 	 * @return un objet de type AigleMale
 	 */
 	public static AigleMale creerAigleMale(double poids, double taille, String pseudo) {

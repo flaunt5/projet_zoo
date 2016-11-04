@@ -64,9 +64,10 @@ public class Employe {
 	}//nourirAnimaux()
 	
 	/**
-	 * Recupere les donnï¿½es de l'enclos ainsi que le nom(espece) des animaux
+	 * Recupere les donnees de l'enclos ainsi que le nom(espece) des animaux
 	 * @param enclos
-	 * @return donnï¿½es de l'enclos + nom des animaux de l'enclos
+	 * 				Enclos qui va etre examiner
+	 * @return donnees de l'enclos + nom des animaux de l'enclos
 	 */
 	public <T extends Animal> String examinerEnclos(Enclos<T> enclos){
 		String donneesEnclos = "";
@@ -90,7 +91,9 @@ public class Employe {
 	/**
 	 * Transfere un animale dans l'enclos de destination en paramï¿½tre
 	 * @param animal
+	 * 				Animal qui va etre transferer
 	 * @param enclosDesti
+	 * 				Enclos qui ou va etre transferer l'animal
 	 * @return Message de confirmation ou d'annulation de l'action
 	 */
 	public <T extends Animal> String transfererAnimal(T animal, Enclos<T> enclosDesti){
@@ -118,6 +121,7 @@ public class Employe {
 	/**
 	 * Soigne l'animal placer en paramï¿½tre
 	 * @param animal
+	 * 				Animal qui va etre soigner
 	 * @return Message de confirmation de l'action
 	 */
 	public String soignerAnimal(Animal animal){
@@ -128,8 +132,11 @@ public class Employe {
 	/**
 	 * Recupere la clï¿½s et le prix de l'article selectionner par l'utilisateur
 	 * @param boutique
+	 * 				Boutique où on va acheter les articles
 	 * @param zoo
+	 * 				Zoo sur lequel on va modifier les stock
 	 * @param saisieUtilisateur
+	 * 				saisie de l'utilisateur pour savoir quel article il achete
 	 * @return Message de confirmation de l'achat
 	 */
 	public String acheterArticle(Boutique boutique, Zoo zoo, int saisieUtilisateur){
@@ -162,12 +169,16 @@ public class Employe {
 	}
 	
 	/**
-	 * Ajoute l'element sleectionnï¿½ par l'utilisateur dans le stock du Zoo
-	 * Enlï¿½ve la somme de l'article du budget du Zoo
+	 * Ajoute l'element sleectionner par l'utilisateur dans le stock du Zoo
+	 * Enleve la somme de l'article du budget du Zoo
 	 * @param boutique
+	 * 				Boutique où on va acheter les articles
 	 * @param zoo
+	 * 				Zoo sur lequel on va modifier les stock
 	 * @param clesMap
+	 * 				Cles de la Map  de la classe Boutique
 	 * @param prix
+	 * 				prix de l'article
 	 * @return Message de confirmation de l'achat
 	 */
 	public String ajouterArticleDansStock(Boutique boutique, Zoo zoo, String clesMap, int prix){
@@ -244,7 +255,9 @@ public class Employe {
 	/**
 	 * Verifie si le zoo ï¿½ le budget pour acheter un article d'un certain prix
 	 * @param zoo
+	 * 			Zoo de l'application
 	 * @param prix
+	 * 			prix de l'article à acheter
 	 * @return true ou false
 	 */
 	private boolean verifBudget(Zoo zoo, int prix){
@@ -259,9 +272,12 @@ public class Employe {
 	 * Initialise l'objet instance s'il est null
 	 * Et retourne l'objet instance
 	 * @param nom
+	 * 			Nom de l'employe
 	 * @param age
+	 * 			Age de l'employe
 	 * @param sexe
-	 * @return instance
+	 * 			Sexe de l'employe
+	 * @return instance unique de l'Employe
 	 */
 	public static Employe getInstance(String nom, int age, char sexe){
 		if(instance == null){
@@ -272,7 +288,7 @@ public class Employe {
 	
 	/**
 	 * Retourne la valeur de l'atrtribut instance, sans avoir ï¿½ mettre des paramï¿½tres
-	 * @return instance
+	 * @return instance unique de l'Employe
 	 */
 	public static Employe getInstance(){
 		return instance;
@@ -280,7 +296,7 @@ public class Employe {
 	
 	/**
 	 * Retourne la valeur de l'atrtribut nom
-	 * @return nom
+	 * @return valeur de l'atrtribut nom
 	 */
 	public String getNom() {
 		return nom;
@@ -289,6 +305,7 @@ public class Employe {
 	/**
 	 * Modifie la valeur de l'attribut nom
 	 * @param nom
+	 * 			Futur nom de l'employe
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -296,7 +313,7 @@ public class Employe {
 
 	/**
 	 * Retourne la valeur de l'atrtribut sexe
-	 * @return sexe
+	 * @return valeur de l'atrtribut sexe
 	 */
 	public char getSexe() {
 		return sexe;
@@ -305,6 +322,7 @@ public class Employe {
 	/**
 	 * Modifie la valeur de l'attribut sexe
 	 * @param sexe
+	 * 			Futur sexe de l'employe
 	 */
 	public void setSexe(char sexe) {
 		this.sexe = sexe;
@@ -312,7 +330,7 @@ public class Employe {
 
 	/**
 	 * Retourne la valeur de l'atrtribut age
-	 * @return age
+	 * @return valeur de l'atrtribut age
 	 */
 	public int getAge() {
 		return age;
@@ -321,6 +339,7 @@ public class Employe {
 	/**
 	 * Modifie la valeur de l'attribut age
 	 * @param age
+	 * 			Futur age de l'employe
 	 */
 	public void setAge(int age) {
 		this.age = age;

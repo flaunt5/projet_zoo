@@ -7,12 +7,29 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	private int tempEnceinte;
 	private static int numPseudo = 0;
 	
+	/**
+	 * Creer un objet de type OursFemelle
+	 *
+	 * @param poids
+	 * 				Futur poids de l'ours
+	 * @param taille
+	 * 				Futur taille de l'ours
+	 * @param age
+	 * 				Futur age de l'ours
+	 * @param pseudo
+	 * 				Futur pseudo de l'ours
+	 * @return un objet de type OursFemelle
+	 */
 	public OursFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//OursFemelle()
 
+	/**
+	 * Creer des bébés ours
+	 * @return Liste des bébés ours née et bébés ours morts
+	 */
 	public String mettreBas() {
 		double randomNbBebe = 1 + Math.random() * (4-1);
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
@@ -49,6 +66,10 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 		return retour;
 	}//mettreBas()
 	
+	/**
+	 * Genere un pseudo pour les ours femelle
+	 * @return futur nom pour les ours femelle
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Chocolat", "Pyros", "Bambou", "Gaïa", "Bisounours", "Alyssa", "Angel"};
 		int indice = OursFemelle.getNumPseudo();
@@ -61,16 +82,28 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * Recupere les caracteristique de l'ours femelle
+	 * @return Caracteristique de l'ours femelle
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
 				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Période de gestation : " + periodeEnfantement
 				+ " Temps de accouplement : " + tempEnceinte + " ; Maturité sexuelle : " + maturiteSexuelle +"ans";
 	}//toString()
 	
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe OursFemelle
+	 * @return sexe de l'ours femelle
+	 */
 	public char getSexe(){
 		return OursFemelle.SEXE;
 	}//getSexe()
 
+	/**
+	 * Recupere la valeur de l'attribut enceinte
+	 * @return booleen indicant si l'ours femelle est enceinte ou pas
+	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
 	}//isEnceinte()

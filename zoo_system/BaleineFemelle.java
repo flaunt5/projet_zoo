@@ -10,13 +10,13 @@ public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	/**
 	 * Construit un objet de type BaleineFemelle
 	 * @param poids
-	 * 				Futur poids de l'animal
+	 * 				Futur poids de la baleine
 	 * @param taille
-	 * 				Futur taille de l'animal
+	 * 				Futur taille de la baleine
 	 * @param age
-	 * 				Futur age de l'animal
+	 * 				Futur age de la baleine
 	 * @param pseudo
-	 * 				Futur pseudo de l'animal
+	 * 				Futur pseudo de la baleine
 	 */
 	public BaleineFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);

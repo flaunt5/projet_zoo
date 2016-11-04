@@ -47,7 +47,9 @@ public class IHM extends Model{
 	 * Recupère et verifie un saisie utilisateur
 	 * Verification que le chiffre saisie est compris dans [main; max]
 	 * @param min
+	 * 			chiffre minimal autorisé à la saisie
 	 * @param max
+	 * 			chiffre maximal autorisé à la saisie
 	 * @return saisie
 	 */
 	public int getSaisieUtilisateur(int min, int max){
@@ -76,8 +78,11 @@ public class IHM extends Model{
 	 * Demande à l'utilisateur s'il veut acceder  à la boutique
 	 * si oui, affiche la liste des article et appel la fonction d'achat
 	 * @param vueBout
+	 * 				La vue de la boutique
 	 * @param vueEmp
+	 * 				la vue de l'employe
 	 * @param zoo
+	 * 			La zoo de l'application
 	 */
 	public void allerFaireDesAchat(VueBoutique vueBout, VueEmploye vueEmp, VueZoo vueZoo){
 		int saisie = getSaisieUtilisateur(1, 2);
@@ -100,9 +105,12 @@ public class IHM extends Model{
 	/**
 	 * Verifie que le paramètre "saisie" soit compris entre min et max
 	 * @param saisie
+	 * 			Saisie réalisé par l'utilisateur
 	 * @param min
+	 * 			chiffre minimal autorisé à la saisie
 	 * @param max
-	 * @return true ou false
+	 * 			chiffre maximal autorisé à la saisie
+	 * @return booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean verifSaisie(int saisie, int min, int max){
 		if(saisie < min || saisie > max){
@@ -115,8 +123,11 @@ public class IHM extends Model{
 	/**
 	 * Execute l'action de l'utilisateur, en fonction de se qu'il aura choisi comme action
 	 * @param saisie
+	 * 			Saisie réalisé par l'utilisateur
 	 * @param vueZoo
+	 * 			Vue du zoo de l'application
 	 * @param vueEmp
+	 * 			Vue de l'employe
 	 */
 	public void executeChoixActionZoo(int saisie, VueZoo vueZoo, VueEmploye vueEmp, ArrayList<VueEnclos> listVueEnclos){
 		Enclos<? extends Animal> enclos;
@@ -180,8 +191,11 @@ public class IHM extends Model{
 	 * Nourri un animal avec l'equipement : nourriture ;
 	 * Permet de nourir autant d'animaux qu'on le souhaite, dans
 	 * @param enclos
+	 * 			Enclos des animaux à nourir
 	 * @param vueZoo
+	 * 			Vue du zoo de l'application
 	 * @param vueEmp
+	 * 			Vue de l'employe
 	 */
 	public void nourirPlusieurAnimaux(Enclos<? extends Animal> enclos, VueZoo vueZoo, VueEmploye vueEmp){
 		int saisie = 1000;
@@ -226,7 +240,14 @@ public class IHM extends Model{
 			}
 		}
 	}//nourirPlusieurAnimaux()
-	
+	/**
+	 * Recupere la vue de l'enclos assosié à parametre enclos
+	 * @param listVueEnclos
+	 * 			liste contenu toutes les vues de tout les enclos de l'application
+	 * @param enclos
+	 * 			Enclos lié à la vue rechercher
+	 * @return
+	 */
 	public VueEnclos getVueEnclos(ArrayList<VueEnclos> listVueEnclos, Enclos<? extends Animal> enclos){
 		VueEnclos vueRechercher = null;
 		for(VueEnclos vue : listVueEnclos){
@@ -240,7 +261,8 @@ public class IHM extends Model{
 	/**
 	 * Convertie un int en boolean 
 	 * @param futurBool
-	 * @return true ou false
+	 * 				nombre qui va etre convertie en booleen
+	 * @return booleen resultant de la convertion
 	 */
 	private Boolean convertIntEnBool(int futurBool){
 		if(futurBool % 2 == 0){
@@ -253,7 +275,8 @@ public class IHM extends Model{
 	/**
 	 * Recupere la saisie d'un utilisateur, et renvois l'enclos correspondant à cette saisie
 	 * @param zoo
-	 * @return enclos
+	 * 			zoo de l'application
+	 * @return enclos que l'utilisateur a choisi
 	 */
 	public Enclos<? extends Animal> getEnclos(Zoo zoo){
 		int numEnclos = getSaisieUtilisateur(1, zoo.getListEnclos().size()) - 1;
@@ -264,7 +287,8 @@ public class IHM extends Model{
 	/**
 	 * Recupere la saisie d'un utilisateur, et renvois l'animal correspondant à cette saisie
 	 * @param enclos
-	 * @return animal
+	 * 			Enclos de lequel se trouve l'animal qu'on cherche
+	 * @return animal que l'utilisateur a choisi
 	 */
 	public Animal getAnimal(Enclos<? extends Animal> enclos){
 		int numAnimal = getSaisieUtilisateur(1, enclos.getListAnimaux().size()) - 1;
@@ -272,6 +296,12 @@ public class IHM extends Model{
 		return animal;		
 	}
 	
+	/**
+	 * Recupere le tri choisi par l'utilisateur
+	 * @param enclos
+	 * 			Enclos sur lequel le tri sera effectuer
+	 * @return tri choisi par l'utilisateur
+	 */
 	public Tri<? extends Animal> getTri(Enclos<? extends Animal> enclos){
 		int numTri =  getSaisieUtilisateur(1, 2);
 		Tri<? extends Animal> tri = enclos.getTypeTri(numTri);
@@ -280,7 +310,7 @@ public class IHM extends Model{
 	
 	/**
 	 * Retourne le valeur de l'attribut numTour
-	 * @return numTour
+	 * @return valeur de l'attribut numTour
 	 */
 	public int getNumTour() {
 		return numTour;
@@ -289,6 +319,7 @@ public class IHM extends Model{
 	/**
 	 * Modifit le valeur de l'attribut numTour
 	 * @param numTour
+	 * 			Futur numero de tour
 	 */
 	public void setNumTour(int numTour) {
 		this.numTour = numTour;
@@ -296,7 +327,7 @@ public class IHM extends Model{
 
 	/**
 	 * Retourne le valeur de l'attribut nbAction
-	 * @return nbAction
+	 * @return valeur de l'attribut nbAction
 	 */
 	public int getNbAction() {
 		return nbAction;
@@ -305,6 +336,7 @@ public class IHM extends Model{
 	/**
 	 * Modifit le valeur de l'attribut nbAction
 	 * @param nbAction
+	 * 				Futur nombre d'action
 	 */
 	public void setNbAction(int nbAction) {
 		this.nbAction = nbAction;

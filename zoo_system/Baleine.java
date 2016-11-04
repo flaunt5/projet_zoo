@@ -36,7 +36,7 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 
 	/**
 	 * Retourne la maniere de nager de la baleine
-	 * @return maniere de voler de la baleine
+	 * @return maniere de nager de la baleine
 	 */
 	public String nager() {
 		return "Nage comme une baleine";
@@ -44,7 +44,7 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	
 	/**
 	 * retourne la valeur de l'attribut maturiteSexuelle
-	 * @return maturiteSexuelle
+	 * @return valeur de l'attribut  maturiteSexuelle
 	 */
 	public int getMaturiteSexuelle(){
 		return Baleine.maturiteSexuelle;
@@ -52,7 +52,7 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	
 	/**
 	 * retourne la valeur de l'attribut esperanceVie
-	 * @return esperanceVie
+	 * @return valeur de l'attribut  esperanceVie
 	 */
 	public int getEsperanceVie(){
 		return Baleine.esperanceVie;
@@ -60,7 +60,7 @@ public abstract class Baleine extends Aquatique implements MarinAction{
 	
 	/**
 	 * retourne la valeur de l'attribut consoNourriture
-	 * @return consoNourriture
+	 * @return valeur de l'attribut  consoNourriture
 	 */
 	public int getConsoNourriture(){
 		return this.consoNourriture;
