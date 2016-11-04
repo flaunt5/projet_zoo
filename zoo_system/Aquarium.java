@@ -7,6 +7,15 @@ public class Aquarium extends Enclos<Aquatique>{
 	private  String salinite;
 	private double profondeur;
 
+	/**
+	 * Construit un bojet de type Aquarium
+	 * @param nom
+	 * 			Nom de l'aquarium
+	 * @param superficie
+	 * 			Superficie de l'aquarium
+	 * @param nbAnimauxMax
+	 * 			Nombre maximum d'animux de l'aquarium
+	 */
 	public Aquarium(String nom, int superficie, int nbAnimauxMax) {
 		super(nom, superficie, nbAnimauxMax);
 		this.salinite = "bon";
@@ -14,6 +23,10 @@ public class Aquarium extends Enclos<Aquatique>{
 		this.listAnimaux = new ArrayList<Aquatique>();
 	}//Aquarium()
 	
+	/**
+	 * Change l'attribut salinite et profondeur
+	 * @return Message de confirmation de l'action
+	 */
 	public String entretenirBassin(){
 		if(!(this.getSalinite().equals("bon"))){
 			this.setSalinite("bon");			
@@ -28,28 +41,53 @@ public class Aquarium extends Enclos<Aquatique>{
 		return this.getNom() +  " à était entretenu";
 	}//entretenirBassin()
 	
+	/**
+	 * Retourne les caractéristique de l'aquarium et de ses animaux
+	 * @return Caractéristique de l'aquarium et de ses animaux
+	 */
 	public String toString() {
 		return  super.toString3() + "Salinite : " + salinite + " ; Profondeur : " + profondeur + "\n" +
 				"Animaux dans le bassin : " + this.recupToStringDesAnimaux();
 	}//toString()
 	
+	/**
+	 * Retourne les caractéristique de l'aquarium seulement
+	 * @return Caractéristique de l'aquarium seulement
+	 */
 	public String toString2() {
 		return  super.toString3() + "Salinite : " + salinite + " ; Profondeur : " + profondeur + "\n" +
 				"Animaux dans le bassin : ";
 	}//toString()
 
+	/**
+	 * Retourne la valeur de l'attribut salinite
+	 * @return valeur de l'attribut salinite
+	 */
 	public String getSalinite() {
 		return salinite;
 	}//getSalinite()
-
+	/**
+	 * Modifie la valeur de l'attribut salinite
+	 * @param salinite
+	 * 				Futur valeur de salinite
+	 */
 	public void setSalinite(String salinite) {
 		this.salinite = salinite;
 	}//setSalinite()
 
+	/**
+	 * Retourne la valeur de l'attribut profondeur
+	 * @return valeur de l'attribut profondeur
+	 */
 	public double getProfondeur() {
 		return profondeur;
 	}//getProfondeur()
-
+	
+	/**
+	 * Modifie la valeur de l'attribut profondeur
+	 * @param profondeur
+	 * 				Futur valeur de profondeur
+	 */
 	public void setProfondeur(double profondeur) {
 		this.profondeur = profondeur;
 	}//setProfondeur()

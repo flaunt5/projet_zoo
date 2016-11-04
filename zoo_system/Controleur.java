@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Controleur {
 
 	/**
-	 * Permet de commencer l'une des simulation de zoo
+	 * Permet de lancer l'une des simulations de zoo
 	 */
 	public static void zooNumero1(){
 		/*
@@ -121,10 +121,17 @@ public abstract class Controleur {
 	 * @param nbActionParTour
 	 * 						Nombre d'action réalisable dans un tour
 	 * @param moduloPourModifs
-	 * 						Nombre de tour ou 
+	 * 						Nombre de tour ou bout duquel les enclos vont etre modifiés
 	 * @param moduloPourReproduction
+	 * 						Nombre de tour ou bout duquel les animaux vont se reproduire
 	 * @param vueZoo
+	 * 				une Vue de type Zoo
 	 * @param vueEmp
+	 * 				une Vue de type Employe
+	 * @param vueBout
+	 * 				une Vue de type Boutique
+	 * @param listVueEnclos
+	 * 				liste des vues de tout les enclos
 	 */
 	public static void systemeZoo(int nbActionParTour, int moduloPourModifs, int moduloPourReproduction, 
 									VueZoo vueZoo, VueEmploye vueEmp, VueBoutique vueBout, ArrayList<VueEnclos> listVueEnclos){

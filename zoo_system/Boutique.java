@@ -8,7 +8,7 @@ public class Boutique {
 	Map<String, Integer> stockAVendre;
 	
 	/**
-	 * Construit un objet de type boutique
+	 * Construit un objet de type Boutique
 	 */
 	private Boutique(){
 		this.stockAVendre = new TreeMap<String, Integer>();
@@ -37,7 +37,7 @@ public class Boutique {
 	/**
 	 * Creer un instance de Boutique si la varialbe instance est à null
 	 * sinon, retourne la valeur de l'attribut instance
-	 * @return instance
+	 * @return instance unique de Boutique
 	 */
 	public static Boutique getInstance(){
 		if(instance == null){
@@ -48,7 +48,7 @@ public class Boutique {
 	
 	/**
 	 * retourne la valeur de l'attribut stockAVendre
-	 * @return stockAVendre
+	 * @return liste des article en vente
 	 */
 	public Map<String, Integer> getStockAVendre() {
 		return stockAVendre;

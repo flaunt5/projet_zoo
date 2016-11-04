@@ -4,10 +4,28 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	
 	private static int numPseudo = 0;
 	
+	/**
+	 * Creer un objet de type BaleineMale
+	 *
+	 * @param poids
+	 * 				Futur poids de l'animal
+	 * @param taille
+	 * 				Futur taille de l'animal
+	 * @param age
+	 * 				Futur age de l'animal
+	 * @param pseudo
+	 * 				Futur pseudo de l'animal
+	 * @return un objet de type BaleineMale
+	 */
 	public BaleineMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 	}//BaleineMale()
 
+	/**
+	 * Accouple une baleine male et une baleine femelle
+	 * @param femelle
+	 * 				baleine femelle qui va se faire fecondé
+	 */
 	public String saccoupler(BaleineFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
 		femelle.setEnceinte(true);
@@ -16,6 +34,10 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 		return 	retour;
 	}//sacoupler()
 	
+	/**
+	 * Genere un pseudo pour les baleine male
+	 * @return futur nom pour baleine male
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Barbe Blanche", "Moby Dick", "Atlas", "Fliper", "Willy", "César", "Wailord"};
 		int indice = BaleineMale.getNumPseudo();
@@ -28,18 +50,35 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * Recupere les caracteristique de la baleine male
+	 * @return Caracteristique de la baleine male
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 	
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe BaleineMale
+	 * @return sexe de l'aigle male
+	 */
 	public char getSexe(){
 		return BaleineMale.SEXE;
 	}//getSexe()
 
+	/**
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return numero du pseudo
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 
+	/**
+	 * Modifie la valeur de l'attribut numPseudo
+	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		BaleineMale.numPseudo = numPseudo;
 	}//setNumPseudo()

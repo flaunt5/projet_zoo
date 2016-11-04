@@ -1,6 +1,5 @@
 package zoo_system;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,61 +9,15 @@ public class Employe {
 	private char sexe;
 	private int age;
 
-	public static void main(String args[]){
-		Cage en = new Cage("enclosLoup", 3, 3);
-		VueCage Vc1 = new VueCage(en);
-		Aquarium aq = new Aquarium("bassinRequin", 3, 2);
-		VueAquarium Va1 = new VueAquarium(aq);
-		Voliere vo = new Voliere("voliereAigle", 3, 2, 5.0);
-		VueVoliere Vvo1 = new VueVoliere(vo);
-		Voliere vo2 = new Voliere("voliereAigle2", 3, 1, 5.0);
-		VueVoliere Vvo2 = new VueVoliere(vo2);
-		
-		Loup loup1 = new LoupMale(30.0, 1.3, 15, "loup1");
-		Loup loup2 = new LoupMale(50.0, 1.5, 15, "loup2");
-		Aigle aigle1 = new AigleMale(30.0, 1.3, 15, "aigle2");
-		Aigle aigle2 = new AigleFemelle(40.0, 1.3, 18, "aigle2");
-		Requin requin1 = new RequinMale(30.0, 1.3, 15, "req1");
-		Requin requin2 = new RequinFemelle(90.0, 1.3, 25, "req2");
-		
-		en.ajouterAnimal(loup2);
-		en.ajouterAnimal(loup1);
-		aq.ajouterAnimal(requin1);
-		aq.ajouterAnimal(requin2);
-		vo.ajouterAnimal(aigle1);
-		vo.ajouterAnimal(aigle2);
-		en.setDegreProprete("mauvais");
-		aq.setSalinite("mauvais");
-		aq.setProfondeur(2.0);
-		vo.setDegreProprete("mauvais");
-		vo.setEtatToit("mauvais");
-		Vc1.details();
-		Va1.details();
-		Vvo1.details();
-		Vvo2.details();
-		Employe emp = Employe.getInstance("test", 21, 'M');
-		VueEmploye vemp = new VueEmploye(Employe.getInstance());
-		
-		vemp.nettoyerEnclos(en);
-		vemp.nettoyerEnclos(aq);
-		vemp.nettoyerEnclos(vo);
-		
-		vemp.examinerEnclos(vo);
-		vemp.examinerEnclos(en);
-		vemp.examinerEnclos(aq);
-		
-		vemp.transfererAnimal(aigle1, vo2);
-		vemp.transfererAnimal(aigle2, vo2);
-		
-		vemp.examinerEnclos(vo);
-		vemp.examinerEnclos(vo2);
-	}//main pour test
 	
 	/**
 	 * Construit un objet de type Employe
 	 * @param nom
+	 * 			Nom de l'employe
 	 * @param age
+	 * 			Age de l'employe
 	 * @param sexe
+	 * 			Sexe de l'employe
 	 */
 	private Employe(String nom, int age, char sexe){
 		this.nom = nom;
@@ -75,6 +28,7 @@ public class Employe {
 	/**
 	 * Nettoie un enclos si celui-ci est vide
 	 * @param enclos
+	 * 				Enclos qui va etre nettoyer
 	 * @return Message de confirmation de l'action
 	 */
 	public <T extends Animal> String nettoyerEnclos(Enclos<T> enclos){//a evoluer pour le type aqua et voliere
@@ -96,9 +50,13 @@ public class Employe {
 	/**
 	 * Nourri un animal d'un enclos avec de la nourriture
 	 * @param enclos
+	 * 				Enclos qui va etre nettoyer
 	 * @param animal
+	 * 				Enclos qui va etre nettoyer
 	 * @param nourriture
+	 * 				Enclos qui va etre nettoyer
 	 * @param ratio
+	 * 				Enclos qui va etre nettoyer
 	 * @return La valeur de retour de la fonction Enclos.nourir()
 	 */
 	public <T extends Animal> String nourirAnimaux(Enclos<T> enclos, T animal, Nourriture nourriture, double ratio){

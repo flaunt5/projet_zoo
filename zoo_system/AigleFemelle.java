@@ -7,12 +7,27 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 	private int tempEnceinte;
 	private static int numPseudo = 0;
 	
+	/**
+	 * Construit un objet de type AigleFemelle
+	 * @param poids
+	 * 				Futur poids de l'animal
+	 * @param taille
+	 * 				Futur taille de l'animal
+	 * @param age
+	 * 				Futur age de l'animal
+	 * @param pseudo
+	 * 				Futur pseudo de l'animal
+	 */
 	public AigleFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//AigleFemelle()
 
+	/**
+	 * Creer des bébé aigles
+	 * @return Liste des bébé aigle née et bébé aigle morts
+	 */
 	public String pondre() {
 		double randomNbBebe = 1 + Math.random() * (2-1);
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
@@ -48,6 +63,10 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 		return retour;
 	}//pondre()
 	
+	/**
+	 * Genere un pseudo pour les aigle femelle
+	 * @return futur nom pour l'aigle femelle
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Ayasha", "Chilali", "Etu", "Dyami", "Halona", "Istu", "Muraco"};
 		int indice = AigleFemelle.getNumPseudo();
@@ -59,40 +78,80 @@ public class AigleFemelle extends Aigle implements AutreFemelle{
 		AigleFemelle.setNumPseudo(AigleFemelle.getNumPseudo() + 1);
 		return pseudo;
 	}//getPseudoAnimal()
+	
+	/**
+	 * Recupere les caracteristique de l'aigle femelle
+	 * @return Caracteristique de l'aigle femelle
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
 				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Période d'incubation : " + periodeEnfantement
 				+ " Temps de accouplement : " + tempEnceinte + " ; Maturité sexuelle : " + maturiteSexuelle +"ans";
 	}//toString()
 	
+	/**
+	 * Recupere la valeur de l'attribut SEXE de la classe AigleFemelle
+	 * @return sexe de l'aigle femelle
+	 */
 	public char getSexe(){
 		return AigleFemelle.SEXE;
 	}//getSexe()
 
+	/**
+	 * Recupere la valeur de l'attribut enceinte
+	 * @return booleen indicant si l'aigle femelle est enceinte ou pas
+	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
 	}//isEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut enceinte
+	 * @param enceinte
+	 * 				Nouvelle etat de grossese
+	 */
 	public void setEnceinte(boolean enceinte) {
 		this.enceinte = enceinte;
 	}//setEnceinte()
 	
+	/**
+	 * Retourne la valeur de l'attribut periodeEnfantement
+	 * @return valeur de l'attribut periodeEnfantement
+	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
 	}//getPeriodegestatiction()
 
+	/**
+	 * Retourne la valeur de l'attribut tempEnceinte
+	 * @return valeur de l'attribut tempEnceinte
+	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
 	}//getTempEnceinte()
 
+	/**
+	 * Modifie la valeur de l'attribut tempsEnceinte
+	 * @param tempsEnceinte
+	 * 					Nouveau temps enceinte
+	 */
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 
+	/**
+	 * retourne la valeur de l'attribut numPseudo
+	 * @return numero du pseudo
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
 
+	/**
+	 * Modifie la valeur de l'attribut numPseudo
+	 * @param numPseudo
+	 * 					Nouveau numero du pseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		AigleFemelle.numPseudo = numPseudo;
 	}//setNumPseudo()
