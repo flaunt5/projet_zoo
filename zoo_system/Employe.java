@@ -64,9 +64,9 @@ public class Employe {
 	}//nourirAnimaux()
 	
 	/**
-	 * Recupere les données données de l'enclos ainsi que le nom(espece) des animaux
+	 * Recupere les donnï¿½es de l'enclos ainsi que le nom(espece) des animaux
 	 * @param enclos
-	 * @return données de l'enclos + nom des animaux de l'enclos
+	 * @return donnï¿½es de l'enclos + nom des animaux de l'enclos
 	 */
 	public <T extends Animal> String examinerEnclos(Enclos<T> enclos){
 		String donneesEnclos = "";
@@ -84,11 +84,11 @@ public class Employe {
 			}
 			++count;
 		}
-		return donneesEnclos + listAnimaux + "\n";// retourne les infos de l'enclos + le nom des animaux qu'il possède
+		return donneesEnclos + listAnimaux + "\n";// retourne les infos de l'enclos + le nom des animaux qu'il possï¿½de
 	}//examinerEnclos()
 	
 	/**
-	 * Transfere un animale dans l'enclos de destination en paramètre
+	 * Transfere un animale dans l'enclos de destination en paramï¿½tre
 	 * @param animal
 	 * @param enclosDesti
 	 * @return Message de confirmation ou d'annulation de l'action
@@ -100,7 +100,7 @@ public class Employe {
 		if(!(animal.getEnclosResidence().equals(enclosDesti))){
 			/*
 			 * on verifie que l'on puisse ajouter l'animal dans le nouvel enclos
-			 * et le supprimer de celui où il se trouve
+			 * et le supprimer de celui oï¿½ il se trouve
 			 */			
 			if(animal.getEnclosResidence().verifPourEnlever(animal)&& 
                        enclosDesti.verifPourAjout(animal)){
@@ -111,22 +111,22 @@ public class Employe {
 	            return trasnferNonValid + "l'enclos de destination doit etre plein ou, vous essayez de mettre deux espece dans un meme enclos";                
 	        }     
 		}else{
-			return trasnferNonValid + "impossible de transferer l'animal dans l'enclos où il se trouve déjà";				
+			return trasnferNonValid + "impossible de transferer l'animal dans l'enclos oï¿½ il se trouve dï¿½jï¿½";				
 		}
 	}//transfererAnimal()
 	
 	/**
-	 * Soigne l'animal placer en paramètre
+	 * Soigne l'animal placer en paramï¿½tre
 	 * @param animal
 	 * @return Message de confirmation de l'action
 	 */
 	public String soignerAnimal(Animal animal){
 		animal.etreSoigner();
-		return animal.getNom() + " à été soigné";
+		return animal.getNom() + " ï¿½ ï¿½tï¿½ soignï¿½";
 	}
 	
 	/**
-	 * Recupere la clés et le prix de l'article selectionner par l'utilisateur
+	 * Recupere la clï¿½s et le prix de l'article selectionner par l'utilisateur
 	 * @param boutique
 	 * @param zoo
 	 * @param saisieUtilisateur
@@ -134,9 +134,9 @@ public class Employe {
 	 */
 	public String acheterArticle(Boutique boutique, Zoo zoo, int saisieUtilisateur){
 		String retour = "";
-		//recupere les clés de la Map
+		//recupere les clï¿½s de la Map
 		Set<Map.Entry<String, Integer>> set = boutique.getStockAVendre().entrySet();
-		//Pour parcourrir le Set qui contient les clés
+		//Pour parcourrir le Set qui contient les clï¿½s
 		String clesArticle = "";
 		String value;
 		int count = 0;
@@ -157,13 +157,13 @@ public class Employe {
 	 * @return Message contenant la liste des tri
 	 */
 	public String getListTri() {
-		return "Choisissez quel tri vous voulez éffectués : \n"
+		return "Choisissez quel tri vous voulez ï¿½ffectuï¿½s : \n"
 						+ "1 - Tri par age\n2 - Tri par ordre alphabetique\n";
 	}
 	
 	/**
-	 * Ajoute l'element sleectionné par l'utilisateur dans le stock du Zoo
-	 * Enlève la somme de l'article du budget du Zoo
+	 * Ajoute l'element sleectionnï¿½ par l'utilisateur dans le stock du Zoo
+	 * Enlï¿½ve la somme de l'article du budget du Zoo
 	 * @param boutique
 	 * @param zoo
 	 * @param clesMap
@@ -171,7 +171,7 @@ public class Employe {
 	 * @return Message de confirmation de l'achat
 	 */
 	public String ajouterArticleDansStock(Boutique boutique, Zoo zoo, String clesMap, int prix){
-		String retour = "Vous avez achetés ";
+		String retour = "Vous avez achetï¿½s ";
 		String refus = "Vous n'avez pas assez d'argent pour acheter \"" + clesMap + "\"\nCette objet coute " 
 						+ prix + " et il vous reste " + zoo.getBudget() + "\n";
 		switch(clesMap){
@@ -242,7 +242,7 @@ public class Employe {
 	}
 	
 	/**
-	 * Verifie si le zoo à le budget pour acheter un article d'un certain prix
+	 * Verifie si le zoo ï¿½ le budget pour acheter un article d'un certain prix
 	 * @param zoo
 	 * @param prix
 	 * @return true ou false
@@ -271,7 +271,7 @@ public class Employe {
 	}//getInstance()
 	
 	/**
-	 * Retourne la valeur de l'atrtribut instance, sans avoir à mettre des paramètres
+	 * Retourne la valeur de l'atrtribut instance, sans avoir ï¿½ mettre des paramï¿½tres
 	 * @return instance
 	 */
 	public static Employe getInstance(){
