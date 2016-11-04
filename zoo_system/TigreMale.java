@@ -4,17 +4,34 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 	
 	private static int numPseudo = 0;
 	
+	/**
+	 * Creer un objet de type TigreMale
+	 * @param poids
+	 * @param taille
+	 * @param age
+	 * @param pseudo
+	 */
 	public TigreMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 	}//TigreMale()
 	
+	/**
+	 * Accoupler le tigre avec une tigresse
+	 * @param femelle
+	 * @return String content le nom du tigresse fecondÃ©
+	 */
 	public String saccoupler(TigreFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
 		femelle.setEnceinte(true);
-		retour += femelle.getPseudo() + "(" + femelle.getNom() + ", " + femelle.getSexe() + ") à été fecondé par "  
+		retour += femelle.getPseudo() + "(" + femelle.getNom() + ", " + femelle.getSexe() + ") ï¿½ ï¿½tï¿½ fecondï¿½ par "  
 					+	this.getPseudo() + "(" + femelle.getNom() + ", " + this.getSexe() + ")\n";
 		return 	retour;
 	}//sacoupler()
+	
+	/**
+	 * recupÃ¨rer le nom de l'animal
+	 * @return String le nom
+	 */
 
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Tigrou", "Shere Khan", "Rajah", "Oliver", "Garfield", "Tiger", "Simba"};
@@ -28,18 +45,34 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * retoruner les details du tigre
+	 * @return string contenant les details
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Male.SEXE + " ; Enclos residence : " + enclosResidence.getNom();
 	}//toString()
 	
+	/**
+	 * retourner le sexe du tigre
+	 * @return attribut sexe du tigre
+	 */
 	public char getSexe(){
 		return TigreMale.SEXE;
 	}//getSexe()
 
+	/**
+	 * recuperer le numÃ©ro permettant de determiner le nom du tigre
+	 * @return retourne un int content le numero
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
-
+	
+	/**
+	 * Modifier le numÃ©ro de pseudo
+	 * @param numPseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		TigreMale.numPseudo = numPseudo;
 	}//setNumPseudo()

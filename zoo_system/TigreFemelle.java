@@ -7,19 +7,30 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	private int tempEnceinte;
 	private static int numPseudo = 0;
 	
+	/**
+	 * creer un nouvel objet de type TigreFemelle
+	 * @param poids
+	 * @param taille
+	 * @param age
+	 * @param pseudo
+	 */
 	public TigreFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
 		this.enceinte = false;
 		this.tempEnceinte = 0;
 	}//TigreFemelle()
-
+	
+	/**
+	 * creer un nouveau tigre, vÃ©rifier si l'enclos n'est pas rempli, si non le rajouter, si oui le detruire
+	 * @return string content un message avec le nom de la tigresse ayant mis bas
+	 */
 	public String mettreBas() {
 		double randomNbBebe = 2 + Math.random() * (5 - 2);
 		double nbBebe = this.arrondiDecimals(randomNbBebe, 0);
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
-				")  de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
+				")  de la cage : " + this.getEnclosResidence().getNom() + " ï¿½ accouchï¿½ : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -41,14 +52,18 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 		}
 		this.setEnceinte(false);
 		if(nbBebeNee >= 1){
-			retour += "\t" + nbBebeNee + " bébé(s) est/sont née dans la cage : " + this.getEnclosResidence().getNom() + "\n";
+			retour += "\t" + nbBebeNee + " bï¿½bï¿½(s) est/sont nï¿½e dans la cage : " + this.getEnclosResidence().getNom() + "\n";
 		}
 		if(nbBebeMort >= 1){
-			retour += "\t" + nbBebeMort + " bébé(s) est/sont morts, il(s) ne pouvaient pas grandir dans une cage pleine\n";
+			retour += "\t" + nbBebeMort + " bï¿½bï¿½(s) est/sont morts, il(s) ne pouvaient pas grandir dans une cage pleine\n";
 		}
 		return retour;
 	}//mettreBas()
 	
+	/**
+	 * recuperer le nom de la tigresse
+	 * @return string contenant le nom de la tigresse
+	 */
 	public static String getPseudoAnimal(){
 		String[] tabPseudo = {"Tigresse", "Blanche", "Pandore", "Ruby", "Fedora", "Duchesse", "Grisemine"};
 		int indice = TigreFemelle.getNumPseudo();
@@ -61,40 +76,76 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 		return pseudo;
 	}//getPseudoAnimal()
 	
+	/**
+	 * Transforme les attributs de la tigresse en string
+	 * @return String contentant les dÃ©tails de la tigresse
+	 */
 	public String toString(){
 		return super.toString() + "\t" + "Sexe : " + Femelle.SEXE + " ; Enclos residence : " + enclosResidence.getNom() 
-				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Période d'incubation : " + periodeEnfantement
-				+ " Temps de accouplement : " + tempEnceinte + " ; Maturité sexuelle : " + maturiteSexuelle +"ans";
+				+ " ; Enceinte : " + this.convertBolleanToString(enceinte) + "\n" + "\t" + "Pï¿½riode d'incubation : " + periodeEnfantement
+				+ " Temps de accouplement : " + tempEnceinte + " ; Maturitï¿½ sexuelle : " + maturiteSexuelle +"ans";
 	}//toString()
 	
+	/**
+	 * Recuperer le sexe de la tigresse
+	 * @return attribut sexe de l'objet tigredfemelle
+	 */
 	public char getSexe(){
 		return TigreFemelle.SEXE;
 	}//getSexe()
-
+	
+	/**
+	 * verifier si la tigresse est enceinte
+	 * @return boolean qui retourne vrai si la tigresse est enceinte
+	 */
 	public boolean isEnceinte() {
 		return this.enceinte;
 	}//isEnceinte()
 
+	/**
+	 * modifie l'etait de grossesse de la tigresse
+	 * @param enceinte
+	 */
 	public void setEnceinte(boolean enceinte) {
 		this.enceinte = enceinte;
 	}//setEnceinte()
 	
+	/**
+	 * recuperer la periode d'enfantement
+	 * @return int contenant la duree du periode
+	 */
 	public int getPeriodeEnfantement() {
 		return periodeEnfantement;
 	}//getPeriodegestatiction()
 
+	/**
+	 * verifier le temps de grossesse ecoulÃ©
+	 * @return int content le temps ecoulÃ©
+	 */
 	public int getTempEnceinte() {
 		return tempEnceinte;
 	}//getTempEnceinte()
-
+	
+	/**
+	 * Modifier le temps ecoulÃ© de grossesse
+	 * @param tempEnceinte
+	 */
 	public void setTempEnceinte(int tempEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 
+	/**
+	 * recuperer le numero permettant d'attribuer un pseudo Ã  la tigresse
+	 * @return int le numÃ©ro
+	 */
 	public static int getNumPseudo() {
 		return numPseudo;
 	}//getNumPseudo()
-
+	
+	/**
+	 * modifier le numÃ©ro de pseudo
+	 * @param numPseudo
+	 */
 	public static void setNumPseudo(int numPseudo) {
 		TigreFemelle.numPseudo = numPseudo;
 	}//setNumPseudo()
