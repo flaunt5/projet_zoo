@@ -1,6 +1,15 @@
 package zoo_animaux;
 
+/**
+ * Interface decrivant comment les animaux male s'accouple
+ * @author Alexandre
+ *
+ */
 public interface Male<T extends Animal> {
+	
+	/**
+	 * Sexe de l'animal
+	 */
 	final char SEXE = 'M';
 	
 	/**

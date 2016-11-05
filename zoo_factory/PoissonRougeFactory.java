@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.PoissonRougeFemelle;
 import zoo_animaux.concret.PoissonRougeMale;
 
+/**
+ *	PoissonRougeFactory est la classe qui va permettre de créer des bébés poisson rouges males et femelles
+ * @author Alexandre
+ *
+ */
 public class PoissonRougeFactory {
 
 	/**

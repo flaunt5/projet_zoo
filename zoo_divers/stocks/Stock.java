@@ -4,8 +4,20 @@ import java.util.ArrayList;
 
 import zoo_models.Model;
 
+/**
+ * Stock represente l'endroit où va etre stocké de la nourriture ou des trousse de secours, afin de nourir ou soigné des animaux
+ * @author Alexandre
+ *
+ */
 public abstract class Stock<T> extends Model{
+	/**
+	 * Nom du stock
+	 */
 	private String nom;
+	
+	/**
+	 * List contenant le contenu du stock
+	 */
 	private ArrayList<T> stock;
 
 	/**

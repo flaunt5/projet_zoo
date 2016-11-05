@@ -5,8 +5,21 @@ import java.util.TreeMap;
 
 import zoo_models.Model;
 
+/**
+ * Boutique est la classe representant la boutique où l'employe pour acheter de la nourriture
+ * ou des trousses de soins
+ * @author Alexandre
+ *
+ */
 public class Boutique extends  Model{
+	/**
+	 * Instance unique de la boutique dans le programme
+	 */
 	private static Boutique instance;
+	
+	/**
+	 * Liste des objet à vendre dans la boutique
+	 */
 	Map<String, Integer> stockAVendre;
 	
 	/**

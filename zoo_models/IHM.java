@@ -15,10 +15,26 @@ import zoo_vues.VueEmploye;
 import zoo_vues.VueEnclos;
 import zoo_vues.VueZoo;
 
+/**
+ * IHM est la classe qui represente l'interface homme-machine de l'application
+ * @author Alexandre
+ *
+ */
 public class IHM extends Model{
 	
+	/**
+	 * Numero du tour actuel
+	 */
 	private int numTour;
+	
+	/**
+	 * Nombre d'action reéalisable par l'utilisateur sur le tour courant
+	 */
 	private int nbAction;
+	
+	/**
+	 * Scanner permettant de recuperer les saisie utilisateurs
+	 */
 	private Scanner scanAction;
 	
 	/**

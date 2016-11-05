@@ -5,11 +5,31 @@ import zoo_animaux.Femelle;
 import zoo_animaux.PoissonRouge;
 import zoo_factory.AnimalFactory;
 
+/**
+ * PoissonRougeFemelle est la classe qui represente un poisson rouge de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	
+	/**
+	 * Indication pour savoir si le poisson est enceinte 
+	 */
 	private boolean enceinte;
+	
+	/**
+	 * Periode pendant laquel le poisson attends avant de pondre
+	 */
 	private static final int periodeEnfantement = 2;
+	
+	/**
+	 * Temps ecroulé depuisle moment où le poisson à pondu
+	 */
 	private int tempEnceinte;
+	
+	/**
+	 * Numero du pseudo du poisson
+	 */
 	private static int numPseudo = 0;
 	
 	/**

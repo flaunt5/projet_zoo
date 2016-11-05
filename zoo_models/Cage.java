@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import zoo_animaux.Terrestre;
 
+/**
+ * Cage est la classe qui représente un enclos pour les animaux terrestre
+ * @author Alexandre
+ *
+ */
 public class Cage extends Enclos<Terrestre>{
 
 	/**

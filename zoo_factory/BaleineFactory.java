@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.BaleineFemelle;
 import zoo_animaux.concret.BaleineMale;
 
+/**
+ *	BaleineFactory est la classe qui va permettre de créer des bébés baleines males et femelles
+ * @author Alexandre
+ *
+ */
 public class BaleineFactory {
 	
 	/**

@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Loup est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Loup extends Terrestre implements PredateurAction{
-	
+
+	/**
+	 * Age auquel le loup aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 2;
+	
+	/**
+	 * Age à partir duquel le loup aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 15;
 	
 	/**

@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Baleine est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Baleine extends Aquatique implements MarinAction{
-	
+
+	/**
+	 * Age auquel la baleine aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 5;
+	
+	/**
+	 * Age à partir duquel la baleine aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 80;
 	
 	/**

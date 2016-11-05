@@ -17,6 +17,11 @@ import zoo_animaux.concret.RequinMale;
 import zoo_animaux.concret.TigreFemelle;
 import zoo_animaux.concret.TigreMale;
 
+/**
+ *	AnimalFactory est la classe qui va permettre de créer des bébés aanimaux males et femelles
+ * @author Alexandre
+ *
+ */
 public class AnimalFactory {
 	
 	/**

@@ -1,5 +1,10 @@
 package zoo_animaux;
 
+/**
+ * Terrestre represente tout les animaux qui vivent uniquement sur la terre ferme
+ * @author Alexandre
+ *
+ */
 public abstract class Terrestre extends Animal{
 	
 	/**

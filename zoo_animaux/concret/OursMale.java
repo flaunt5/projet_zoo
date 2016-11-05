@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Male;
 import zoo_animaux.Ours;
 
+/**
+ * OursMale est la classe qui represente un ours de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class OursMale extends Ours implements Male<OursFemelle>{
 	
+	/**
+	 * Numero du pseudo de l'ours
+	 */
 	private static int numPseudo = 0;
 	
 	/**

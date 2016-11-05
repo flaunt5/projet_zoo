@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.RequinFemelle;
 import zoo_animaux.concret.RequinMale;
 
+/**
+ *	RequinFactory est la classe qui va permettre de créer des bébés requins males et femelles
+ * @author Alexandre
+ *
+ */
 public class RequinFactory {
 
 	/**

@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.OursFemelle;
 import zoo_animaux.concret.OursMale;
 
+/**
+ *	OursFactory est la classe qui va permettre de créer des bébés ours males et femelles
+ * @author Alexandre
+ *
+ */
 public class OursFactory {
 
 	/**

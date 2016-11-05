@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.LoupFemelle;
 import zoo_animaux.concret.LoupMale;
 
+/**
+ *	LoupFactory est la classe qui va permettre de créer des bébés loups males et femelles
+ * @author Alexandre
+ *
+ */
 public class LoupFactory {
 
 	/**

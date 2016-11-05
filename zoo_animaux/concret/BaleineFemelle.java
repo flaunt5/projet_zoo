@@ -5,11 +5,31 @@ import zoo_animaux.Femelle;
 import zoo_animaux.MammifereFemelle;
 import zoo_factory.AnimalFactory;
 
+/**
+ * BaleineFemelle est la classe qui represente une baleine de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class BaleineFemelle extends Baleine implements MammifereFemelle{
 	
+	/**
+	 * Indication pour savoir si la baleine est enceinte 
+	 */
 	private boolean enceinte;
+	
+	/**
+	 * Periode pendant laquel la baleine attends avant d'accoucher
+	 */
 	private static final int periodeEnfantement = 4;
+	
+	/**
+	 * Temps ecroulé depuis le moment où la baleine à été fécondé
+	 */
 	private int tempEnceinte;
+
+	/**
+	 * Numero du pseudo de la baleine
+	 */
 	private static int numPseudo = 0;
 	
 	/**

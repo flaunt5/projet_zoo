@@ -32,6 +32,11 @@ import zoo_vues.VueIHM;
 import zoo_vues.VueVoliere;
 import zoo_vues.VueZoo;
 
+/**
+ * Controleur est la classe qui va se servir des différent Models et Vues afin de faire fonctionner la programme
+ * @author Alexandre
+ *
+ */
 public abstract class Controleur {
 
 	/**
@@ -45,17 +50,17 @@ public abstract class Controleur {
 		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 1, 1, 1, 1 ,1);
 		Boutique boutique = Boutique.getInstance();
 		//creaction des enclos
-		Cage cageLoup = new Cage("Cage des loups", 35, 5);
-		Cage cageOurs = new Cage("Cage des ours", 30, 5);
-		Cage cageTigre = new Cage("Cage des tigres", 40, 5);
-		Aquarium bassinBaleine = new Aquarium("Bassin des baleines", 100, 3);
-		Aquarium bassinPoissonR = new Aquarium("Bassin des poissons rouges", 10, 6);
-		Aquarium bassinRequin = new Aquarium("Bassin des requins", 40, 5);
-		Aquarium bassinPinguoin = new Aquarium("Bassin des pinguoin", 40, 4);
-		Voliere voliereAigle = new Voliere("Voliere des aigles", 60, 5, 15);
-		Cage cageSecours = new Cage("Cage de remplacement", 35, 5);
-		Aquarium bassinSecours = new Aquarium("Bassin de remplacement", 35, 5);
-		Voliere voliereSecours = new Voliere("Voliere de remplacement", 35, 5, 10);
+		Cage cageLoup = new Cage("Cage des loups", 35, 10);
+		Cage cageOurs = new Cage("Cage des ours", 30, 10);
+		Cage cageTigre = new Cage("Cage des tigres", 40, 10);
+		Aquarium bassinBaleine = new Aquarium("Bassin des baleines", 100, 10);
+		Aquarium bassinPoissonR = new Aquarium("Bassin des poissons rouges", 10, 10);
+		Aquarium bassinRequin = new Aquarium("Bassin des requins", 40, 10);
+		Aquarium bassinPinguoin = new Aquarium("Bassin des pinguoin", 40, 10);
+		Voliere voliereAigle = new Voliere("Voliere des aigles", 60, 10, 15);
+		Cage cageSecours = new Cage("Cage de remplacement", 35, 10);
+		Aquarium bassinSecours = new Aquarium("Bassin de remplacement", 35, 10);
+		Voliere voliereSecours = new Voliere("Voliere de remplacement", 35, 10, 10);
 		
 		//creaction des animaux de base
 		LoupMale loupMale1 = new LoupMale(60, 83, 5,LoupMale.getPseudoAnimal());

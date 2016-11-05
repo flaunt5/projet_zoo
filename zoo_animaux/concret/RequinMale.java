@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Male;
 import zoo_animaux.Requin;
 
+/**
+ *	RequinMale est la classe qui represente un requin de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class RequinMale extends Requin implements Male<RequinFemelle>{
 
+	/**
+	 * Numero du pseudo du requin
+	 */
 	private static int numPseudo = 0;
 	
 	/**

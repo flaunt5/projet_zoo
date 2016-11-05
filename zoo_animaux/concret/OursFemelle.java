@@ -5,11 +5,31 @@ import zoo_animaux.MammifereFemelle;
 import zoo_animaux.Ours;
 import zoo_factory.AnimalFactory;
 
+/**
+ * OursFemelle est la classe qui represente un ours de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class OursFemelle extends Ours implements MammifereFemelle{
 	
+	/**
+	 * Indication pour savoir si l'ours est enceinte 
+	 */
 	private boolean enceinte;
+	
+	/**
+	 * Periode pendant laquel l'ours attends avant d'accoucher
+	 */
 	private static final int periodeEnfantement = 3;
+	
+	/**
+	 * Temps ecroulé depuis le moment où l'ours à été fécondé
+	 */
 	private int tempEnceinte;
+
+	/**
+	 * Numero du pseudo de l'ours
+	 */
 	private static int numPseudo = 0;
 	
 	/**

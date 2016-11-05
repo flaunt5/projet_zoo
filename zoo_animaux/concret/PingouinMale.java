@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Male;
 import zoo_animaux.Pingouin;
 
+/**
+ *	PinguoinMale est la classe qui represente un pinguoin de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
-
+	
+	/**
+	 * Numero du pseudo du pingouin
+	 */
 	private static int numPseudo = 0;
 	
 	/**

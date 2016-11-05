@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import zoo_animaux.Animal;
 
+/**
+ * TriAge est la classe qui représente un tri par age croissant sur une liste
+ * @author Alexandre
+ *
+ */
 public class TriAge<T extends Animal> implements Tri<T>{
 
 	/**

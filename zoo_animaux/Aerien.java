@@ -1,5 +1,10 @@
 package zoo_animaux;
 
+/**
+ * Aerien représente les animaux vivant dans le ciel
+ * @author Admin
+ *
+ */
 public abstract class Aerien extends Animal{
 	/**
 	 * Construit un objet de type Aerien

@@ -22,14 +22,50 @@ import zoo_divers.stocks.StockNourriturePoisson;
 import zoo_divers.stocks.StockPoisson;
 import zoo_divers.stocks.StockTroussePremierSecours;
 
+/**
+ * Zoo represente la classe qui va presenter le zoo dans lequel va se passer la simulation
+ * @author Alexandre
+ *
+ */
 public class Zoo {
+	/**
+	 * Employe du zoo
+	 */
 	private Employe employe;
+	
+	/**
+	 * Nom du zoo
+	 */
 	private String nom;
+	
+	/**
+	 * Nombre d'enclos du zoo
+	 */
 	private int nbEnclos;
+	
+	/**
+	 * Instance unique du zoo
+	 */
 	private static Zoo instance = null;
+	
+	/**
+	 * Liste des enclos du zoo
+	 */
 	private ArrayList<Enclos<? extends Animal>> listEnclos;
+	
+	/**
+	 * Stock de nourriture du zoo
+	 */
 	private ArrayList<StockNourriture<? extends Nourriture>> stockNourriture;
+	
+	/**
+	 * Stock de Materiel servant à soigner les animaux
+	 */
 	private ArrayList<StockMaterielSoin<? extends MaterielSoin>> stockMaterielSoin;
+	
+	/**
+	 * Budget du parc pour faire des achats
+	 */
 	private int budget;
 	
 	/**

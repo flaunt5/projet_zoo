@@ -2,6 +2,11 @@ package zoo_divers.stocks;
 
 import zoo_divers.equipements.MaterielSoin;
 
+/**
+ * StockMaterielSoin represente l'endroit où va etre stocké les trousse de secours, pour soigner les animaux
+ * @author Alexandre
+ *
+ */
 public class StockMaterielSoin<T extends MaterielSoin> extends Stock<T>{
 
 	/**

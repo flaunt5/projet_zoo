@@ -1,5 +1,10 @@
 package zoo_animaux;
 
+/**
+ * Interface decrivant comment accouche les animaux qui on la capcité de le faire
+ * @author Alexandre
+ *
+ */
 public interface MammifereFemelle extends Femelle{
 	
 	/**

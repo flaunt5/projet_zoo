@@ -1,5 +1,10 @@
 package zoo_animaux;
 
+/**
+ * Aquatique est la classe qui represente un animal capable de vivre dans l'eau
+ * @author Alexandre
+ *
+ */
 public abstract class Aquatique extends Animal{
 	
 	

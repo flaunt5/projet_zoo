@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import zoo_divers.equipements.Nourriture;
 
+/**
+ * StockNourriture represente l'endroit où va etre stocké un type de nourriture, pour nourir les animaux
+ * @author Alexandre
+ *
+ */
 public class StockNourriture<T extends Nourriture> extends Stock<T>{
 	
 	/**

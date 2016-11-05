@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.PingouinFemelle;
 import zoo_animaux.concret.PingouinMale;
 
+/**
+ *	PingouinFactory est la classe qui va permettre de créer des bébés pingouins males et femelles
+ * @author Alexandre
+ *
+ */
 public class PingouinFactory {
 	
 	/**

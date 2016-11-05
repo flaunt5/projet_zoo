@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Baleine;
 import zoo_animaux.Male;
 
+/**
+ *	BaleineMale est la classe qui represente une baleine de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	
+	/**
+	 * Numero du pseudo de la baleine
+	 */
 	private static int numPseudo = 0;
 	
 	/**

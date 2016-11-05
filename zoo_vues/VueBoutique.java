@@ -2,6 +2,11 @@ package zoo_vues;
 
 import zoo_divers.Boutique;
 
+/**
+ * VueBoutique est la classe qui va permettre de réaliser les différents affichage de la classe Boutique
+ * @author Alexandre
+ *
+ */
 public class VueBoutique extends Vue<Boutique>{
 	/**
 	 * Creer un objet de type VueBoutique

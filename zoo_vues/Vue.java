@@ -1,6 +1,14 @@
 package zoo_vues;
 
+/**
+ * Vue est la classe qui va permettre de réaliser les différents affichage des différentes classe
+ * @author Alexandre
+ *
+ */
 public abstract class Vue<T> {
+	/**
+	 * Model serra la classe que laquel va se baser la vue
+	 */
 	protected T model;
 	
 	/**

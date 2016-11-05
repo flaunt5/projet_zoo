@@ -5,11 +5,31 @@ import zoo_animaux.Femelle;
 import zoo_animaux.Requin;
 import zoo_factory.AnimalFactory;
 
+/**
+ * RequinFemelle est la classe qui represente un requin de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class RequinFemelle extends Requin implements AutreFemelle{
 	
+	/**
+	 * Indication pour savoir si le requin est enceinte 
+	 */
 	private boolean enceinte;
+
+	/**
+	 * Periode pendant laquel le requin attends avant de pondre
+	 */
 	private static final int periodeEnfantement = 5;
+
+	/**
+	 * Temps ecroulé depuisle moment où le requin à pondu
+	 */
 	private int tempEnceinte;
+
+	/**
+	 * Numero du pseudo du requin
+	 */
 	private static int numPseudo = 0;
 	
 	/**

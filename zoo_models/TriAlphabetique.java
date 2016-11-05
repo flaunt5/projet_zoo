@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import zoo_animaux.Animal;
 
+/**
+ * TriAlphabetique est la classe qui représente un tri par ordre alphabetique sur une liste
+ * @author Alexandre
+ *
+ */
 public class TriAlphabetique<T extends Animal> implements Tri<T> {
 
 	/**

@@ -5,11 +5,31 @@ import zoo_animaux.AutreFemelle;
 import zoo_animaux.Femelle;
 import zoo_factory.AnimalFactory;
 
+/**
+ * AigleFemelle est la classe qui represente un aigle de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class AigleFemelle extends Aigle implements AutreFemelle{
 	
+	/**
+	 * Indication pour savoir si l'aigle est enceinte 
+	 */
 	private boolean enceinte;
+
+	/**
+	 * Periode pendant laquel l'aigle attends avant de pondre
+	 */
 	private static final int periodeEnfantement = 2;
+
+	/**
+	 * Temps ecroulé depuisle moment où l'aigle à pondu
+	 */
 	private int tempEnceinte;
+
+	/**
+	 * Numero du pseudo de l'aigle
+	 */
 	private static int numPseudo = 0;
 	
 	/**

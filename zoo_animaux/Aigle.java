@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Aigle est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Aigle extends Aerien implements VolantAction{
 	
+	/**
+	 * Age auquel l'aigle aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 4;
+	
+	/**
+	 * Age à partir duquel l'aigle  aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 25;
 	
 	/**

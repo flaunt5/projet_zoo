@@ -4,6 +4,11 @@ import zoo_animaux.Animal;
 import zoo_models.Enclos;
 import zoo_models.Zoo;
 
+/**
+ * VueZoo est la classe qui va permettre de réaliser les différents affichage de la classe Zoo
+ * @author Alexandre
+ *
+ */
 public class VueZoo extends Vue<Zoo>{
 
 	/**

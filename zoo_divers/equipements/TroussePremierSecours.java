@@ -1,5 +1,10 @@
 package zoo_divers.equipements;
 
+/**
+ * TrousseSecoursUrgence represente un objet utilisable pour soigner les animaux
+ * @author Alexandre
+ *
+ */
 public class TroussePremierSecours extends MaterielSoin{
 
 	/**

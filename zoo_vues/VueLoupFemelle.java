@@ -2,6 +2,11 @@ package zoo_vues;
 
 import zoo_animaux.concret.LoupFemelle;
 
+/**
+ * VueLoupFemelle est la classe qui va permettre de réaliser les différents affichage de la classe LoupFemelle
+ * @author Alexandre
+ *
+ */
 public class VueLoupFemelle extends VueAnimal<LoupFemelle>{
 	/**
 	 * Creer un objet de type VueLoupFemelle

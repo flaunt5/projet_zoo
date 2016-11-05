@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * PoissonRouge est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class PoissonRouge extends Aquatique implements MarinAction{
 	
+	/**
+	 * Age auquel le poisson rouge aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 2;
+	
+	/**
+	 * Age auquel le poisson rouge aura atteint sa maturité sexuelle
+	 */
 	protected static final int esperanceVie = 30;
 	
 	/**

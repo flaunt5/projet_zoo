@@ -5,11 +5,31 @@ import zoo_animaux.Loup;
 import zoo_animaux.MammifereFemelle;
 import zoo_factory.AnimalFactory;
 
+/**
+ * LoupFemelle est la classe qui represente un loup de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class LoupFemelle extends Loup implements MammifereFemelle{
-
+	
+	/**
+	 * Numero du pseudo du loup
+	 */	
 	private static int numPseudo = 0;
+	
+	/**
+	 * Indication pour savoir si le loup est enceinte 
+	 */
 	private boolean enceinte;
+	
+	/**
+	 * Periode pendant laquel le loup attends avant d'accoucher
+	 */
 	private static final int periodeEnfantement = 3;
+
+	/**
+	 * Temps ecroulé depuis le moment où le loup à été fécondé
+	 */
 	private int tempEnceinte;
 	
 	/**

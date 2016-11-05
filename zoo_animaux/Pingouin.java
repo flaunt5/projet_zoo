@@ -2,9 +2,20 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Pingouin est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Pingouin extends Aquatique implements MarinAction, VolantAction{
-	
+	/**
+	 * Age auquel le pingouin aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 4;
+	
+	/**
+	 * Age à partir duquel le pingouin aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 20;
 	
 	/**

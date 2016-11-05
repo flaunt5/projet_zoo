@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Tigre est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Tigre extends Terrestre implements PredateurAction{
 	
+	/**
+	 * Age auquel le tigre aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 3;
+	
+	/**
+	 * Age à partir duquel le tigre aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 20;
 	
 	/**

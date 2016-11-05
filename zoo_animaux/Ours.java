@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Ours est la classe qui represente un animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Ours extends Terrestre{
 	
+	/**
+	 * Age auquel l'ours aura atteint sa maturité sexuelle
+	 */	
 	protected static final int maturiteSexuelle = 4;
+	
+	/**
+	 * Age à partir duquel l'ours aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 25;
 	
 	/**

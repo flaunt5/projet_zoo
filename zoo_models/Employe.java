@@ -13,10 +13,30 @@ import zoo_divers.equipements.Poisson;
 import zoo_divers.equipements.TroussePremierSecours;
 import zoo_divers.equipements.TrousseSecoursUrgence;
 
+/**
+ * Employe est la classe qui represente l'employé du zoo
+ * @author Alexandre
+ *
+ */
 public class Employe {
+	/**
+	 * Instance unique de l'employe
+	 */
 	private  static Employe instance = null;
+	
+	/**
+	 * Nom de l'employe
+	 */
 	private String nom;
+	
+	/**
+	 * Sexe de l'employe
+	 */
 	private char sexe;
+	
+	/**
+	 * Age de l'employe
+	 */
 	private int age;
 
 	

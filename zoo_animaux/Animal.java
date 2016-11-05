@@ -7,21 +7,85 @@ import zoo_divers.equipements.Nourriture;
 import zoo_models.Enclos;
 import zoo_models.Model;
 
+/**
+ * Animal est la classe qui represente l'un des animaux 
+ * @author Alexandre
+ *
+ */
 public abstract class Animal extends Model{
+	/**
+	 * Nom de l'espece de l'animal
+	 */
 	protected String nom;
+	
+	/**
+	 * Poids de l'animal
+	 */
 	protected double poids;
+	
+	/**
+	 * Taille de l'animal
+	 */
 	protected double taille;
+	
+	/**
+	 * Information sur l'appetit de l'animal
+	 */
 	protected String indicFaim;
+	
+	/**
+	 * Information sur l'état de santé de l'animal
+	 */
 	protected String indicSante;
+	
+	/**
+	 * Information sur l'état de fatigue de l'animal
+	 */
 	protected String indicSommeil;
+	
+	/**
+	 * Age de l'animal
+	 */
 	protected int age;
+	
+	/**
+	 * Enclos ou se trouve l'animal
+	 */
 	protected Enclos enclosResidence;
+	
+	/**
+	 * Indication poir savoir si l'animal dort
+	 */
 	protected boolean endormi;
+	
+	/**
+	 * Nom de l'animal
+	 */
 	protected String pseudo;
+	
+	/**
+	 * Liste des aliment que l'animal mange
+	 */
 	protected ArrayList<String> listNourritureAccepte;
+	
+	/**
+	 * Consommation de nourriture à chaque repas
+	 */
 	protected int consoNourriture;
-	protected int niveauFaim;
-	protected int niveauSante;
+	
+	/**
+	 * Indicateur en % sur son appétit, 100 = tout va bien , 0 = affamé
+	 */
+	protected int niveauFaim;	
+	
+	/**
+	 * Indicateur en % sur son état de sante, 100 = tout va bien , 0 = mourant
+	 */
+	protected int niveauSante;	
+	
+	/**
+	 * Indicateur en % sur son état de fatigue, 100 = tout va bien , 0 = épuisé
+	 */
 	protected int niveauSommeil;
 
 	/**

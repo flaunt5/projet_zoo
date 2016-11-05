@@ -2,6 +2,11 @@ package zoo_vues;
 
 import zoo_animaux.concret.AigleMale;
 
+/**
+ * VueAigleMale est la classe qui va permettre de réaliser les différents affichage de la classe AigleMale
+ * @author Alexandre
+ *
+ */
 public class VueAigleMale extends VueAnimal<AigleMale>{
 	/**
 	 * Creer un objet de type VueAigleMale

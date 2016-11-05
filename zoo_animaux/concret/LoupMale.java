@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Loup;
 import zoo_animaux.Male;
 
+/**
+ *	LoupMale est la classe qui represente un loup de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class LoupMale extends Loup implements Male<LoupFemelle>{
 
+	/**
+	 * Numero du pseudo du loup
+	 */
 	private static int numPseudo = 0;
 	
 	/**

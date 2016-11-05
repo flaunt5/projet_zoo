@@ -1,6 +1,14 @@
 package zoo_animaux;
 
+/**
+ * Interface decrivant les action des animaux femelles
+ * @author Alexandre
+ *
+ */
 public interface Femelle {
+	/**
+	 * Sexe de l'animal
+	 */
 	final char SEXE = 'F';
 	
 	/**

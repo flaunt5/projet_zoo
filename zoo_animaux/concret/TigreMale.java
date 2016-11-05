@@ -2,9 +2,16 @@ package zoo_animaux.concret;
 
 import zoo_animaux.Male;
 import zoo_animaux.Tigre;
-
+/**
+ *	TigreMale est la classe qui represente un tigre de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class TigreMale extends Tigre implements Male<TigreFemelle>{
 	
+	/**
+	 * Numero du pseudo du tigre
+	 */
 	private static int numPseudo = 0;
 	
 	/**

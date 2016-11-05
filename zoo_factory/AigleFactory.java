@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.AigleFemelle;
 import zoo_animaux.concret.AigleMale;
 
+/**
+ *	AigleFactory est la classe qui va permettre de créer des bébés aigles males et femelles
+ * @author Alexandre
+ *
+ */
 public class AigleFactory {
 
 	/**

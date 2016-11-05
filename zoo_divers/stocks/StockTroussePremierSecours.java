@@ -2,6 +2,11 @@ package zoo_divers.stocks;
 
 import zoo_divers.equipements.TroussePremierSecours;
 
+/**
+ * StockTroussePremierSecours represente l'endroit ou vont etre stocké les trousse de premier secours 
+ * @author Alexandre
+ *
+ */
 public class StockTroussePremierSecours extends StockMaterielSoin<TroussePremierSecours>{
 
 	/**

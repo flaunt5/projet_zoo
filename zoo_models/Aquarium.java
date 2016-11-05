@@ -4,10 +4,24 @@ import java.util.ArrayList;
 
 import zoo_animaux.Aquatique;
 
+/**
+ * Aquaarium est la classe qui représente un enclos pour les animaux aquatiques
+ * @author Alexandre
+ *
+ */
 public class Aquarium extends Enclos<Aquatique>{
 	
+	/**
+	 * Indicateur sur la salinite du bassin
+	 */
 	private  String salinite;
+	/**
+	 * Indicateur en % sur la salinite, 100 = bon , 0 = mauvais
+	 */
 	private int niveauSalinite;
+	/**
+	 * profondeur du bassin en metres
+	 */
 	private double profondeur;
 
 	/**

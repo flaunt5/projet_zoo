@@ -5,11 +5,31 @@ import zoo_animaux.Femelle;
 import zoo_animaux.Pingouin;
 import zoo_factory.AnimalFactory;
 
+/**
+ * PingouinFemelle est la classe qui represente un pingouin de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class PingouinFemelle extends Pingouin implements AutreFemelle{
 
+
+	/**
+	 * Numero du pseudo du pingouin
+	 */
 	private static int numPseudo = 0;
+	/**
+	 * Indication pour savoir si le pingouin est enceinte 
+	 */
 	private boolean enceinte;
+
+	/**
+	 * Periode pendant laquel le pingouin attends avant de pondre
+	 */
 	private static final int periodeEnfantement = 4;
+
+	/**
+	 * Temps ecroulé depuisle moment où le pingouin à pondu
+	 */
 	private int tempEnceinte;
 	
 	/**

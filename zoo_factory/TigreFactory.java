@@ -3,6 +3,11 @@ package zoo_factory;
 import zoo_animaux.concret.TigreFemelle;
 import zoo_animaux.concret.TigreMale;
 
+/**
+ *	TigreFactory est la classe qui va permettre de créer des bébés tigres males et femelles
+ * @author Alexandre
+ *
+ */
 public class TigreFactory {
 	/**
 	 * Creer un objet de type TigreMale

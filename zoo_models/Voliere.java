@@ -4,10 +4,26 @@ import java.util.ArrayList;
 
 import zoo_animaux.Aerien;
 
+/**
+ * Voliere est la classe qui représente un enclos pour les animaux volant
+ * @author Alexandre
+ *
+ */
 public class Voliere extends Enclos<Aerien>{
 
+	/**
+	 * Hauteur de la voliere
+	 */
 	private double hauteur;
+	
+	/**
+	 * Indication sur l'état du toit
+	 */
 	private String etatToit;
+	
+	/**
+	 * Indicateur en % sur l'état du toit, 100 = bon , 0 = mauvais
+	 */
 	private int niveauEtatToit;
 	
 	/**

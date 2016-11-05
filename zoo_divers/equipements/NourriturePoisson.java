@@ -1,5 +1,10 @@
 package zoo_divers.equipements;
 
+/**
+ * NourriturePoisson represente la nourriture que mange les poissons rouges
+ * @author Alexandre
+ *
+ */
 public class NourriturePoisson extends Graine{
 
 	/**

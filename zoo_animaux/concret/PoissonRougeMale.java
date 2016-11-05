@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Male;
 import zoo_animaux.PoissonRouge;
 
+/**
+ *	PoissonRougeMale est la classe qui represente un poisson de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class PoissonRougeMale extends PoissonRouge implements Male<PoissonRougeFemelle>{
 
+	/**
+	 * Numero du pseudo du poisson
+	 */
 	private static int numPseudo = 0;
 	
 	/**

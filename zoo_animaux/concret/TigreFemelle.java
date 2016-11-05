@@ -5,11 +5,31 @@ import zoo_animaux.MammifereFemelle;
 import zoo_animaux.Tigre;
 import zoo_factory.AnimalFactory;
 
+/**
+ *	TigreFemelle est la classe qui represente un tigre de sexe  féminin
+ * @author Alexandre
+ *
+ */
 public class TigreFemelle extends Tigre implements MammifereFemelle{
 	
+	/**
+	 * Indication pour savoir si le tigre est enceinte 
+	 */
 	private boolean enceinte;
+	
+	/**
+	 * Periode pendant laquel le tigre attends avant d'accoucher
+	 */
 	private static final int periodeEnfantement = 3;
+	
+	/**
+	 * Temps ecroulé depuis le moment où le tigre à été fécondé
+	 */
 	private int tempEnceinte;
+
+	/**
+	 * Numero du pseudo du tigre
+	 */
 	private static int numPseudo = 0;
 	
 	/**

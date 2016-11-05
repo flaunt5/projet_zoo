@@ -1,6 +1,10 @@
 package zoo_systeme;
 
-
+/**
+ * Client est la classe qui va permettre de lancer la simulation du zoo
+ * @author Alexandre
+ *
+ */
 public class Client extends Controleur{
 
 	/**

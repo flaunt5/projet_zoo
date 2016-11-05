@@ -9,14 +9,51 @@ import zoo_animaux.Femelle;
 import zoo_animaux.Terrestre;
 import zoo_divers.equipements.Nourriture;
 
+/**
+ * Enclos est la classe qui represente un endroit on les animaux seront mit dans le zoo
+ * @author Alexandre 
+ *
+ * @param <T>
+ */
 public abstract class Enclos<T extends Animal> extends Model{
+	/**
+	 * Nom de l'enclos
+	 */
 	protected String nom;
+	
+	/**
+	 * Taille de l'enclos en m²
+	 */
 	protected int superficie; 
+	
+	/**
+	 * Nombre d'animaux présents dans l'enclos
+	 */
 	protected int nbAnimaux;
+	
+	/**
+	 * Nombre maximal d'animaux autorisé dans l'enclos
+	 */
 	protected int nbAnimauxMax;
+	
+	/**
+	 * Indaction sur la propreté de l'enclos
+	 */
 	protected String degreProprete;
+	
+	/**
+	 * Indication en % sur la propreté de l'enclos , 100 = bon; 0 = mauvais
+	 */
 	protected int niveauProprete;
+	
+	/**
+	 * Liste des animaix de l'enclos
+	 */
 	protected ArrayList<T> listAnimaux;
+	
+	/**
+	 * Tri effectuable sur l'enclos
+	 */
 	protected Tri<T> tri;
 	
 	/**

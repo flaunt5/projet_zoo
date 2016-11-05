@@ -3,8 +3,16 @@ package zoo_animaux.concret;
 import zoo_animaux.Aigle;
 import zoo_animaux.Male;
 
+/**
+ *	AigleMale est la classe qui represente un aigle de sexe  masculin
+ * @author Alexandre
+ *
+ */
 public class AigleMale extends Aigle implements Male<AigleFemelle>{
-
+	
+	/**
+	 * Numero du pseudo de l'aigle
+	 */
 	private static int numPseudo = 0;
 	
 	/**

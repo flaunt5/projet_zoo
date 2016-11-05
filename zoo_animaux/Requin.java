@@ -2,9 +2,21 @@ package zoo_animaux;
 
 import java.util.ArrayList;
 
+/**
+ * Requin représente l'animal du même nom
+ * @author Alexandre
+ *
+ */
 public abstract class Requin extends Aquatique implements MarinAction{
 	
+	/**
+	 * Age auquel le requin aura atteint sa maturité sexuelle
+	 */
 	protected static final int maturiteSexuelle = 4;
+	
+	/**
+	 * Age à partir duquel le requin aura depassé son esperance de vie
+	 */
 	protected static final int esperanceVie = 25;
 	
 	/**

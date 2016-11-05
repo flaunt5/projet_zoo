@@ -8,6 +8,11 @@ import zoo_models.Employe;
 import zoo_models.Enclos;
 import zoo_models.Zoo;
 
+/**
+ * VueEmploye est la classe qui va permettre de réaliser les différents affichage de la classe Employe
+ * @author Alexandre
+ *
+ */
 public class VueEmploye extends Vue<Employe>{
 	/**
 	 * Creer un objet de type VueEmploye

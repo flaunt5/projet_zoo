@@ -2,6 +2,11 @@ package zoo_vues;
 
 import zoo_models.IHM;
 
+/**
+ * VueIHM est la classe qui va permettre de réaliser les différents affichage de la classe IHM
+ * @author Alexandre
+ *
+ */
 public class VueIHM extends Vue<IHM>{
 	/**
 	 * Creer un objet de type VueIHM
