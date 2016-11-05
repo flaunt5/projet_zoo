@@ -121,8 +121,8 @@ public class VueZoo extends Vue<Zoo>{
 	 * 			Boolean qui va permettre de savoir si la fonction est appelé pour permettre à l'utilisateur de choisir
 	 * 			un equiepement, ou si la fonction est appelé pour afficher la liste des équipement
 	 */
-	public void afficherContenuStock(boolean choix){
-		System.out.println(this.getModel().getContenuStock(choix));
+	public void afficherContenuStock(boolean choix, boolean voirNourriture, boolean voirSoin){
+		System.out.println(this.getModel().getContenuStock(choix,voirNourriture,voirSoin));
 	}//getContenuStock()
 	
 	/**
@@ -131,4 +131,11 @@ public class VueZoo extends Vue<Zoo>{
 	public void afficherBudgetDuZoo(){
 		System.out.println(this.getModel().getBudgetDuZoo());
 	}//afficherBudgetDuZoo()
+
+	/**
+	 * Affiche de gain d'argent obtenu à la fin du tour
+	 */
+	public void gagnerDeLargent() {
+		System.out.println(this.getModel().gagnerArgent());
+	}//gagnerDeLargent()
 }//VueZoo

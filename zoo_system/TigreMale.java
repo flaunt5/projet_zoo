@@ -28,7 +28,7 @@ public class TigreMale extends Tigre implements Male<TigreFemelle>{
 	public String saccoupler(TigreFemelle femelle) {
 		String retour = this.emmetreSon() + "\n";
 		femelle.setEnceinte(true);
-		retour += femelle.getPseudo() + "(" + femelle.getNom() + ", " + femelle.getSexe() + ") ï¿½ ï¿½tï¿½ fecondï¿½ par "  
+		retour += femelle.getPseudo() + "(" + femelle.getNom() + ", " + femelle.getSexe() + ") a été fecondé par "  
 					+	this.getPseudo() + "(" + femelle.getNom() + ", " + this.getSexe() + ")\n";
 		return 	retour;
 	}//sacoupler()

@@ -59,8 +59,8 @@ public class VueEmploye extends Vue<Employe>{
 	 * @param animal
 	 * 				Animal qui va etre soigner
 	 */
-	public void soignerAnimal(Animal animal){
-		System.out.println(this.getModel().soignerAnimal(animal));		
+	public void soignerAnimal(Animal animal, MaterielSoin materielSoin){
+		System.out.println(this.getModel().soignerAnimal(animal, materielSoin));		
 	}//soignerAnimal()
 	
 	/**

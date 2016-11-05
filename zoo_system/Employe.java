@@ -125,8 +125,8 @@ public class Employe {
 	 * 				Animal qui va etre soigner
 	 * @return Message de confirmation de l'action
 	 */
-	public String soignerAnimal(Animal animal){
-		animal.etreSoigner();
+	public String soignerAnimal(Animal animal, MaterielSoin materielSoin){
+		animal.etreSoigner(materielSoin);
 		return animal.getPseudo() + "(" + animal.getNom() + ", " + animal.getSexe() 
 		+ ") a été soigné";
 	}
@@ -241,6 +241,46 @@ public class Employe {
 				if(verifBudget(zoo, prix)){
 					for(int i = 0; i < 10; ++i){
 						zoo.getStockNourriture().get(2).ajouterNourriture(new NourriturePoisson());						
+					}
+					zoo.setBudget(zoo.getBudget() - prix);
+					retour += "10 nourriture pour poisson";
+				}else{
+					retour = refus;
+				}					
+				break;
+			case "Trousse de premier secours x1" :
+				if(verifBudget(zoo, prix)){
+					zoo.getStockMaterielSoin().get(0).ajouterMaterielSoin(new TroussePremierSecours());
+					zoo.setBudget(zoo.getBudget() - prix);
+					retour += "10 nourriture pour poisson";
+				}else{
+					retour = refus;
+				}					
+				break;
+			case "Trousse de premier secours x10" :
+				if(verifBudget(zoo, prix)){
+					for(int i = 0; i < 10; ++i){
+						zoo.getStockMaterielSoin().get(0).ajouterMaterielSoin(new TroussePremierSecours());						
+					}
+					zoo.setBudget(zoo.getBudget() - prix);
+					retour += "10 nourriture pour poisson";
+				}else{
+					retour = refus;
+				}					
+				break;
+			case "Trousse de secours d'urgence x1" :
+				if(verifBudget(zoo, prix)){
+					zoo.getStockMaterielSoin().get(1).ajouterMaterielSoin(new TrousseSecoursUrgence());	
+					zoo.setBudget(zoo.getBudget() - prix);
+					retour += "10 nourriture pour poisson";
+				}else{
+					retour = refus;
+				}					
+				break;
+			case "Trousse de secours d'urgence x10" :
+				if(verifBudget(zoo, prix)){
+					for(int i = 0; i < 10; ++i){
+						zoo.getStockMaterielSoin().get(1).ajouterMaterielSoin(new TrousseSecoursUrgence());						
 					}
 					zoo.setBudget(zoo.getBudget() - prix);
 					retour += "10 nourriture pour poisson";

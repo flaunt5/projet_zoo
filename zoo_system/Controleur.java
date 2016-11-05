@@ -12,7 +12,7 @@ public abstract class Controleur {
 		 * Mise en place du zoo
 		 */
 		//creaction du zoo et de l'employe
-		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 1, 1, 1);
+		Zoo zoo = Zoo.getInstance("Zoo marseille", 8, "Jean-luc", 45, 'M', 1, 1, 1, 1 ,1);
 		Boutique boutique = Boutique.getInstance();
 		//creaction des enclos
 		Cage cageLoup = new Cage("Cage des loups", 35, 5);
@@ -144,14 +144,14 @@ public abstract class Controleur {
 			//actions de l'utilisateurs
 			while(ihm.getNbAction() != 0){
 				vueZoo.afficherBudgetDuZoo();
-				vueZoo.afficherContenuStock(false);
+				vueZoo.afficherContenuStock(false, true, true);
 				vueIhm.afficherMenuAction();
 				saisie = ihm.getSaisieUtilisateur(1, 8);
 				ihm.executeChoixActionZoo(saisie, vueZoo, vueEmp, listVueEnclos);
 				ihm.setNbAction(ihm.getNbAction() - 1);
 			}
 			//si l'état des animaux on été modifier, 2 tour plus tard ils essayent de se reveillés
-			if(numTourModif + 2 == ihm.getNumTour() && isModifier){
+			if(ihm.verifAnimauxEndormi(vueZoo)){
 				vueZoo.reveillerAnimaux();
 				isModifier = false;
 			}
@@ -169,6 +169,7 @@ public abstract class Controleur {
 			vueZoo.tuerAnimaux();
 			vueZoo.faireGrandirAnimaux();
 			vueZoo.verifierFemelleEnceinte();
+			vueZoo.gagnerDeLargent();
 			vueIhm.afficherMenuCourse();
 			ihm.allerFaireDesAchat(vueBout, vueEmp, vueZoo);
 			ihm.setNumTour(ihm.getNumTour() + 1);

@@ -156,9 +156,7 @@ public class IHM extends Model{
 			case 4 : 
 				vueZoo.afficherListEnclos(false);
 				enclos = this.getEnclos(vueZoo.getModel());
-				vueZoo.afficherListAnimauxEnclos(enclos, true, false);
-				animal = getAnimal(enclos);
-				vueEmp.soignerAnimal(animal);
+				this.soignerPlusieurAnimaux(enclos, vueZoo, vueEmp);
 				break;
 			case 5 :
 				vueZoo.afficherListEnclos(false);
@@ -188,8 +186,7 @@ public class IHM extends Model{
 	}//executeChoix()
 
 	/**
-	 * Nourri un animal avec l'equipement : nourriture ;
-	 * Permet de nourir autant d'animaux qu'on le souhaite, dans
+	 * Permet de nourir autant d'animaux qu'on le souhaite, avec l'equipement : nourriture
 	 * @param enclos
 	 * 			Enclos des animaux à nourir
 	 * @param vueZoo
@@ -209,8 +206,8 @@ public class IHM extends Model{
 			//si l'utilisateur veux donner à manger  à un animal
 			if(saisie != 0){
 				animal = (Animal) enclos.getListAnimaux().get(saisie - 1);
-				vueZoo.afficherContenuStock(true);
-				saisieEquip = getSaisieUtilisateur(0, vueZoo.getModel().getStockNourriture().size());
+				vueZoo.afficherContenuStock(true, true, false);
+				saisieEquip = getSaisieUtilisateur(1, vueZoo.getModel().getStockNourriture().size());
 				StockNourriture<? extends Nourriture> stockNourriture = vueZoo.getModel().getStockNourriture().get(saisieEquip - 1);
 				//si le stock selectionner n'est pas vide
 				if((!stockNourriture.getStock().isEmpty())){
@@ -234,19 +231,72 @@ public class IHM extends Model{
 					//suppression de la nourriture
 					for(int i = 0 ; i < nbIteration; ++i){
 						stockNourriture.getStock().remove(0);
-						System.out.println(stockNourriture.getStock().size());
 					}
 				}								
 			}
 		}
 	}//nourirPlusieurAnimaux()
+	
+	/**
+	 * Permet de soigner autant d'animaux qu'on le souhaite,  avec l'equipement : trousse de soin 
+	 * @param enclos
+	 * 			Enclos des animaux à soigner
+	 * @param vueZoo
+	 * 			Vue du zoo de l'application
+	 * @param vueEmp
+	 * 			Vue de l'employe
+	 */
+	public void soignerPlusieurAnimaux(Enclos<? extends Animal> enclos, VueZoo vueZoo, VueEmploye vueEmp){
+		int saisie = 1000;
+		int saisieEquip;
+		Animal animal;
+		//tant que l'utilisateur ne selectionne pas l'action pour arreter de soigner
+		while(saisie != 0){
+			vueZoo.afficherListAnimauxEnclos(enclos, true, false);
+			saisie = getSaisieUtilisateur(0, enclos.getListAnimaux().size());
+			//si l'utilisateur veux soigner un animal
+			if(saisie != 0){
+				animal = (Animal) enclos.getListAnimaux().get(saisie - 1);
+				vueZoo.afficherContenuStock(true, false, true);
+				saisieEquip = getSaisieUtilisateur(1, vueZoo.getModel().getStockMaterielSoin().size());
+				StockMaterielSoin<? extends MaterielSoin> stockMaterielSoin = vueZoo.getModel().getStockMaterielSoin().get(saisieEquip - 1);
+				
+				//si le stock selectionner n'est pas vide
+				if((!stockMaterielSoin.getStock().isEmpty())){					
+					MaterielSoin materielSoin = stockMaterielSoin.getStock().get(0);
+					vueEmp.soignerAnimal(animal, materielSoin);
+					//suppression du materiel de soin
+					stockMaterielSoin.getStock().remove(0);
+				}								
+			}
+		}
+	}
+	
+	/**
+	 * Verifie s'il y a au moins  1 animal endormi dans le zoo
+	 * @param vueZoo
+	 * 				Vue lié au zoo de l'application
+	 * @return Booleen montrant la reussite ou l'echec du test
+	 */
+	public boolean verifAnimauxEndormi(VueZoo vueZoo) {
+		boolean retour = false;
+		for(Enclos<? extends Animal> enclos : vueZoo.getModel().getListEnclos()){
+			for(Animal animal : enclos.getListAnimaux()){
+				if(animal.isEndormi()){
+					retour = true;
+				}
+			}
+		}
+		return retour;
+	}//verifAnimauxEndormi()
+	
 	/**
 	 * Recupere la vue de l'enclos assosié au parametre "enclos"
 	 * @param listVueEnclos
 	 * 			Liste contenant toutes les vues de tout les enclos de l'application
 	 * @param enclos
 	 * 			Enclos lié à la vue rechercher
-	 * @return
+	 * @return Vue de l'enclos lié au paramètre enclos
 	 */
 	public VueEnclos getVueEnclos(ArrayList<VueEnclos> listVueEnclos, Enclos<? extends Animal> enclos){
 		VueEnclos vueRechercher = null;
@@ -341,4 +391,5 @@ public class IHM extends Model{
 	public void setNbAction(int nbAction) {
 		this.nbAction = nbAction;
 	}//setNbAction()
+
 }//IHM

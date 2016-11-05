@@ -35,7 +35,7 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 		int nbBebeNee = 0;
 		int nbBebeMort = 0;
 		String retour = this.getPseudo() + "(" + this.getNom() + ", " + this.getSexe() + 
-				")  de la cage : " + this.getEnclosResidence().getNom() + " ï¿½ accouchï¿½ : \n";
+				")  de la cage : " + this.getEnclosResidence().getNom() + " à accouché : \n";
 		String pseudo = "";
 		while(nbBebe != 0){
 			if(!(this.getEnclosResidence().isFull())){
@@ -57,10 +57,10 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 		}
 		this.setEnceinte(false);
 		if(nbBebeNee >= 1){
-			retour += "\t" + nbBebeNee + " bï¿½bï¿½(s) est/sont nï¿½e dans la cage : " + this.getEnclosResidence().getNom() + "\n";
+			retour += "\t" + nbBebeNee + " bébé(s) est/sont née dans la cage : " + this.getEnclosResidence().getNom() + "\n";
 		}
 		if(nbBebeMort >= 1){
-			retour += "\t" + nbBebeMort + " bï¿½bï¿½(s) est/sont morts, il(s) ne pouvaient pas grandir dans une cage pleine\n";
+			retour += "\t" + nbBebeMort + " bébés) est/sont morts, il(s) ne pouvaient pas grandir dans une cage pleine\n";
 		}
 		return retour;
 	}//mettreBas()

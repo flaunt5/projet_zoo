@@ -16,7 +16,9 @@ public abstract class Animal extends Model{
 	protected ArrayList<String> listNourritureAccepte;
 	protected int consoNourriture;
 	protected int niveauFaim;
-	
+	protected int niveauSante;
+	protected int niveauSommeil;
+
 	/**
 	 * Construit un objet de type Animal
 	 * @param poids
@@ -31,13 +33,15 @@ public abstract class Animal extends Model{
 	public Animal(double poids, double taille, int age, String pseudo){
 		this.poids = poids;
 		this.taille = taille;
-		this.indicFaim = "rassasier";
+		this.indicFaim = "n'a pas faim";
 		this.indicSante = "en forme";
-		this.indicSommeil = "dynamique";
+		this.indicSommeil = "éveillé";
 		this.age = age;
 		this.endormi = false;
 		this.pseudo = pseudo;
 		this.niveauFaim = 100;
+		this.niveauSante = 100;
+		this.niveauSommeil = 100;
 	}//Animal()
 
 	/**
@@ -112,8 +116,9 @@ public abstract class Animal extends Model{
 	/**
 	 * Soigne un animal
 	 */
-	public void etreSoigner(){
-		this.setIndicSante("en forme");		
+	public void etreSoigner(MaterielSoin materiel){
+		this.setNiveauSante(this.getNiveauSante() + materiel.getGainNiveauSante());
+		this.redefiniIndicSante();		
 	}//etreSoigner()
 
 	/**
@@ -121,7 +126,7 @@ public abstract class Animal extends Model{
 	 */
 	public void seReveiller(){
 		this.setEndormi(false);
-		this.setIndicSommeil("dynamique");		
+		this.redefiniIndicSommeil();		
 	}//seReveiller()
 	
 	/**
@@ -138,8 +143,10 @@ public abstract class Animal extends Model{
 	public String toString() {
 		return "\t" + "Espece : " + nom + " ; Nom de l'animal : " + pseudo + "\n" + 
 				"\t" + "Age : " + age + " ans ; Taille : " + taille + "M ; Poids : " + poids + "Kg\n" +
-				"\t" + "Appetit : " + indicFaim + " ; Niveau de faim : " + niveauFaim + "/100 ; Sante : " + indicSante + "\n" +
-				"\tSommeil : " + indicSommeil + " ; Endormi : " + convertBolleanToString(endormi) + "\n";
+				"\t" + "Appetit : " + indicFaim + " ; Niveau de faim : " + niveauFaim + "/100 \n" +
+				"\t" + "Santé : " + indicSante + " ; Niveau de santé : " + niveauSante + "/100 \n" +
+				"\t" + "Sommeil : " + indicSommeil + " ; Niveau de sommeil : " + niveauSommeil + "/100 ; Endormi : " + 
+				convertBolleanToString(endormi) + "\n";
 	}//toString()
 	
 	/**
@@ -235,11 +242,11 @@ public abstract class Animal extends Model{
 	 */
 	public void redefiniIndicFaim() {
 		if(this.getNiveauFaim() > 60){
-			this.indicFaim = "rassasié";
+			this.indicFaim = "n'a pas faim";
 		}else if(this.getNiveauFaim() < 60 && this.getNiveauFaim() > 30){
 			this.indicFaim = "à faim";
 		}else{
-			this.indicFaim = "affamé";			
+			this.indicFaim = " est affamé";			
 		}
 	}//setIndicFaim()
 	
@@ -256,8 +263,14 @@ public abstract class Animal extends Model{
 	 * @param indicSante
 	 * 				Futur valeur de indicSante
 	 */
-	public void setIndicSante(String indicSante) {
-		this.indicSante = indicSante;
+	public void redefiniIndicSante() {
+		if(this.getNiveauSante() > 60){
+			this.indicSante = "en forme";
+		}else if(this.getNiveauSante() < 60 && this.getNiveauSante() > 30){
+			this.indicSante = "bléssé";
+		}else{
+			this.indicSante = "mourrant";			
+		}
 	}//setIndicSante()
 	
 	/**
@@ -273,8 +286,14 @@ public abstract class Animal extends Model{
 	 * @param indicSommeil
 	 * 				Futur valeur de indicSommeil
 	 */
-	public void setIndicSommeil(String indicSommeil) {
-		this.indicSommeil = indicSommeil;
+	public void redefiniIndicSommeil() {
+		if(this.getNiveauSommeil() > 60){
+			this.indicSante = "éveillé";
+		}else if(this.getNiveauSommeil() < 60 && this.getNiveauSommeil() > 30){
+			this.indicSante = "fatigué";
+		}else{
+			this.indicSante = "épuisé";			
+		}
 	}//setIndicSommeil()
 	
 	/**
@@ -371,4 +390,44 @@ public abstract class Animal extends Model{
 			this.niveauFaim = 100;			
 		}
 	}//setNiveauFaim()
+	
+	/**
+	 * Retourne la valeur de l'attribut niveauSante
+	 * @return Valeur de l'attribut niveauSante
+	 */
+	public int getNiveauSante() {
+		return this.niveauSante;
+	}//getNiveauSante()
+
+	/**
+	 * Modifie la valeur de l'attribut niveauSante
+	 * @param niveauSante
+	 * 				Futur valeur de niveauSante
+	 */
+	public void setNiveauSante(int niveauSante) {
+		this.niveauSante = niveauSante;
+		if(this.niveauSante > 100){
+			this.niveauSante = 100;			
+		}
+	}//setNiveauSante()
+
+	/**
+	 * Retourne la valeur de l'attribut niveauSommeil
+	 * @return Valeur de l'attribut niveauSommeil
+	 */
+	public int getNiveauSommeil() {
+		return this.niveauSommeil;
+	}
+
+	/**
+	 * Modifie la valeur de l'attribut niveauSommeil
+	 * @param niveauSommeil
+	 * 				Futur valeur de niveauSommeil
+	 */
+	public void setNiveauSommeil(int niveauSommeil) {
+		this.niveauSommeil = niveauSommeil;
+		if(this.niveauSommeil > 100){
+			this.niveauSommeil = 100;			
+		}
+	}
 }//Animal

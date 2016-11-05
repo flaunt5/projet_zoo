@@ -8,6 +8,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	protected int nbAnimaux;
 	protected int nbAnimauxMax;
 	protected String degreProprete;
+	protected int niveauProprete;
 	protected ArrayList<T> listAnimaux;
 	protected Tri<T> tri;
 	
@@ -26,8 +27,9 @@ public abstract class Enclos<T extends Animal> extends Model{
 		this.nbAnimaux = 0;
 		this.nbAnimauxMax = nbAnimauxMax;
 		this.degreProprete = "bon";
+		this.niveauProprete = 100;
 	}//Enclos()
-	
+
 	/**
 	 * Effectue un tri sur la liste des animaux
 	 * @return Message de confirmation de l'action et caracteristiques de l'enclos trié
@@ -154,8 +156,8 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * @return Message de confirmation de l'action
 	 */
 	public String entretenir(){
-		this.setDegreProprete("bon");	
-
+		this.setNiveauProprete(100);
+		this.redefiniDegreProprete();	
 		return this.getNom() +  " à était entretenu";
 	}//entretenir()
 	
@@ -190,8 +192,9 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * @return Caractéristique de l'enclos et de ses animaux
 	 */
 	public String toString() {//methode classique retournant les detail de l'objet
-		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + "m² ; DegreProprete : " + degreProprete + "\n" +
-				"Nombre d'animaux dans l'enclos : " + nbAnimaux + "; Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n" +
+		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; Niveau de propreté : "+ niveauProprete + "\n" +
+				"DegreProprete : " + degreProprete + "Nombre d'animaux dans l'enclos : " + nbAnimaux + "\n"+
+				"Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n" +
 				"Animaux dans l'enclos : " + this.recupToStringDesAnimaux();
 	}//toString()
 	
@@ -200,8 +203,9 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * @return Caractéristique de l'enclos
 	 */
 	public String toString2() {//methode retournant les detail de l'objet sans les detail des animaux qu'il contient
-		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; DegreProprete : " + degreProprete + "\n" +
-				"Nombre d'animaux dans l'enclos : " + nbAnimaux + "; Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n" +
+		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; Niveau de propreté : "+ niveauProprete + "\n" +
+				"DegreProprete : " + degreProprete + "Nombre d'animaux dans l'enclos : " + nbAnimaux + "\n"+
+				"Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n" +
 				"Animaux dans l'enclos : ";
 	}//toString2()
 	
@@ -210,8 +214,9 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * @return Caractéristiques de l'enclos
 	 */
 	protected String toString3() {//methode destiner aux classes filles comme base de leur methode toString()
-		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; DegreProprete : " + degreProprete + "\n" +
-				"Nombre d'animaux dans l'enclos : " + nbAnimaux + "; Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n";
+		return "Nom de l'enclos : " + nom + " ; Superficie : " + superficie + " ; Niveau de propreté : "+ niveauProprete + "\n" +
+				"DegreProprete : " + degreProprete + "Nombre d'animaux dans l'enclos : " + nbAnimaux + "\n"+
+				"Nombre max d'animaux autorisé : " + nbAnimauxMax +  "\n";
 	}//toString3()
 	
 	/**
@@ -295,8 +300,14 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * @param degreProprete
 	 * 			Futur degreProprete
 	 */
-	public void setDegreProprete(String degreProprete) {
-		this.degreProprete = degreProprete;
+	public void redefiniDegreProprete() {
+		if(this.getNiveauProprete() > 60){
+			this.degreProprete = "bon";
+		}else if(this.getNiveauProprete() < 60 && this.getNiveauProprete() > 30){
+			this.degreProprete = "correct";
+		}else{
+			this.degreProprete = "mauvais";			
+		}
 	}//setDegreProprete()
 
 	/**
@@ -323,5 +334,25 @@ public abstract class Enclos<T extends Animal> extends Model{
 	public Tri<T> getTri(){
 		return this.tri;
 	}//getTri()
+	
+	/**
+	 * Retourne la valeur de l'attribut niveauProprete
+	 * @return Valeur de l'attribut niveauProprete
+	 */
+	public int getNiveauProprete() {
+		return niveauProprete;
+	}//getNiveauProprete()
+
+	/**
+	 * Modifie la valeur de l'attribut niveauProprete
+	 * @param niveauProprete
+	 * 			Futur niveauProprete
+	 */
+	public void setNiveauProprete(int niveauProprete) {
+		this.niveauProprete = niveauProprete;
+		if(this.niveauProprete > 100){
+			this.niveauProprete = 100;
+		}
+	}//setNiveauProprete()
 	
 }//Enclos

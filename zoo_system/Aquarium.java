@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Aquarium extends Enclos<Aquatique>{
 	
 	private  String salinite;
+	private int niveauSalinite;
 	private double profondeur;
 
 	/**
@@ -28,9 +29,8 @@ public class Aquarium extends Enclos<Aquatique>{
 	 * @return Message de confirmation de l'action
 	 */
 	public String entretenirBassin(){
-		if(!(this.getSalinite().equals("bon"))){
-			this.setSalinite("bon");			
-		}
+		this.setNiveauSalinite(100);
+		this.redefiniDegreProprete();
 		if(this.getProfondeur() < 10.0){
 			/*
 			 * si le niveau d'eau est < à 10 metres on rajoute assez d'eau 
@@ -71,8 +71,14 @@ public class Aquarium extends Enclos<Aquatique>{
 	 * @param salinite
 	 * 				Futur valeur de salinite
 	 */
-	public void setSalinite(String salinite) {
-		this.salinite = salinite;
+	public void redefiniSalinite() {
+		if(this.getNiveauSalinite() > 60){
+			this.salinite = "bon";
+		}else if(this.getNiveauSalinite() < 60 && this.getNiveauSalinite() > 30){
+			this.salinite = "correct";
+		}else{
+			this.salinite = "mauvais";			
+		}
 	}//setSalinite()
 
 	/**
@@ -91,5 +97,22 @@ public class Aquarium extends Enclos<Aquatique>{
 	public void setProfondeur(double profondeur) {
 		this.profondeur = profondeur;
 	}//setProfondeur()
+
+	/**
+	 * Retourne la valeur de l'attribut niveauSalinite
+	 * @return Valeur de l'attribut niveauSalinite
+	 */
+	public int getNiveauSalinite() {
+		return niveauSalinite;
+	}//getNiveauSalinite()
+
+	/**
+	 * Modifie la valeur de l'attribut niveauSalinite
+	 * @param niveauSalinite
+	 * 				Futur valeur de niveauSalinite
+	 */
+	public void setNiveauSalinite(int niveauSalinite) {
+		this.niveauSalinite = niveauSalinite;
+	}//setNiveauSalinite()
 
 }//Aquarium

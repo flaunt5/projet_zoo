@@ -6,6 +6,7 @@ public class Voliere extends Enclos<Aerien>{
 
 	private double hauteur;
 	private String etatToit;
+	private int niveauEtatToit;
 	
 	/**
 	 * Creer un objet de type Voliere
@@ -22,6 +23,7 @@ public class Voliere extends Enclos<Aerien>{
 		super(nom, superficie, nbAnimauxMax);
 		this.hauteur = hauteur;
 		this.etatToit = "bon";
+		this.niveauEtatToit = 100;
 		this.listAnimaux = new ArrayList<Aerien>();
 	}//Voliere()
 	
@@ -30,9 +32,8 @@ public class Voliere extends Enclos<Aerien>{
 	 * @return Retourne le resultat de la methode Enclos.entretenir
 	 */
 	public String entretenirVoliere(){
-		if(!(this.getEtatToit().equals("bon"))){
-			this.setEtatToit("bon");
-		}
+		this.setNiveauEtatToit(100);
+		this.redefiniDegreProprete();
 		return super.entretenir();
 	}//entretenirVoliere()
 	
@@ -84,8 +85,34 @@ public class Voliere extends Enclos<Aerien>{
 	 * @param etatToit
 	 * 				Nouvelle etat du toit
 	 */
-	public void setEtatToit(String etatToit) {
-		this.etatToit = etatToit;
+	public void redefiniEtatToit() {
+		if(this.getNiveauEtatToit() > 60){
+			this.etatToit = "bon";
+		}else if(this.getNiveauEtatToit() < 60 && this.getNiveauEtatToit() > 30){
+			this.etatToit = "correct";
+		}else{
+			this.etatToit = "mauvais";			
+		}
 	}//setEtatToit()
+
+	/**
+	 * Retourne la valeur de l'attribut niveauEtatToit
+	 * @return Valeur de l'attribut niveauEtatToit
+	 */
+	public int getNiveauEtatToit() {
+		return niveauEtatToit;
+	}//getNiveauEtatToit()
+
+	/**
+	 * Modifie la valeur de l'attribut niveauEtatToit
+	 * @param niveauEtatToit
+	 * 				Nouveau niveau de l'état du toit
+	 */
+	public void setNiveauEtatToit(int niveauEtatToit) {
+		this.niveauEtatToit = niveauEtatToit;
+		if(this.niveauEtatToit > 100){
+			this.niveauEtatToit = 100;
+		}
+	}//setNiveauEtatToit()
 	
 }//Voliere

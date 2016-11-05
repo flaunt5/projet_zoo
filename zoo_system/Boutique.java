@@ -15,9 +15,13 @@ public class Boutique {
 		this.stockAVendre.put("Viande de boeuf x1", 150);
 		this.stockAVendre.put("Viande de boeuf x10", 1000);
 		this.stockAVendre.put("Poisson x1", 100);
-		this.stockAVendre.put("Poisson x10", 700);
+		this.stockAVendre.put("Poisson x10", 650);
 		this.stockAVendre.put("Nourriture pour poisson x1", 90);
-		this.stockAVendre.put("Nourriture pour poisson x10", 500);
+		this.stockAVendre.put("Nourriture pour poisson x10", 600);
+		this.stockAVendre.put("Trousse de premier secours x1", 200);
+		this.stockAVendre.put("Trousse de premier secours x10", 1400);
+		this.stockAVendre.put("Trousse de secours d'urgence x1", 300);
+		this.stockAVendre.put("Trousse de secours d'urgence x10", 2000);
 	}//Boutique()
 	
 	/**
