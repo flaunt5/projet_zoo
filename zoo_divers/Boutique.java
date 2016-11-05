@@ -3,7 +3,9 @@ package zoo_divers;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Boutique {
+import zoo_models.Model;
+
+public class Boutique extends  Model{
 	private static Boutique instance;
 	Map<String, Integer> stockAVendre;
 	

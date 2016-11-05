@@ -2,7 +2,9 @@ package zoo_divers.stocks;
 
 import java.util.ArrayList;
 
-public abstract class Stock<T> {
+import zoo_models.Model;
+
+public abstract class Stock<T> extends Model{
 	private String nom;
 	private ArrayList<T> stock;
 
