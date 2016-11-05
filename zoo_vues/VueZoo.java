@@ -129,6 +129,10 @@ public class VueZoo extends Vue<Zoo>{
 	 * @param choix
 	 * 			Boolean qui va permettre de savoir si la fonction est appelé pour permettre à l'utilisateur de choisir
 	 * 			un equiepement, ou si la fonction est appelé pour afficher la liste des équipement
+	 * @param voirNourriture
+	 * 			Boolean qui va permettre de savoir si l'utilisateur va voir la liste de la nourriture dans le stock
+	 * @param voirSoin
+	 * 			Boolean qui va permettre de savoir si l'utilisateur va voir la liste du materiel de soin dans le stock
 	 */
 	public void afficherContenuStock(boolean choix, boolean voirNourriture, boolean voirSoin){
 		System.out.println(this.getModel().getContenuStock(choix,voirNourriture,voirSoin));

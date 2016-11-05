@@ -52,7 +52,8 @@ public abstract class Stock<T> extends Model{
 
 	/**
 	 * Modifie la valeur de l'attribut nom
-	 * @return Valeur de l'attribut nom
+	 * @param nom
+	 * 			Valeur de l'attribut nom
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;

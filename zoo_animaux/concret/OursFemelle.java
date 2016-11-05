@@ -43,7 +43,6 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	 * 				Futur age de l'ours
 	 * @param pseudo
 	 * 				Futur pseudo de l'ours
-	 * @return un objet de type OursFemelle
 	 */
 	public OursFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -164,7 +163,7 @@ public class OursFemelle extends Ours implements MammifereFemelle{
 	 * @param tempsEnceinte
 	 * 					Nouveau temps enceinte
 	 */
-	public void setTempEnceinte(int tempEnceinte) {
+	public void setTempEnceinte(int tempsEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 

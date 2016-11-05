@@ -43,7 +43,6 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	 * 				Futur age du requin
 	 * @param pseudo
 	 * 				Futur pseudo du requin
-	 * @return un objet de type RequinFemelle
 	 */
 	public RequinFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -163,7 +162,7 @@ public class RequinFemelle extends Requin implements AutreFemelle{
 	 * @param tempsEnceinte
 	 * 					Nouveau temps enceinte
 	 */
-	public void setTempEnceinte(int tempEnceinte) {
+	public void setTempEnceinte(int tempsEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 

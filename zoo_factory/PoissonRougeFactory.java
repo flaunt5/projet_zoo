@@ -17,8 +17,6 @@ public class PoissonRougeFactory {
 	 * 				Futur poids du poisson
 	 * @param taille
 	 * 				Futur taille du poisson
-	 * @param age
-	 * 				Futur age du poisson
 	 * @param pseudo
 	 * 				Futur pseudo du poisson
 	 * @return un objet de type PoissonRougeMale
@@ -34,8 +32,6 @@ public class PoissonRougeFactory {
 	 * 				Futur poids du poisson
 	 * @param taille
 	 * 				Futur taille du poisson
-	 * @param age
-	 * 				Futur age du poisson
 	 * @param pseudo
 	 * 				Futur pseudo du poisson
 	 * @return un objet de type PoissonRougeMale

@@ -26,7 +26,6 @@ public class PingouinMale extends Pingouin implements Male<PingouinFemelle>{
 	 * 				Futur age du pinguoin
 	 * @param pseudo
 	 * 				Futur pseudo du pinguoin
-	 * @return un objet de type PinguoinMale
 	 */
 	public PingouinMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);

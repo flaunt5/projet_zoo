@@ -26,7 +26,6 @@ public class RequinMale extends Requin implements Male<RequinFemelle>{
 	 * 				Futur age du requin
 	 * @param pseudo
 	 * 				Futur pseudo du requin
-	 * @return un objet de type RequinMale
 	 */
 	public RequinMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);

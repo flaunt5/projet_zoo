@@ -17,8 +17,6 @@ public class BaleineFactory {
 	 * 				Futur poids de la baleine
 	 * @param taille
 	 * 				Futur taille de la baleine
-	 * @param age
-	 * 				Futur age de la baleine
 	 * @param pseudo
 	 * 				Futur pseudo de la baleine
 	 * @return un objet de type BaleineFemelle
@@ -34,8 +32,6 @@ public class BaleineFactory {
 	 * 				Futur poids de la baleine
 	 * @param taille
 	 * 				Futur taille de la baleine
-	 * @param age
-	 * 				Futur age de la baleine
 	 * @param pseudo
 	 * 				Futur pseudo de la baleine
 	 * @return un objet de type BaleineFemelle

@@ -17,8 +17,6 @@ public class RequinFactory {
 	 * 				Futur poids du requin
 	 * @param taille
 	 * 				Futur taille du requin
-	 * @param age
-	 * 				Futur age du requin
 	 * @param pseudo
 	 * 				Futur pseudo du requin
 	 * @return un objet de type RequinFemelle
@@ -34,8 +32,6 @@ public class RequinFactory {
 	 * 				Futur poids du requin
 	 * @param taille
 	 * 				Futur taille du requin
-	 * @param age
-	 * 				Futur age du requin
 	 * @param pseudo
 	 * 				Futur pseudo du requin
 	 * @return un objet de type RequinMale

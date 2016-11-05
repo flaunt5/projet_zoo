@@ -17,8 +17,6 @@ public class AigleFactory {
 	 * 				Futur poids de l'aigle
 	 * @param taille
 	 * 				Futur taille de l'aigle
-	 * @param age
-	 * 				Futur age de l'aigle
 	 * @param pseudo
 	 * 				Futur pseudo de l'aigle
 	 * @return un objet de type AigleFemelle
@@ -34,8 +32,6 @@ public class AigleFactory {
 	 * 				Futur poids de l'aigle
 	 * @param taille
 	 * 				Futur taille de l'aigle
-	 * @param age
-	 * 				Futur age de l'aigle
 	 * @param pseudo
 	 * 				Futur pseudo de l'aigle
 	 * @return un objet de type AigleMale

@@ -40,6 +40,7 @@ public class IHM extends Model{
 	/**
 	 * Construit un objet IHM
 	 * @param nbAction
+	 * 				Nombre d'action par tour de l'utilisateur
 	 */
 	public IHM(int nbAction){
 		this.numTour = 1;
@@ -107,7 +108,7 @@ public class IHM extends Model{
 	 * 				La vue de la boutique
 	 * @param vueEmp
 	 * 				La vue de l'employe
-	 * @param zoo
+	 * @param vueZoo
 	 * 			Le zoo de l'application
 	 */
 	public void allerFaireDesAchat(VueBoutique vueBout, VueEmploye vueEmp, VueZoo vueZoo){
@@ -154,6 +155,8 @@ public class IHM extends Model{
 	 * 			Vue du zoo de l'application
 	 * @param vueEmp
 	 * 			Vue de l'employe
+	 * @param listVueEnclos
+	 * 			liste des vues de tout les enclos du zoo
 	 */
 	public void executeChoixActionZoo(int saisie, VueZoo vueZoo, VueEmploye vueEmp, ArrayList<VueEnclos> listVueEnclos){
 		Enclos<? extends Animal> enclos;

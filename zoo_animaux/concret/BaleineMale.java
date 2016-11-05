@@ -26,7 +26,6 @@ public class BaleineMale extends Baleine implements Male<BaleineFemelle>{
 	 * 				Futur age de la baleine
 	 * @param pseudo
 	 * 				Futur pseudo de la baleine
-	 * @return un objet de type BaleineMale
 	 */
 	public BaleineMale(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);

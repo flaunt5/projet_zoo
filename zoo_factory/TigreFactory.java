@@ -16,8 +16,6 @@ public class TigreFactory {
 	 * 				Futur poids du tigre
 	 * @param taille
 	 * 				Futur taille du tigre
-	 * @param age
-	 * 				Futur age du tigre
 	 * @param pseudo
 	 * 				Futur pseudo du tigre
 	 * @return un objet de type TigreMale
@@ -33,8 +31,6 @@ public class TigreFactory {
 	 * 				Futur poids du tigre
 	 * @param taille
 	 * 				Futur taille du tigre
-	 * @param age
-	 * 				Futur age du tigre
 	 * @param pseudo
 	 * 				Futur pseudo du tigre
 	 * @return un objet de type TigreFemelle

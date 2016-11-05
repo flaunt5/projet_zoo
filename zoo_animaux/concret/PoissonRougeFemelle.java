@@ -43,7 +43,6 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	 * 				Futur age du poisson
 	 * @param pseudo
 	 * 				Futur pseudo du poisson
-	 * @return un objet de type PoissonRougeFemelle
 	 */
 	public PoissonRougeFemelle(double poids, double taille, int age, String pseudo){
 		super(poids, taille, age, pseudo);
@@ -163,7 +162,7 @@ public class PoissonRougeFemelle extends PoissonRouge implements AutreFemelle{
 	 * @param tempsEnceinte
 	 * 					Nouveau temps enceinte
 	 */
-	public void setTempEnceinte(int tempEnceinte) {
+	public void setTempEnceinte(int tempsEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 

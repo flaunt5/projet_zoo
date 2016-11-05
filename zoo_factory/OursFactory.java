@@ -17,8 +17,6 @@ public class OursFactory {
 	 * 				Futur poids de l'ours
 	 * @param taille
 	 * 				Futur taille de l'ours
-	 * @param age
-	 * 				Futur age de l'ours
 	 * @param pseudo
 	 * 				Futur pseudo de l'ours
 	 * @return un objet de type OursMale
@@ -34,8 +32,6 @@ public class OursFactory {
 	 * 				Futur poids de l'ours
 	 * @param taille
 	 * 				Futur taille de l'ours
-	 * @param age
-	 * 				Futur age de l'ours
 	 * @param pseudo
 	 * 				Futur pseudo de l'ours
 	 * @return un objet de type OursFemelle

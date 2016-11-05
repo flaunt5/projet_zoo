@@ -84,8 +84,6 @@ public class Aquarium extends Enclos<Aquatique>{
 	}//getSalinite()
 	/**
 	 * Modifie la valeur de l'attribut salinite
-	 * @param salinite
-	 * 				Futur valeur de salinite
 	 */
 	public void redefiniSalinite() {
 		if(this.getNiveauSalinite() > 60){

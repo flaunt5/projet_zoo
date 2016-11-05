@@ -17,8 +17,6 @@ public class LoupFactory {
 	 * 				Futur poids du loup
 	 * @param taille
 	 * 				Futur taille du loup
-	 * @param age
-	 * 				Futur age du loup
 	 * @param pseudo
 	 * 				Futur pseudo du loup
 	 * @return un objet de type LoupMale
@@ -35,8 +33,6 @@ public class LoupFactory {
 	 * 				Futur poids du loup
 	 * @param taille
 	 * 				Futur taille du loup
-	 * @param age
-	 * 				Futur age du loup
 	 * @param pseudo
 	 * 				Futur pseudo du loup
 	 * @return un objet de type LoupFemelle

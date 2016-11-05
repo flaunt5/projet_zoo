@@ -162,7 +162,7 @@ public class TigreFemelle extends Tigre implements MammifereFemelle{
 	 * @param tempsEnceinte
 	 * 					Nouveau temps enceinte
 	 */
-	public void setTempEnceinte(int tempEnceinte) {
+	public void setTempEnceinte(int tempsEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 

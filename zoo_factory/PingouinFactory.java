@@ -17,8 +17,6 @@ public class PingouinFactory {
 	 * 				Futur poids du pinguoin
 	 * @param taille
 	 * 				Futur taille du pinguoin
-	 * @param age
-	 * 				Futur age du pinguoin
 	 * @param pseudo
 	 * 				Futur pseudo du pinguoin
 	 * @return un objet de type PinguoinFemelle
@@ -34,8 +32,6 @@ public class PingouinFactory {
 	 * 				Futur poids du pinguoin
 	 * @param taille
 	 * 				Futur taille du pinguoin
-	 * @param age
-	 * 				Futur age du pinguoin
 	 * @param pseudo
 	 * 				Futur pseudo du pinguoin
 	 * @return un objet de type PinguoinMale

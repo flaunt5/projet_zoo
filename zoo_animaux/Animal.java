@@ -184,6 +184,9 @@ public abstract class Animal extends Model{
 
 	/**
 	 * Soigne un animal
+	 * 
+	 * @param materiel
+	 * 			Materiel servant à soigner l'animal
 	 */
 	public void etreSoigner(MaterielSoin materiel){
 		this.setNiveauSante(this.getNiveauSante() + materiel.getGainNiveauSante());
@@ -306,8 +309,6 @@ public abstract class Animal extends Model{
 
 	/**
 	 * Recalcule la valeur de l'attribut indicFaim
-	 * @param indicFaim
-	 * 				Futur valeur de indicFaim
 	 */
 	public void redefiniIndicFaim() {
 		if(this.getNiveauFaim() > 60){
@@ -329,8 +330,6 @@ public abstract class Animal extends Model{
 
 	/**
 	 * Modifie la valeur de l'attribut indicSante
-	 * @param indicSante
-	 * 				Futur valeur de indicSante
 	 */
 	public void redefiniIndicSante() {
 		if(this.getNiveauSante() > 60){
@@ -352,8 +351,6 @@ public abstract class Animal extends Model{
 
 	/**
 	 * Modifie la valeur de l'attribut indicSommeil
-	 * @param indicSommeil
-	 * 				Futur valeur de indicSommeil
 	 */
 	public void redefiniIndicSommeil() {
 		if(this.getNiveauSommeil() > 60){
@@ -392,7 +389,8 @@ public abstract class Animal extends Model{
 
 	/**
 	 * Retourne la valeur de l'attribut enclosResidence
-	 * @return enclosResidence
+	 * @param enclosResidence
+	 * 					Nouvelle enclos pour l'animal
 	 */
 	public <T extends Animal> void setEnclosResidence(Enclos<T> enclosResidence) {
 		this.enclosResidence = enclosResidence;

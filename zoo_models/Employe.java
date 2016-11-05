@@ -153,6 +153,8 @@ public class Employe {
 	 * Soigne l'animal placer en parametre
 	 * @param animal
 	 * 				Animal qui va etre soigner
+	 * @param materielSoin
+	 * 				Materiel pour soigné l'animal
 	 * @return Message de confirmation de l'action
 	 */
 	public String soignerAnimal(Animal animal, MaterielSoin materielSoin){

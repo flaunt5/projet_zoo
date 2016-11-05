@@ -16,6 +16,7 @@ public interface Male<T extends Animal> {
 	 * Accouple un  male et une  femelle
 	 * @param femelle
 	 * 				Femelle qui va se faire fecondé
+	 * @return Message de confirmation de l'action
 	 */
 	public String saccoupler(T femelle);
 }//Male

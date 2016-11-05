@@ -30,9 +30,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids du loup
 	 * @param taille
-	 * 				Futur taille du loup
-	 * @param age
-	 * 				Futur age du loup
+	 * 				Futur taille du loup=
 	 * @param pseudo
 	 * 				Futur pseudo du loup
 	 * @return un objet de type LoupMale
@@ -47,9 +45,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids du loup
 	 * @param taille
-	 * 				Futur taille du loup
-	 * @param age
-	 * 				Futur age du loup
+	 * 				Futur taille du loup=
 	 * @param pseudo
 	 * 				Futur pseudo du loup
 	 * @return un objet de type LoupFemelle
@@ -64,9 +60,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids de l'ours
 	 * @param taille
-	 * 				Futur taille de l'ours
-	 * @param age
-	 * 				Futur age de l'ours
+	 * 				Futur taille de l'ours=
 	 * @param pseudo
 	 * 				Futur pseudo de l'ours
 	 * @return un objet de type OursMale
@@ -81,9 +75,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids de l'ours
 	 * @param taille
-	 * 				Futur taille de l'ours
-	 * @param age
-	 * 				Futur age de l'ours
+	 * 				Futur taille de l'ours=
 	 * @param pseudo
 	 * 				Futur pseudo de l'ours
 	 * @return un objet de type OursFemelle
@@ -98,9 +90,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids du tigre
 	 * @param taille
-	 * 				Futur taille du tigre
-	 * @param age
-	 * 				Futur age du tigre
+	 * 				Futur taille du tigre=
 	 * @param pseudo
 	 * 				Futur pseudo du tigre
 	 * @return un objet de type TigreMale
@@ -115,9 +105,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids du tigre
 	 * @param taille
-	 * 				Futur taille du tigre
-	 * @param age
-	 * 				Futur age du tigre
+	 * 				Futur taille du tigre=
 	 * @param pseudo
 	 * 				Futur pseudo du tigre
 	 * @return un objet de type TigreFemelle
@@ -132,9 +120,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids de la baleine
 	 * @param taille
-	 * 				Futur taille de la baleine
-	 * @param age
-	 * 				Futur age de la baleine
+	 * 				Futur taille de la baleine=
 	 * @param pseudo
 	 * 				Futur pseudo de la baleine
 	 * @return un objet de type BaleineMale
@@ -149,9 +135,7 @@ public class AnimalFactory {
 	 * @param poids
 	 * 				Futur poids de la baleine
 	 * @param taille
-	 * 				Futur taille de la baleine
-	 * @param age
-	 * 				Futur age de la baleine
+	 * 				Futur taille de la baleine=
 	 * @param pseudo
 	 * 				Futur pseudo de la baleine
 	 * @return un objet de type BaleineFemelle
@@ -167,8 +151,6 @@ public class AnimalFactory {
 	 * 				Futur poids du requin
 	 * @param taille
 	 * 				Futur taille du requin
-	 * @param age
-	 * 				Futur age du requin
 	 * @param pseudo
 	 * 				Futur pseudo du requin
 	 * @return un objet de type RequinMale
@@ -184,8 +166,6 @@ public class AnimalFactory {
 	 * 				Futur poids du requin
 	 * @param taille
 	 * 				Futur taille du requin
-	 * @param age
-	 * 				Futur age du requin
 	 * @param pseudo
 	 * 				Futur pseudo du requin
 	 * @return un objet de type RequinFemelle
@@ -201,8 +181,6 @@ public class AnimalFactory {
 	 * 				Futur poids du poisson
 	 * @param taille
 	 * 				Futur taille du poisson
-	 * @param age
-	 * 				Futur age du poisson
 	 * @param pseudo
 	 * 				Futur pseudo du poisson
 	 * @return un objet de type PoissonRougeMale
@@ -218,8 +196,6 @@ public class AnimalFactory {
 	 * 				Futur poids du poisson
 	 * @param taille
 	 * 				Futur taille du poisson
-	 * @param age
-	 * 				Futur age du poisson
 	 * @param pseudo
 	 * 				Futur pseudo du poisson
 	 * @return un objet de type PoissonRougeFemelle
@@ -235,8 +211,6 @@ public class AnimalFactory {
 	 * 				Futur poids du pinguoin
 	 * @param taille
 	 * 				Futur taille du pinguoin
-	 * @param age
-	 * 				Futur age du pinguoin
 	 * @param pseudo
 	 * 				Futur pseudo du pinguoin
 	 * @return un objet de type PinguoinMale
@@ -252,8 +226,6 @@ public class AnimalFactory {
 	 * 				Futur poids du pinguoin
 	 * @param taille
 	 * 				Futur taille du pinguoin
-	 * @param age
-	 * 				Futur age du pinguoin
 	 * @param pseudo
 	 * 				Futur pseudo du pinguoin
 	 * @return un objet de type PinguoinFemelle
@@ -269,8 +241,6 @@ public class AnimalFactory {
 	 * 				Futur poids de l'aigle
 	 * @param taille
 	 * 				Futur taille de l'aigle
-	 * @param age
-	 * 				Futur age de l'aigle
 	 * @param pseudo
 	 * 				Futur pseudo de l'aigle
 	 * @return un objet de type AigleMale
@@ -286,8 +256,6 @@ public class AnimalFactory {
 	 * 				Futur poids de l'aigle
 	 * @param taille
 	 * 				Futur taille de l'aigle
-	 * @param age
-	 * 				Futur age de l'aigle
 	 * @param pseudo
 	 * 				Futur pseudo de l'aigle
 	 * @return un objet de type AigleFemelle

@@ -41,5 +41,5 @@ public interface Femelle {
 	 * @param tempsEnceinte
 	 * 					Nouveau temps enceinte
 	 */
-	public void setTempEnceinte(int tempEnceinte);
+	public void setTempEnceinte(int tempsEnceinte);
 }//Femelle

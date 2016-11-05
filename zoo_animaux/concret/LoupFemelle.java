@@ -161,7 +161,7 @@ public class LoupFemelle extends Loup implements MammifereFemelle{
 	 * @param tempsEnceinte
 	 * 					Nouveau temps enceinte
 	 */
-	public void setTempEnceinte(int tempEnceinte) {
+	public void setTempEnceinte(int tempsEnceinte) {
 		this.tempEnceinte = tempEnceinte;
 	}//setTempEnceinte()
 	

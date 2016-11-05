@@ -100,8 +100,6 @@ public class Voliere extends Enclos<Aerien>{
 
 	/**
 	 * Modifie l'etat du toit de la voliere
-	 * @param etatToit
-	 * 				Nouvelle etat du toit
 	 */
 	public void redefiniEtatToit() {
 		if(this.getNiveauEtatToit() > 60){

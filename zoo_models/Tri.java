@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public interface Tri<T> {
 	/**
 	 * Trier la liste des animaux selon le tri choisi
-	 * @param Animaux
+	 * @param listAnimaux
+	 * 				Liste des animaux à trier
 	 */
 	public void trier(ArrayList<T> listAnimaux);
 }//Tri

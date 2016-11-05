@@ -14,6 +14,7 @@ import zoo_divers.equipements.Nourriture;
  * @author Alexandre 
  *
  * @param <T>
+ * 			Tout type d'objet qui étente la classe Animal
  */
 public abstract class Enclos<T extends Animal> extends Model{
 	/**
@@ -57,7 +58,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	protected Tri<T> tri;
 	
 	/**
-	 * Construit un objet de type Enclo<T>
+	 * Construit un objet de type Enclos
 	 * @param nom
 	 * 			Nom de l'enclos
 	 * @param superficie
@@ -87,7 +88,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	 * Retourne un type de tri en fonction d'une saisie réaliser par l'utilisateur
 	 * @param saisie
 	 * 				Saisie de l'utilisateur designant le type de tri
-	 * @return Tri<T>
+	 * @return Tri
 	 */
 	public Tri<T> getTypeTri(int saisie){
 		switch(saisie){
@@ -156,6 +157,7 @@ public abstract class Enclos<T extends Animal> extends Model{
 	/**
 	 * Verifie qu'un animal peut etre retire de la liste des animaux de l'enclos
 	 * @param animal
+	 * 				Animal qu'on va vérifié
 	 * @return Booleen montrant la reussite ou l'echec du test
 	 */
 	public boolean verifPourEnlever(T animal){
@@ -341,8 +343,6 @@ public abstract class Enclos<T extends Animal> extends Model{
 
 	/**
 	 * Modifie la valeur de l'attribut degreProprete
-	 * @param degreProprete
-	 * 			Futur degreProprete
 	 */
 	public void redefiniDegreProprete() {
 		if(this.getNiveauProprete() > 60){
